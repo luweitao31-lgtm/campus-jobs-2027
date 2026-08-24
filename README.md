@@ -1,6 +1,6 @@
 # 2027届校园招聘每日聚合器
 
-每天自动搜索公开的 2027 届校园招聘、提前批和明确可转正实习信息，核验企业官网投递入口，生成可筛选的 GitHub Pages 和 CSV，并通过 SMTP 发送新增摘要。
+每天通过无需密钥的 Google News RSS 公开搜索结果查找 2027 届校园招聘、提前批和明确可转正实习信息，核验企业官网投递入口，生成可筛选的 GitHub Pages 和 CSV，并通过 SMTP 发送新增摘要。
 
 ## 它如何判断一条信息
 
@@ -18,7 +18,6 @@
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
-$env:BRAVE_API_KEY = "你的 Brave Search API Key"
 campus-jobs full
 ```
 
@@ -43,7 +42,6 @@ pytest                 # 离线测试，不消耗 API 额度
 
    | Secret | 用途 |
    | --- | --- |
-   | `BRAVE_API_KEY` | [Brave Search API](https://brave.com/search/api/) 密钥，必填 |
    | `SMTP_HOST` | SMTP 地址，例如 `smtp.qq.com` |
    | `SMTP_PORT` | STARTTLS 通常为 `587`；SSL 通常为 `465` |
    | `SMTP_USERNAME` | SMTP 登录账号 |
@@ -65,7 +63,9 @@ pytest                 # 离线测试，不消耗 API 额度
 | 163 邮箱 | `smtp.163.com` | 465 | 使用客户端授权码；设 `use_ssl: true` |
 | Gmail | `smtp.gmail.com` | 587 | 使用应用专用密码；保持 STARTTLS |
 
-邮件配置缺失或暂时发送失败不会破坏搜索结果和网页；记录只有在邮件成功发送后才会写入 `last_notified_at`，因此下次可以重试。Brave 全部查询失败时则以非零状态退出，不发布可能不完整的新数据。
+邮件配置缺失或暂时发送失败不会破坏搜索结果和网页；记录只有在邮件成功发送后才会写入 `last_notified_at`，因此下次可以重试。全部 RSS 查询失败时则以非零状态退出，不发布可能不完整的新数据。
+
+默认搜索方式不需要 API Key，也不会产生搜索服务费用。它依赖 Google News 的公开 RSS 搜索，因此覆盖率、排序和可用性可能随服务调整而变化；程序将查询频率限制为每天最多 20 个查询且每次间隔 2 秒。代码中仍保留 Bing RSS 备用实现；若以后需要商业 API，也可以将 `search.provider` 改为 `brave` 并配置 `BRAVE_API_KEY`。
 
 ## 数据字段与验证状态
 
@@ -82,4 +82,3 @@ pytest                 # 离线测试，不消耗 API 额度
 ## 安全与合规
 
 程序只读取公开网页并遵守 robots.txt，不绕过验证码、登录墙或访问控制。密钥只从环境变量读取，不会写入数据、网页或日志。第三方内容在网页和 HTML 邮件中都会转义；投递前仍应自行核对企业域名、岗位状态及隐私条款。
-

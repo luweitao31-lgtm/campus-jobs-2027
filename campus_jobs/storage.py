@@ -41,8 +41,11 @@ class JobStore:
 
     def upsert(self, incoming: JobRecord) -> tuple[JobRecord, bool]:
         for current in self.jobs:
-            if current.id != incoming.id:
+            same_source = bool(current.source_url and current.source_url == incoming.source_url)
+            if current.id != incoming.id and not same_source:
                 continue
+            if same_source:
+                current.id = incoming.id
             current.updated_at = now_iso()
             for field in (
                 "company", "title", "city", "category", "recruitment_type",
@@ -63,4 +66,3 @@ class JobStore:
 
     def unnotified(self) -> list[JobRecord]:
         return [job for job in self.jobs if not job.last_notified_at]
-

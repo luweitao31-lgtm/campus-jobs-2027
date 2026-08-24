@@ -4,6 +4,7 @@ import logging
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from .config import Settings
 from .crawler import PageCrawler
@@ -11,7 +12,7 @@ from .extractor import extract_job
 from .mailer import MailConfigurationError, send_digest
 from .models import now_iso
 from .render import render_outputs
-from .search import BraveSearchClient, build_queries, search_all
+from .search import build_queries, create_search_client, search_all
 from .storage import JobStore
 from .verifier import verify_job
 
@@ -34,7 +35,7 @@ class Pipeline:
 
     def discover(self) -> DiscoverySummary:
         queries = build_queries(self.settings)
-        client = BraveSearchClient(self.settings)
+        client = create_search_client(self.settings)
         results = search_all(
             client, queries, delay=float(self.settings.search.get("query_delay_seconds", 1.1))
         )
@@ -42,7 +43,9 @@ class Pipeline:
         delay = float(self.settings.crawler.get("page_delay_seconds", 0.4))
         summary = DiscoverySummary(searched=len(results))
         for result in results[:limit]:
-            page = self.crawler.fetch(result.url)
+            # Google News explicitly disallows crawling its RSS redirect pages;
+            # titles, snippets and source names from the feed remain usable leads.
+            page = None if urlsplit(result.url).netloc == "news.google.com" else self.crawler.fetch(result.url)
             job = extract_job(result, page, self.settings)
             if not job:
                 continue
@@ -51,7 +54,7 @@ class Pipeline:
             summary.accepted += 1
             summary.added += int(added)
             summary.updated += int(not added)
-            if delay:
+            if delay and page is not None:
                 time.sleep(delay)
         self.store.save()
         LOGGER.info(
@@ -106,4 +109,3 @@ class Pipeline:
         self.generate()
         self.mail()
         return summary
-

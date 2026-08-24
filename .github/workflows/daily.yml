@@ -39,7 +39,6 @@ jobs:
 
       - name: Search, verify, render and notify
         env:
-          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
@@ -65,4 +64,3 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

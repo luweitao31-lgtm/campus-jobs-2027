@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import time
+import xml.etree.ElementTree as ET
 from collections.abc import Iterable
 
 import requests
@@ -79,7 +80,100 @@ class BraveSearchClient:
         ]
 
 
-def search_all(client: BraveSearchClient, queries: Iterable[str], delay: float = 1.1) -> list[SearchResult]:
+class BingRssSearchClient:
+    """Keyless public Bing RSS search.
+
+    Bing exposes RSS-formatted public search result pages through `format=rss`.
+    This client does not bypass access controls and deliberately uses a low query
+    rate configured in config.yaml.
+    """
+
+    def __init__(self, settings: Settings, session: requests.Session | None = None):
+        self.settings = settings
+        self.session = session or requests.Session()
+
+    def search(self, query: str) -> list[SearchResult]:
+        config = self.settings.search
+        response = self.session.get(
+            config.get("endpoint", "https://www.bing.com/search"),
+            headers={"User-Agent": self.settings.crawler.get("user_agent", "CampusJobs2027/0.1")},
+            params={
+                "q": query,
+                "format": "rss",
+                "setlang": "zh-CN",
+                "cc": config.get("country", "CN"),
+            },
+            timeout=20,
+        )
+        response.raise_for_status()
+        root = ET.fromstring(response.content)
+        items: list[SearchResult] = []
+        for item in root.findall(".//item"):
+            url = (item.findtext("link") or "").strip()
+            if not url:
+                continue
+            items.append(
+                SearchResult(
+                    title=(item.findtext("title") or "").strip(),
+                    url=url,
+                    snippet=(item.findtext("description") or "").strip(),
+                    published_at=(item.findtext("pubDate") or "").strip(),
+                    source_query=query,
+                )
+            )
+        return items
+
+
+class GoogleNewsRssSearchClient:
+    """Keyless Google News RSS search for fresh public announcements."""
+
+    def __init__(self, settings: Settings, session: requests.Session | None = None):
+        self.settings = settings
+        self.session = session or requests.Session()
+
+    def search(self, query: str) -> list[SearchResult]:
+        config = self.settings.search
+        response = self.session.get(
+            config.get("endpoint", "https://news.google.com/rss/search"),
+            headers={"User-Agent": self.settings.crawler.get("user_agent", "CampusJobs2027/0.1")},
+            params={"q": query, "hl": "zh-CN", "gl": "CN", "ceid": "CN:zh-Hans"},
+            timeout=20,
+        )
+        response.raise_for_status()
+        root = ET.fromstring(response.content)
+        limit = min(100, int(config.get("results_per_query", 10)))
+        items: list[SearchResult] = []
+        for item in root.findall(".//item")[:limit]:
+            url = (item.findtext("link") or "").strip()
+            if not url:
+                continue
+            source = item.find("source")
+            source_name = (source.text or "").strip() if source is not None else ""
+            description = (item.findtext("description") or "").strip()
+            items.append(
+                SearchResult(
+                    title=(item.findtext("title") or "").strip(),
+                    url=url,
+                    snippet=f"{source_name} {description}".strip(),
+                    published_at=(item.findtext("pubDate") or "").strip(),
+                    source_query=query,
+                )
+            )
+        return items
+
+
+def create_search_client(settings: Settings):
+    provider = settings.search.get("provider", "google_news_rss")
+    if provider == "google_news_rss":
+        return GoogleNewsRssSearchClient(settings)
+    if provider == "bing_rss":
+        return BingRssSearchClient(settings)
+    if provider == "brave":
+        return BraveSearchClient(settings)
+    raise SearchError(f"不支持的搜索提供商：{provider}")
+
+
+def search_all(client, queries: Iterable[str], delay: float = 2.0) -> list[SearchResult]:
     combined: list[SearchResult] = []
     successful = 0
     for index, query in enumerate(queries):
@@ -93,7 +187,7 @@ def search_all(client: BraveSearchClient, queries: Iterable[str], delay: float =
         if delay > 0 and index >= 0:
             time.sleep(delay)
     if successful == 0:
-        raise SearchError("所有 Brave 搜索请求均失败，未修改现有数据")
+        raise SearchError("所有搜索请求均失败，未修改现有数据")
     seen: set[str] = set()
     unique: list[SearchResult] = []
     for item in combined:

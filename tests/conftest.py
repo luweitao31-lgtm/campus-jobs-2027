@@ -14,7 +14,8 @@ def settings(tmp_path: Path) -> Settings:
         raw={
             "timezone": "Asia/Shanghai",
             "search": {
-                "endpoint": "https://api.search.brave.com/res/v1/web/search",
+                "provider": "google_news_rss",
+                "endpoint": "https://news.google.com/rss/search",
                 "cohort_terms": ["2027届"],
                 "recruitment_terms": ["校园招聘", "暑期实习 转正"],
                 "source_queries": ["", "site:edu.cn"],
@@ -35,4 +36,3 @@ def settings(tmp_path: Path) -> Settings:
             "mail": {"enabled": True, "use_tls": True, "use_ssl": False},
         },
     )
-

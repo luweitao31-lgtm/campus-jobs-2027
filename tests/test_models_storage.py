@@ -30,3 +30,17 @@ def test_store_upsert_is_idempotent(settings):
     assert current.summary == "更新后的摘要"
     store.save()
     assert len(JobStore(settings.output["data_file"]).jobs) == 1
+
+
+def test_store_updates_identity_when_same_source_is_reparsed(settings):
+    store = JobStore(settings.output["data_file"])
+    original = make_job()
+    store.upsert(original)
+    reparsed = make_job()
+    reparsed.id = "new-better-identity"
+    reparsed.company = "更准确的企业名"
+    current, added = store.upsert(reparsed)
+    assert added is False
+    assert len(store.jobs) == 1
+    assert current.id == "new-better-identity"
+    assert current.company == "更准确的企业名"

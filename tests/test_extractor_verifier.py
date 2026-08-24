@@ -1,5 +1,5 @@
 from campus_jobs.crawler import Page
-from campus_jobs.extractor import classify_recruitment, extract_job, is_relevant
+from campus_jobs.extractor import classify_recruitment, extract_job, infer_company, is_relevant
 from campus_jobs.models import JobRecord, SearchResult, identity_key
 from campus_jobs.verifier import verify_job
 
@@ -24,6 +24,20 @@ def test_extracts_structured_job(settings):
     assert job.company == "示例科技"
     assert job.city == "北京"
     assert job.category == "研发/技术"
+
+
+def test_google_news_suffix_and_recruitment_phrase_do_not_pollute_company(settings):
+    result = SearchResult(
+        title="得物2027届暑期实习招聘 - 温州大学就业网",
+        url="https://news.google.com/rss/articles/1",
+        snippet="面向2027届，可转正留用",
+    )
+    job = extract_job(result, None, settings)
+    assert job is not None
+    assert job.company == "得物"
+    assert job.title == "得物暑期实习招聘"
+    assert job.source_channel == "温州大学就业网"
+    assert infer_company("27届提前批来的太早了", "", settings) == "待识别企业"
 
 
 def test_verifies_company_domain_link_from_source_page(settings):

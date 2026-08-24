@@ -71,13 +71,21 @@ def infer_company(title: str, text: str, settings: Settings) -> str:
     if match:
         return match.group(1)
     # Search titles commonly use “Company｜2027届...” or “Company - Campus...”.
-    first = re.split(r"[|｜_—–-]", title, maxsplit=1)[0]
+    first = re.split(r"\s+-\s+|[|｜_—–]", title, maxsplit=1)[0]
     first = re.sub(r"【.*?】|\[.*?]", "", first).strip()
+    prefix = re.match(
+        r"^(.*?)(?:2027\s*届|27\s*届|校园招聘|校招|秋招|春招|提前批|暑期实习|日常实习|招聘公告)",
+        first,
+        re.I,
+    )
+    if prefix:
+        first = prefix.group(1).strip() or "待识别企业"
     return first[:40] if 1 < len(first) <= 40 else "待识别企业"
 
 
 def infer_title(title: str) -> str:
-    cleaned = re.sub(r"<[^>]+>", "", title)
+    cleaned = re.split(r"\s+-\s+", re.sub(r"<[^>]+>", "", title), maxsplit=1)[0]
+    cleaned = re.sub(r"^【.*?】|^\[.*?\]", "", cleaned).strip()
     cleaned = re.sub(r"【?2027\s*届】?|【?27\s*届】?", "", cleaned, flags=re.I)
     return normalize_text(cleaned)[:120] or "校园招聘岗位"
 
@@ -98,6 +106,16 @@ def source_channel(url: str) -> str:
     return domain or "网页搜索"
 
 
+def infer_source_channel(result: SearchResult) -> str:
+    channel = source_channel(result.url)
+    if channel == "news.google.com":
+        parts = re.split(r"\s+-\s+", result.title)
+        if len(parts) > 1 and 1 < len(parts[-1].strip()) <= 60:
+            return parts[-1].strip()
+        return "Google News RSS"
+    return channel
+
+
 def extract_job(result: SearchResult, page: Page | None, settings: Settings) -> JobRecord | None:
     page_text = page.text if page else ""
     combined = normalize_text(f"{result.title} {result.snippet} {page_text[:10000]}")
@@ -115,7 +133,7 @@ def extract_job(result: SearchResult, page: Page | None, settings: Settings) -> 
         category=classify_category(combined),
         recruitment_type=classify_recruitment(combined),
         published_at=result.published_at,
-        source_channel=source_channel(result.url),
+        source_channel=infer_source_channel(result),
         source_url=page.url if page else result.url,
         summary=normalize_text(result.snippet)[:500],
         source_query=result.source_query,

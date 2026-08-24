@@ -1,12 +1,13 @@
 timezone: Asia/Shanghai
 
 search:
-  endpoint: https://api.search.brave.com/res/v1/web/search
+  provider: google_news_rss
+  endpoint: https://news.google.com/rss/search
   country: CN
   language: zh-hans
   results_per_query: 10
-  daily_query_budget: 24
-  query_delay_seconds: 1.1
+  daily_query_budget: 20
+  query_delay_seconds: 2.0
   cohort_terms: ["2027届", "27届"]
   recruitment_terms:
     - 校园招聘
