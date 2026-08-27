@@ -82,12 +82,15 @@ class PageCrawler:
                     break
                 chunks.append(chunk)
             response._content = b"".join(chunks)
+            # Some Chinese government/corporate sites return UTF-8 bytes while
+            # omitting charset, which requests otherwise treats as ISO-8859-1.
+            response.encoding = response.apparent_encoding or response.encoding or "utf-8"
             if "html" not in content_type.lower():
                 return Page(
                     url=response.url, status_code=response.status_code,
                     content_type=content_type, raw=response.text,
                 )
-            soup = BeautifulSoup(response.content, "html.parser")
+            soup = BeautifulSoup(response.content, "html.parser", from_encoding=response.encoding)
             for tag in soup(["script", "style", "noscript", "svg"]):
                 tag.decompose()
             title = soup.title.get_text(" ", strip=True) if soup.title else ""

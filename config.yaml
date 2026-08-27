@@ -1,6 +1,6 @@
 timezone: Asia/Shanghai
 sources_file: sources.yaml
-expected_company_count: 100
+expected_company_count: 101
 
 search:
   enabled: true

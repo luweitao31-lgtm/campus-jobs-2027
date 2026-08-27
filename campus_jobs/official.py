@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from datetime import date
 from html import unescape
 from typing import Any, Iterable
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
@@ -16,7 +16,7 @@ from .models import JobRecord, announcement_identity, normalize_text, normalize_
 from .registry import Company, Source, domain_allowed
 
 
-COHORT_RE = re.compile(r"(?:2027\s*届|(?<!20)27\s*届)", re.I)
+COHORT_RE = re.compile(r"(?:2027\s*(?:届|年度)|(?<!20)27\s*届)", re.I)
 FORMAL_RE = re.compile(r"校园招聘|校招|秋招|秋季招聘|春招|春季招聘|提前批|campus\s+(?:recruit|hiring)|graduate\s+(?:program|role|job)", re.I)
 INTERN_RE = re.compile(r"实习|intern(?:ship)?", re.I)
 NEWS_RE = re.compile(r"洞察|薪酬报告|求职攻略|时间线|信息差|复盘|盘点|宣讲会回顾", re.I)
@@ -116,10 +116,14 @@ def candidates_from_page(page: Page, source: Source) -> list[Candidate]:
 
 def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> JobRecord | None:
     candidate_title = clean_text(candidate.title)
+    if source.kind == "government":
+        candidate_title = re.sub(r"\s*[－_-]\s*国务院国有资产监督管理委员会.*$", "", candidate_title).strip()
     candidate_detail = clean_text(candidate.text)
     combined = candidate_title if candidate_detail == candidate_title else clean_text(f"{candidate_title} {candidate_detail}")
+    relevance_text = candidate_title if is_formal_2027(candidate_title) else combined
     official_url = normalize_url(candidate.url)
-    if not official_url or not domain_allowed(official_url, company) or not is_formal_2027(combined):
+    government_url = source.kind == "government" and urlsplit(official_url).netloc.lower().endswith("sasac.gov.cn")
+    if not official_url or not (domain_allowed(official_url, company) or government_url) or not is_formal_2027(relevance_text):
         return None
     if source.kind == "wechat" and company.wechat_accounts and not any(account in combined for account in company.wechat_accounts):
         return None
@@ -129,14 +133,21 @@ def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> 
     deadline_match = DEADLINE_RE.search(combined)
     deadline = _iso_date(deadline_match.group(1)) if deadline_match else ""
     published_at = _iso_date(candidate.published_at) or _iso_date(combined)
-    source_type = {"wechat": "官方公众号", "rss": "官方 RSS", "json": "官方招聘平台"}.get(source.kind, source.label)
+    if campaign == "校园招聘" and published_at[5:7] in {"07", "08", "09", "10", "11"}:
+        campaign = "秋招"
+    source_type = {
+        "wechat": "官方公众号", "rss": "官方 RSS", "json": "官方招聘平台",
+        "government": "国资委官网",
+    }.get(source.kind, source.label)
+    entity_name = source.company or company.name
+    parent_name = company.name if entity_name != company.name else company.parent
     active_status = "expired" if deadline and deadline < date.today().isoformat() else "active"
     title = candidate_title[:160] or f"{company.name}2027届{campaign}"
-    summary = "" if combined == title else combined[:500]
+    summary = "" if source.kind == "government" or combined == title else combined[:500]
     return JobRecord(
-        id=announcement_identity(company.name, campaign, official_url),
-        company=company.name,
-        parent_company=company.parent,
+        id=announcement_identity(entity_name, campaign, official_url),
+        company=entity_name,
+        parent_company=parent_name,
         ownership_type=company.ownership,
         title=title,
         campaign=campaign,

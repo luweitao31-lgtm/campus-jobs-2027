@@ -58,6 +58,9 @@ class JobStore:
             if not incoming.summary and current.summary in {current.title, f"{current.title} {current.title}"}:
                 current.summary = ""
                 changed = True
+            if incoming.source_type == "国资委官网" and not incoming.summary and current.summary:
+                current.summary = ""
+                changed = True
             for field in (
                 "company", "title", "city", "category", "recruitment_type",
                 "published_at", "source_channel", "source_url", "summary", "source_query",

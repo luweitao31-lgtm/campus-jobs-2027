@@ -31,7 +31,7 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
     csv_path.parent.mkdir(parents=True, exist_ok=True)
     public_jobs = [job for job in jobs if job.official_url and job.verification_status != "unverified"]
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS, extrasaction="ignore")
+        writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()
         for job in public_jobs:
             writer.writerow(job.to_dict())
@@ -53,6 +53,8 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
         # The template uses a .j2 suffix, so enable escaping explicitly instead
         # of relying on extension-based auto-detection.
         autoescape=True,
+        trim_blocks=True,
+        lstrip_blocks=True,
     )
     template = environment.get_template("index.html.j2")
     content_updated_at = max((job.updated_at for job in ordered), default=health.get("updated_at", ""))

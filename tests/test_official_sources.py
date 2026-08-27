@@ -16,15 +16,16 @@ def company(kind="html", accounts=()):
 
 def test_repository_registry_has_exact_mix():
     path = Path(__file__).parents[1] / "sources.yaml"
-    companies = load_registry(path)
-    assert len(companies) == 100
-    assert sum(item.ownership == "央国企" for item in companies) == 85
+    companies = load_registry(path, expected_count=101)
+    assert len(companies) == 101
+    assert sum(item.ownership == "央国企" for item in companies) == 86
     assert sum(item.ownership == "外企" for item in companies) == 15
     assert all(item.domains and item.sources for item in companies)
 
 
 def test_formal_filter_and_html_cleanup():
     assert is_formal_2027("示例集团2027届秋季校园招聘正式启动")
+    assert is_formal_2027("示例集团2027年度校园招聘全面启动")
     assert not is_formal_2027("2027届暑期实习，可留用")
     assert not is_formal_2027("2027届校招AI薪酬报告与求职攻略")
     assert clean_text('<a href="x">2027届校园招聘</a>&nbsp;公告') == "2027届校园招聘 公告"
@@ -92,6 +93,65 @@ def test_wechat_requires_registered_account_identity():
         Candidate("示例集团2027届校园招聘", source.url, "发布账号：示例集团招聘"), registered, source
     )
     assert job and job.source_type == "官方公众号"
+
+
+def test_sasac_government_source_can_publish_a_subsidiary_announcement():
+    registered = company()
+    source = Source(
+        "http://www.sasac.gov.cn/example", kind="government", label="国资委官网",
+        company="示例集团子公司",
+    )
+    job = candidate_to_job(
+        Candidate("示例集团子公司2027届秋季校园招聘启动", source.url, "发布时间：2026-08-27"),
+        registered, source,
+    )
+    assert job and job.company == "示例集团子公司"
+    assert job.parent_company == "示例集团"
+    assert job.source_type == "国资委官网"
+    assert job.campaign == "秋招"
+    assert job.summary == ""
+
+
+def test_sasac_title_removes_government_site_suffix():
+    registered = company()
+    source = Source("http://www.sasac.gov.cn/example", kind="government", label="国资委官网")
+    job = candidate_to_job(
+        Candidate(
+            "示例集团2027届秋季校园招聘启动－国务院国有资产监督管理委员会",
+            source.url, "发布时间：2026-08-27",
+        ),
+        registered, source,
+    )
+    assert job and job.title == "示例集团2027届秋季校园招聘启动"
+
+
+def test_current_autumn_date_classifies_annual_campus_campaign_as_autumn():
+    registered = company()
+    source = Source("http://www.sasac.gov.cn/example", kind="government", label="国资委官网")
+    job = candidate_to_job(
+        Candidate("示例集团2027年度校园招聘全面启动", source.url, "发布时间：2026-08-27"),
+        registered, source,
+    )
+    assert job and job.campaign == "秋招" and job.published_at == "2026-08-27"
+
+
+def test_official_article_sidebar_internship_word_does_not_reject_formal_title():
+    registered = company()
+    source = Source("http://www.sasac.gov.cn/example", kind="government", label="国资委官网")
+    job = candidate_to_job(
+        Candidate(
+            "示例集团2027届秋季校园招聘正式启动", source.url,
+            "发布时间：2026-08-27 侧栏：其他单位暑期实习公告",
+        ),
+        registered, source,
+    )
+    assert job and job.campaign == "秋招"
+
+
+def test_malformed_government_page_link_is_ignored():
+    registered = company()
+    source = Source("http://www.sasac.gov.cn/example", kind="government", label="国资委官网")
+    assert candidate_to_job(Candidate("示例集团2027届秋招", "javascript:void(0)"), registered, source) is None
 
 
 def test_past_deadline_marks_announcement_expired():

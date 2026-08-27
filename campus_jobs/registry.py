@@ -13,6 +13,7 @@ class Source:
     url: str
     kind: str = "html"
     label: str = "企业官网"
+    company: str = ""
 
 
 @dataclass(frozen=True)
@@ -29,7 +30,7 @@ def _domain(url: str) -> str:
     return urlsplit(url).netloc.lower().split(":", 1)[0].removeprefix("www.")
 
 
-def load_registry(path: str | Path, expected_count: int | None = 100) -> list[Company]:
+def load_registry(path: str | Path, expected_count: int | None = None) -> list[Company]:
     registry_path = Path(path)
     with registry_path.open("r", encoding="utf-8") as handle:
         payload: dict[str, Any] = yaml.safe_load(handle) or {}
@@ -47,10 +48,16 @@ def load_registry(path: str | Path, expected_count: int | None = 100) -> list[Co
             raise ValueError(f"{name} 的 ownership 必须是“央国企”或“外企”")
         if not domains or not sources:
             raise ValueError(f"{name} 必须配置官方域名和至少一个来源")
-        if any(urlsplit(source.url).scheme != "https" for source in sources):
+        if any(urlsplit(source.url).scheme != "https" and source.kind != "government" for source in sources):
             raise ValueError(f"{name} 的公开来源必须使用 HTTPS")
-        if any(not any(_domain(source.url) == d or _domain(source.url).endswith(f".{d}") for d in domains) for source in sources):
+        if any(
+            source.kind != "government"
+            and not any(_domain(source.url) == d or _domain(source.url).endswith(f".{d}") for d in domains)
+            for source in sources
+        ):
             raise ValueError(f"{name} 的来源 URL 必须属于其官方域名：{sources}")
+        if any(source.kind == "government" and not _domain(source.url).endswith("sasac.gov.cn") for source in sources):
+            raise ValueError(f"{name} 的政府权威来源目前仅允许国资委官网")
         companies.append(
             Company(
                 name=name,
