@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-08-27T21:27:35+08:00",
+  "updated_at": "2026-08-27T13:40:33+00:00",
   "jobs": [
     {
       "id": "7d765afe99660b527300",
@@ -11,14 +11,14 @@
       "recruitment_type": "校园招聘",
       "published_at": "",
       "first_seen_at": "2026-08-27T21:26:32+08:00",
-      "updated_at": "2026-08-27T21:26:32+08:00",
+      "updated_at": "2026-08-27T13:40:33+00:00",
       "source_channel": "企业官网",
       "source_url": "https://www.aecc.cn/aecc/gggs/2026073017062513709/index.html",
       "official_url": "https://www.aecc.cn/aecc/gggs/2026073017062513709/index.html",
       "verification_status": "verified_company",
       "active_status": "active",
       "last_checked_at": "",
-      "summary": "",
+      "summary": "中国航空发动机集团有限公司2027届校园招聘重磅开启 中国航空发动机集团有限公司2027届校园招聘重磅开启",
       "source_query": "",
       "parent_company": "中国航空发动机集团",
       "ownership_type": "央国企",
