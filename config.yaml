@@ -1,6 +1,5 @@
 timezone: Asia/Shanghai
 sources_file: sources.yaml
-expected_company_count: 101
 subsidiary_scope: 广西南宁
 
 search:

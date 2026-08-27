@@ -18,10 +18,10 @@ def company(kind="html", accounts=()):
 
 def test_repository_registry_has_exact_mix():
     path = Path(__file__).parents[1] / "sources.yaml"
-    companies = load_registry(path, expected_count=101)
-    assert len(companies) == 101
+    companies = load_registry(path)
+    assert len(companies) >= 150
     assert sum(item.ownership == "央国企" for item in companies) == 86
-    assert sum(item.ownership == "外企" for item in companies) == 15
+    assert sum(item.ownership == "外企" for item in companies) >= 60
     assert all(item.domains and item.sources for item in companies)
     subsidiaries = [source for item in companies if item.ownership == "央国企" for source in item.sources if source.company]
     assert subsidiaries
@@ -52,6 +52,7 @@ def test_formal_filter_and_html_cleanup():
     assert not is_formal_2027("2027届暑期实习，可留用")
     assert not is_formal_2027("2027届校招AI薪酬报告与求职攻略")
     assert clean_text('<a href="x">2027届校园招聘</a>&nbsp;公告') == "2027届校园招聘 公告"
+    assert clean_text("中国三星招聘 <![CDATA[-->") == "中国三星招聘"
 
 
 def test_html_source_extracts_only_official_announcement():

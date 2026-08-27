@@ -35,6 +35,7 @@ class Candidate:
 
 def clean_text(value: str) -> str:
     decoded = unescape(value or "")
+    decoded = re.sub(r"<!\[CDATA\[|\]\]>|<!--|-->", " ", decoded, flags=re.I)
     if "<" not in decoded:
         return normalize_text(decoded)
     return normalize_text(BeautifulSoup(decoded, "html.parser").get_text(" ", strip=True))

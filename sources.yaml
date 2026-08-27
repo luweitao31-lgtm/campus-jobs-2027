@@ -102,3 +102,65 @@ companies:
   - {name: ABB, parent: ABB, ownership: 外企, domains: [global.abb], sources: [{url: "https://global.abb/group/en/careers", label: 官方招聘平台}]}
   - {name: 宝洁, parent: 宝洁, ownership: 外企, domains: [pgcareers.com], sources: [{url: "https://www.pgcareers.com/global/en", label: 官方招聘平台}]}
   - {name: 联合利华, parent: 联合利华, ownership: 外企, domains: [unilever.com], sources: [{url: "https://careers.unilever.com/", label: 官方招聘平台}]}
+  - {name: 三星, parent: 三星, ownership: 外企, domains: [samsung.com.cn, zhiye.com], sources: [{url: "https://www.samsung.com.cn/about-us/careers/", label: 企业招聘页}, {url: "https://dearsamsung.zhiye.com/#/samsung/pc/campus", kind: landing, label: 官方校园招聘站, announcement_title: 中国三星2027届校园招聘正式启动, published_at: "2026-08-24"}]}
+  - {name: 特斯拉, parent: 特斯拉, ownership: 外企, domains: [tesla.com], sources: [{url: "https://www.tesla.com/careers", label: 官方招聘平台}]}
+  - {name: 索尼, parent: 索尼, ownership: 外企, domains: [sony.com], sources: [{url: "https://www.sony.com/en/SonyInfo/Careers/", label: 企业招聘页}]}
+  - {name: 松下, parent: 松下, ownership: 外企, domains: [panasonic.com], sources: [{url: "https://www.panasonic.com/global/corporate/careers.html", label: 企业招聘页}]}
+  - {name: 丰田, parent: 丰田, ownership: 外企, domains: [global.toyota], sources: [{url: "https://global.toyota/en/company/profile/recruitment/", label: 企业招聘页}]}
+  - {name: 本田, parent: 本田, ownership: 外企, domains: [honda.com], sources: [{url: "https://www.honda.com/careers", label: 企业招聘页}]}
+  - {name: 日产, parent: 日产, ownership: 外企, domains: [nissan-global.com], sources: [{url: "https://www.nissan-global.com/EN/CAREERS/", label: 企业招聘页}]}
+  - {name: 宝马集团, parent: 宝马集团, ownership: 外企, domains: [bmwgroup.jobs], sources: [{url: "https://www.bmwgroup.jobs/", label: 官方招聘平台}]}
+  - {name: 梅赛德斯-奔驰, parent: 梅赛德斯-奔驰, ownership: 外企, domains: [mercedes-benz.com], sources: [{url: "https://jobs.mercedes-benz.com/", label: 官方招聘平台}]}
+  - {name: 大众汽车集团, parent: 大众汽车集团, ownership: 外企, domains: [volkswagen-group.com], sources: [{url: "https://www.volkswagen-group.com/en/careers-16027", label: 企业招聘页}]}
+  - {name: 福特, parent: 福特, ownership: 外企, domains: [ford.com], sources: [{url: "https://corporate.ford.com/careers.html", label: 企业招聘页}]}
+  - {name: 通用汽车, parent: 通用汽车, ownership: 外企, domains: [gm.com], sources: [{url: "https://search-careers.gm.com/", label: 官方招聘平台}]}
+  - {name: 霍尼韦尔, parent: 霍尼韦尔, ownership: 外企, domains: [honeywell.com], sources: [{url: "https://careers.honeywell.com/", label: 官方招聘平台}]}
+  - {name: GE Aerospace, parent: GE Aerospace, ownership: 外企, domains: [geaerospace.com], sources: [{url: "https://careers.geaerospace.com/global/en", label: 官方招聘平台}]}
+  - {name: 3M, parent: 3M, ownership: 外企, domains: [3m.com], sources: [{url: "https://www.3m.com/3M/en_US/careers-us/", label: 企业招聘页}]}
+  - {name: 艾默生, parent: 艾默生, ownership: 外企, domains: [emerson.com], sources: [{url: "https://www.emerson.com/en-us/careers", label: 企业招聘页}]}
+  - {name: 罗克韦尔自动化, parent: 罗克韦尔自动化, ownership: 外企, domains: [rockwellautomation.com], sources: [{url: "https://www.rockwellautomation.com/en-us/company/careers.html", label: 企业招聘页}]}
+  - {name: 丹纳赫, parent: 丹纳赫, ownership: 外企, domains: [danaher.com], sources: [{url: "https://jobs.danaher.com/global/en", label: 官方招聘平台}]}
+  - {name: 江森自控, parent: 江森自控, ownership: 外企, domains: [johnsoncontrols.com], sources: [{url: "https://jobs.johnsoncontrols.com/", label: 官方招聘平台}]}
+  - {name: 欧莱雅, parent: 欧莱雅, ownership: 外企, domains: [loreal.com], sources: [{url: "https://careers.loreal.com/", label: 官方招聘平台}]}
+  - {name: 玛氏, parent: 玛氏, ownership: 外企, domains: [mars.com], sources: [{url: "https://careers.mars.com/global/en", label: 官方招聘平台}]}
+  - {name: 雀巢, parent: 雀巢, ownership: 外企, domains: [nestle.com], sources: [{url: "https://www.nestle.com/jobs", label: 企业招聘页}]}
+  - {name: 可口可乐, parent: 可口可乐, ownership: 外企, domains: [coca-colacompany.com], sources: [{url: "https://careers.coca-colacompany.com/", label: 官方招聘平台}]}
+  - {name: 百事公司, parent: 百事公司, ownership: 外企, domains: [pepsicojobs.com], sources: [{url: "https://www.pepsicojobs.com/main/", label: 官方招聘平台}]}
+  - {name: 耐克, parent: 耐克, ownership: 外企, domains: [nike.com], sources: [{url: "https://careers.nike.com/", label: 官方招聘平台}]}
+  - {name: 阿迪达斯, parent: 阿迪达斯, ownership: 外企, domains: [adidas-group.com], sources: [{url: "https://careers.adidas-group.com/", label: 官方招聘平台}]}
+  - {name: 宜家, parent: 宜家, ownership: 外企, domains: [ikea.com], sources: [{url: "https://jobs.ikea.com/", label: 官方招聘平台}]}
+  - {name: 沃尔玛, parent: 沃尔玛, ownership: 外企, domains: [walmart.com], sources: [{url: "https://careers.walmart.com/", label: 官方招聘平台}]}
+  - {name: 强生, parent: 强生, ownership: 外企, domains: [jnj.com], sources: [{url: "https://www.careers.jnj.com/", label: 官方招聘平台}]}
+  - {name: 辉瑞, parent: 辉瑞, ownership: 外企, domains: [pfizer.com], sources: [{url: "https://www.pfizer.com/about/careers", label: 企业招聘页}]}
+  - {name: 阿斯利康, parent: 阿斯利康, ownership: 外企, domains: [astrazeneca.com], sources: [{url: "https://careers.astrazeneca.com/", label: 官方招聘平台}]}
+  - {name: 罗氏, parent: 罗氏, ownership: 外企, domains: [roche.com], sources: [{url: "https://careers.roche.com/global/en", label: 官方招聘平台}]}
+  - {name: 诺华, parent: 诺华, ownership: 外企, domains: [novartis.com], sources: [{url: "https://www.novartis.com/careers", label: 企业招聘页}]}
+  - {name: 拜耳, parent: 拜耳, ownership: 外企, domains: [bayer.com], sources: [{url: "https://career.bayer.com/", label: 官方招聘平台}]}
+  - {name: 葛兰素史克, parent: 葛兰素史克, ownership: 外企, domains: [gsk.com], sources: [{url: "https://jobs.gsk.com/", label: 官方招聘平台}]}
+  - {name: 赛诺菲, parent: 赛诺菲, ownership: 外企, domains: [sanofi.com], sources: [{url: "https://jobs.sanofi.com/", label: 官方招聘平台}]}
+  - {name: 默沙东, parent: 默沙东, ownership: 外企, domains: [merck.com], sources: [{url: "https://jobs.merck.com/", label: 官方招聘平台}]}
+  - {name: 甲骨文, parent: 甲骨文, ownership: 外企, domains: [oracle.com], sources: [{url: "https://careers.oracle.com/", label: 官方招聘平台}]}
+  - {name: 思科, parent: 思科, ownership: 外企, domains: [cisco.com], sources: [{url: "https://jobs.cisco.com/", label: 官方招聘平台}]}
+  - {name: 戴尔科技, parent: 戴尔科技, ownership: 外企, domains: [dell.com], sources: [{url: "https://jobs.dell.com/", label: 官方招聘平台}]}
+  - {name: 惠普, parent: 惠普, ownership: 外企, domains: [hp.com], sources: [{url: "https://jobs.hp.com/", label: 官方招聘平台}]}
+  - {name: 慧与, parent: 慧与, ownership: 外企, domains: [hpe.com], sources: [{url: "https://careers.hpe.com/", label: 官方招聘平台}]}
+  - {name: ASML, parent: ASML, ownership: 外企, domains: [asml.com], sources: [{url: "https://www.asml.com/en/careers", label: 企业招聘页}]}
+  - {name: 应用材料, parent: 应用材料, ownership: 外企, domains: [appliedmaterials.com], sources: [{url: "https://careers.appliedmaterials.com/", label: 官方招聘平台}]}
+  - {name: 泛林集团, parent: 泛林集团, ownership: 外企, domains: [lamresearch.com], sources: [{url: "https://careers.lamresearch.com/", label: 官方招聘平台}]}
+  - {name: 科磊, parent: 科磊, ownership: 外企, domains: [kla.com], sources: [{url: "https://www.kla.com/careers", label: 企业招聘页}]}
+  - {name: 美光科技, parent: 美光科技, ownership: 外企, domains: [micron.com], sources: [{url: "https://careers.micron.com/", label: 官方招聘平台}]}
+  - {name: AMD, parent: AMD, ownership: 外企, domains: [amd.com], sources: [{url: "https://careers.amd.com/", label: 官方招聘平台}]}
+  - {name: Arm, parent: Arm, ownership: 外企, domains: [arm.com], sources: [{url: "https://careers.arm.com/", label: 官方招聘平台}]}
+  - {name: 埃森哲, parent: 埃森哲, ownership: 外企, domains: [accenture.com], sources: [{url: "https://www.accenture.com/cn-en/careers", label: 企业招聘页}]}
+  - {name: 德勤, parent: 德勤, ownership: 外企, domains: [deloitte.com], sources: [{url: "https://www.deloitte.com/cn/en/careers.html", label: 企业招聘页}]}
+  - {name: 普华永道, parent: 普华永道, ownership: 外企, domains: [pwc.com], sources: [{url: "https://www.pwc.com/gx/en/careers.html", label: 企业招聘页}]}
+  - {name: 安永, parent: 安永, ownership: 外企, domains: [ey.com], sources: [{url: "https://www.ey.com/en_cn/careers", label: 企业招聘页}]}
+  - {name: 毕马威, parent: 毕马威, ownership: 外企, domains: [kpmg.com], sources: [{url: "https://kpmg.com/cn/en/home/careers.html", label: 企业招聘页}]}
+  - {name: 摩根大通, parent: 摩根大通, ownership: 外企, domains: [jpmorgan.com], sources: [{url: "https://careers.jpmorgan.com/global/en/home", label: 官方招聘平台}]}
+  - {name: 高盛, parent: 高盛, ownership: 外企, domains: [goldmansachs.com], sources: [{url: "https://www.goldmansachs.com/careers/", label: 企业招聘页}]}
+  - {name: 摩根士丹利, parent: 摩根士丹利, ownership: 外企, domains: [morganstanley.com], sources: [{url: "https://www.morganstanley.com/people-opportunities/students-graduates", label: 企业招聘页}]}
+  - {name: 花旗, parent: 花旗, ownership: 外企, domains: [citi.com], sources: [{url: "https://jobs.citi.com/", label: 官方招聘平台}]}
+  - {name: 汇丰, parent: 汇丰, ownership: 外企, domains: [hsbc.com], sources: [{url: "https://www.hsbc.com/careers", label: 企业招聘页}]}
+  - {name: 渣打银行, parent: 渣打银行, ownership: 外企, domains: [sc.com], sources: [{url: "https://www.sc.com/en/global-careers/", label: 企业招聘页}]}
+  - {name: 瑞银, parent: 瑞银, ownership: 外企, domains: [ubs.com], sources: [{url: "https://www.ubs.com/global/en/careers.html", label: 企业招聘页}]}
+  - {name: 德意志银行, parent: 德意志银行, ownership: 外企, domains: [db.com], sources: [{url: "https://careers.db.com/", label: 官方招聘平台}]}

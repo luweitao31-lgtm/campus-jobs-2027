@@ -89,7 +89,7 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
             "active": sum(job.active_status == "active" for job in ordered),
         },
         health=health,
-        target_companies=int(settings.raw.get("expected_company_count", 100)),
+        target_companies=int(health.get("companies") or settings.raw.get("expected_company_count", 0)),
     )
     index_path = site_dir / "index.html"
     index_path.write_text(html, encoding="utf-8")

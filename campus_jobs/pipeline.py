@@ -91,7 +91,8 @@ class Pipeline:
 
     def discover(self) -> DiscoverySummary:
         registry_path = self._path(self.settings.raw.get("sources_file", "sources.yaml"), "sources.yaml")
-        expected = int(self.settings.raw.get("expected_company_count", 100))
+        expected_raw = self.settings.raw.get("expected_company_count")
+        expected = int(expected_raw) if expected_raw is not None else None
         companies = load_registry(registry_path, expected_count=expected)
         summary = DiscoverySummary(companies=len(companies))
         # Scope changes must also evict historical subsidiary records. Parent
