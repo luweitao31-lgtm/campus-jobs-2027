@@ -25,3 +25,16 @@ def test_render_only_publishes_verified_official_records_and_escapes(settings):
     assert payload["schema_version"] == 2
     assert [job["id"] for job in payload["jobs"]] == ["ok"]
     assert csv_path.exists()
+
+
+def test_render_uses_latest_health_check_time(settings):
+    health_path = Path(settings.output["health_file"])
+    health_path.write_text('{"updated_at":"2099-01-01T08:00:00+08:00"}', encoding="utf-8")
+    job = JobRecord(
+        id="ok", company="示例集团", title="示例集团2027届秋招",
+        official_url="https://jobs.example.com/2027", verification_status="verified_company",
+        updated_at="2026-08-27T08:00:00+08:00",
+    )
+    index, _ = render_outputs([job], settings)
+    content = Path(index).read_text(encoding="utf-8")
+    assert "最近生成：2099-01-01T08:00:00+08:00" in content

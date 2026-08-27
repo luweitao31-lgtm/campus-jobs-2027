@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from campus_jobs.crawler import Page
 from campus_jobs.official import Candidate, candidate_to_job, candidates_from_page, clean_text, is_formal_2027
 from campus_jobs.registry import Company, Source, load_registry
@@ -21,6 +23,27 @@ def test_repository_registry_has_exact_mix():
     assert sum(item.ownership == "央国企" for item in companies) == 86
     assert sum(item.ownership == "外企" for item in companies) == 15
     assert all(item.domains and item.sources for item in companies)
+    subsidiaries = [source for item in companies if item.ownership == "央国企" for source in item.sources if source.company]
+    assert subsidiaries
+    assert all(source.subsidiary_location == "广西南宁" for source in subsidiaries)
+
+
+def test_registry_rejects_soe_subsidiary_outside_nanning(tmp_path):
+    registry = tmp_path / "sources.yaml"
+    registry.write_text(
+        """subsidiary_scope: 广西南宁
+companies:
+  - name: 示例集团
+    parent: 示例集团
+    ownership: 央国企
+    domains: [example.com]
+    sources:
+      - {url: https://example.com/jobs, company: 示例外地子公司, subsidiary_location: 北京}
+""",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="必须声明位于 广西南宁"):
+        load_registry(registry)
 
 
 def test_formal_filter_and_html_cleanup():
@@ -99,17 +122,45 @@ def test_sasac_government_source_can_publish_a_subsidiary_announcement():
     registered = company()
     source = Source(
         "http://www.sasac.gov.cn/example", kind="government", label="国资委官网",
-        company="示例集团子公司",
+        company="示例集团南宁子公司", subsidiary_location="广西南宁",
     )
     job = candidate_to_job(
-        Candidate("示例集团子公司2027届秋季校园招聘启动", source.url, "发布时间：2026-08-27"),
+        Candidate("示例集团南宁子公司2027届秋季校园招聘启动", source.url, "发布时间：2026-08-27"),
         registered, source,
     )
-    assert job and job.company == "示例集团子公司"
+    assert job and job.company == "示例集团南宁子公司"
     assert job.parent_company == "示例集团"
     assert job.source_type == "国资委官网"
     assert job.campaign == "秋招"
     assert job.summary == ""
+    assert job.locations == "南宁"
+
+
+def test_non_nanning_soe_subsidiary_is_rejected():
+    registered = company()
+    source = Source(
+        "http://www.sasac.gov.cn/example", kind="government", label="国资委官网",
+        company="示例集团北京子公司", subsidiary_location="北京",
+    )
+    candidate = Candidate("示例集团北京子公司2027届秋季校园招聘启动", source.url)
+    assert candidate_to_job(candidate, registered, source) is None
+
+
+def test_nanning_subsidiary_article_must_identify_nanning():
+    registered = company()
+    source = Source(
+        "http://www.sasac.gov.cn/example", kind="government", label="国资委官网",
+        company="示例集团子公司", subsidiary_location="广西南宁",
+    )
+    candidate = Candidate("示例集团子公司2027届秋季校园招聘启动", source.url)
+    assert candidate_to_job(candidate, registered, source) is None
+
+
+def test_parent_soe_announcement_remains_nationwide():
+    registered = company()
+    source = Source("http://www.sasac.gov.cn/example", kind="government", label="国资委官网")
+    job = candidate_to_job(Candidate("示例集团2027届秋季校园招聘启动", source.url), registered, source)
+    assert job and job.company == job.parent_company == "示例集团" and job.locations == "全国"
 
 
 def test_sasac_title_removes_government_site_suffix():

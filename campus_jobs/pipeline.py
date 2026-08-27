@@ -94,6 +94,21 @@ class Pipeline:
         expected = int(self.settings.raw.get("expected_company_count", 100))
         companies = load_registry(registry_path, expected_count=expected)
         summary = DiscoverySummary(companies=len(companies))
+        # Scope changes must also evict historical subsidiary records. Parent
+        # SOE announcements remain nationwide; only subsidiary records are
+        # constrained to Nanning.
+        retained = [
+            job for job in self.store.jobs
+            if not (
+                job.ownership_type == "央国企"
+                and job.parent_company
+                and job.parent_company != job.company
+                and "南宁" not in (job.locations or job.city)
+            )
+        ]
+        if len(retained) != len(self.store.jobs):
+            self.store.jobs = retained
+            self.store.dirty = True
         discovered = []
         workers = max(1, int(self.settings.crawler.get("source_workers", 8)))
         with ThreadPoolExecutor(max_workers=workers) as executor:

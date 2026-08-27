@@ -57,7 +57,9 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
         lstrip_blocks=True,
     )
     template = environment.get_template("index.html.j2")
-    content_updated_at = max((job.updated_at for job in ordered), default=health.get("updated_at", ""))
+    content_updated_at = max(
+        [health.get("updated_at", ""), *(job.updated_at for job in ordered)]
+    )
     generated_label = content_updated_at or "等待首次官方采集"
     html = template.render(
         title=output.get("site_title", "2027届校园招聘信息"),

@@ -1,9 +1,10 @@
 schema_version: 1
+subsidiary_scope: 广西南宁
 companies:
   - {name: 中国核工业集团, parent: 中国核工业集团, ownership: 央国企, domains: [cnnc.com.cn], sources: [{url: "https://www.cnnc.com.cn/", label: 企业官网}]}
   - {name: 中国航天科技集团, parent: 中国航天科技集团, ownership: 央国企, domains: [spacechina.com], sources: [{url: "https://www.spacechina.com/", label: 企业官网}]}
   - {name: 中国航天科工集团, parent: 中国航天科工集团, ownership: 央国企, domains: [casic.com.cn], sources: [{url: "https://www.casic.com.cn/", label: 企业官网}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/n2588350/c35503679/content.html", kind: government, label: 国资委官网}]}
-  - {name: 中国航空工业集团, parent: 中国航空工业集团, ownership: 央国企, domains: [avic.com], sources: [{url: "https://www.avic.com/", label: 企业官网}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/n2588350/c35461352/content.html", kind: government, label: 国资委官网, company: 航空工业通飞}]}
+  - {name: 中国航空工业集团, parent: 中国航空工业集团, ownership: 央国企, domains: [avic.com], sources: [{url: "https://www.avic.com/", label: 企业官网}]}
   - {name: 中国船舶集团, parent: 中国船舶集团, ownership: 央国企, domains: [cssc.net.cn], sources: [{url: "https://www.cssc.net.cn/", label: 企业官网}]}
   - {name: 中国兵器工业集团, parent: 中国兵器工业集团, ownership: 央国企, domains: [norincogroup.com.cn], sources: [{url: "https://www.norincogroup.com.cn/", label: 企业官网}]}
   - {name: 中国兵器装备集团, parent: 中国兵器装备集团, ownership: 央国企, domains: [csgc.com.cn], sources: [{url: "https://www.csgc.com.cn/", label: 企业官网}]}
@@ -15,7 +16,7 @@ companies:
   - {name: 中国海洋石油集团, parent: 中国海洋石油集团, ownership: 央国企, domains: [cnooc.com.cn], sources: [{url: "https://www.cnooc.com.cn/", label: 企业官网}]}
   - {name: 国家石油天然气管网集团, parent: 国家石油天然气管网集团, ownership: 央国企, domains: [pipechina.com.cn], sources: [{url: "https://www.pipechina.com.cn/", label: 企业官网}]}
   - {name: 国家电网, parent: 国家电网, ownership: 央国企, domains: [sgcc.com.cn], sources: [{url: "https://www.sgcc.com.cn/", label: 企业官网}]}
-  - {name: 中国南方电网, parent: 中国南方电网, ownership: 央国企, domains: [csg.cn], sources: [{url: "https://www.csg.cn/", label: 企业官网}]}
+  - {name: 中国南方电网, parent: 中国南方电网, ownership: 央国企, domains: [csg.cn], sources: [{url: "https://www.csg.cn/", label: 企业官网}, {url: "https://www.gx.csg.cn/", label: 广西电网官网, company: 广西电网有限责任公司, subsidiary_location: 广西南宁}]}
   - {name: 中国华能集团, parent: 中国华能集团, ownership: 央国企, domains: [chng.com.cn], sources: [{url: "https://www.chng.com.cn/", label: 企业官网}]}
   - {name: 中国大唐集团, parent: 中国大唐集团, ownership: 央国企, domains: [china-cdt.com], sources: [{url: "https://www.china-cdt.com/", label: 企业官网}]}
   - {name: 中国华电集团, parent: 中国华电集团, ownership: 央国企, domains: [chd.com.cn], sources: [{url: "https://www.chd.com.cn/", label: 企业官网}]}
@@ -23,7 +24,7 @@ companies:
   - {name: 中国长江三峡集团, parent: 中国长江三峡集团, ownership: 央国企, domains: [ctg.com.cn], sources: [{url: "https://www.ctg.com.cn/", label: 企业官网}]}
   - {name: 中国广核集团, parent: 中国广核集团, ownership: 央国企, domains: [cgnpc.com.cn], sources: [{url: "https://www.cgnpc.com.cn/", label: 企业官网}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/c35442247/content.html", kind: government, label: 国资委官网}]}
   - {name: 国家能源投资集团, parent: 国家能源投资集团, ownership: 央国企, domains: [chnenergy.com.cn], sources: [{url: "https://www.chnenergy.com.cn/", label: 企业官网}]}
-  - {name: 中国电信集团, parent: 中国电信集团, ownership: 央国企, domains: [chinatelecom.com.cn], sources: [{url: "https://www.chinatelecom.com.cn/", label: 企业官网}, {url: "http://www.sasac.gov.cn/n2588035/n2588325/n2588350/c35816071/content.html", kind: government, label: 国资委官网}, {url: "http://www.sasac.gov.cn/n2588035/n2588325/n2588350/c35816109/content.html", kind: government, label: 国资委官网, company: 中电信人工智能科技（北京）有限公司}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/c35795890/content.html", kind: government, label: 国资委官网, company: 天翼物联}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/n2588350/c35747841/content.html", kind: government, label: 国资委官网, company: 天翼云}]}
+  - {name: 中国电信集团, parent: 中国电信集团, ownership: 央国企, domains: [chinatelecom.com.cn], sources: [{url: "https://www.chinatelecom.com.cn/", label: 企业官网}, {url: "http://www.sasac.gov.cn/n2588035/n2588325/n2588350/c35816071/content.html", kind: government, label: 国资委官网}]}
   - {name: 中国联合网络通信集团, parent: 中国联合网络通信集团, ownership: 央国企, domains: [chinaunicom.com.cn], sources: [{url: "https://www.chinaunicom.com.cn/", label: 企业官网}]}
   - {name: 中国移动通信集团, parent: 中国移动通信集团, ownership: 央国企, domains: [10086.cn], sources: [{url: "https://job.10086.cn/", label: 官方招聘平台}]}
   - {name: 中国电子信息产业集团, parent: 中国电子信息产业集团, ownership: 央国企, domains: [cec.com.cn], sources: [{url: "https://www.cec.com.cn/", label: 企业官网}]}

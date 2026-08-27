@@ -14,6 +14,7 @@ class Source:
     kind: str = "html"
     label: str = "企业官网"
     company: str = ""
+    subsidiary_location: str = ""
 
 
 @dataclass(frozen=True)
@@ -35,6 +36,9 @@ def load_registry(path: str | Path, expected_count: int | None = None) -> list[C
     with registry_path.open("r", encoding="utf-8") as handle:
         payload: dict[str, Any] = yaml.safe_load(handle) or {}
     raw_companies = payload.get("companies", [])
+    subsidiary_scope = str(payload.get("subsidiary_scope", "")).strip()
+    if not subsidiary_scope:
+        raise ValueError("企业来源注册表必须配置 subsidiary_scope")
     companies: list[Company] = []
     names: set[str] = set()
     for index, item in enumerate(raw_companies, 1):
@@ -58,6 +62,13 @@ def load_registry(path: str | Path, expected_count: int | None = None) -> list[C
             raise ValueError(f"{name} 的来源 URL 必须属于其官方域名：{sources}")
         if any(source.kind == "government" and not _domain(source.url).endswith("sasac.gov.cn") for source in sources):
             raise ValueError(f"{name} 的政府权威来源目前仅允许国资委官网")
+        for source in sources:
+            if not source.company:
+                continue
+            if item.get("ownership") == "央国企" and source.subsidiary_location != subsidiary_scope:
+                raise ValueError(
+                    f"{name} 的子公司来源 {source.company} 必须声明位于 {subsidiary_scope}"
+                )
         companies.append(
             Company(
                 name=name,

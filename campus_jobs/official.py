@@ -22,7 +22,7 @@ INTERN_RE = re.compile(r"实习|intern(?:ship)?", re.I)
 NEWS_RE = re.compile(r"洞察|薪酬报告|求职攻略|时间线|信息差|复盘|盘点|宣讲会回顾", re.I)
 DATE_RE = re.compile(r"(20\d{2})[年./-](\d{1,2})[月./-](\d{1,2})日?")
 DEADLINE_RE = re.compile(r"(?:截止|网申截止|申请截止)[^\d]{0,8}(20\d{2}[年./-]\d{1,2}[月./-]\d{1,2}日?)")
-CITY_RE = re.compile(r"(北京|上海|广州|深圳|杭州|南京|苏州|成都|武汉|西安|重庆|天津|长沙|合肥|厦门|青岛|济南|郑州|东莞|佛山|珠海|宁波|无锡|全国|海外)")
+CITY_RE = re.compile(r"(北京|上海|广州|深圳|南宁|杭州|南京|苏州|成都|武汉|西安|重庆|天津|长沙|合肥|厦门|青岛|济南|郑州|东莞|佛山|珠海|宁波|无锡|全国|海外)")
 
 
 @dataclass(frozen=True)
@@ -127,9 +127,12 @@ def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> 
         return None
     if source.kind == "wechat" and company.wechat_accounts and not any(account in combined for account in company.wechat_accounts):
         return None
+    is_soe_subsidiary = company.ownership == "央国企" and bool(source.company)
+    if is_soe_subsidiary and (source.subsidiary_location != "广西南宁" or "南宁" not in combined):
+        return None
     campaign = campaign_of(combined)
     cities = sorted(set(CITY_RE.findall(combined)))
-    locations = "、".join(cities) or "全国"
+    locations = "、".join(cities) or ("南宁" if is_soe_subsidiary else "全国")
     deadline_match = DEADLINE_RE.search(combined)
     deadline = _iso_date(deadline_match.group(1)) if deadline_match else ""
     published_at = _iso_date(candidate.published_at) or _iso_date(combined)
