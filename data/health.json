@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-08-27T15:36:01+00:00",
+  "updated_at": "2026-08-27T15:41:11+00:00",
   "companies": 101,
   "source_attempts": 105,
-  "source_successes": 71,
+  "source_successes": 70,
   "accepted": 4,
   "added": 0,
   "updated": 4,
-  "lead_count": 56,
+  "lead_count": 60,
   "failed_sources": [
     "https://career.abchina.com/",
     "https://job.bankcomm.com/",
@@ -21,6 +21,7 @@
     "https://www.china-an.cn/",
     "https://www.chinasalt.com.cn/",
     "https://www.chinatelecom.com.cn/",
+    "https://www.chinaunicom.com.cn/",
     "https://www.chng.com.cn/",
     "https://www.cict.com/",
     "https://www.cnadc.com.cn/",
@@ -43,5 +44,5 @@
     "https://www.sgcc.com.cn/",
     "https://www.sinopecgroup.com/"
   ],
-  "success_ratio": 0.6762
+  "success_ratio": 0.6667
 }
