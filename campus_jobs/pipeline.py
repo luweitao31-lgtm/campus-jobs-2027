@@ -1,30 +1,34 @@
 from __future__ import annotations
 
+import json
 import logging
-import time
-from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from dataclasses import asdict, dataclass, field
+from datetime import date
 from pathlib import Path
-from urllib.parse import urlsplit
 
 from .config import Settings
 from .crawler import PageCrawler
-from .extractor import extract_job
-from .mailer import MailConfigurationError, send_digest
 from .models import now_iso
+from .official import clean_text, discover_company, is_formal_2027
+from .registry import load_registry
 from .render import render_outputs
-from .search import build_queries, create_search_client, search_all
+from .search import SearchError, build_queries, create_search_client, search_all
 from .storage import JobStore
-from .verifier import verify_job
 
 LOGGER = logging.getLogger(__name__)
 
 
 @dataclass
 class DiscoverySummary:
-    searched: int = 0
+    companies: int = 0
+    source_attempts: int = 0
+    source_successes: int = 0
     accepted: int = 0
     added: int = 0
     updated: int = 0
+    lead_count: int = 0
+    failed_sources: list[str] = field(default_factory=list)
 
 
 class Pipeline:
@@ -33,33 +37,108 @@ class Pipeline:
         self.store = JobStore(settings.output.get("data_file", "data/jobs.json"))
         self.crawler = PageCrawler(settings)
 
-    def discover(self) -> DiscoverySummary:
-        queries = build_queries(self.settings)
-        client = create_search_client(self.settings)
-        results = search_all(
-            client, queries, delay=float(self.settings.search.get("query_delay_seconds", 1.1))
-        )
-        limit = int(self.settings.crawler.get("max_results_per_run", 120))
-        delay = float(self.settings.crawler.get("page_delay_seconds", 0.4))
-        summary = DiscoverySummary(searched=len(results))
-        for result in results[:limit]:
-            # Google News explicitly disallows crawling its RSS redirect pages;
-            # titles, snippets and source names from the feed remain usable leads.
-            page = None if urlsplit(result.url).netloc == "news.google.com" else self.crawler.fetch(result.url)
-            job = extract_job(result, page, self.settings)
-            if not job:
+    def _path(self, configured: str, default: str) -> Path:
+        path = Path(configured or default)
+        return path if path.is_absolute() else self.settings.path.parent / path
+
+    @staticmethod
+    def _write_json(path: Path, payload: dict) -> None:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if path.exists():
+            try:
+                current = json.loads(path.read_text(encoding="utf-8"))
+                current_without_time = {key: value for key, value in current.items() if key != "updated_at"}
+                payload_without_time = {key: value for key, value in payload.items() if key != "updated_at"}
+                if current_without_time == payload_without_time:
+                    return
+            except (json.JSONDecodeError, OSError):
+                pass
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    def _collect_leads(self) -> list[dict[str, str]]:
+        if not self.settings.search.get("enabled", True):
+            return []
+        try:
+            results = search_all(
+                create_search_client(self.settings), build_queries(self.settings),
+                delay=float(self.settings.search.get("query_delay_seconds", 2)),
+            )
+        except SearchError as exc:
+            LOGGER.warning("搜索补漏失败，不影响官方来源结果：%s", exc)
+            return []
+        leads_path = self._path(self.settings.output.get("leads_file", "data/leads.json"), "data/leads.json")
+        old_discovered: dict[str, str] = {}
+        if leads_path.exists():
+            try:
+                old_discovered = {
+                    item["url"]: item.get("discovered_at", "")
+                    for item in json.loads(leads_path.read_text(encoding="utf-8")).get("leads", [])
+                }
+            except (json.JSONDecodeError, OSError, KeyError):
+                pass
+        leads: dict[str, dict[str, str]] = {}
+        for result in results:
+            combined = clean_text(f"{result.title} {result.snippet}")
+            if not is_formal_2027(combined):
                 continue
-            verify_job(job, page, self.settings)
+            leads[result.url] = {
+                "title": clean_text(result.title), "url": result.url,
+                "published_at": result.published_at, "source_query": result.source_query,
+                "discovered_at": old_discovered.get(result.url) or now_iso(),
+                "status": "待核验（不公开）",
+            }
+        return list(leads.values())
+
+    def discover(self) -> DiscoverySummary:
+        registry_path = self._path(self.settings.raw.get("sources_file", "sources.yaml"), "sources.yaml")
+        expected = int(self.settings.raw.get("expected_company_count", 100))
+        companies = load_registry(registry_path, expected_count=expected)
+        summary = DiscoverySummary(companies=len(companies))
+        discovered = []
+        workers = max(1, int(self.settings.crawler.get("source_workers", 8)))
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = {
+                executor.submit(discover_company, company, PageCrawler(self.settings)): company
+                for company in companies
+            }
+            for future in as_completed(futures):
+                company = futures[future]
+                summary.source_attempts += len(company.sources)
+                try:
+                    jobs, failures, successes = future.result()
+                except Exception as exc:  # isolate one broken source adapter
+                    jobs, failures, successes = [], [f"{company.name} ({exc})"], 0
+                summary.source_successes += successes
+                summary.failed_sources.extend(failures)
+                discovered.extend(jobs)
+        summary.failed_sources.sort()
+        ratio = summary.source_successes / max(1, summary.source_attempts)
+        minimum = float(self.settings.crawler.get("min_source_success_ratio", 0.20))
+        if ratio < minimum:
+            raise SearchError(
+                f"官方来源健康度不足：{summary.source_successes}/{summary.source_attempts} "
+                f"低于阈值 {minimum:.0%}；保留上一版数据"
+            )
+        for job in discovered:
             _, added = self.store.upsert(job)
             summary.accepted += 1
             summary.added += int(added)
             summary.updated += int(not added)
-            if delay and page is not None:
-                time.sleep(delay)
         self.store.save()
+        leads = self._collect_leads()
+        summary.lead_count = len(leads)
+        self._write_json(
+            self._path(self.settings.output.get("leads_file", "data/leads.json"), "data/leads.json"),
+            {"schema_version": 1, "updated_at": now_iso(), "leads": leads},
+        )
+        self._write_json(
+            self._path(self.settings.output.get("health_file", "data/health.json"), "data/health.json"),
+            {"updated_at": now_iso(), **asdict(summary), "success_ratio": round(ratio, 4)},
+        )
         LOGGER.info(
-            "采集完成：搜索结果 %d，符合口径 %d，新增 %d，更新 %d",
-            summary.searched, summary.accepted, summary.added, summary.updated,
+            "官方采集完成：企业 %d，来源成功 %d/%d，公告 %d，新增 %d，待核验线索 %d",
+            summary.companies, summary.source_successes, summary.source_attempts,
+            summary.accepted, summary.added, summary.lead_count,
         )
         return summary
 
@@ -67,45 +146,27 @@ class Pipeline:
         limit = int(self.settings.crawler.get("recheck_limit", 80))
         candidates = sorted(self.store.jobs, key=lambda job: job.last_checked_at or "")[:limit]
         for job in candidates:
-            target = job.official_url or job.source_url
-            status, final_url = self.crawler.check(target)
+            old_status, old_url = job.active_status, job.official_url
+            status, final_url = self.crawler.check(job.official_url)
+            if job.deadline and job.deadline < date.today().isoformat():
+                status = "expired"
             if status != "unknown" or job.active_status != "expired":
                 job.active_status = status
-            if job.official_url:
-                job.official_url = final_url
-            else:
-                job.source_url = final_url
-            job.last_checked_at = now_iso()
+            job.official_url = final_url
+            job.source_url = final_url
+            if job.active_status != old_status or job.official_url != old_url:
+                job.last_checked_at = now_iso()
+                job.updated_at = now_iso()
+                self.store.dirty = True
         if candidates:
             self.store.save()
-        LOGGER.info("链接复检完成：%d 条", len(candidates))
         return len(candidates)
 
     def generate(self) -> tuple[Path, Path]:
-        paths = render_outputs(self.store.jobs, self.settings)
-        LOGGER.info("输出已生成：%s, %s", *paths)
-        return paths
-
-    def mail(self) -> bool:
-        if not self.settings.mail.get("enabled", True):
-            LOGGER.info("邮件功能已禁用")
-            return False
-        jobs = self.store.unnotified()
-        try:
-            send_digest(jobs, self.settings)
-        except (MailConfigurationError, OSError) as exc:
-            LOGGER.warning("%s", exc)
-            return False
-        notified_at = now_iso()
-        for job in jobs:
-            job.last_notified_at = notified_at
-        self.store.save()
-        LOGGER.info("邮件发送完成：%d 条待通知记录", len(jobs))
-        return True
+        return render_outputs(self.store.jobs, self.settings)
 
     def full(self) -> DiscoverySummary:
         summary = self.discover()
         self.recheck()
         self.generate()
-        self.mail()
         return summary

@@ -42,6 +42,14 @@ def identity_key(company: str, title: str, city: str) -> str:
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:20]
 
 
+def announcement_identity(company: str, campaign: str, official_url: str) -> str:
+    """Return a stable id for an official recruitment announcement."""
+    raw = "|".join(
+        (normalize_text(company).lower(), normalize_text(campaign).lower(), normalize_url(official_url))
+    )
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()[:20]
+
+
 @dataclass
 class SearchResult:
     title: str
@@ -68,9 +76,14 @@ class JobRecord:
     verification_status: str = "unverified"
     active_status: str = "active"
     last_checked_at: str = ""
-    last_notified_at: str = ""
     summary: str = ""
     source_query: str = ""
+    parent_company: str = ""
+    ownership_type: str = "央国企"
+    campaign: str = "校园招聘"
+    locations: str = "全国"
+    deadline: str = ""
+    source_type: str = "企业官网"
 
     def __post_init__(self) -> None:
         self.source_url = normalize_url(self.source_url)

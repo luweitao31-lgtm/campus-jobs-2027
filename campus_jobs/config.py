@@ -22,16 +22,8 @@ class Settings:
         return self.raw.get("crawler", {})
 
     @property
-    def verification(self) -> dict[str, Any]:
-        return self.raw.get("verification", {})
-
-    @property
     def output(self) -> dict[str, Any]:
         return self.raw.get("output", {})
-
-    @property
-    def mail(self) -> dict[str, Any]:
-        return self.raw.get("mail", {})
 
     def env(self, name: str, default: str = "") -> str:
         return os.getenv(name, default)
@@ -44,4 +36,3 @@ def load_settings(path: str | Path = "config.yaml") -> Settings:
     with config_path.open("r", encoding="utf-8") as handle:
         raw = yaml.safe_load(handle) or {}
     return Settings(raw=raw, path=config_path)
-

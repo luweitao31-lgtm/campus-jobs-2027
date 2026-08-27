@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "campus-jobs-2027"
 version = "0.1.0"
-description = "每日聚合并核验 2027 届校园招聘信息"
+description = "每日聚合央国企与外企官方 2027 届校园招聘公告"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

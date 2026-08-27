@@ -20,6 +20,9 @@ class Page:
     title: str = ""
     text: str = ""
     links: list[str] | None = None
+    link_texts: list[tuple[str, str]] | None = None
+    content_type: str = "text/html"
+    raw: str = ""
 
 
 class PageCrawler:
@@ -70,8 +73,6 @@ class PageCrawler:
             )
             response.raise_for_status()
             content_type = response.headers.get("Content-Type", "")
-            if "html" not in content_type.lower():
-                return Page(url=response.url, status_code=response.status_code)
             limit = int(self.settings.crawler.get("max_page_bytes", 2_000_000))
             chunks: list[bytes] = []
             size = 0
@@ -81,13 +82,26 @@ class PageCrawler:
                     break
                 chunks.append(chunk)
             response._content = b"".join(chunks)
+            if "html" not in content_type.lower():
+                return Page(
+                    url=response.url, status_code=response.status_code,
+                    content_type=content_type, raw=response.text,
+                )
             soup = BeautifulSoup(response.content, "html.parser")
             for tag in soup(["script", "style", "noscript", "svg"]):
                 tag.decompose()
             title = soup.title.get_text(" ", strip=True) if soup.title else ""
             text = soup.get_text(" ", strip=True)
-            links = [urljoin(response.url, anchor.get("href")) for anchor in soup.select("a[href]")]
-            return Page(url=response.url, status_code=response.status_code, title=title, text=text, links=links)
+            link_texts = [
+                (urljoin(response.url, anchor.get("href")), anchor.get_text(" ", strip=True))
+                for anchor in soup.select("a[href]")
+            ]
+            links = [item[0] for item in link_texts]
+            return Page(
+                url=response.url, status_code=response.status_code, title=title, text=text,
+                links=links, link_texts=link_texts, content_type=content_type,
+                raw=response.text,
+            )
         except requests.RequestException as exc:
             LOGGER.info("页面读取失败：%s (%s)", url, exc)
             return None
