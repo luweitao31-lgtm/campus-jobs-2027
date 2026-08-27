@@ -55,6 +55,9 @@ class JobStore:
             if same_source and current.id != incoming.id:
                 current.id = incoming.id
                 changed = True
+            if not incoming.summary and current.summary in {current.title, f"{current.title} {current.title}"}:
+                current.summary = ""
+                changed = True
             for field in (
                 "company", "title", "city", "category", "recruitment_type",
                 "published_at", "source_channel", "source_url", "summary", "source_query",

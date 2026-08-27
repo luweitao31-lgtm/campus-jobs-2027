@@ -115,7 +115,9 @@ def candidates_from_page(page: Page, source: Source) -> list[Candidate]:
 
 
 def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> JobRecord | None:
-    combined = clean_text(f"{candidate.title} {candidate.text}")
+    candidate_title = clean_text(candidate.title)
+    candidate_detail = clean_text(candidate.text)
+    combined = candidate_title if candidate_detail == candidate_title else clean_text(f"{candidate_title} {candidate_detail}")
     official_url = normalize_url(candidate.url)
     if not official_url or not domain_allowed(official_url, company) or not is_formal_2027(combined):
         return None
@@ -129,7 +131,7 @@ def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> 
     published_at = _iso_date(candidate.published_at) or _iso_date(combined)
     source_type = {"wechat": "官方公众号", "rss": "官方 RSS", "json": "官方招聘平台"}.get(source.kind, source.label)
     active_status = "expired" if deadline and deadline < date.today().isoformat() else "active"
-    title = clean_text(candidate.title)[:160] or f"{company.name}2027届{campaign}"
+    title = candidate_title[:160] or f"{company.name}2027届{campaign}"
     summary = "" if combined == title else combined[:500]
     return JobRecord(
         id=announcement_identity(company.name, campaign, official_url),

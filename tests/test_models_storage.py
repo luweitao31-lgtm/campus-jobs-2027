@@ -44,3 +44,14 @@ def test_store_updates_identity_when_same_source_is_reparsed(settings):
     assert len(store.jobs) == 1
     assert current.id == "new-better-identity"
     assert current.company == "更准确的企业名"
+
+
+def test_store_cleans_duplicate_title_summary(settings):
+    store = JobStore(settings.output["data_file"])
+    original = make_job()
+    original.summary = f"{original.title} {original.title}"
+    store.upsert(original)
+    incoming = make_job()
+    current, added = store.upsert(incoming)
+    assert added is False
+    assert current.summary == ""

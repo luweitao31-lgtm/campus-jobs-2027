@@ -57,6 +57,13 @@ def test_listing_page_body_does_not_become_a_duplicate_announcement():
     assert [item.url for item in candidates] == ["https://jobs.example.com/2027"]
 
 
+def test_identical_anchor_text_is_not_repeated_as_summary():
+    source = company().sources[0]
+    title = "示例集团2027届校园招聘正式启动"
+    job = candidate_to_job(Candidate(title, "https://jobs.example.com/2027", title), company(), source)
+    assert job and job.title == title and job.summary == ""
+
+
 def test_rss_and_json_adapters_parse_offline_fixtures():
     rss_source = Source("https://jobs.example.com/feed", kind="rss", label="官方 RSS")
     rss_page = Page(
