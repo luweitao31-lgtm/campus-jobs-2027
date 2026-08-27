@@ -15,6 +15,8 @@ class Source:
     label: str = "企业官网"
     company: str = ""
     subsidiary_location: str = ""
+    announcement_title: str = ""
+    published_at: str = ""
 
 
 @dataclass(frozen=True)

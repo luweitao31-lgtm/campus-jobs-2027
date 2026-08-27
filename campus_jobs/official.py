@@ -107,6 +107,8 @@ def candidates_from_page(page: Page, source: Source) -> list[Candidate]:
         return _rss_candidates(page)
     if source.kind == "json":
         return _json_candidates(page)
+    if source.kind == "landing":
+        return [Candidate(source.announcement_title or page.title, page.url, page.text, source.published_at)]
     # A listing/homepage may contain a 2027 announcement somewhere in its body;
     # only treat the page itself as an announcement when its own title qualifies.
     candidates = [Candidate(page.title, page.url, page.text)] if is_formal_2027(page.title) else []
@@ -135,7 +137,7 @@ def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> 
     locations = "、".join(cities) or ("南宁" if is_soe_subsidiary else "全国")
     deadline_match = DEADLINE_RE.search(combined)
     deadline = _iso_date(deadline_match.group(1)) if deadline_match else ""
-    published_at = _iso_date(candidate.published_at) or _iso_date(combined)
+    published_at = _iso_date(candidate.published_at) or _iso_date(source.published_at) or _iso_date(combined)
     if campaign == "校园招聘" and published_at[5:7] in {"07", "08", "09", "10", "11"}:
         campaign = "秋招"
     source_type = {

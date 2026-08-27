@@ -9,7 +9,7 @@ companies:
   - {name: 中国兵器工业集团, parent: 中国兵器工业集团, ownership: 央国企, domains: [norincogroup.com.cn], sources: [{url: "https://www.norincogroup.com.cn/", label: 企业官网}]}
   - {name: 中国兵器装备集团, parent: 中国兵器装备集团, ownership: 央国企, domains: [csgc.com.cn], sources: [{url: "https://www.csgc.com.cn/", label: 企业官网}]}
   - {name: 中国电子科技集团, parent: 中国电子科技集团, ownership: 央国企, domains: [cetc.com.cn], sources: [{url: "https://www.cetc.com.cn/", label: 企业官网}]}
-  - {name: 中国航空发动机集团, parent: 中国航空发动机集团, ownership: 央国企, domains: [aecc.cn], sources: [{url: "https://www.aecc.cn/", label: 企业官网}]}
+  - {name: 中国航空发动机集团, parent: 中国航空发动机集团, ownership: 央国企, domains: [aecc.cn], sources: [{url: "https://www.aecc.cn/", label: 企业官网}, {url: "https://www.aecc.cn/aecc/gggs/2026073017062513709/index.html", kind: landing, label: 企业官网, announcement_title: 中国航空发动机集团有限公司2027届校园招聘重磅开启, published_at: "2026-07-30"}]}
   - {name: 中国融通集团, parent: 中国融通集团, ownership: 央国企, domains: [crtamg.com.cn], sources: [{url: "https://www.crtamg.com.cn/", label: 企业官网}]}
   - {name: 中国石油天然气集团, parent: 中国石油天然气集团, ownership: 央国企, domains: [cnpc.com.cn], sources: [{url: "https://www.cnpc.com.cn/", label: 企业官网}]}
   - {name: 中国石油化工集团, parent: 中国石油化工集团, ownership: 央国企, domains: [sinopecgroup.com], sources: [{url: "https://www.sinopecgroup.com/", label: 企业官网}]}
@@ -25,7 +25,7 @@ companies:
   - {name: 中国广核集团, parent: 中国广核集团, ownership: 央国企, domains: [cgnpc.com.cn], sources: [{url: "https://www.cgnpc.com.cn/", label: 企业官网}, {url: "http://wap.sasac.gov.cn/n2588035/n2588325/c35442247/content.html", kind: government, label: 国资委官网}]}
   - {name: 国家能源投资集团, parent: 国家能源投资集团, ownership: 央国企, domains: [chnenergy.com.cn], sources: [{url: "https://www.chnenergy.com.cn/", label: 企业官网}]}
   - {name: 中国电信集团, parent: 中国电信集团, ownership: 央国企, domains: [chinatelecom.com.cn], sources: [{url: "https://www.chinatelecom.com.cn/", label: 企业官网}, {url: "http://www.sasac.gov.cn/n2588035/n2588325/n2588350/c35816071/content.html", kind: government, label: 国资委官网}]}
-  - {name: 中国联合网络通信集团, parent: 中国联合网络通信集团, ownership: 央国企, domains: [chinaunicom.com.cn], sources: [{url: "https://www.chinaunicom.com.cn/", label: 企业官网}]}
+  - {name: 中国联合网络通信集团, parent: 中国联合网络通信集团, ownership: 央国企, domains: [chinaunicom.com.cn], sources: [{url: "https://www.chinaunicom.com.cn/", label: 企业官网}, {url: "https://www.chinaunicom.com.cn/46/menu01/528/column06", kind: landing, label: 企业招聘页, announcement_title: 中国联通2027届校园招聘, published_at: "2026-08-27"}]}
   - {name: 中国移动通信集团, parent: 中国移动通信集团, ownership: 央国企, domains: [10086.cn], sources: [{url: "https://job.10086.cn/", label: 官方招聘平台}]}
   - {name: 中国电子信息产业集团, parent: 中国电子信息产业集团, ownership: 央国企, domains: [cec.com.cn], sources: [{url: "https://www.cec.com.cn/", label: 企业官网}]}
   - {name: 中国第一汽车集团, parent: 中国第一汽车集团, ownership: 央国企, domains: [faw.com.cn], sources: [{url: "https://www.faw.com.cn/", label: 企业官网}]}

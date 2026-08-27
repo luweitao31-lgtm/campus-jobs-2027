@@ -106,6 +106,18 @@ def test_rss_and_json_adapters_parse_offline_fixtures():
     assert candidate_to_job(candidate, company("json"), json_source).campaign == "提前批"
 
 
+def test_declared_official_landing_page_adapter():
+    source = Source(
+        "https://jobs.example.com/2027", kind="landing", label="企业招聘页",
+        announcement_title="示例集团2027届校园招聘", published_at="2026-08-27",
+    )
+    page = Page(source.url, 200, title="校园招聘", text="2027届校园招聘，面向全球应届毕业生")
+    candidates = candidates_from_page(page, source)
+    assert len(candidates) == 1 and candidates[0].title == source.announcement_title
+    job = candidate_to_job(candidates[0], company(), source)
+    assert job and job.published_at == "2026-08-27" and job.campaign == "秋招"
+
+
 def test_wechat_requires_registered_account_identity():
     source = Source("https://jobs.example.com/wechat/1", kind="wechat", label="官方公众号")
     registered = company("wechat", ("示例集团招聘",))
