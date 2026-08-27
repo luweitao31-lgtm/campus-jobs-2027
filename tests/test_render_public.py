@@ -2,7 +2,9 @@ import json
 from pathlib import Path
 
 from campus_jobs.models import JobRecord
-from campus_jobs.render import render_outputs
+from zoneinfo import ZoneInfo
+
+from campus_jobs.render import latest_timestamp, render_outputs
 
 
 def test_render_only_publishes_verified_official_records_and_escapes(settings):
@@ -38,3 +40,10 @@ def test_render_uses_latest_health_check_time(settings):
     index, _ = render_outputs([job], settings)
     content = Path(index).read_text(encoding="utf-8")
     assert "最近生成：2099-01-01T08:00:00+08:00" in content
+
+
+def test_latest_timestamp_compares_different_timezones_as_instants():
+    assert latest_timestamp(
+        ["2026-08-27T22:14:00+08:00", "2026-08-27T15:36:19+00:00"],
+        ZoneInfo("Asia/Shanghai"),
+    ) == "2026-08-27T23:36:19+08:00"

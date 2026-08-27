@@ -23,6 +23,21 @@ def active_label(status: str) -> str:
     return {"active": "招聘中", "expired": "已失效", "unknown": "状态未知"}.get(status, status)
 
 
+def latest_timestamp(values: list[str], timezone: ZoneInfo) -> str:
+    parsed: list[datetime] = []
+    for value in values:
+        if not value:
+            continue
+        try:
+            moment = datetime.fromisoformat(value.replace("Z", "+00:00"))
+            parsed.append(moment if moment.tzinfo else moment.replace(tzinfo=timezone))
+        except ValueError:
+            continue
+    if not parsed:
+        return ""
+    return max(parsed).astimezone(timezone).isoformat(timespec="seconds")
+
+
 def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Path]:
     output = settings.output
     site_dir = Path(output.get("site_dir", "docs"))
@@ -57,8 +72,8 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
         lstrip_blocks=True,
     )
     template = environment.get_template("index.html.j2")
-    content_updated_at = max(
-        [health.get("updated_at", ""), *(job.updated_at for job in ordered)]
+    content_updated_at = latest_timestamp(
+        [health.get("updated_at", ""), *(job.updated_at for job in ordered)], timezone
     )
     generated_label = content_updated_at or "等待首次官方采集"
     html = template.render(
