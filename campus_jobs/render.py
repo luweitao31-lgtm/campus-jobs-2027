@@ -44,7 +44,12 @@ def render_outputs(jobs: list[JobRecord], settings: Settings) -> tuple[Path, Pat
     site_dir.mkdir(parents=True, exist_ok=True)
     csv_path = Path(output.get("csv_file", site_dir / "jobs.csv"))
     csv_path.parent.mkdir(parents=True, exist_ok=True)
-    public_jobs = [job for job in jobs if job.official_url and job.verification_status != "unverified"]
+    public_jobs = [
+        job for job in jobs
+        if job.official_url
+        and job.verification_status != "unverified"
+        and job.ownership_type != "unverified"
+    ]
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=CSV_FIELDS, extrasaction="ignore", lineterminator="\n")
         writer.writeheader()

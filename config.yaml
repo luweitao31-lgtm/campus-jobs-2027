@@ -44,5 +44,5 @@ output:
   health_file: data/health.json
   csv_file: docs/jobs.csv
   site_dir: docs
-  site_title: "2027届央国企与外企校园招聘"
+  site_title: "2027届校园招聘聚合站（央国企、外企及各类企业）"
   public_base_url: "https://luweitao31-lgtm.github.io/campus-jobs-2027/"

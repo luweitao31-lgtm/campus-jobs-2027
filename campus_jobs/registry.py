@@ -50,8 +50,9 @@ def load_registry(path: str | Path, expected_count: int | None = None) -> list[C
         names.add(name)
         domains = tuple(str(value).lower().removeprefix("www.") for value in item.get("domains", []) if value)
         sources = tuple(Source(**source) for source in item.get("sources", []))
-        if item.get("ownership") not in {"央国企", "外企"}:
-            raise ValueError(f"{name} 的 ownership 必须是“央国企”或“外企”")
+        ownership = str(item.get("ownership") or "").strip()
+        if ownership not in {"央国企", "外企", "民企", "其他"}:
+            raise ValueError(f"{name} 的 ownership 必须是“央国企”“外企”“民企”或“其他”")
         if not domains or not sources:
             raise ValueError(f"{name} 必须配置官方域名和至少一个来源")
         if any(urlsplit(source.url).scheme != "https" and source.kind != "government" for source in sources):
@@ -67,7 +68,7 @@ def load_registry(path: str | Path, expected_count: int | None = None) -> list[C
         for source in sources:
             if not source.company:
                 continue
-            if item.get("ownership") == "央国企" and source.subsidiary_location != subsidiary_scope:
+            if ownership == "央国企" and source.subsidiary_location != subsidiary_scope:
                 raise ValueError(
                     f"{name} 的子公司来源 {source.company} 必须声明位于 {subsidiary_scope}"
                 )
@@ -75,7 +76,7 @@ def load_registry(path: str | Path, expected_count: int | None = None) -> list[C
             Company(
                 name=name,
                 parent=str(item.get("parent") or name),
-                ownership=item["ownership"],
+                ownership=ownership,
                 domains=domains,
                 sources=sources,
                 wechat_accounts=tuple(item.get("wechat_accounts", [])),

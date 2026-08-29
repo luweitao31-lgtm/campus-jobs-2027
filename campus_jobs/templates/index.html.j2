@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="每日更新的2027届央国企、重点子公司与外企官方校园招聘信息">
+  <meta name="description" content="每日更新的2027届央国企、外企及各类企业官方校园招聘信息">
   <title>{{ title }}</title>
   <style>
     :root{color-scheme:light;--ink:#14213d;--muted:#64748b;--line:#e2e8f0;--brand:#075985;--brand2:#0e7490;--soft:#ecfeff;--ok:#047857;--dead:#b91c1c}
@@ -25,7 +25,7 @@
 <body><main>
   <header class="hero">
     <h1>{{ title }}</h1>
-    <div class="subtitle">只收录可验证的企业官网、官方招聘平台与官方公众号公开信息 · 按招聘批次展示</div>
+    <div class="subtitle">只收录可验证的企业官网、官方招聘平台与官方公众号公开信息 · 所有新开启的2027届校招</div>
     <div class="updated">最近生成：{{ generated_at }}</div>
   </header>
   <section class="stats">
@@ -41,7 +41,7 @@
     </div>
     <div class="filters">
       <input id="keyword" type="search" placeholder="搜索企业、母公司或公告">
-      <select id="ownership"><option value="">全部企业类型</option><option>央国企</option><option>外企</option></select>
+      <select id="ownership"><option value="">全部企业类型</option><option>央国企</option><option>外企</option><option>民企</option><option>其他</option></select>
       <select id="parent"><option value="">全部母公司</option></select>
       <select id="campaign"><option value="">全部招聘类型</option></select>
       <select id="location"><option value="">全部地点</option></select>

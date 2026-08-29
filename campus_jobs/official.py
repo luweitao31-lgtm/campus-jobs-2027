@@ -131,7 +131,7 @@ def candidate_to_job(candidate: Candidate, company: Company, source: Source) -> 
     if source.kind == "wechat" and company.wechat_accounts and not any(account in combined for account in company.wechat_accounts):
         return None
     is_soe_subsidiary = company.ownership == "央国企" and bool(source.company)
-    if is_soe_subsidiary and (source.subsidiary_location != "广西南宁" or "南宁" not in combined):
+    if is_soe_subsidiary and ("南宁" not in combined or source.subsidiary_location != "广西南宁"):
         return None
     campaign = campaign_of(combined)
     cities = sorted(set(CITY_RE.findall(combined)))

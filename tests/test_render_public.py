@@ -12,6 +12,7 @@ def test_render_only_publishes_verified_official_records_and_escapes(settings):
         id="ok", company="<示例集团>", parent_company="示例集团", title='2027届校园招聘 "启动"',
         source_url="https://jobs.example.com/2027", official_url="https://jobs.example.com/2027",
         verification_status="verified_company", campaign="校园招聘", locations="北京",
+        ownership_type="民企",
         summary="<img src=x onerror=alert(1)>",
     )
     unverified = JobRecord(
@@ -26,6 +27,7 @@ def test_render_only_publishes_verified_official_records_and_escapes(settings):
     payload = json.loads((Path(index).parent / "jobs.json").read_text(encoding="utf-8"))
     assert payload["schema_version"] == 2
     assert [job["id"] for job in payload["jobs"]] == ["ok"]
+    assert payload["jobs"][0]["ownership_type"] == "民企"
     assert csv_path.exists()
 
 

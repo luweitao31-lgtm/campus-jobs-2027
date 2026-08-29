@@ -22,6 +22,7 @@ def test_repository_registry_has_exact_mix():
     assert len(companies) >= 150
     assert sum(item.ownership == "央国企" for item in companies) == 86
     assert sum(item.ownership == "外企" for item in companies) >= 60
+    assert sum(item.ownership == "民企" for item in companies) >= 1
     assert all(item.domains and item.sources for item in companies)
     subsidiaries = [source for item in companies if item.ownership == "央国企" for source in item.sources if source.company]
     assert subsidiaries
@@ -44,6 +45,11 @@ companies:
     )
     with pytest.raises(ValueError, match="必须声明位于 广西南宁"):
         load_registry(registry)
+
+
+def test_registry_accepts_private_company_type():
+    registry = Path(__file__).parents[1] / "sources.yaml"
+    assert any(item.ownership == "民企" for item in load_registry(registry))
 
 
 def test_formal_filter_and_html_cleanup():

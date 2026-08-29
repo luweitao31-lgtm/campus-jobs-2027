@@ -164,3 +164,90 @@ companies:
   - {name: 渣打银行, parent: 渣打银行, ownership: 外企, domains: [sc.com], sources: [{url: "https://www.sc.com/en/global-careers/", label: 企业招聘页}]}
   - {name: 瑞银, parent: 瑞银, ownership: 外企, domains: [ubs.com], sources: [{url: "https://www.ubs.com/global/en/careers.html", label: 企业招聘页}]}
   - {name: 德意志银行, parent: 德意志银行, ownership: 外企, domains: [db.com], sources: [{url: "https://careers.db.com/", label: 官方招聘平台}]}
+  - {name: 华为, parent: 华为, ownership: 民企, domains: [huawei.com], sources: [{url: "https://career.huawei.com/", label: 官方招聘平台}]}
+  - {name: 腾讯, parent: 腾讯, ownership: 民企, domains: [tencent.com], sources: [{url: "https://careers.tencent.com/", label: 官方招聘平台}]}
+  - {name: 阿里巴巴, parent: 阿里巴巴, ownership: 民企, domains: [alibaba.com, aliyun.com], sources: [{url: "https://talent.alibaba.com/", label: 官方招聘平台}]}
+  - {name: 字节跳动, parent: 字节跳动, ownership: 民企, domains: [bytedance.com], sources: [{url: "https://jobs.bytedance.com/", label: 官方招聘平台}]}
+  - {name: 京东, parent: 京东, ownership: 民企, domains: [jd.com], sources: [{url: "https://zhaopin.jd.com/", label: 官方招聘平台}]}
+  - {name: 百度, parent: 百度, ownership: 民企, domains: [baidu.com], sources: [{url: "https://talent.baidu.com/", label: 官方招聘平台}]}
+  - {name: 网易, parent: 网易, ownership: 民企, domains: [163.com, netease.com], sources: [{url: "https://hr.163.com/", label: 官方招聘平台}]}
+  - {name: 小米, parent: 小米, ownership: 民企, domains: [xiaomi.com], sources: [{url: "https://hr.xiaomi.com/", label: 官方招聘平台}]}
+  - {name: 荣耀, parent: 荣耀, ownership: 民企, domains: [hihonor.com], sources: [{url: "https://www.hihonor.com/cn/career/", label: 企业招聘页}]}
+  - {name: vivo, parent: vivo, ownership: 民企, domains: [vivo.com], sources: [{url: "https://hr.vivo.com/", label: 官方招聘平台}]}
+  - {name: OPPO, parent: OPPO, ownership: 民企, domains: [oppo.com], sources: [{url: "https://careers.oppo.com/", label: 官方招聘平台}]}
+  - {name: 中兴通讯, parent: 中兴通讯, ownership: 民企, domains: [zte.com.cn], sources: [{url: "https://job.zte.com.cn/", label: 官方招聘平台}]}
+  - {name: 美团, parent: 美团, ownership: 民企, domains: [meituan.com], sources: [{url: "https://zhaopin.meituan.com/", label: 官方招聘平台}]}
+  - {name: 快手, parent: 快手, ownership: 民企, domains: [kuaishou.com], sources: [{url: "https://zhaopin.kuaishou.com/", label: 官方招聘平台}]}
+  - {name: 携程集团, parent: 携程集团, ownership: 民企, domains: [ctrip.com, trip.com], sources: [{url: "https://campus.ctrip.com/", label: 官方招聘平台}]}
+  - {name: 滴滴出行, parent: 滴滴出行, ownership: 民企, domains: [didiglobal.com], sources: [{url: "https://talent.didiglobal.com/", label: 官方招聘平台}]}
+  - {name: 拼多多, parent: 拼多多, ownership: 民企, domains: [pinduoduo.com, temu.com], sources: [{url: "https://careers.pinduoduo.com/", label: 官方招聘平台}]}
+  - {name: 蔚来, parent: 蔚来, ownership: 民企, domains: [nio.com, feishu.cn], sources: [{url: "https://nio.jobs.feishu.cn/", label: 官方招聘平台}]}
+  - {name: 小鹏汽车, parent: 小鹏汽车, ownership: 民企, domains: [xiaopeng.com], sources: [{url: "https://campus.xiaopeng.com/", label: 官方招聘平台}]}
+  - {name: 理想汽车, parent: 理想汽车, ownership: 民企, domains: [lixiang.com], sources: [{url: "https://www.lixiang.com/careers", label: 企业招聘页}]}
+  - {name: 比亚迪, parent: 比亚迪, ownership: 民企, domains: [byd.com], sources: [{url: "https://job.byd.com/", label: 官方招聘平台}]}
+  - {name: 吉利控股, parent: 吉利控股, ownership: 民企, domains: [geely.com], sources: [{url: "https://campus.geely.com/", label: 官方招聘平台}]}
+  - {name: 海信集团, parent: 海信集团, ownership: 民企, domains: [hisense.com], sources: [{url: "https://career.hisense.com/", label: 官方招聘平台}]}
+  - {name: 三一集团, parent: 三一集团, ownership: 民企, domains: [sanygroup.com, sany.com.cn], sources: [{url: "https://hr.sany.com.cn/", label: 官方招聘平台}]}
+  - {name: 宁德时代, parent: 宁德时代, ownership: 民企, domains: [catl.com, zhiye.com], sources: [{url: "https://catl.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 隆基绿能, parent: 隆基绿能, ownership: 民企, domains: [longi.com], sources: [{url: "https://career.longi.com/", label: 官方招聘平台}]}
+  - {name: 恒瑞医药, parent: 恒瑞医药, ownership: 民企, domains: [hengrui.com, zhiye.com], sources: [{url: "https://hengrui.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 迈瑞医疗, parent: 迈瑞医疗, ownership: 民企, domains: [mindray.com, zhiye.com], sources: [{url: "https://mindray.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 药明康德, parent: 药明康德, ownership: 民企, domains: [wuxiapptec.com], sources: [{url: "https://career.wuxiapptec.com/", label: 官方招聘平台}]}
+  - {name: 中国平安, parent: 中国平安, ownership: 民企, domains: [pingan.com], sources: [{url: "https://campus.pingan.com/", label: 官方招聘平台}]}
+  - {name: 泰康保险, parent: 泰康保险, ownership: 民企, domains: [taikang.com, zhiye.com], sources: [{url: "https://taikang.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 蚂蚁集团, parent: 蚂蚁集团, ownership: 民企, domains: [antgroup.com], sources: [{url: "https://talent.antgroup.com/", label: 官方招聘平台}]}
+  - {name: 商汤科技, parent: 商汤科技, ownership: 民企, domains: [sensetime.com], sources: [{url: "https://careers.sensetime.com/", label: 官方招聘平台}]}
+  - {name: 大疆, parent: 大疆, ownership: 民企, domains: [dji.com], sources: [{url: "https://we.dji.com/", label: 官方招聘平台}]}
+  - {name: 海康威视, parent: 海康威视, ownership: 民企, domains: [hikvision.com], sources: [{url: "https://campushire.hikvision.com/", label: 官方招聘平台}]}
+  - {name: 立讯精密, parent: 立讯精密, ownership: 民企, domains: [luxshare.com, zhiye.com], sources: [{url: "https://luxshare.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 歌尔股份, parent: 歌尔股份, ownership: 民企, domains: [goertek.com, zhiye.com], sources: [{url: "https://goertek.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 传音控股, parent: 传音控股, ownership: 民企, domains: [transsion.com, zhiye.com], sources: [{url: "https://transsion.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 安克创新, parent: 安克创新, ownership: 民企, domains: [anker.com, zhiye.com], sources: [{url: "https://anker.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 米哈游, parent: 米哈游, ownership: 民企, domains: [mihoyo.com], sources: [{url: "https://join.mihoyo.com/", label: 官方招聘平台}]}
+  - {name: 网易游戏(互娱), parent: 网易, ownership: 民企, domains: [163.com, netease.com], sources: [{url: "https://hr.163.com/", label: 官方招聘平台}]}
+  - {name: 多益网络, parent: 多益网络, ownership: 民企, domains: [duoyi.com], sources: [{url: "https://www.duoyi.com/campus/", label: 企业招聘页}]}
+  - {name: 完美世界, parent: 完美世界, ownership: 民企, domains: [wanmei.com], sources: [{url: "https://jobs.wanmei.com/", label: 官方招聘平台}]}
+  - {name: 科大讯飞, parent: 科大讯飞, ownership: 民企, domains: [iflytek.com], sources: [{url: "https://campus.iflytek.com/", label: 官方招聘平台}]}
+  - {name: 顺丰, parent: 顺丰, ownership: 民企, domains: [sf-express.com], sources: [{url: "https://campus.sf-express.com/", label: 官方招聘平台}]}
+  - {name: 圆通速递, parent: 圆通速递, ownership: 民企, domains: [yto.net.cn], sources: [{url: "https://www.yto.net.cn/", label: 企业官网}]}
+  - {name: 中通快递, parent: 中通快递, ownership: 民企, domains: [zto.com], sources: [{url: "https://www.zto.com/", label: 企业官网}]}
+  - {name: 牧原股份, parent: 牧原股份, ownership: 民企, domains: [muyuan.com], sources: [{url: "https://www.muyuan.com/", label: 企业官网}]}
+  - {name: 新希望, parent: 新希望, ownership: 民企, domains: [newhopegroup.com], sources: [{url: "https://www.newhopegroup.com/", label: 企业官网}]}
+  - {name: 温氏股份, parent: 温氏股份, ownership: 民企, domains: [wens.com.cn], sources: [{url: "https://www.wens.com.cn/", label: 企业官网}]}
+  - {name: 立白集团, parent: 立白集团, ownership: 民企, domains: [liby.com.cn], sources: [{url: "https://www.liby.com.cn/", label: 企业官网}]}
+  - {name: 完美日记, parent: 逸仙电商, ownership: 民企, domains: [yatsenglobal.com], sources: [{url: "https://www.yatsenglobal.com/", label: 企业官网}]}
+  - {name: 泡泡玛特, parent: 泡泡玛特, ownership: 民企, domains: [popmart.com], sources: [{url: "https://careers.popmart.com/", label: 官方招聘平台}]}
+  - {name: 名创优品, parent: 名创优品, ownership: 民企, domains: [miniso.com], sources: [{url: "https://www.miniso.com/", label: 企业官网}]}
+  - {name: 百胜中国, parent: 百胜中国, ownership: 民企, domains: [yumchina.com], sources: [{url: "https://careers.yumchina.com/", label: 官方招聘平台}]}
+  - {name: 海底捞, parent: 海底捞, ownership: 民企, domains: [haidilao.com], sources: [{url: "https://www.haidilao.com/", label: 企业官网}]}
+  - {name: 蜜雪冰城, parent: 蜜雪冰城, ownership: 民企, domains: [mixuebingcheng.com], sources: [{url: "https://www.mixuebingcheng.com/", label: 企业官网}]}
+  - {name: 金蝶, parent: 金蝶, ownership: 民企, domains: [kingdee.com], sources: [{url: "https://www.kingdee.com/", label: 企业官网}]}
+  - {name: 用友, parent: 用友, ownership: 民企, domains: [yonyou.com], sources: [{url: "https://www.yonyou.com/", label: 企业官网}]}
+  - {name: 深信服, parent: 深信服, ownership: 民企, domains: [sangfor.com.cn], sources: [{url: "https://hr.sangfor.com.cn/", label: 官方招聘平台}]}
+  - {name: 奇安信, parent: 奇安信, ownership: 民企, domains: [qianxin.com, zhiye.com], sources: [{url: "https://qianxin.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 天融信, parent: 天融信, ownership: 民企, domains: [topsec.com.cn], sources: [{url: "https://www.topsec.com.cn/", label: 企业官网}]}
+  - {name: 帆软, parent: 帆软, ownership: 民企, domains: [fanruan.com], sources: [{url: "https://www.fanruan.com/", label: 企业官网}]}
+  - {name: 徐工集团, parent: 徐工集团, ownership: 民企, domains: [xcmg.com], sources: [{url: "https://www.xcmg.com/", label: 企业官网}]}
+  - {name: 中联重科, parent: 中联重科, ownership: 民企, domains: [zoomlion.com], sources: [{url: "https://www.zoomlion.com/", label: 企业官网}]}
+  - {name: 宇通集团, parent: 宇通集团, ownership: 民企, domains: [yutong.com], sources: [{url: "https://www.yutong.com/", label: 企业官网}]}
+  - {name: 奇瑞汽车, parent: 奇瑞汽车, ownership: 民企, domains: [chery.com, zhiye.com], sources: [{url: "https://chery.zhiye.com/", label: 官方校园招聘站}]}
+  - {name: 长城汽车, parent: 长城汽车, ownership: 民企, domains: [greatwallmotors.com, gwm.cn], sources: [{url: "https://job.gwm.cn/", label: 官方招聘平台}]}
+  - {name: 极氪, parent: 吉利控股, ownership: 民企, domains: [zeekrlife.com], sources: [{url: "https://www.zeekrlife.com/", label: 企业招聘页}]}
+  - {name: 岚图汽车, parent: 东风汽车集团, ownership: 民企, domains: [voyah.com], sources: [{url: "https://campus.voyah.com/", label: 官方招聘平台}]}
+  - {name: 卓胜微, parent: 卓胜微, ownership: 民企, domains: [maxscend.com], sources: [{url: "https://www.maxscend.com/", label: 企业官网}]}
+  - {name: 英伟达中国, parent: NVIDIA, ownership: 外企, domains: [nvidia.com], sources: [{url: "https://www.nvidia.com/en-us/about-nvidia/careers/", label: 官方招聘平台}]}
+  - {name: 特斯拉中国, parent: 特斯拉, ownership: 外企, domains: [tesla.com], sources: [{url: "https://www.tesla.com/careers", label: 官方招聘平台}]}
+  - {name: 优衣库, parent: 迅销集团, ownership: 外企, domains: [uniqlo.com], sources: [{url: "https://www.uniqlo.com/", label: 企业官网}]}
+  - {name: 山姆会员店, parent: 沃尔玛, ownership: 外企, domains: [samsclub.com, walmart.com], sources: [{url: "https://careers.walmart.com/", label: 官方招聘平台}]}
+  - {name: 屈臣氏, parent: 长江和记实业, ownership: 外企, domains: [watsons.com.cn], sources: [{url: "https://www.watsons.com.cn/", label: 企业官网}]}
+  - {name: 宜家中国, parent: 宜家, ownership: 外企, domains: [ikea.com], sources: [{url: "https://jobs.ikea.com/", label: 官方招聘平台}]}
+  - {name: 麦当劳中国, parent: 麦当劳, ownership: 外企, domains: [mcdonalds.com, mcdonalds.com.cn], sources: [{url: "https://www.mcdonalds.com.cn/careers/", label: 企业招聘页}]}
+  - {name: 星巴克中国, parent: 星巴克, ownership: 外企, domains: [starbucks.com.cn], sources: [{url: "https://www.starbucks.com.cn/careers/", label: 企业招聘页}]}
+  - {name: 达能, parent: 达能, ownership: 外企, domains: [danone.com], sources: [{url: "https://careers.danone.com/", label: 官方招聘平台}]}
+  - {name: 亿滋, parent: 亿滋, ownership: 外企, domains: [mondelezinternational.com], sources: [{url: "https://careers.mondelezinternational.com/", label: 官方招聘平台}]}
+  - {name: 康师傅, parent: 顶新集团, ownership: 外企, domains: [masterkong.com.cn], sources: [{url: "https://www.masterkong.com.cn/", label: 企业官网}]}
+  - {name: 永辉超市, parent: 永辉超市, ownership: 民企, domains: [yonghui.com.cn], sources: [{url: "https://www.yonghui.com.cn/", label: 企业官网}]}
+  - {name: 物美, parent: 物美, ownership: 民企, domains: [wumart.com], sources: [{url: "https://www.wumart.com/", label: 企业官网}]}
+  - {name: 胖东来, parent: 胖东来, ownership: 民企, domains: [pangdonglai.com], sources: [{url: "https://www.pangdonglai.com/", label: 企业官网}]}
+  - {name: 荣耀终端, parent: 荣耀, ownership: 民企, domains: [hihonor.com], sources: [{url: "https://www.hihonor.com/cn/career/", label: 企业招聘页}]}
+  - {name: 星纪魅族, parent: 星纪魅族, ownership: 民企, domains: [meizu.com], sources: [{url: "https://www.meizu.com/", label: 企业官网}]}

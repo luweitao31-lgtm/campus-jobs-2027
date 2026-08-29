@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-08-27T16:32:30+00:00",
+  "updated_at": "2026-08-30T00:22:26+08:00",
   "jobs": [
     {
       "id": "dba147801d0cdaa75ad3",
@@ -36,13 +36,13 @@
       "recruitment_type": "秋招",
       "published_at": "2026-08-27",
       "first_seen_at": "2026-08-27T23:58:56+08:00",
-      "updated_at": "2026-08-28T00:29:33+08:00",
+      "updated_at": "2026-08-30T00:22:26+08:00",
       "source_channel": "企业招聘页",
       "source_url": "https://www.chinaunicom.com.cn/46/menu01/528/column06",
       "official_url": "https://www.chinaunicom.com.cn/46/menu01/528/column06",
       "verification_status": "verified_company",
       "active_status": "unknown",
-      "last_checked_at": "2026-08-28T00:29:33+08:00",
+      "last_checked_at": "2026-08-30T00:22:26+08:00",
       "summary": "中国联通2027届校园招聘 中国联通",
       "source_query": "",
       "parent_company": "中国联合网络通信集团",
@@ -136,7 +136,7 @@
       "recruitment_type": "秋招",
       "published_at": "2026-07-30",
       "first_seen_at": "2026-08-27T21:26:32+08:00",
-      "updated_at": "2026-08-27T16:32:30+00:00",
+      "updated_at": "2026-08-30T00:21:35+08:00",
       "source_channel": "企业官网",
       "source_url": "https://www.aecc.cn/aecc/gggs/2026073017062513709/index.html",
       "official_url": "https://www.aecc.cn/aecc/gggs/2026073017062513709/index.html",

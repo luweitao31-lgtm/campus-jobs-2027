@@ -10,7 +10,7 @@ from .search import SearchError
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="2027届央国企与外企官方校园招聘聚合程序")
+    parser = argparse.ArgumentParser(description="2027届各类企业官方校园招聘聚合程序")
     parser.add_argument("--config", default="config.yaml", help="YAML 配置文件路径")
     parser.add_argument("--verbose", action="store_true", help="输出调试日志")
     commands = parser.add_subparsers(dest="command", required=True)
