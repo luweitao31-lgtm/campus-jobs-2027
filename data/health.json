@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-08-28T06:22:50+00:00",
+  "updated_at": "2026-08-29T00:10:23+00:00",
   "companies": 163,
   "source_attempts": 170,
-  "source_successes": 118,
-  "accepted": 7,
+  "source_successes": 116,
+  "accepted": 6,
   "added": 0,
-  "updated": 7,
-  "lead_count": 59,
+  "updated": 6,
+  "lead_count": 53,
   "failed_sources": [
     "https://career.abchina.com/",
     "https://career.bayer.com/",
@@ -16,7 +16,6 @@
     "https://careers.loreal.com/",
     "https://careers.micron.com/",
     "https://global.toyota/en/company/profile/recruitment/",
-    "https://job.10086.cn/",
     "https://job.bankcomm.com/",
     "https://job.ccb.com/",
     "https://job.icbc.com.cn/",
@@ -30,7 +29,9 @@
     "https://www.chinasalt.com.cn/",
     "https://www.chinatelecom.com.cn/",
     "https://www.chinaunicom.com.cn/",
+    "https://www.chinaunicom.com.cn/46/menu01/528/column06",
     "https://www.chng.com.cn/",
+    "https://www.cict.com/",
     "https://www.cnadc.com.cn/",
     "https://www.cnnc.com.cn/",
     "https://www.cnpc.com.cn/",
@@ -53,6 +54,7 @@
     "https://www.norincogroup.com.cn/",
     "https://www.panasonic.com/global/corporate/careers.html",
     "https://www.picc.com/rczp/",
+    "https://www.pipechina.com.cn/",
     "https://www.pwc.com/gx/en/careers.html",
     "https://www.sap.com/about/careers.html",
     "https://www.sgcc.com.cn/",
@@ -61,5 +63,5 @@
     "https://www.tesla.com/careers",
     "https://www.volkswagen-group.com/en/careers-16027"
   ],
-  "success_ratio": 0.6941
+  "success_ratio": 0.6824
 }
