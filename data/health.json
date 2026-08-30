@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-08-29T16:27:27+00:00",
+  "updated_at": "2026-08-30T00:11:21+00:00",
   "companies": 250,
   "source_attempts": 257,
-  "source_successes": 177,
+  "source_successes": 180,
   "accepted": 6,
   "added": 0,
   "updated": 6,
-  "lead_count": 60,
+  "lead_count": 61,
   "failed_sources": [
     "https://campus.voyah.com/",
     "https://campushire.hikvision.com/",
@@ -26,14 +26,12 @@
     "https://global.toyota/en/company/profile/recruitment/",
     "https://hr.sangfor.com.cn/",
     "https://hr.sany.com.cn/",
-    "https://job.10086.cn/",
     "https://job.bankcomm.com/",
     "https://job.ccb.com/",
     "https://job.gwm.cn/",
     "https://job.icbc.com.cn/",
     "https://jobs.wanmei.com/",
     "https://www.3m.com/3M/en_US/careers-us/",
-    "https://www.cam.com.cn/",
     "https://www.casic.com.cn/",
     "https://www.ccccltd.cn/",
     "https://www.ccteg.cn/",
@@ -86,8 +84,7 @@
     "https://www.topsec.com.cn/",
     "https://www.uniqlo.com/",
     "https://www.volkswagen-group.com/en/careers-16027",
-    "https://www.wumart.com/",
-    "https://www.yto.net.cn/"
+    "https://www.wumart.com/"
   ],
-  "success_ratio": 0.6887
+  "success_ratio": 0.7004
 }
