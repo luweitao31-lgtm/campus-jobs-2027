@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-08-30T00:11:21+00:00",
+  "updated_at": "2026-08-31T00:12:20+00:00",
   "companies": 250,
   "source_attempts": 257,
-  "source_successes": 180,
+  "source_successes": 179,
   "accepted": 6,
   "added": 0,
   "updated": 6,
@@ -26,6 +26,7 @@
     "https://global.toyota/en/company/profile/recruitment/",
     "https://hr.sangfor.com.cn/",
     "https://hr.sany.com.cn/",
+    "https://job.10086.cn/",
     "https://job.bankcomm.com/",
     "https://job.ccb.com/",
     "https://job.gwm.cn/",
@@ -44,7 +45,6 @@
     "https://www.chinaunicom.com.cn/",
     "https://www.chinaunicom.com.cn/46/menu01/528/column06",
     "https://www.chng.com.cn/",
-    "https://www.cict.com/",
     "https://www.cnadc.com.cn/",
     "https://www.cnnc.com.cn/",
     "https://www.cnpc.com.cn/",
@@ -73,6 +73,7 @@
     "https://www.panasonic.com/global/corporate/careers.html",
     "https://www.pangdonglai.com/",
     "https://www.picc.com/rczp/",
+    "https://www.pipechina.com.cn/",
     "https://www.pwc.com/gx/en/careers.html",
     "https://www.sap.com/about/careers.html",
     "https://www.sgcc.com.cn/",
@@ -86,5 +87,5 @@
     "https://www.volkswagen-group.com/en/careers-16027",
     "https://www.wumart.com/"
   ],
-  "success_ratio": 0.7004
+  "success_ratio": 0.6965
 }
