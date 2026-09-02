@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-01T00:24:32+00:00",
+  "updated_at": "2026-09-02T00:24:28+00:00",
   "companies": 250,
   "source_attempts": 257,
-  "source_successes": 183,
+  "source_successes": 181,
   "accepted": 8,
-  "added": 1,
-  "updated": 7,
-  "lead_count": 67,
+  "added": 0,
+  "updated": 8,
+  "lead_count": 55,
   "failed_sources": [
     "https://campus.voyah.com/",
     "https://campushire.hikvision.com/",
@@ -38,9 +38,11 @@
     "https://www.cdb.com.cn/gykh/rczp/",
     "https://www.cfhi.com/",
     "https://www.china-an.cn/",
+    "https://www.chinacoal.com/",
     "https://www.chinalogisticsgroup.com.cn/",
     "https://www.chinasalt.com.cn/",
     "https://www.chinatelecom.com.cn/",
+    "https://www.chinaunicom.com.cn/",
     "https://www.chng.com.cn/",
     "https://www.cnadc.com.cn/",
     "https://www.cnnc.com.cn/",
@@ -83,5 +85,5 @@
     "https://www.volkswagen-group.com/en/careers-16027",
     "https://www.wumart.com/"
   ],
-  "success_ratio": 0.7121
+  "success_ratio": 0.7043
 }
