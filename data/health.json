@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-09-02T00:24:28+00:00",
+  "updated_at": "2026-09-03T00:25:52+00:00",
   "companies": 250,
   "source_attempts": 257,
-  "source_successes": 181,
+  "source_successes": 178,
   "accepted": 8,
   "added": 0,
   "updated": 8,
@@ -20,12 +20,14 @@
     "https://careers.lamresearch.com/",
     "https://careers.loreal.com/",
     "https://careers.micron.com/",
+    "https://careers.nike.com/",
     "https://careers.popmart.com/",
     "https://careers.sensetime.com/",
     "https://careers.yumchina.com/",
     "https://global.toyota/en/company/profile/recruitment/",
     "https://hr.sangfor.com.cn/",
     "https://hr.sany.com.cn/",
+    "https://job.10086.cn/",
     "https://job.bankcomm.com/",
     "https://job.ccb.com/",
     "https://job.gwm.cn/",
@@ -39,7 +41,6 @@
     "https://www.cfhi.com/",
     "https://www.china-an.cn/",
     "https://www.chinacoal.com/",
-    "https://www.chinalogisticsgroup.com.cn/",
     "https://www.chinasalt.com.cn/",
     "https://www.chinatelecom.com.cn/",
     "https://www.chinaunicom.com.cn/",
@@ -72,6 +73,7 @@
     "https://www.panasonic.com/global/corporate/careers.html",
     "https://www.pangdonglai.com/",
     "https://www.picc.com/rczp/",
+    "https://www.pipechina.com.cn/",
     "https://www.pwc.com/gx/en/careers.html",
     "https://www.sap.com/about/careers.html",
     "https://www.sgcc.com.cn/",
@@ -83,7 +85,8 @@
     "https://www.topsec.com.cn/",
     "https://www.uniqlo.com/",
     "https://www.volkswagen-group.com/en/careers-16027",
-    "https://www.wumart.com/"
+    "https://www.wumart.com/",
+    "https://www.yto.net.cn/"
   ],
-  "success_ratio": 0.7043
+  "success_ratio": 0.6926
 }
