@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
   "sources": [
+    { "id": "src-cmb-nanning-2027", "url": "https://career.uibe.edu.cn/front/zpxx.jspa?tid=2095787535300083713", "expected": ["招商银行南宁分行", "2027"] },
+    { "id": "src-chinatelecom-2027", "url": "https://job.chinatelecom.com.cn/wt/TELE/web/index?_refluxos=a10", "expected": ["中国电信", "2027届"] },
     { "id": "src-guopin", "url": "https://job.iguopin.com/jobList?channel=campus", "expected": ["校园招聘", "国聘"] },
     { "id": "src-public-jobs", "url": "https://job.mohrss.gov.cn/cjobs/jobfairinfo/listJobfairinfoschool", "expected": ["高校毕业生", "招聘会"] },
     { "id": "src-chn", "url": "https://zhaopin.chnenergy.com.cn/", "expected": ["招聘", "国家能源"] },

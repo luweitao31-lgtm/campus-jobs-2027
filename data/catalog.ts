@@ -1,6 +1,8 @@
 import type { AwardEntry, Company, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
 
 export const companies: Company[] = [
+  { id: 'cmb-nanning', name: '招商银行股份有限公司南宁分行', shortName: '招商银行南宁分行', nature: '股份制银行', locations: ['广西南宁', '广西柳州'], channels: [{ id: 'cmb-career', label: '招商银行招聘', type: '企业官网', url: 'https://career.cmbchina.com/' }] },
+  { id: 'chinatelecom-gx', name: '中国电信股份有限公司广西分公司', shortName: '广西电信', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'chinatelecom-career', label: '中国电信招聘', type: '集团招聘平台', url: 'https://job.chinatelecom.com.cn/wt/TELE/web/index?_refluxos=a10' }] },
   { id: 'cmcc-gx', name: '中国移动通信集团广西有限公司', shortName: '广西移动', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'cmcc-career', label: '中国移动招聘', type: '集团招聘平台', url: 'https://job.10086.cn/' }] },
   { id: 'caih', name: '中国—东盟信息港股份有限公司', shortName: '中国东信', nature: '国有控股', locations: ['广西南宁', '北京', '深圳'], channels: [{ id: 'caih-home', label: '企业官网', type: '企业官网', url: 'https://www.caih.com/' }] },
   { id: 'gig', name: '广西投资集团有限公司', shortName: '广投集团', nature: '广西区属国企', locations: ['广西南宁', '广西全区'], channels: [{ id: 'gig-career', label: '集团招聘入口', type: '企业官网', url: 'https://www.gig.cn/' }] },
@@ -15,6 +17,9 @@ export const companies: Company[] = [
 ];
 
 export const sources: SourceEvidence[] = [
+  { id: 'src-cmb-nanning-2027', title: '招商银行南宁分行2027秋季校园招聘公告', publisher: '对外经济贸易大学招生就业处', url: 'https://career.uibe.edu.cn/front/zpxx.jspa?tid=2095787535300083713', sourceType: '高校就业网', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-cmb-nanning-2027-second', title: '招商银行南宁分行2027秋季校园招聘公告', publisher: '高校就业服务平台', url: 'https://jvcit.bysjy.com.cn/detail/online?id=3594908', sourceType: '高校就业网', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-chinatelecom-2027', title: '中国电信2027校园招聘', publisher: '中国电信', url: 'https://job.chinatelecom.com.cn/wt/TELE/web/index?_refluxos=a10', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-cmcc-2027', title: '中国移动广西公司2027年暑期实习生培养项目', publisher: '高校就业网', url: 'https://career.hebut.edu.cn/home/correcruit/content/id/78734.html', sourceType: '高校就业网', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-caih-2027', title: '中国东信2027届校园招聘公告', publisher: '高校就业网', url: 'https://career.nankai.edu.cn/correcruit/content/id/117231.html', sourceType: '高校就业网', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-gig-2027', title: '广西投资集团2027届秋季校园招聘项目', publisher: '广西投资集团电子采购平台', url: 'https://www.gigeps.com/cms/channel/xmgg4fw/85392.htm', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '正常' },
@@ -25,6 +30,8 @@ export const sources: SourceEvidence[] = [
 ];
 
 export const recruitmentRecords: RecruitmentRecord[] = [
+  { id: 'rec-cmb-nanning', companyId: 'cmb-nanning', cohort: 2027, status: '开放中', locations: ['广西南宁', '广西柳州'], sourceIds: ['src-cmb-nanning-2027', 'src-cmb-nanning-2027-second'], firstSeenAt: '2026-09-03', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
+  { id: 'rec-chinatelecom-gx', companyId: 'chinatelecom-gx', cohort: 2027, status: '开放中', locations: ['广西南宁', '广西全区'], sourceIds: ['src-chinatelecom-2027'], firstSeenAt: '2026-09-02', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
   { id: 'rec-cmcc-gx', companyId: 'cmcc-gx', cohort: 2027, status: '开放中', locations: ['广西南宁', '广西全区'], sourceIds: ['src-cmcc-2027'], firstSeenAt: '2026-06-01', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
   { id: 'rec-caih', companyId: 'caih', cohort: 2027, status: '开放中', locations: ['广西南宁', '北京', '深圳'], sourceIds: ['src-caih-2027'], firstSeenAt: '2026-09-02', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
   { id: 'rec-gig', companyId: 'gig', cohort: 2027, status: '待确认', locations: ['广西南宁', '广西全区'], sourceIds: ['src-gig-2027'], firstSeenAt: '2026-08-31', lastVerifiedAt: '2026-09-07', confidence: '待确认' },
@@ -40,6 +47,7 @@ export const ownershipTrees: OwnershipNode[] = [
 ];
 
 export const awards: AwardEntry[] = [
+  { id: 'award-cmb-nanning-2025', companyId: 'cmb-nanning', year: 2025, listName: '中国年度最佳雇主', awardTier: '南宁城市最佳雇主', nanningBasis: '招商银行南宁分行获2025年度南宁城市最佳雇主', sourceUrl: 'https://career.uibe.edu.cn/front/zpxx.jspa?tid=2095787535300083713' },
   { id: 'award-beibu-2021', companyId: 'beibu-air', year: 2021, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主 TOP10', nanningBasis: '主运营基地位于南宁吴圩国际机场', sourceUrl: 'https://v.gxnews.com.cn/a/20617877' },
   { id: 'award-xiaomi-2022', companyId: 'xiaomi', year: 2022, listName: '福布斯中国最佳雇主', awardTier: '中国年度最佳雇主', nanningBasis: '全国招聘渠道覆盖南宁', sourceUrl: 'https://www.thepaper.cn/newsDetail_forward_18964233' },
   { id: 'award-caih-2023', companyId: 'caih', year: 2023, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主', nanningBasis: '总部及主要招聘地点位于南宁', sourceUrl: 'https://www.caih.com/newsView.html?id=6435' },
@@ -48,4 +56,4 @@ export const awards: AwardEntry[] = [
   { id: 'award-yili-2025', companyId: 'yili', year: 2025, listName: '福布斯中国最佳雇主', awardTier: '中国年度最受员工欢迎雇主', nanningBasis: '全国校园招聘渠道覆盖南宁', sourceUrl: 'https://www.forbeschina.com/business/70329' },
 ];
 
-export const latestSync: SyncRun = { completedAt: '2026-09-07T08:00:00+08:00', sourceCount: sources.length, anomalyCount: sources.filter((source) => source.health !== '正常').length, changedRecords: 3, status: '部分成功' };
+export const latestSync: SyncRun = { completedAt: '2026-09-07T09:00:00+08:00', sourceCount: sources.length, anomalyCount: sources.filter((source) => source.health !== '正常').length, changedRecords: 3, status: '部分成功' };

@@ -1,4 +1,4 @@
-export type CompanyNature = '中央企业' | '央企子公司' | '广西区属国企' | '南宁市属国企' | '国有控股' | '外企' | '民营企业';
+export type CompanyNature = '中央企业' | '央企子公司' | '广西区属国企' | '南宁市属国企' | '国有控股' | '股份制银行' | '外企' | '民营企业';
 export type RecruitmentStatus = '开放中' | '待确认' | '已结束';
 export type ChannelType = '企业官网' | '国聘' | '集团招聘平台' | '公众号';
 

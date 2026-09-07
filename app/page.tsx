@@ -137,7 +137,7 @@ function RecruitmentPanel(props: {
       <div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索企业" className="h-10 pl-9" placeholder="搜索企业名称" value={query} onChange={(e) => setQuery(e.target.value)} /></div>
       <FilterSelect label="地点筛选" value={location} setValue={setLocation} options={['广西南宁', '全国', '全部地区']} />
       <FilterSelect label="招聘状态" value={status} setValue={setStatus} options={['全部状态', '开放中', '待确认', '已结束']} />
-      <FilterSelect label="企业性质" value={nature} setValue={setNature} options={['全部性质', '中央企业', '央企子公司', '广西区属国企', '国有控股', '民营企业']} />
+      <FilterSelect label="企业性质" value={nature} setValue={setNature} options={['全部性质', '中央企业', '央企子公司', '广西区属国企', '国有控股', '股份制银行', '民营企业']} />
       <FilterSelect label="信息来源" value={sourceType} setValue={setSourceType} options={['全部来源', '企业官网', '集团招聘平台', '国聘']} />
     </CardContent></Card>
     <div className="mb-3 text-xs text-slate-500">找到 <strong className="text-slate-800">{rows.length}</strong> 家企业</div>
