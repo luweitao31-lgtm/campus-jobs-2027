@@ -1,5 +1,5 @@
-import { awards, companies, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
-import { treeDepth, validateOwnershipTree } from '../lib/collector.ts';
+import { awards, companies, ownershipCoverageSets, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
+import { treeDepth, validateOwnershipCoverage, validateOwnershipTree } from '../lib/collector.ts';
 
 const errors: string[] = [];
 const companyIds = new Set(companies.map((company) => company.id));
@@ -19,6 +19,7 @@ for (const root of ownershipTrees) {
   errors.push(...validateOwnershipTree(root));
   if (treeDepth(root) < 4) errors.push(`${root.name} 未达到监管主体加三级企业的深度`);
 }
+errors.push(...validateOwnershipCoverage(ownershipTrees, ownershipCoverageSets));
 for (const award of awards) {
   if (!companyIds.has(award.companyId)) errors.push(`${award.id} 引用了未知企业`);
   if (!award.nanningBasis || !award.sourceUrl) errors.push(`${award.id} 缺少南宁依据或榜单来源`);

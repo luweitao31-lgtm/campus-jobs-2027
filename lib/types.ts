@@ -44,10 +44,29 @@ export interface OwnershipNode {
   id: string;
   name: string;
   category: string;
+  level: 0 | 1 | 2 | 3;
+  entityKind: '监管机构' | '集团' | '控股企业' | '产业平台' | '分支机构';
+  locationTags: string[];
+  controlType: '履行出资人职责' | '全资' | '控股' | '产业管理' | '分支管理';
+  ownershipPercent?: number;
+  verifiedAt: string;
+  verificationStatus: '已核验' | '待确认';
+  coverageSetId?: string;
   relation?: string;
   sourceUrl: string;
   recruitmentUrl?: string;
   children?: OwnershipNode[];
+}
+
+export interface OwnershipCoverageSet {
+  id: string;
+  parentId: string;
+  label: string;
+  scope: string;
+  asOf: string;
+  disclosedTotal: number;
+  expectedNodeIds: string[];
+  sourceUrls: string[];
 }
 
 export interface AwardEntry {

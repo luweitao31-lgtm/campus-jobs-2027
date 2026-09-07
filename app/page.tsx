@@ -6,7 +6,7 @@ import {
   ExternalLink, FileCheck2, MapPin, Network, RefreshCw, Search, ShieldCheck,
   Trophy,
 } from 'lucide-react';
-import { awards, companies, latestSync, ownershipTrees, recruitmentRecords, sources } from '@/data/catalog';
+import { awards, companies, latestSync, ownershipCoverageSets, ownershipTrees, recruitmentRecords, sources } from '@/data/catalog';
 import type { Company, OwnershipNode, RecruitmentRecord } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -161,21 +161,30 @@ function RecruitmentCard({ item }: { item: RecruitmentView }) {
 
 function OwnershipPanel() {
   const [query, setQuery] = useState('');
-  return <section aria-labelledby="ownership-title"><PanelHeading id="ownership-title" eyebrow="公开控股关系" title="央国企资金跟踪链" description="沿实际控制关系展开，树上每个主体均附证据来源，招聘入口随节点展示。" />
-    <div className="mb-4 relative max-w-lg"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索资金链企业" className="h-10 bg-white pl-9" placeholder="搜索集团、子公司或驻邕主体" value={query} onChange={(e) => setQuery(e.target.value)} /></div>
-    <div className="grid gap-4 xl:grid-cols-[1fr_320px]"><Card className="border-0 bg-white ring-1 ring-slate-200/80"><CardHeader><CardTitle>南宁国资主体关系图</CardTitle><CardDescription>当前首批展示 2 条已核验至三级的控制链</CardDescription></CardHeader><CardContent className="space-y-3">{ownershipTrees.filter((root) => treeMatches(root, query)).map((root) => <TreeNode key={root.id} node={root} depth={0} />)}</CardContent></Card>
-      <Card className="h-fit border-0 bg-slate-950 text-white ring-0"><CardHeader><CardTitle>覆盖进度</CardTitle><CardDescription className="text-slate-400">从可信关系链起步，持续扩充，不宣称穷举。</CardDescription></CardHeader><CardContent className="space-y-5"><ProgressLine label="自治区监管链" value="1 条" percent="42%" /><ProgressLine label="中央企业驻邕链" value="1 条" percent="28%" /><ProgressLine label="三级节点招聘入口" value="4 个" percent="57%" /></CardContent></Card>
+  const [locationFilter, setLocationFilter] = useState('广西全部');
+  const [verificationFilter, setVerificationFilter] = useState('全部状态');
+  const allNodes = useMemo(() => flattenTree(ownershipTrees), []);
+  const verifiedL2 = allNodes.filter((node) => node.level === 2 && node.verificationStatus === '已核验').length;
+  const pendingL2 = allNodes.filter((node) => node.level === 2 && node.verificationStatus === '待确认').length;
+  const disclosedTotal = ownershipCoverageSets.reduce((sum, set) => sum + set.disclosedTotal, 0);
+  const asOf = ownershipCoverageSets.map((set) => set.asOf).sort().at(-1) ?? '—';
+  const filteredTrees = useMemo(() => ownershipTrees.map((root) => filterOwnershipTree(root, query, locationFilter, verificationFilter)).filter((root): root is OwnershipNode => Boolean(root)), [locationFilter, query, verificationFilter]);
+  return <section aria-labelledby="ownership-title"><PanelHeading id="ownership-title" eyebrow="公开控股关系 · 广西口径" title="央国企资金跟踪链" description="二级主体已按公开披露完整核验，三级控制链持续补充；分支机构单独标识，不作为子公司统计。" />
+    <div className="mb-4 grid gap-3 lg:grid-cols-[minmax(260px,1fr)_180px_160px]"><div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索资金链企业" className="h-10 bg-white pl-9" placeholder="搜索集团、子公司或驻邕主体" value={query} onChange={(e) => setQuery(e.target.value)} /></div><FilterSelect label="所在地" value={locationFilter} setValue={setLocationFilter} options={['广西全部', '广西南宁', '全国/跨区域']} /><FilterSelect label="核验状态" value={verificationFilter} setValue={setVerificationFilter} options={['全部状态', '已核验', '待确认']} /></div>
+    <div className="mb-4 grid grid-cols-2 gap-2 md:grid-cols-4"><Metric value={String(disclosedTotal)} label="披露二级主体" /><Metric value={String(verifiedL2)} label="已核验" /><Metric value={String(pendingL2)} label="待确认" warning /><Metric value={asOf} label="数据截至" /></div>
+    <div className="grid gap-4 xl:grid-cols-[1fr_340px]"><Card className="border-0 bg-white ring-1 ring-slate-200/80"><CardHeader><CardTitle>广西央国企控制关系</CardTitle><CardDescription>二级列表默认可见，展开二级节点可查看已核验的三级主体</CardDescription></CardHeader><CardContent className="space-y-3">{filteredTrees.length ? filteredTrees.map((root) => <TreeNode key={root.id} node={root} depth={0} />) : <EmptyState />}</CardContent></Card>
+      <Card className="h-fit border-0 bg-slate-950 text-white ring-0"><CardHeader><CardTitle>二级覆盖进度</CardTitle><CardDescription className="text-slate-400">完整性以当前可获得的官方公开披露为边界。</CardDescription></CardHeader><CardContent className="space-y-5">{ownershipCoverageSets.map((set) => { const verified = allNodes.filter((node) => node.coverageSetId === set.id && node.verificationStatus === '已核验').length; const percent = set.disclosedTotal ? `${Math.round((verified / set.disclosedTotal) * 100)}%` : '0%'; return <ProgressLine key={set.id} label={set.label} value={`${verified}/${set.disclosedTotal}`} percent={percent} />; })}<p className="text-xs leading-5 text-slate-400">口径：{ownershipCoverageSets.map((set) => set.scope).join('；')}。未公开的内部结构不计入完整率。</p></CardContent></Card>
     </div>
   </section>;
 }
 
 function TreeNode({ node, depth }: { node: OwnershipNode; depth: number }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(node.level < 2);
   const hasChildren = Boolean(node.children?.length);
   return <Collapsible open={open} onOpenChange={setOpen} className={depth ? 'ml-5 border-l-2 border-cyan-100 pl-4' : ''}>
     <div className="mb-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
-      {hasChildren ? <CollapsibleTrigger className="flex size-8 shrink-0 items-center justify-center rounded-lg text-slate-500 hover:bg-white" aria-label={open ? '收起子公司' : '展开子公司'}>{open ? <ChevronDown className="size-4" /> : <ChevronRight className="size-4" />}</CollapsibleTrigger> : <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-xs font-semibold text-cyan-700">L{depth}</span>}
-      <div className="min-w-0 flex-1"><strong className="block text-sm text-slate-950">{node.name}</strong><span className="mt-0.5 block text-xs text-slate-500">{node.category}{node.relation ? ` · ${node.relation}` : ''}</span></div>
+      {hasChildren ? <CollapsibleTrigger className="flex size-8 shrink-0 items-center justify-center rounded-lg text-slate-500 hover:bg-white" aria-label={open ? '收起下级主体' : '展开下级主体'}>{open ? <ChevronDown className="size-4" /> : <ChevronRight className="size-4" />}</CollapsibleTrigger> : <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-xs font-semibold text-cyan-700">L{node.level}</span>}
+      <div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-1.5"><strong className="text-sm text-slate-950">{node.name}</strong><Badge variant="outline">L{node.level}</Badge>{node.locationTags.includes('广西南宁') && <Badge className="border-0 bg-cyan-50 text-cyan-800">南宁</Badge>}{node.entityKind === '分支机构' && <Badge className="border-0 bg-amber-50 text-amber-800">分支/机构</Badge>}{node.verificationStatus === '待确认' && <Badge className="border-0 bg-amber-50 text-amber-800">待确认</Badge>}</div><span className="mt-1 block text-xs leading-5 text-slate-500">{node.category} · {node.controlType}{node.ownershipPercent !== undefined ? ` ${node.ownershipPercent}%` : ''}{node.relation ? ` · ${node.relation}` : ''}</span><span className="block text-xs text-slate-400">{node.locationTags.join(' · ')} · 核验 {node.verifiedAt}</span></div>
       <div className="flex shrink-0 items-center gap-1"><Button nativeButton={false} size="icon-sm" variant="ghost" render={<a href={node.sourceUrl} target="_blank" rel="noreferrer" aria-label={`查看${node.name}关系来源`} />}><FileCheck2 className="size-4" /></Button>{node.recruitmentUrl && <Button nativeButton={false} size="sm" variant="outline" render={<a href={node.recruitmentUrl} target="_blank" rel="noreferrer" />}>投递<ExternalLink className="size-3.5" /></Button>}</div>
     </div>
     {hasChildren && <CollapsibleContent className="space-y-2">{node.children?.map((child) => <TreeNode key={child.id} node={child} depth={depth + 1} />)}</CollapsibleContent>}
@@ -197,4 +206,12 @@ function PanelHeading({ id, eyebrow, title, description }: { id: string; eyebrow
 function Metric({ value, label, warning = false }: { value: string; label: string; warning?: boolean }) { return <div className="min-w-20 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm"><strong className={warning ? 'text-lg text-amber-600' : 'text-lg text-slate-950'}>{value}</strong><span className="ml-1.5 text-xs text-slate-500">{label}</span></div>; }
 function ProgressLine({ label, value, percent }: { label: string; value: string; percent: string }) { return <div><div className="mb-2 flex justify-between text-xs"><span className="text-slate-300">{label}</span><span className="font-medium text-white">{value}</span></div><div className="h-1.5 rounded-full bg-white/10"><div className="h-full rounded-full bg-cyan-300" style={{ width: percent }} /></div></div>; }
 function EmptyState() { return <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center"><CalendarDays className="mx-auto mb-3 size-7 text-slate-400" /><p className="font-medium text-slate-800">没有符合条件的企业</p><p className="mt-1 text-sm text-slate-500">换一个筛选条件后再试。</p></div>; }
-function treeMatches(node: OwnershipNode, query: string): boolean { return !query.trim() || node.name.toLowerCase().includes(query.trim().toLowerCase()) || Boolean(node.children?.some((child) => treeMatches(child, query))); }
+function flattenTree(nodes: OwnershipNode[]): OwnershipNode[] { return nodes.flatMap((node) => [node, ...flattenTree(node.children ?? [])]); }
+function filterOwnershipTree(node: OwnershipNode, query: string, location: string, verification: string): OwnershipNode | null {
+  const normalizedQuery = query.trim().toLowerCase();
+  const matchesQuery = !normalizedQuery || `${node.name}${node.category}${node.relation ?? ''}`.toLowerCase().includes(normalizedQuery);
+  const matchesLocation = location === '广西全部' || (location === '广西南宁' ? node.locationTags.includes('广西南宁') : node.locationTags.includes('全国'));
+  const matchesVerification = verification === '全部状态' || node.verificationStatus === verification;
+  const children = (node.children ?? []).map((child) => filterOwnershipTree(child, query, location, verification)).filter((child): child is OwnershipNode => Boolean(child));
+  return (matchesQuery && matchesLocation && matchesVerification) || children.length ? { ...node, children } : null;
+}

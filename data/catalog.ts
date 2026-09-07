@@ -1,4 +1,4 @@
-import type { AwardEntry, Company, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
+import type { AwardEntry, Company, OwnershipCoverageSet, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
 
 export const companies: Company[] = [
   { id: 'cmb-nanning', name: '招商银行股份有限公司南宁分行', shortName: '招商银行南宁分行', nature: '股份制银行', locations: ['广西南宁', '广西柳州'], channels: [{ id: 'cmb-career', label: '招商银行招聘', type: '企业官网', url: 'https://career.cmbchina.com/' }] },
@@ -45,9 +45,74 @@ export const recruitmentRecords: RecruitmentRecord[] = [
   { id: 'rec-csg', companyId: 'csg-gx', cohort: 2027, status: '待确认', locations: ['广西南宁', '广西全区'], sourceIds: ['src-csg'], firstSeenAt: '2026-07-01', lastVerifiedAt: '2026-09-07', confidence: '待确认' },
 ];
 
+const gigBusinessSource = 'https://www.gig.cn/portal/secDetail?index=0&type=business_detail';
+const gigRecruitment = 'https://www.gigeps.com/cms/channel/xmgg4fw/85392.htm';
+const chnRecruitment = 'https://zhaopin.chnenergy.com.cn/';
+const chnGuangxiSource = 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2';
+
+export const ownershipCoverageSets: OwnershipCoverageSet[] = [
+  {
+    id: 'coverage-gig-guangxi-l2', parentId: 'gig-tree', label: '广投集团广西二级主体', scope: '广西注册、运营或承担广西产业管理职能的二级主体',
+    asOf: '2026-09-08', disclosedTotal: 12,
+    expectedNodeIds: ['gx-energy', 'gx-aluminum', 'gx-new-material', 'gx-pharma', 'digital-gx', 'gx-salt', 'gx-water-design', 'gx-financial-investment', 'gx-capital-management', 'gx-supply-chain', 'gx-invest-consulting', 'gx-smart-services'],
+    sourceUrls: [gigBusinessSource, 'https://www.gig.cn/portal/secDetail?index=0&type=public_information'],
+  },
+  {
+    id: 'coverage-chn-guangxi-l2', parentId: 'chn-root', label: '国家能源集团广西落地二级平台', scope: '在广西拥有控股主体或公开运营机构的集团二级平台',
+    asOf: '2026-09-08', disclosedTotal: 3,
+    expectedNodeIds: ['chn-gx', 'chn-longyuan', 'chn-sales'],
+    sourceUrls: ['https://zhaopin.chnenergy.com.cn/planSerch?kinds=2', 'https://www.chnenergy.com.cn/'],
+  },
+];
+
 export const ownershipTrees: OwnershipNode[] = [
-  { id: 'gx-sasac', name: '广西壮族自治区国资委', category: '履行出资人职责机构', sourceUrl: 'https://gzw.gxzf.gov.cn/', children: [{ id: 'gig-tree', name: '广西投资集团有限公司', category: '一级监管企业', relation: '自治区国资委履行出资人职责', sourceUrl: 'https://www.gig.cn/portal/secDetail?index=1&type=gt_detail', recruitmentUrl: 'https://www.gig.cn/', children: [{ id: 'gx-energy', name: '广西能源集团有限公司', category: '二级控股企业', relation: '广投集团能源产业平台', sourceUrl: 'https://www.gig.cn/portal/secDetail?index=0&type=business_detail', children: [{ id: 'gx-energy-listed', name: '广西能源股份有限公司', category: '三级控股企业', relation: '广西能源集团控股上市公司', sourceUrl: 'https://www.gig.cn/portal/secDetail?index=0&type=business_detail' }, { id: 'gx-gas-pipe', name: '广西广投天然气管网有限公司', category: '三级控股企业', relation: '广西能源集团子企业', sourceUrl: 'https://www.gig.cn/material/custom/journal.do?id=1053757' }] }] }] },
-  { id: 'sasac-state', name: '国务院国资委', category: '履行出资人职责机构', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/', children: [{ id: 'chn-root', name: '国家能源投资集团有限责任公司', category: '一级中央企业', relation: '国务院国资委监管', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/', recruitmentUrl: 'https://zhaopin.chnenergy.com.cn/', children: [{ id: 'chn-gx', name: '国家能源集团广西电力有限公司', category: '二级驻邕企业', relation: '国家能源集团广西区域全资子公司', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', children: [{ id: 'chn-gx-new-energy', name: '广西国能能源发展有限公司', category: '三级所属企业', relation: '广西公司所属三级单位', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', recruitmentUrl: 'https://zhaopin.chnenergy.com.cn/' }, { id: 'chn-nanning', name: '国能南宁发电有限公司', category: '三级所属企业', relation: '广西区域发电企业', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2', recruitmentUrl: 'https://zhaopin.chnenergy.com.cn/' }] }] }] },
+  {
+    id: 'gx-sasac', name: '广西壮族自治区国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://gzw.gxzf.gov.cn/',
+    children: [{
+      id: 'gig-tree', name: '广西投资集团有限公司', category: '一级监管企业', level: 1, entityKind: '集团', locationTags: ['广西南宁', '广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '自治区国资委履行出资人职责', sourceUrl: 'https://www.gig.cn/portal/secDetail?index=0&type=gt_detail', recruitmentUrl: gigRecruitment,
+      children: [
+        { id: 'gx-energy', name: '广西能源集团有限公司', category: '能源产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团能源产业管理平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment, children: [
+          { id: 'gx-energy-listed', name: '广西能源股份有限公司', category: '三级控股上市公司', level: 3, entityKind: '控股企业', locationTags: ['广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西能源集团控股上市公司', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+          { id: 'gx-gas-pipe', name: '广西广投天然气管网有限公司', category: '三级控股企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁', '广西全区'], controlType: '控股', ownershipPercent: 75.5, verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广投集团持股75.5%，由能源产业平台管理', sourceUrl: 'https://www.gig.cn/material/custom/journal.do?id=1053757', recruitmentUrl: gigRecruitment },
+        ] },
+        { id: 'gx-aluminum', name: '广西铝业集团有限公司', category: '铝业产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团铝产业专业化管理平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-new-material', name: '广西广投新材料集团有限公司', category: '新材料产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团新材料业务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-pharma', name: '广西广投医药健康产业集团有限公司', category: '医药健康产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团医药健康产业平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'digital-gx', name: '数字广西集团有限公司', category: '数字经济产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团数字经济产业平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-salt', name: '广西盐业集团有限公司', category: '食盐保供平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团食盐保供业务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-water-design', name: '广西壮族自治区水利电力勘测设计研究院有限责任公司', category: '水利电力勘测设计平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团工程咨询业务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-financial-investment', name: '广西金融投资集团有限公司', category: '综合金融服务平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团综合金融业务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-capital-management', name: '广西广投资本管理集团有限公司', category: '资本投资平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团资本管理平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-supply-chain', name: '广西广投产业链服务集团有限公司', category: '产业链服务平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团产业链服务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-invest-consulting', name: '广西投资集团咨询有限公司', category: '工程咨询平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团工程咨询业务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+        { id: 'gx-smart-services', name: '广西广投智慧服务集团有限公司', category: '智慧运营平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁', '广西全区'], controlType: '产业管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-guangxi-l2', relation: '广投集团智慧运营服务平台', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment },
+      ],
+    }],
+  },
+  {
+    id: 'sasac-state', name: '国务院国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['全国'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/',
+    children: [{
+      id: 'chn-root', name: '国家能源投资集团有限责任公司', category: '一级中央企业', level: 1, entityKind: '集团', locationTags: ['全国', '广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '国务院国资委监管', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/', recruitmentUrl: chnRecruitment,
+      children: [
+        { id: 'chn-gx', name: '国家能源集团广西电力有限公司', category: '广西区域公司', level: 2, entityKind: '控股企业', locationTags: ['广西南宁', '广西全区'], controlType: '全资', ownershipPercent: 100, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-chn-guangxi-l2', relation: '国家能源集团广西区域全资子公司', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', recruitmentUrl: chnRecruitment, children: [
+          { id: 'chn-gx-new-energy', name: '广西国能能源发展有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁', '广西全区'], controlType: '全资', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属三级单位', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', recruitmentUrl: chnRecruitment },
+          { id: 'chn-nanning', name: '国能南宁发电有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属南宁发电企业', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment },
+          { id: 'chn-beihai', name: '国能广投北海发电有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西北海'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属北海发电企业', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment },
+          { id: 'chn-liuzhou', name: '国能广投柳州发电有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西柳州'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属柳州发电企业', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment },
+          { id: 'chn-yongfu', name: '国能永福发电有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西桂林'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属桂林发电企业', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment },
+          { id: 'chn-hydropower', name: '广西国能水电开发有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '广西公司所属水电企业', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment },
+          { id: 'chn-integrated-service', name: '广西国能综合能源服务有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '招聘系统列为广西公司所属单位', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=5a798bfe-ab9c-0be4-e063-98b4d40a088a', recruitmentUrl: chnRecruitment },
+          { id: 'chn-guohua-gx', name: '国能国华（广西）新能源有限公司', category: '三级所属企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁', '广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '最新公开招聘记录列为广西公司所属单位', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=355843b2-5349-b937-e063-98b4d40acab4', recruitmentUrl: chnRecruitment },
+        ] },
+        { id: 'chn-longyuan', name: '龙源电力集团股份有限公司', category: '新能源产业平台', level: 2, entityKind: '产业平台', locationTags: ['全国', '广西南宁', '广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-chn-guangxi-l2', relation: '国家能源集团新能源产业平台，在广西设有控股主体', sourceUrl: 'https://lydl.chnenergy.com.cn/lydlww/dqbg2023A/202403/8fc47b670bf24c6aa172a3c60253cae7/files/ada1331993fc4728be3f537cbc1e9e20.pdf', recruitmentUrl: chnRecruitment, children: [
+          { id: 'chn-longyuan-gx', name: '广西龙源新能源有限公司', category: '广西三级控股企业', level: 3, entityKind: '控股企业', locationTags: ['广西南宁', '广西全区'], controlType: '全资', ownershipPercent: 100, verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '招聘系统所属单位为龙源电力', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=51304904-d45a-5296-e063-98b4d40a30d4', recruitmentUrl: chnRecruitment },
+        ] },
+        { id: 'chn-sales', name: '国能销售集团有限公司', category: '煤炭销售产业平台', level: 2, entityKind: '产业平台', locationTags: ['全国', '广西全区'], controlType: '全资', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-chn-guangxi-l2', relation: '国家能源集团煤炭销售平台，在广西设运营机构', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=b50bb8bc-d189-4eb3-a60c-d01f6f1ea8af&kinds=2', recruitmentUrl: chnRecruitment, children: [
+          { id: 'chn-sales-gx-center', name: '国能销售集团广州有限公司广西营销中心', category: '广西运营机构', level: 3, entityKind: '分支机构', locationTags: ['广西全区'], controlType: '分支管理', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '公开招聘所列广西营销中心，不作为子公司统计', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=b50bb8bc-d189-4eb3-a60c-d01f6f1ea8af&kinds=2', recruitmentUrl: chnRecruitment },
+        ] },
+      ],
+    }],
+  },
 ];
 
 export const awards: AwardEntry[] = [
