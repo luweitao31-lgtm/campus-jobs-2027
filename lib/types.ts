@@ -23,7 +23,7 @@ export interface SourceEvidence {
   title: string;
   publisher: string;
   url: string;
-  sourceType: '企业官方' | '政府平台' | '招聘平台' | '高校就业网' | '权威媒体' | '评选机构';
+  sourceType: '企业官方' | '政府平台' | '招聘平台' | '高校就业网' | '聚合平台' | '权威媒体' | '评选机构';
   lastCheckedAt: string;
   health: '正常' | '受限' | '异常';
 }

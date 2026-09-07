@@ -27,6 +27,10 @@ export const sources: SourceEvidence[] = [
   { id: 'src-csg', title: '中国南方电网员工招聘系统', publisher: '中国南方电网', url: 'https://zhaopin.csg.cn/', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '受限' },
   { id: 'src-chn', title: '国家能源集团人力资源招聘系统', publisher: '国家能源集团', url: 'https://zhaopin.chnenergy.com.cn/', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-public-jobs', title: '中国公共招聘网招聘会', publisher: '人力资源和社会保障部', url: 'https://job.mohrss.gov.cn/cjobs/jobfairinfo/listJobfairinfoschool', sourceType: '政府平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-niuqizp-nanning', title: '南宁2027届校园招聘汇总', publisher: '牛企直聘', url: 'https://campus.niuqizp.com/deadline-nanning-1/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-nowcoder-schedule', title: '2027届校招日程', publisher: '牛客', url: 'https://mnowpick.nowcoder.com/m/school/schedule', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-goclub-daily', title: '校招每日更新', publisher: 'GoClub', url: 'https://goclub.space/docs/jobs/daily-updates/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-jobup', title: '2027届秋招信息汇总', publisher: 'JOBUP', url: 'https://jobup.cn/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
 ];
 
 export const recruitmentRecords: RecruitmentRecord[] = [

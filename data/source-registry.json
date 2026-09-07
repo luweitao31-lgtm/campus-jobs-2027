@@ -1,5 +1,11 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "sourcePolicy": {
+    "aggregatorsAreDiscoveryOnly": true,
+    "publishRule": "企业官方或政府来源直接确认，或两个独立公开来源相互印证",
+    "skipLoginCaptchaAndPaywall": true
+  },
+  "excludedSources": ["Offer先生"],
   "sources": [
     { "id": "src-cmb-nanning-2027", "url": "https://career.uibe.edu.cn/front/zpxx.jspa?tid=2095787535300083713", "expected": ["招商银行南宁分行", "2027"] },
     { "id": "src-chinatelecom-2027", "url": "https://job.chinatelecom.com.cn/wt/TELE/web/index?_refluxos=a10", "expected": ["中国电信", "2027届"] },
@@ -7,6 +13,10 @@
     { "id": "src-public-jobs", "url": "https://job.mohrss.gov.cn/cjobs/jobfairinfo/listJobfairinfoschool", "expected": ["高校毕业生", "招聘会"] },
     { "id": "src-chn", "url": "https://zhaopin.chnenergy.com.cn/", "expected": ["招聘", "国家能源"] },
     { "id": "src-gig-2027", "url": "https://www.gigeps.com/cms/channel/xmgg4fw/85392.htm", "expected": ["2027届", "校园招聘"] },
-    { "id": "src-forbes-2025", "url": "https://www.forbeschina.com/business/70329", "expected": ["2025", "最佳雇主"] }
+    { "id": "src-forbes-2025", "url": "https://www.forbeschina.com/business/70329", "expected": ["2025", "最佳雇主"] },
+    { "id": "src-niuqizp-nanning", "url": "https://campus.niuqizp.com/deadline-nanning-1/", "expected": ["南宁", "2027届"], "role": "discovery" },
+    { "id": "src-nowcoder-schedule", "url": "https://mnowpick.nowcoder.com/m/school/schedule", "expected": ["校招", "2027届"], "role": "discovery" },
+    { "id": "src-goclub-daily", "url": "https://goclub.space/docs/jobs/daily-updates/", "expected": ["每日更新", "校招"], "role": "discovery" },
+    { "id": "src-jobup", "url": "https://jobup.cn/", "expected": ["校招", "2027届"], "role": "discovery" }
   ]
 }

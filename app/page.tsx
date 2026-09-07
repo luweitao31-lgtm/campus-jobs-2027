@@ -49,7 +49,12 @@ export default function Home() {
     const matchesLocation = location === '全部地区' || item.locations.includes(location) || (location === '广西南宁' && item.locations.includes('广西全区'));
     const matchesStatus = status === '全部状态' || item.status === status;
     const matchesNature = nature === '全部性质' || item.company.nature === nature;
-    const matchesSource = sourceType === '全部来源' || item.company.channels.some((channel) => channel.type === sourceType);
+    const matchesSource = sourceType === '全部来源' || item.sourceIds.some((id) => {
+      const evidence = sourceMap.get(id);
+      if (sourceType === '官方/政府') return evidence?.sourceType === '企业官方' || evidence?.sourceType === '政府平台';
+      if (sourceType === '求职平台') return evidence?.sourceType === '招聘平台';
+      return evidence?.sourceType === sourceType;
+    });
     return matchesQuery && matchesLocation && matchesStatus && matchesNature && matchesSource;
   }), [location, nature, query, sourceType, status]);
 
@@ -138,9 +143,9 @@ function RecruitmentPanel(props: {
       <FilterSelect label="地点筛选" value={location} setValue={setLocation} options={['广西南宁', '全国', '全部地区']} />
       <FilterSelect label="招聘状态" value={status} setValue={setStatus} options={['全部状态', '开放中', '待确认', '已结束']} />
       <FilterSelect label="企业性质" value={nature} setValue={setNature} options={['全部性质', '中央企业', '央企子公司', '广西区属国企', '国有控股', '股份制银行', '民营企业']} />
-      <FilterSelect label="信息来源" value={sourceType} setValue={setSourceType} options={['全部来源', '企业官网', '集团招聘平台', '国聘']} />
+      <FilterSelect label="信息来源" value={sourceType} setValue={setSourceType} options={['全部来源', '官方/政府', '求职平台', '高校就业网', '聚合平台']} />
     </CardContent></Card>
-    <div className="mb-3 text-xs text-slate-500">找到 <strong className="text-slate-800">{rows.length}</strong> 家企业</div>
+    <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>找到 <strong className="text-slate-800">{rows.length}</strong> 家企业</span><span>聚合平台仅用于发现线索，投递与开放状态以核验来源为准。</span></div>
     <div className="grid gap-3">{rows.length ? rows.map((item) => <RecruitmentCard key={item.id} item={item} />) : <EmptyState />}</div>
   </section>;
 }
