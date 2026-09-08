@@ -38,7 +38,7 @@ export const sources: SourceEvidence[] = [
   { id: 'src-ccb-gx-2027', title: '中国建设银行广西区分行2027年度校园招聘公告', publisher: '南京公务员考试网', url: 'https://www.njgwy.cn/index.php/Home/Index/recruitShow/e_id/11071/e_type/14.html', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
   { id: 'src-unicom-2027-official', title: '中国联通2027校园招聘', publisher: '中国联通招聘平台', url: 'https://zglt.zhaopin.com/home/index.html', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '正常' },
   { id: 'src-unicom-gx-2027', title: '中国联通广西分公司2027秋季校园招聘公告', publisher: '粉笔资讯', url: 'https://www.fenbi.com/page/fenxiaozhaokaodetail/29/683/468933078177792', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
-  { id: 'src-ceec-gxed-official', title: '中国能建广西院诚聘英才', publisher: '中国能建广西院', url: 'https://www.gxed.ceec.net.cn/col/col17152/index.html', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '正常' },
+  { id: 'src-ceec-gxed-official', title: '中国能建广西院诚聘英才', publisher: '中国能建广西院', url: 'https://www.gxed.ceec.net.cn/col/col17152/index.html', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '受限' },
   { id: 'src-ceec-gxed-2027', title: '中国能建广西院2027届毕业生校园招聘简章', publisher: '粉笔资讯', url: 'https://www.fenbi.com/page/exam-information-detail/468931910064130', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
 ];
 
