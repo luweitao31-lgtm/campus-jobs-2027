@@ -14,6 +14,9 @@ export const companies: Company[] = [
   { id: 'beibu-air', name: '广西北部湾航空有限责任公司', shortName: '北部湾航空', nature: '民营企业', locations: ['广西南宁'], channels: [{ id: 'hna-career', label: '海航人才招聘', type: '集团招聘平台', url: 'https://hr.hnagroup.com/' }] },
   { id: 'yili', name: '内蒙古伊利实业集团股份有限公司', shortName: '伊利集团', nature: '民营企业', locations: ['全国', '广西南宁'], channels: [{ id: 'yili-career', label: '伊利校园招聘', type: '企业官网', url: 'https://yili.zhiye.com/' }] },
   { id: 'xiaomi', name: '小米科技有限责任公司', shortName: '小米集团', nature: '民营企业', locations: ['全国', '广西南宁'], channels: [{ id: 'xiaomi-career', label: '小米招聘', type: '企业官网', url: 'https://hr.xiaomi.com/' }] },
+  { id: 'ccb-gx', name: '中国建设银行股份有限公司广西壮族自治区分行', shortName: '建设银行广西区分行', nature: '国有控股', locations: ['广西南宁', '广西全区'], channels: [{ id: 'ccb-career', label: '建设银行校园招聘', type: '企业官网', url: 'https://member1.ccb.com/cn/job/plan_index.html?planType=XY' }] },
+  { id: 'unicom-gx', name: '中国联合网络通信有限公司广西壮族自治区分公司', shortName: '广西联通', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'unicom-career', label: '中国联通校园招聘', type: '集团招聘平台', url: 'https://zglt.zhaopin.com/home/index.html' }] },
+  { id: 'ceec-gxed', name: '中国能源建设集团广西电力设计研究院有限公司', shortName: '中国能建广西院', nature: '央企子公司', locations: ['广西南宁'], channels: [{ id: 'ceec-gxed-guopin', label: '国聘投递页面', type: '国聘', url: 'https://www.iguopin.com/company?id=10685374849647460' }] },
 ];
 
 export const sources: SourceEvidence[] = [
@@ -26,11 +29,17 @@ export const sources: SourceEvidence[] = [
   { id: 'src-guopin', title: '国聘校园招聘', publisher: '国聘', url: 'https://job.iguopin.com/jobList?channel=campus', sourceType: '招聘平台', lastCheckedAt: '2026-09-07', health: '受限' },
   { id: 'src-csg', title: '中国南方电网员工招聘系统', publisher: '中国南方电网', url: 'https://zhaopin.csg.cn/', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '受限' },
   { id: 'src-chn', title: '国家能源集团人力资源招聘系统', publisher: '国家能源集团', url: 'https://zhaopin.chnenergy.com.cn/', sourceType: '企业官方', lastCheckedAt: '2026-09-07', health: '正常' },
-  { id: 'src-public-jobs', title: '中国公共招聘网招聘会', publisher: '人力资源和社会保障部', url: 'https://job.mohrss.gov.cn/cjobs/jobfairinfo/listJobfairinfoschool', sourceType: '政府平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-public-jobs', title: '中国公共招聘网招聘会', publisher: '人力资源和社会保障部', url: 'https://job.mohrss.gov.cn/cjobs/jobfairinfo/listJobfairinfoschool', sourceType: '政府平台', lastCheckedAt: '2026-09-08', health: '异常' },
   { id: 'src-niuqizp-nanning', title: '南宁2027届校园招聘汇总', publisher: '牛企直聘', url: 'https://campus.niuqizp.com/deadline-nanning-1/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-nowcoder-schedule', title: '2027届校招日程', publisher: '牛客', url: 'https://mnowpick.nowcoder.com/m/school/schedule', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-goclub-daily', title: '校招每日更新', publisher: 'GoClub', url: 'https://goclub.space/docs/jobs/daily-updates/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
   { id: 'src-jobup', title: '2027届秋招信息汇总', publisher: 'JOBUP', url: 'https://jobup.cn/', sourceType: '聚合平台', lastCheckedAt: '2026-09-07', health: '正常' },
+  { id: 'src-ccb-career', title: '中国建设银行校园招聘', publisher: '中国建设银行', url: 'https://member1.ccb.com/cn/job/plan_index.html?planType=XY', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '受限' },
+  { id: 'src-ccb-gx-2027', title: '中国建设银行广西区分行2027年度校园招聘公告', publisher: '南京公务员考试网', url: 'https://www.njgwy.cn/index.php/Home/Index/recruitShow/e_id/11071/e_type/14.html', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
+  { id: 'src-unicom-2027-official', title: '中国联通2027校园招聘', publisher: '中国联通招聘平台', url: 'https://zglt.zhaopin.com/home/index.html', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '正常' },
+  { id: 'src-unicom-gx-2027', title: '中国联通广西分公司2027秋季校园招聘公告', publisher: '粉笔资讯', url: 'https://www.fenbi.com/page/fenxiaozhaokaodetail/29/683/468933078177792', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
+  { id: 'src-ceec-gxed-official', title: '中国能建广西院诚聘英才', publisher: '中国能建广西院', url: 'https://www.gxed.ceec.net.cn/col/col17152/index.html', sourceType: '企业官方', lastCheckedAt: '2026-09-08', health: '正常' },
+  { id: 'src-ceec-gxed-2027', title: '中国能建广西院2027届毕业生校园招聘简章', publisher: '粉笔资讯', url: 'https://www.fenbi.com/page/exam-information-detail/468931910064130', sourceType: '招聘平台', lastCheckedAt: '2026-09-08', health: '正常' },
 ];
 
 export const recruitmentRecords: RecruitmentRecord[] = [
@@ -43,6 +52,9 @@ export const recruitmentRecords: RecruitmentRecord[] = [
   { id: 'rec-cam', companyId: 'cam', cohort: 2027, status: '开放中', locations: ['全国', '广西南宁'], sourceIds: ['src-guopin'], firstSeenAt: '2026-08-22', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
   { id: 'rec-chn', companyId: 'chn-energy', cohort: 2027, status: '开放中', locations: ['全国', '广西南宁'], sourceIds: ['src-chn'], firstSeenAt: '2026-08-18', lastVerifiedAt: '2026-09-07', confidence: '已核验' },
   { id: 'rec-csg', companyId: 'csg-gx', cohort: 2027, status: '待确认', locations: ['广西南宁', '广西全区'], sourceIds: ['src-csg'], firstSeenAt: '2026-07-01', lastVerifiedAt: '2026-09-07', confidence: '待确认' },
+  { id: 'rec-ccb-gx', companyId: 'ccb-gx', cohort: 2027, status: '开放中', locations: ['广西南宁', '广西全区'], sourceIds: ['src-ccb-career', 'src-ccb-gx-2027'], firstSeenAt: '2026-09-08', lastVerifiedAt: '2026-09-08', confidence: '已核验' },
+  { id: 'rec-unicom-gx', companyId: 'unicom-gx', cohort: 2027, status: '开放中', locations: ['广西南宁', '广西全区'], sourceIds: ['src-unicom-2027-official', 'src-unicom-gx-2027'], firstSeenAt: '2026-09-08', lastVerifiedAt: '2026-09-08', confidence: '已核验' },
+  { id: 'rec-ceec-gxed', companyId: 'ceec-gxed', cohort: 2027, status: '开放中', locations: ['广西南宁'], sourceIds: ['src-ceec-gxed-official', 'src-ceec-gxed-2027'], firstSeenAt: '2026-09-08', lastVerifiedAt: '2026-09-08', confidence: '已核验' },
 ];
 
 const gigBusinessSource = 'https://www.gig.cn/portal/secDetail?index=0&type=business_detail';
@@ -125,4 +137,4 @@ export const awards: AwardEntry[] = [
   { id: 'award-yili-2025', companyId: 'yili', year: 2025, listName: '福布斯中国最佳雇主', awardTier: '中国年度最受员工欢迎雇主', nanningBasis: '全国校园招聘渠道覆盖南宁', sourceUrl: 'https://www.forbeschina.com/business/70329' },
 ];
 
-export const latestSync: SyncRun = { completedAt: '2026-09-07T09:00:00+08:00', sourceCount: sources.length, anomalyCount: sources.filter((source) => source.health !== '正常').length, changedRecords: 3, status: '部分成功' };
+export const latestSync: SyncRun = { completedAt: '2026-09-08T16:26:41+08:00', sourceCount: sources.length, anomalyCount: sources.filter((source) => source.health !== '正常').length, changedRecords: 3, status: '部分成功' };

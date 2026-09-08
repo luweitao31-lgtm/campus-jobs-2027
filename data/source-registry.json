@@ -17,6 +17,12 @@
     { "id": "src-niuqizp-nanning", "url": "https://campus.niuqizp.com/deadline-nanning-1/", "expected": ["南宁", "2027届"], "role": "discovery" },
     { "id": "src-nowcoder-schedule", "url": "https://mnowpick.nowcoder.com/m/school/schedule", "expected": ["校招", "2027届"], "role": "discovery" },
     { "id": "src-goclub-daily", "url": "https://goclub.space/docs/jobs/daily-updates/", "expected": ["每日更新", "校招"], "role": "discovery" },
-    { "id": "src-jobup", "url": "https://jobup.cn/", "expected": ["校招", "2027届"], "role": "discovery" }
+    { "id": "src-jobup", "url": "https://jobup.cn/", "expected": ["校招", "2027届"], "role": "discovery" },
+    { "id": "src-ccb-career", "url": "https://member1.ccb.com/cn/job/plan_index.html?planType=XY", "expected": ["校园招聘", "中国建设银行"] },
+    { "id": "src-ccb-gx-2027", "url": "https://www.njgwy.cn/index.php/Home/Index/recruitShow/e_id/11071/e_type/14.html", "expected": ["广西壮族自治区分行", "2027年度"] },
+    { "id": "src-unicom-2027-official", "url": "https://zglt.zhaopin.com/home/index.html", "expected": ["中国联通", "2027"] },
+    { "id": "src-unicom-gx-2027", "url": "https://www.fenbi.com/page/fenxiaozhaokaodetail/29/683/468933078177792", "expected": ["广西壮族自治区分公司", "2027"] },
+    { "id": "src-ceec-gxed-official", "url": "https://www.gxed.ceec.net.cn/col/col17152/index.html", "expected": ["诚聘英才"] },
+    { "id": "src-ceec-gxed-2027", "url": "https://www.fenbi.com/page/exam-information-detail/468931910064130", "expected": ["中国能建广西院", "2027届"] }
   ]
 }
