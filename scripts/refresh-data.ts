@@ -1,7 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName } from '../lib/collector.ts';
-import type { RecruitmentLead, RecruitmentLeadStatus } from '../lib/types.ts';
+import { companies, recruitmentRecords, sources } from '../data/catalog.ts';
+import type { RecruitmentDirectoryEntry, RecruitmentLead, RecruitmentLeadStatus } from '../lib/types.ts';
 
 type RegistrySource = {
   id: string;
@@ -28,6 +29,7 @@ const registryPath = path.resolve('data/source-registry.json');
 const healthPath = path.resolve('data/source-health.json');
 const leadsPath = path.resolve('data/recruitment-leads.json');
 const syncPath = path.resolve('data/recruitment-sync.json');
+const directoryPath = path.resolve('data/recruitment-directory.json');
 const registry = JSON.parse(await readFile(registryPath, 'utf8')) as Registry;
 const completedAt = new Date().toISOString();
 
@@ -41,7 +43,7 @@ function hash(value: string): string {
 }
 
 async function parallelMap<T, R>(rows: T[], limit: number, task: (row: T) => Promise<R>): Promise<R[]> {
-  const results = new Array<R>(rows.length);
+  const results = Array.from({ length: rows.length }) as R[];
   let cursor = 0;
   const workers = Array.from({ length: Math.min(limit, rows.length) }, async () => {
     while (cursor < rows.length) {
@@ -126,7 +128,7 @@ const leads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
     companyName: candidate.companyName,
     normalizedCompanyName,
     title: candidate.title,
-    cohort: 2027,
+    cohort: 2027 as const,
     locations: candidate.locations,
     sourceIds: candidate.sourceIds,
     sourceUrls: candidate.sourceUrls,
@@ -165,14 +167,74 @@ const report = {
   warnings: targetMet ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`],
 };
 
+const companyById = new Map(companies.map((company) => [company.id, company]));
+const evidenceById = new Map(sources.map((source) => [source.id, source]));
+const sourceNameById = new Map(registry.sources.map((source) => [source.id, source.name]));
+const directory = new Map<string, RecruitmentDirectoryEntry>();
+for (const record of recruitmentRecords) {
+  const company = companyById.get(record.companyId);
+  if (!company) continue;
+  const normalizedCompanyName = normalizeCompanyName(company.name);
+  directory.set(normalizedCompanyName, {
+    id: record.id,
+    name: company.name,
+    normalizedCompanyName,
+    nature: company.nature,
+    locations: record.locations,
+    status: record.status,
+    confidence: record.confidence,
+    channel: { label: company.channels[0].label, type: company.channels[0].type, url: company.channels[0].url },
+    sourceIds: record.sourceIds,
+    sourceLabels: record.sourceIds.map((id) => evidenceById.get(id)?.publisher ?? sourceNameById.get(id) ?? id),
+    firstSeenAt: record.firstSeenAt,
+    lastVerifiedAt: record.lastVerifiedAt,
+    isFirstExpansion: false,
+  });
+}
+for (const lead of leads) {
+  if (directory.has(lead.normalizedCompanyName)) continue;
+  const sourceUrl = lead.sourceUrls[0];
+  const channelUrl = lead.channelUrl ?? sourceUrl;
+  if (!channelUrl) continue;
+  const directChannel = Boolean(lead.channelUrl);
+  directory.set(lead.normalizedCompanyName, {
+    id: lead.id,
+    name: lead.companyName,
+    normalizedCompanyName: lead.normalizedCompanyName,
+    nature: '性质待确认',
+    locations: lead.locations.length ? lead.locations : ['地点待确认'],
+    status: lead.status === '待核验' ? '待确认' : '开放中',
+    confidence: lead.status === '待核验' ? '待确认' : '已核验',
+    channel: { label: directChannel ? '招聘公告 / 投递入口' : '第三方当日汇总', type: directChannel ? '第三方公告' : '第三方汇总', url: channelUrl },
+    sourceIds: lead.sourceIds,
+    sourceLabels: lead.sourceIds.map((id) => sourceNameById.get(id) ?? id),
+    firstSeenAt: lead.discoveredAt,
+    lastVerifiedAt: lead.lastSeenAt,
+    isFirstExpansion: true,
+  });
+}
+const directoryEntries = [...directory.values()].sort((left, right) => Number(right.confidence === '已核验') - Number(left.confidence === '已核验') || Number(right.locations.includes('广西南宁')) - Number(left.locations.includes('广西南宁')) || left.name.localeCompare(right.name, 'zh-CN'));
+const directoryReport = {
+  schemaVersion: 1,
+  completedAt,
+  baselineCount: recruitmentRecords.length,
+  totalCount: directoryEntries.length,
+  netNewCount: directoryEntries.length - recruitmentRecords.length,
+  verifiedCount: directoryEntries.filter((entry) => entry.confidence === '已核验').length,
+  pendingCount: directoryEntries.filter((entry) => entry.confidence === '待确认').length,
+  nanningCount: directoryEntries.filter((entry) => entry.locations.includes('广西南宁')).length,
+  entries: directoryEntries,
+};
+
 if (write) {
   await Promise.all([
     writeFile(healthPath, `${JSON.stringify({ schemaVersion: 2, completedAt, results: report.sources }, null, 2)}\n`, 'utf8'),
     writeFile(leadsPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8'),
     writeFile(syncPath, `${JSON.stringify({ schemaVersion: 1, completedAt, target, targetMet, counters: report.counters, warnings: report.warnings }, null, 2)}\n`, 'utf8'),
+    writeFile(directoryPath, `${JSON.stringify(directoryReport, null, 2)}\n`, 'utf8'),
   ]);
 }
 
-console.log(JSON.stringify({ ...report, leads: report.leads.slice(0, 10), previewOnly: report.leads.length > 10 }, null, 2));
+console.log(JSON.stringify({ ...report, directory: { ...directoryReport, entries: directoryEntries.slice(0, 10) }, leads: report.leads.slice(0, 10), previewOnly: report.leads.length > 10 }, null, 2));
 if (sourceResults.every((result) => result.health.health === '异常')) process.exitCode = 1;
 else if (!targetMet) process.exitCode = 2;

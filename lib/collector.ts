@@ -1,5 +1,24 @@
+export function cleanCollectedCompanyName(value: string): string {
+  let cleaned = value.normalize('NFKC').replace(/^(?:南宁|广西南宁)[丨|·:\s]+/, '').trim();
+  const catalogPrefix = /^(?:上市公司|央企国企|央企|国企|民企|外企|合资)\s+.*?收录\s+20\d{2}[.-]\d{2}[.-]\d{2}\s+/;
+  const fromCatalog = catalogPrefix.test(cleaned);
+  cleaned = cleaned.replace(catalogPrefix, '');
+  if (fromCatalog) {
+    const legalName = cleaned.match(/^(.+?(?:有限责任公司|股份有限公司|有限公司))(?:\s|$)/)?.[1];
+    if (legalName) cleaned = legalName;
+    else {
+      const parts = cleaned.split(/\s+/).filter(Boolean);
+      if (parts.length > 1) cleaned = parts.at(-1)!.startsWith(parts[0]) && parts.at(-1)!.length > parts[0].length ? parts.at(-1)! : parts[0];
+    }
+  }
+  cleaned = cleaned.replace(/启动$/, '');
+  cleaned = cleaned.replace(/[,，]\s*[A-Za-z][A-Za-z\s.-]*$/, '').replace(/([\u4e00-\u9fff])\s+[A-Z][A-Z\s-]{2,}$/, '$1');
+  if (/^(?:大有可为|聚猛士|奔赴|逐梦|智启|职等你)/.test(cleaned) && /[丨|]/.test(cleaned)) cleaned = cleaned.split(/[丨|]/).at(-1)?.trim() ?? cleaned;
+  return cleaned.replace(/^[\s·—-]+|[\s·—-]+$/g, '').trim();
+}
+
 export function normalizeCompanyName(value: string): string {
-  return value
+  return cleanCollectedCompanyName(value)
     .normalize('NFKC')
     .replace(/[（(].*?[）)]/g, '')
     .replace(/[\s·•—-]+/g, '')
@@ -94,7 +113,7 @@ export function extractJobupLeads(html: string, source: CollectableSource): Cand
     ...html.matchAll(/className\\?":\\?"company-name\\?",\\?"title\\?":\\?"([^"\\]+)["\\]/gi),
   ];
   return matches.flatMap((match) => {
-    const companyName = cleanText(match[1]);
+    const companyName = cleanCollectedCompanyName(cleanText(match[1]));
     if (!companyName || companyName.length > 80) return [];
     const start = match.index ?? 0;
     const context = html.slice(Math.max(0, start - 500), start + 3600);
@@ -123,7 +142,7 @@ export function extractJsonLdLeads(html: string, source: CollectableSource): Can
         for (const entry of list.itemListElement ?? []) {
           const item = entry.item ?? entry;
           const title = cleanText(item.name ?? entry.name ?? '');
-          const companyName = companyFromTitle(title);
+          const companyName = cleanCollectedCompanyName(companyFromTitle(title));
           if (!companyName || !detectsCohort2027(title)) continue;
           leads.push({ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl: absoluteUrl(item.url ?? entry.url, source.url), locations: inferLocations(`${title} ${item.description ?? ''}`, source.locationScope) });
         }
@@ -138,7 +157,7 @@ export function extractJsonLdLeads(html: string, source: CollectableSource): Can
 export function extractAnchorLeads(html: string, source: CollectableSource): CandidateLead[] {
   return [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)].flatMap((match) => {
     const title = cleanText(match[2]);
-    const companyName = companyFromTitle(title);
+    const companyName = cleanCollectedCompanyName(companyFromTitle(title));
     const channelUrl = absoluteUrl(match[1], source.url);
     if (!channelUrl || !detectsCohort2027(title) || /双选会|招聘会|就业服务攻坚|招聘活动/.test(title) || companyName.length < 2 || companyName.length > 80) return [];
     return [{ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl, locations: inferLocations(title, source.locationScope) }];

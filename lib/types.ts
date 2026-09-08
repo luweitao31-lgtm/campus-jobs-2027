@@ -1,4 +1,4 @@
-export type CompanyNature = '中央企业' | '央企子公司' | '广西区属国企' | '南宁市属国企' | '国有控股' | '股份制银行' | '外企' | '民营企业';
+export type CompanyNature = '中央企业' | '央企子公司' | '广西区属国企' | '南宁市属国企' | '国有控股' | '股份制银行' | '外企' | '民营企业' | '性质待确认';
 export type RecruitmentStatus = '开放中' | '待确认' | '已结束';
 export type ChannelType = '企业官网' | '国聘' | '集团招聘平台' | '公众号';
 
@@ -137,4 +137,20 @@ export interface RecruitmentLead {
   lastSeenAt: string;
   status: RecruitmentLeadStatus;
   fingerprint: string;
+}
+
+export interface RecruitmentDirectoryEntry {
+  id: string;
+  name: string;
+  normalizedCompanyName: string;
+  nature: CompanyNature;
+  locations: string[];
+  status: RecruitmentStatus;
+  confidence: '已核验' | '待确认';
+  channel: { label: string; type: '企业官网' | '集团招聘平台' | '国聘' | '公众号' | '第三方公告' | '第三方汇总'; url: string };
+  sourceIds: string[];
+  sourceLabels: string[];
+  firstSeenAt: string;
+  lastVerifiedAt: string;
+  isFirstExpansion: boolean;
 }

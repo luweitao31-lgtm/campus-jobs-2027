@@ -1,10 +1,16 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { detectsCohort2027, detectsNanning, extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName, treeDepth, uniqueByNormalizedName, validateOwnershipCoverage, validateOwnershipTree } from './collector.ts';
+import { cleanCollectedCompanyName, detectsCohort2027, detectsNanning, extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName, treeDepth, uniqueByNormalizedName, validateOwnershipCoverage, validateOwnershipTree } from './collector.ts';
 
 test('企业名称归一并去重', () => {
   assert.equal(normalizeCompanyName('中国—东盟信息港股份有限公司'), '中国东盟信息港');
   assert.equal(uniqueByNormalizedName([{ name: '广西投资集团有限公司' }, { name: '广西投资集团' }]).length, 1);
+});
+
+test('清理聚合平台企业名称中的标签、日期和英文别名', () => {
+  assert.equal(cleanCollectedCompanyName('民企 通信 收录 2026.09.08 深圳智界探索科技有限公司'), '深圳智界探索科技有限公司');
+  assert.equal(cleanCollectedCompanyName('南宁丨平安银行南宁分行'), '平安银行南宁分行');
+  assert.equal(cleanCollectedCompanyName('九阳, Joyoung'), '九阳');
 });
 
 test('识别 2027 届和南宁地点', () => {

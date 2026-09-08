@@ -6,10 +6,11 @@ import {
   ExternalLink, FileCheck2, MapPin, Network, RefreshCw, Search, ShieldCheck,
   Trophy,
 } from 'lucide-react';
-import { awards, companies, ownershipCoverageSets, ownershipEdges, ownershipTrees, recruitmentRecords, sources } from '@/data/catalog';
+import { awards, companies, ownershipCoverageSets, ownershipEdges, ownershipTrees, sources } from '@/data/catalog';
+import recruitmentDirectoryData from '@/data/recruitment-directory.json';
 import recruitmentLeadReport from '@/data/recruitment-sync.json';
 import sourceRegistry from '@/data/source-registry.json';
-import type { Company, OwnershipNode, RecruitmentRecord } from '@/lib/types';
+import type { OwnershipNode, RecruitmentDirectoryEntry } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -17,6 +18,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/component
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
 import { Progress } from '@/components/ui/progress';
+import { Pagination, PaginationContent, PaginationItem, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent,
   SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem,
@@ -24,7 +26,7 @@ import {
 } from '@/components/ui/sidebar';
 
 type ModuleId = 'recruitment' | 'ownership' | 'employers';
-type RecruitmentView = RecruitmentRecord & { company: Company; sourceLabels: string[] };
+const recruitmentDirectory = recruitmentDirectoryData as { completedAt: string; baselineCount: number; totalCount: number; netNewCount: number; verifiedCount: number; pendingCount: number; nanningCount: number; entries: RecruitmentDirectoryEntry[] };
 
 const navigation = [
   { id: 'recruitment' as const, label: '秋招信息', icon: BriefcaseBusiness },
@@ -34,10 +36,6 @@ const navigation = [
 
 const companyMap = new Map(companies.map((company) => [company.id, company]));
 const sourceMap = new Map(sources.map((source) => [source.id, source]));
-const recruitmentViews: RecruitmentView[] = recruitmentRecords.flatMap((record) => {
-  const company = companyMap.get(record.companyId);
-  return company ? [{ ...record, company, sourceLabels: record.sourceIds.map((id) => sourceMap.get(id)?.publisher ?? id) }] : [];
-});
 const activeCollectorSources = sourceRegistry.sources.filter((source) => source.collect);
 const latestCollectionTime = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(recruitmentLeadReport.completedAt));
 
@@ -48,20 +46,20 @@ export default function Home() {
   const [status, setStatus] = useState('全部状态');
   const [nature, setNature] = useState('全部性质');
   const [sourceType, setSourceType] = useState('全部来源');
+  const [page, setPage] = useState(1);
 
-  const filteredRecruitment = useMemo(() => recruitmentViews.filter((item) => {
-    const matchesQuery = `${item.company.name}${item.company.shortName}`.toLowerCase().includes(query.trim().toLowerCase());
+  const filteredRecruitment = useMemo(() => recruitmentDirectory.entries.filter((item) => {
+    const matchesQuery = item.name.toLowerCase().includes(query.trim().toLowerCase());
     const matchesLocation = location === '全部地区' || item.locations.includes(location) || (location === '广西南宁' && item.locations.includes('广西全区'));
     const matchesStatus = status === '全部状态' || item.status === status;
-    const matchesNature = nature === '全部性质' || item.company.nature === nature;
-    const matchesSource = sourceType === '全部来源' || item.sourceIds.some((id) => {
-      const evidence = sourceMap.get(id);
-      if (sourceType === '官方/政府') return evidence?.sourceType === '企业官方' || evidence?.sourceType === '政府平台';
-      if (sourceType === '求职平台') return evidence?.sourceType === '招聘平台';
-      return evidence?.sourceType === sourceType;
-    });
+    const matchesNature = nature === '全部性质' || item.nature === nature;
+    const matchesSource = sourceType === '全部来源' || (sourceType === '官方/政府' ? item.confidence === '已核验' : sourceType === '求职平台' ? item.channel.type === '第三方公告' : sourceType === '高校就业网' ? item.sourceIds.some((id) => id.includes('gxu') || sourceMap.get(id)?.sourceType === '高校就业网') : item.channel.type === '第三方汇总');
     return matchesQuery && matchesLocation && matchesStatus && matchesNature && matchesSource;
   }), [location, nature, query, sourceType, status]);
+  const pageSize = 20;
+  const pageCount = Math.max(1, Math.ceil(filteredRecruitment.length / pageSize));
+  const safePage = Math.min(page, pageCount);
+  const pagedRecruitment = filteredRecruitment.slice((safePage - 1) * pageSize, safePage * pageSize);
 
   useEffect(() => {
     const modelContext = (document as unknown as { modelContext?: { registerTool: (tool: unknown, options?: { signal?: AbortSignal }) => void | Promise<void> } }).modelContext;
@@ -124,7 +122,7 @@ export default function Home() {
         <div className="flex items-center gap-2 text-xs text-slate-500"><RefreshCw className="size-3.5 text-cyan-700" /><span className="hidden sm:inline">最近采集</span><span className="font-medium text-slate-800">{latestCollectionTime}</span></div>
       </header>
       <div className="mx-auto w-full max-w-[1480px] p-4 md:p-7">
-        {activeModule === 'recruitment' && <RecruitmentPanel rows={filteredRecruitment} query={query} setQuery={setQuery} location={location} setLocation={setLocation} status={status} setStatus={setStatus} nature={nature} setNature={setNature} sourceType={sourceType} setSourceType={setSourceType} />}
+        {activeModule === 'recruitment' && <RecruitmentPanel rows={pagedRecruitment} filteredCount={filteredRecruitment.length} page={safePage} pageCount={pageCount} setPage={setPage} query={query} setQuery={setQuery} location={location} setLocation={setLocation} status={status} setStatus={setStatus} nature={nature} setNature={setNature} sourceType={sourceType} setSourceType={setSourceType} />}
         {activeModule === 'ownership' && <OwnershipPanel />}
         {activeModule === 'employers' && <EmployerPanel />}
       </div>
@@ -133,15 +131,15 @@ export default function Home() {
 }
 
 function RecruitmentPanel(props: {
-  rows: RecruitmentView[]; query: string; setQuery: (v: string) => void;
+  rows: RecruitmentDirectoryEntry[]; filteredCount: number; page: number; pageCount: number; setPage: (v: number) => void; query: string; setQuery: (v: string) => void;
   location: string; setLocation: (v: string) => void; status: string; setStatus: (v: string) => void;
   nature: string; setNature: (v: string) => void; sourceType: string; setSourceType: (v: string) => void;
 }) {
-  const { rows, query, setQuery, location, setLocation, status, setStatus, nature, setNature, sourceType, setSourceType } = props;
+  const { rows, filteredCount, page, pageCount, setPage, query, setQuery, location, setLocation, status, setStatus, nature, setNature, sourceType, setSourceType } = props;
   return <section aria-labelledby="recruitment-title">
     <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
       <div><div className="mb-2 flex items-center gap-2 text-sm font-medium text-cyan-800"><span className="inline-block size-2 rounded-full bg-cyan-500" />2027 届秋招进行中</div><h2 id="recruitment-title" className="text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">先看南宁，再看全国</h2><p className="mt-2 text-sm text-slate-500">只整理企业与有效投递入口，避免被岗位列表淹没。</p></div>
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-4"><Metric value={String(recruitmentLeadReport.counters.qualifiedLeads)} label="今日有效线索" /><Metric value={String(recruitmentLeadReport.counters.verifiedLeads)} label="今日已核验" /><Metric value={String(recruitmentLeadReport.counters.nanningLeads)} label="南宁相关" /><Metric value={String(recruitmentLeadReport.counters.anomalyCount)} label="异常来源" warning /></div>
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-5"><Metric value={String(recruitmentDirectory.totalCount)} label="已收集企业" /><Metric value={String(recruitmentDirectory.verifiedCount)} label="已核验" /><Metric value={String(recruitmentDirectory.pendingCount)} label="待确认" warning /><Metric value={`+${recruitmentDirectory.netNewCount}`} label="首次新增" /><Metric value={String(recruitmentDirectory.nanningCount)} label="南宁相关" /></div>
     </div>
     <Card className="mb-4 border-0 bg-slate-950 text-white shadow-sm ring-0"><CardContent className="space-y-3 p-4">
       <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center"><div><p className="text-sm font-semibold">每日 50+ 线索采集</p><p className="mt-1 text-xs text-slate-400">已扫描 {recruitmentLeadReport.counters.sourceCount} 个公开来源，聚合信息先进入候选池，核验达标后才进入下方正式列表。</p></div><Badge className={recruitmentLeadReport.targetMet ? 'w-fit border-0 bg-cyan-300 text-slate-950' : 'w-fit border-0 bg-amber-300 text-slate-950'}>{recruitmentLeadReport.targetMet ? '今日达标' : '今日未达标'} · {recruitmentLeadReport.counters.qualifiedLeads}/{recruitmentLeadReport.target}</Badge></div>
@@ -152,20 +150,19 @@ function RecruitmentPanel(props: {
       <div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索企业" className="h-10 pl-9" placeholder="搜索企业名称" value={query} onChange={(e) => setQuery(e.target.value)} /></div>
       <FilterSelect label="地点筛选" value={location} setValue={setLocation} options={['广西南宁', '全国', '全部地区']} />
       <FilterSelect label="招聘状态" value={status} setValue={setStatus} options={['全部状态', '开放中', '待确认', '已结束']} />
-      <FilterSelect label="企业性质" value={nature} setValue={setNature} options={['全部性质', '中央企业', '央企子公司', '广西区属国企', '国有控股', '股份制银行', '民营企业']} />
+      <FilterSelect label="企业性质" value={nature} setValue={setNature} options={['全部性质', '中央企业', '央企子公司', '广西区属国企', '国有控股', '股份制银行', '民营企业', '外企', '性质待确认']} />
       <FilterSelect label="信息来源" value={sourceType} setValue={setSourceType} options={['全部来源', '官方/政府', '求职平台', '高校就业网', '聚合平台']} />
     </CardContent></Card>
-    <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>找到 <strong className="text-slate-800">{rows.length}</strong> 家企业</span><span>聚合平台仅用于发现线索，投递与开放状态以核验来源为准。</span></div>
+    <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>总库 <strong className="text-slate-800">{recruitmentDirectory.totalCount}</strong> 家 · 当前筛选 <strong className="text-slate-800">{filteredCount}</strong> 家</span><span>聚合平台记录标记为待确认，开放状态以核验来源为准。</span></div>
     <div className="grid gap-3">{rows.length ? rows.map((item) => <RecruitmentCard key={item.id} item={item} />) : <EmptyState />}</div>
+    {filteredCount > 0 && <Pagination className="mt-6"><PaginationContent><PaginationItem><PaginationPrevious href="#recruitment-title" text="上一页" aria-disabled={page === 1} className={page === 1 ? 'pointer-events-none opacity-40' : ''} onClick={(event) => { event.preventDefault(); setPage(Math.max(1, page - 1)); }} /></PaginationItem><PaginationItem><span className="px-3 text-sm text-slate-600">第 {page} / {pageCount} 页</span></PaginationItem><PaginationItem><PaginationNext href="#recruitment-title" text="下一页" aria-disabled={page === pageCount} className={page === pageCount ? 'pointer-events-none opacity-40' : ''} onClick={(event) => { event.preventDefault(); setPage(Math.min(pageCount, page + 1)); }} /></PaginationItem></PaginationContent></Pagination>}
   </section>;
 }
 
-function RecruitmentCard({ item }: { item: RecruitmentView }) {
-  const primaryChannel = item.company.channels[0];
-  const evidence = sourceMap.get(item.sourceIds[0]);
+function RecruitmentCard({ item }: { item: RecruitmentDirectoryEntry }) {
   return <Card className="group border-0 bg-white py-0 shadow-sm ring-1 ring-slate-200/80 transition hover:-translate-y-0.5 hover:shadow-md"><CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center">
-    <div className="flex min-w-0 flex-1 items-start gap-3"><div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-600"><Building2 className="size-5" /></div><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold text-slate-950">{item.company.name}</h3><Badge className={item.status === '开放中' ? 'border-0 bg-cyan-50 text-cyan-800' : 'border-0 bg-amber-50 text-amber-800'}>{item.status}</Badge><Badge variant="outline">{item.confidence}</Badge></div><div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>{item.company.nature}</span><span className="flex items-center gap-1"><MapPin className="size-3.5" />{item.locations.join(' · ')}</span><span>核验 {item.lastVerifiedAt}</span>{evidence && <a className="flex items-center gap-1 hover:text-cyan-700" href={evidence.url} target="_blank" rel="noreferrer"><FileCheck2 className="size-3.5" />{evidence.publisher}</a>}</div></div></div>
-    <Button nativeButton={false} render={<a href={primaryChannel.url} target="_blank" rel="noreferrer" />} className="h-10 shrink-0 bg-slate-950 text-white hover:bg-cyan-700">{primaryChannel.label}<ExternalLink className="size-4" /></Button>
+    <div className="flex min-w-0 flex-1 items-start gap-3"><div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-600"><Building2 className="size-5" /></div><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold text-slate-950">{item.name}</h3><Badge className={item.status === '开放中' ? 'border-0 bg-cyan-50 text-cyan-800' : 'border-0 bg-amber-50 text-amber-800'}>{item.status}</Badge><Badge variant="outline">{item.confidence}</Badge>{item.isFirstExpansion && <Badge className="border-0 bg-emerald-50 text-emerald-800">首次扩容</Badge>}</div><div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500"><span>{item.nature}</span><span className="flex items-center gap-1"><MapPin className="size-3.5" />{item.locations.join(' · ')}</span><span>核验 {item.lastVerifiedAt.slice(0, 10)}</span><span className="flex items-center gap-1"><FileCheck2 className="size-3.5" />{item.sourceLabels.join(' · ')}</span></div>{item.confidence === '待确认' && <p className="mt-1 text-xs text-amber-700">单一第三方来源，已收集渠道，等待官网或第二来源复核。</p>}</div></div>
+    <Button nativeButton={false} render={<a href={item.channel.url} target="_blank" rel="noreferrer" />} className="h-10 shrink-0 bg-slate-950 text-white hover:bg-cyan-700">{item.channel.label}<ExternalLink className="size-4" /></Button>
   </CardContent></Card>;
 }
 

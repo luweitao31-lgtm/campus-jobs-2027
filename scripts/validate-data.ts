@@ -14,6 +14,12 @@ const leadReport = JSON.parse(await readFile('data/recruitment-leads.json', 'utf
   counters: { qualifiedLeads: number };
   leads: Array<{ companyName: string; cohort: number; sourceIds: string[]; sourceUrls: string[]; fingerprint: string }>;
 };
+const directoryReport = JSON.parse(await readFile('data/recruitment-directory.json', 'utf8')) as {
+  baselineCount: number;
+  totalCount: number;
+  netNewCount: number;
+  entries: Array<{ name: string; normalizedCompanyName: string; status: string; confidence: string; channel: { url: string }; sourceIds: string[] }>;
+};
 const companyIds = new Set(companies.map((company) => company.id));
 const sourceIds = new Set(sources.map((source) => source.id));
 
@@ -58,9 +64,20 @@ for (const lead of leadReport.leads) {
   leadFingerprints.add(lead.fingerprint);
   for (const url of lead.sourceUrls) try { new URL(url); } catch { errors.push(`${lead.companyName} 的线索链接无效`); }
 }
+const directoryNames = new Set<string>();
+if (directoryReport.totalCount < 70) errors.push(`秋招企业总数仅 ${directoryReport.totalCount} 家，未达到70家`);
+if (directoryReport.netNewCount < 50) errors.push(`首次净新增仅 ${directoryReport.netNewCount} 家，未达到50家`);
+if (directoryReport.totalCount !== directoryReport.entries.length) errors.push('秋招目录统计与实际条目数不一致');
+for (const entry of directoryReport.entries) {
+  if (!entry.name || !entry.normalizedCompanyName || directoryNames.has(entry.normalizedCompanyName)) errors.push(`${entry.name || '未知企业'} 名称为空或重复`);
+  directoryNames.add(entry.normalizedCompanyName);
+  try { new URL(entry.channel.url); } catch { errors.push(`${entry.name} 缺少有效招聘渠道`); }
+  if (entry.confidence === '待确认' && entry.status === '开放中') errors.push(`${entry.name} 待确认记录不能标记为开放中`);
+  if (entry.confidence === '已核验' && !entry.sourceIds.length) errors.push(`${entry.name} 已核验记录缺少来源`);
+}
 
 if (errors.length) {
   console.error(errors.join('\n'));
   process.exit(1);
 }
-console.log(`数据校验通过：${companies.length} 家企业，${recruitmentRecords.length} 条正式秋招，${leadReport.leads.length} 条有效线索，${registry.sources.length} 个来源，${awards.length} 条榜单。`);
+console.log(`数据校验通过：秋招目录 ${directoryReport.totalCount} 家（净新增 ${directoryReport.netNewCount} 家），其中 ${recruitmentRecords.length} 条原正式秋招、${leadReport.leads.length} 条有效线索，${registry.sources.length} 个来源，${awards.length} 条榜单。`);
