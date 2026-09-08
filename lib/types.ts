@@ -84,5 +84,29 @@ export interface SyncRun {
   sourceCount: number;
   anomalyCount: number;
   changedRecords: number;
+  discoveredLeads: number;
+  qualifiedLeads: number;
+  verifiedLeads: number;
+  nanningLeads: number;
+  dailyTarget: number;
   status: '成功' | '部分成功' | '失败';
+}
+
+export type RecruitmentLeadStatus = '待核验' | '官方确认' | '双来源确认';
+
+export interface RecruitmentLead {
+  id: string;
+  companyName: string;
+  normalizedCompanyName: string;
+  title: string;
+  cohort: 2027;
+  locations: string[];
+  sourceIds: string[];
+  sourceUrls: string[];
+  channelUrl?: string;
+  publishedAt?: string;
+  discoveredAt: string;
+  lastSeenAt: string;
+  status: RecruitmentLeadStatus;
+  fingerprint: string;
 }

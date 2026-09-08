@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-09-08T09:19:58.365Z",
+  "target": 50,
+  "targetMet": true,
+  "counters": {
+    "sourceCount": 24,
+    "healthySourceCount": 16,
+    "anomalyCount": 8,
+    "rawLeads": 168,
+    "qualifiedLeads": 116,
+    "verifiedLeads": 6,
+    "pendingLeads": 110,
+    "nanningLeads": 31
+  },
+  "warnings": []
+}

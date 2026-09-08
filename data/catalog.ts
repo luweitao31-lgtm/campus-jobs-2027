@@ -137,4 +137,15 @@ export const awards: AwardEntry[] = [
   { id: 'award-yili-2025', companyId: 'yili', year: 2025, listName: '福布斯中国最佳雇主', awardTier: '中国年度最受员工欢迎雇主', nanningBasis: '全国校园招聘渠道覆盖南宁', sourceUrl: 'https://www.forbeschina.com/business/70329' },
 ];
 
-export const latestSync: SyncRun = { completedAt: '2026-09-08T16:26:41+08:00', sourceCount: sources.length, anomalyCount: sources.filter((source) => source.health !== '正常').length, changedRecords: 3, status: '部分成功' };
+export const latestSync: SyncRun = {
+  completedAt: '2026-09-08T17:19:58+08:00',
+  sourceCount: 24,
+  anomalyCount: 8,
+  changedRecords: 0,
+  discoveredLeads: 168,
+  qualifiedLeads: 116,
+  verifiedLeads: 6,
+  nanningLeads: 31,
+  dailyTarget: 50,
+  status: '部分成功',
+};

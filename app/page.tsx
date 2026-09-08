@@ -6,7 +6,9 @@ import {
   ExternalLink, FileCheck2, MapPin, Network, RefreshCw, Search, ShieldCheck,
   Trophy,
 } from 'lucide-react';
-import { awards, companies, latestSync, ownershipCoverageSets, ownershipTrees, recruitmentRecords, sources } from '@/data/catalog';
+import { awards, companies, ownershipCoverageSets, ownershipTrees, recruitmentRecords, sources } from '@/data/catalog';
+import recruitmentLeadReport from '@/data/recruitment-sync.json';
+import sourceRegistry from '@/data/source-registry.json';
 import type { Company, OwnershipNode, RecruitmentRecord } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -14,6 +16,7 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { Input } from '@/components/ui/input';
 import { NativeSelect, NativeSelectOption } from '@/components/ui/native-select';
+import { Progress } from '@/components/ui/progress';
 import {
   Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent,
   SidebarHeader, SidebarInset, SidebarMenu, SidebarMenuButton, SidebarMenuItem,
@@ -35,6 +38,8 @@ const recruitmentViews: RecruitmentView[] = recruitmentRecords.flatMap((record) 
   const company = companyMap.get(record.companyId);
   return company ? [{ ...record, company, sourceLabels: record.sourceIds.map((id) => sourceMap.get(id)?.publisher ?? id) }] : [];
 });
+const activeCollectorSources = sourceRegistry.sources.filter((source) => source.collect);
+const latestCollectionTime = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date(recruitmentLeadReport.completedAt));
 
 export default function Home() {
   const [activeModule, setActiveModule] = useState<ModuleId>('recruitment');
@@ -116,7 +121,7 @@ export default function Home() {
     <SidebarInset className="min-w-0 bg-[#f4f7f8]">
       <header className="sticky top-0 z-20 flex h-16 items-center justify-between border-b border-slate-200/80 bg-white/90 px-4 backdrop-blur-xl md:px-7">
         <div className="flex min-w-0 items-center gap-3"><SidebarTrigger className="md:hidden" /><div className="min-w-0"><p className="truncate text-sm font-semibold text-slate-900">{navigation.find((item) => item.id === activeModule)?.label}</p><p className="hidden text-xs text-slate-500 sm:block">为广西南宁 2027 届毕业生整理</p></div></div>
-        <div className="flex items-center gap-2 text-xs text-slate-500"><RefreshCw className="size-3.5 text-cyan-700" /><span className="hidden sm:inline">最近核验</span><span className="font-medium text-slate-800">{latestSync.completedAt.slice(0, 16).replace('T', ' ')}</span></div>
+        <div className="flex items-center gap-2 text-xs text-slate-500"><RefreshCw className="size-3.5 text-cyan-700" /><span className="hidden sm:inline">最近采集</span><span className="font-medium text-slate-800">{latestCollectionTime}</span></div>
       </header>
       <div className="mx-auto w-full max-w-[1480px] p-4 md:p-7">
         {activeModule === 'recruitment' && <RecruitmentPanel rows={filteredRecruitment} query={query} setQuery={setQuery} location={location} setLocation={setLocation} status={status} setStatus={setStatus} nature={nature} setNature={setNature} sourceType={sourceType} setSourceType={setSourceType} />}
@@ -136,8 +141,13 @@ function RecruitmentPanel(props: {
   return <section aria-labelledby="recruitment-title">
     <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
       <div><div className="mb-2 flex items-center gap-2 text-sm font-medium text-cyan-800"><span className="inline-block size-2 rounded-full bg-cyan-500" />2027 届秋招进行中</div><h2 id="recruitment-title" className="text-2xl font-semibold tracking-tight text-slate-950 md:text-3xl">先看南宁，再看全国</h2><p className="mt-2 text-sm text-slate-500">只整理企业与有效投递入口，避免被岗位列表淹没。</p></div>
-      <div className="grid grid-cols-3 gap-2"><Metric value={String(recruitmentRecords.length)} label="收录企业" /><Metric value={String(latestSync.sourceCount)} label="可信来源" /><Metric value={String(latestSync.anomalyCount)} label="异常来源" warning /></div>
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-4"><Metric value={String(recruitmentLeadReport.counters.qualifiedLeads)} label="今日有效线索" /><Metric value={String(recruitmentLeadReport.counters.verifiedLeads)} label="今日已核验" /><Metric value={String(recruitmentLeadReport.counters.nanningLeads)} label="南宁相关" /><Metric value={String(recruitmentLeadReport.counters.anomalyCount)} label="异常来源" warning /></div>
     </div>
+    <Card className="mb-4 border-0 bg-slate-950 text-white shadow-sm ring-0"><CardContent className="space-y-3 p-4">
+      <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center"><div><p className="text-sm font-semibold">每日 50+ 线索采集</p><p className="mt-1 text-xs text-slate-400">已扫描 {recruitmentLeadReport.counters.sourceCount} 个公开来源，聚合信息先进入候选池，核验达标后才进入下方正式列表。</p></div><Badge className={recruitmentLeadReport.targetMet ? 'w-fit border-0 bg-cyan-300 text-slate-950' : 'w-fit border-0 bg-amber-300 text-slate-950'}>{recruitmentLeadReport.targetMet ? '今日达标' : '今日未达标'} · {recruitmentLeadReport.counters.qualifiedLeads}/{recruitmentLeadReport.target}</Badge></div>
+      <Progress value={Math.min(100, (recruitmentLeadReport.counters.qualifiedLeads / recruitmentLeadReport.target) * 100)} className="h-1.5 bg-white/10" />
+      <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs">{activeCollectorSources.slice(0, 8).map((source) => <a key={source.id} href={source.url} target="_blank" rel="noreferrer" className="text-slate-300 hover:text-cyan-300">{source.name}<ExternalLink className="ml-1 inline size-3" /></a>)}<span className="text-slate-500">等 {activeCollectorSources.length} 个采集入口</span></div>
+    </CardContent></Card>
     <Card className="mb-4 border-0 bg-white shadow-sm shadow-slate-200/60 ring-1 ring-slate-200/80"><CardContent className="grid gap-3 py-1 lg:grid-cols-[minmax(230px,1fr)_160px_140px_160px_140px]">
       <div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索企业" className="h-10 pl-9" placeholder="搜索企业名称" value={query} onChange={(e) => setQuery(e.target.value)} /></div>
       <FilterSelect label="地点筛选" value={location} setValue={setLocation} options={['广西南宁', '全国', '全部地区']} />
