@@ -46,9 +46,22 @@ test('校验三级控股树并识别循环', () => {
 });
 
 test('覆盖清单区分已核验与待确认，闭合状态必须可审计', () => {
-  const roots = [{ id: 'root', name: '监管机构', level: 0, sourceUrl: 'https://example.com', children: [{ id: 'group', name: '示例集团', level: 1, sourceUrl: 'https://example.com/group', children: [{ id: 'company-a', name: '示例公司甲', level: 2, entityKind: '控股企业', coverageSetId: 'coverage', verificationStatus: '已核验', verifiedAt: '2026-09-08', sourceUrl: 'https://example.com/a', recruitmentUrl: 'https://example.com/jobs' }] }] }];
+  const noPublicChannel = [{ label: '暂无独立公开招聘入口', type: '无公开渠道', match: '暂无公开入口', status: '暂无公开入口', verifiedAt: '2026-09-09' }];
+  const roots = [{ id: 'root', name: '监管机构', level: 0, sourceUrl: 'https://example.com', children: [{ id: 'group', name: '示例集团', level: 1, sourceUrl: 'https://example.com/group', recruitmentChannels: noPublicChannel, children: [{ id: 'company-a', name: '示例公司甲', level: 2, entityKind: '控股企业', coverageSetId: 'coverage', verificationStatus: '已核验', verifiedAt: '2026-09-08', sourceUrl: 'https://example.com/a', recruitmentChannels: [{ label: '示例公司招聘', type: '公司招聘官网', match: '公司专属', status: '可投递', url: 'https://jobs.example.com/company-a', appliesToCompanyName: '示例公司甲', evidenceUrl: 'https://jobs.example.com/company-a', verifiedAt: '2026-09-09' }] }] }] }];
   const coverage = [{ id: 'coverage', parentId: 'group', targetLevel: 2 as const, officialDisclosedTotal: 1, expectedNodeIds: ['company-a'], pendingNodeIds: [], completenessStatus: '官方清单已闭合', sourceUrls: ['https://example.com/list'] }, { id: 'company-a-l3', parentId: 'company-a', targetLevel: 3 as const, officialDisclosedTotal: 0, expectedNodeIds: [], pendingNodeIds: [], completenessStatus: '官方清单已闭合', sourceUrls: ['https://example.com/a'] }];
   assert.deepEqual(validateOwnershipCoverage(roots, coverage), []);
   coverage[0].pendingNodeIds.push('missing');
   assert.match(validateOwnershipCoverage(roots, coverage).join(','), /闭合状态与清单不一致|缺少节点/);
+});
+
+test('公司专属招聘链接不能复制母公司通用链接', () => {
+  const sharedUrl = 'https://jobs.example.com/';
+  const roots = [{ id: 'root', name: '监管机构', level: 0, sourceUrl: 'https://example.com', children: [{ id: 'group', name: '示例集团', level: 1, sourceUrl: 'https://example.com/group', recruitmentChannels: [{ label: '集团招聘', type: '公司招聘官网', match: '公司专属', status: '可投递', url: sharedUrl, appliesToCompanyName: '示例集团', evidenceUrl: sharedUrl, verifiedAt: '2026-09-09' }], children: [{ id: 'child', name: '示例子公司', level: 2, sourceUrl: 'https://example.com/child', recruitmentChannels: [{ label: '子公司招聘', type: '公司招聘官网', match: '公司专属', status: '可投递', url: sharedUrl, appliesToCompanyName: '示例子公司', evidenceUrl: sharedUrl, verifiedAt: '2026-09-09' }] }] }] }];
+  assert.match(validateOwnershipCoverage(roots, []).join(','), /公司专属招聘链接与母公司完全相同/);
+});
+
+test('集团兜底和已定位单位公告具有不同的渠道语义', () => {
+  const roots = [{ id: 'root', name: '监管机构', level: 0, sourceUrl: 'https://example.com', children: [{ id: 'group', name: '示例集团', level: 1, sourceUrl: 'https://example.com/group', recruitmentChannels: [{ label: '集团招聘', type: '公司招聘官网', match: '公司专属', status: '可投递', url: 'https://jobs.example.com/', appliesToCompanyName: '示例集团', evidenceUrl: 'https://jobs.example.com/', verifiedAt: '2026-09-09' }], children: [{ id: 'child', name: '示例子公司', level: 2, sourceUrl: 'https://example.com/child', recruitmentChannels: [{ label: '子公司历史公告', type: '官方招聘公告', match: '单位已定位', status: '已截止', url: 'https://jobs.example.com/posting/1', appliesToCompanyName: '示例子公司', evidenceUrl: 'https://jobs.example.com/posting/1', verifiedAt: '2026-09-09' }, { label: '集团招聘入口', type: '集团通用入口', match: '集团兜底', status: '状态待确认', url: 'https://jobs.example.com/', evidenceUrl: 'https://jobs.example.com/', verifiedAt: '2026-09-09' }] }] }] }];
+  const result = validateOwnershipCoverage(roots, []);
+  assert.deepEqual(result, []);
 });

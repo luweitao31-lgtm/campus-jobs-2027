@@ -1,4 +1,4 @@
-import type { AwardEntry, Company, OwnershipCoverageSet, OwnershipEdge, OwnershipEvidence, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
+import type { AwardEntry, Company, OwnershipCoverageSet, OwnershipEdge, OwnershipEvidence, OwnershipNode, OwnershipRecruitmentChannel, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
 
 export const companies: Company[] = [
   { id: 'cmb-nanning', name: '招商银行股份有限公司南宁分行', shortName: '招商银行南宁分行', nature: '股份制银行', locations: ['广西南宁', '广西柳州'], channels: [{ id: 'cmb-career', label: '招商银行招聘', type: '企业官网', url: 'https://career.cmbchina.com/' }] },
@@ -65,6 +65,56 @@ const gigAnnualReport = 'https://static.sse.com.cn/disclosure/bond/announcement/
 const gxEnergyAnnualReport = 'https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12024032&stockid=600310';
 const guohaiControlReport = 'https://static.cninfo.com.cn/finalpage/2025-04-25/1223300236.PDF';
 const longyuanReports = 'https://lydl.chnenergy.com.cn/lydlww/newtzzgx0201/newtzzgx01.shtml';
+
+type OwnershipNodeSeed = Omit<OwnershipNode, 'recruitmentChannels' | 'children'> & {
+  recruitmentUrl?: string;
+  children?: OwnershipNodeSeed[];
+};
+
+const channelVerifiedAt = '2026-09-09';
+const chnGroupFallback: OwnershipRecruitmentChannel = {
+  label: '国家能源集团招聘系统', type: '集团通用入口', match: '集团兜底', status: '状态待确认',
+  url: chnRecruitment, evidenceUrl: chnRecruitment, verifiedAt: channelVerifiedAt,
+};
+const noPublicRecruitment = (): OwnershipRecruitmentChannel => ({
+  label: '暂无独立公开招聘入口', type: '无公开渠道', match: '暂无公开入口', status: '暂无公开入口', verifiedAt: channelVerifiedAt,
+});
+const locatedAnnouncement = (name: string, url: string): OwnershipRecruitmentChannel => ({
+  label: `${name}招聘公告`, type: '官方招聘公告', match: '单位已定位', status: '已截止',
+  url, appliesToCompanyName: name, evidenceUrl: url, verifiedAt: channelVerifiedAt,
+});
+
+const ownershipRecruitmentOverrides: Record<string, OwnershipRecruitmentChannel[]> = {
+  'chn-root': [{
+    label: '国家能源集团招聘系统', type: '公司招聘官网', match: '公司专属', status: '可投递',
+    url: chnRecruitment, appliesToCompanyName: '国家能源投资集团有限责任公司', evidenceUrl: chnRecruitment, verifiedAt: channelVerifiedAt,
+  }],
+  'guohai-securities': [{
+    label: '国海证券招聘官网', type: '公司招聘官网', match: '公司专属', status: '状态待确认',
+    url: 'https://ghzq.hotjob.cn/', appliesToCompanyName: '国海证券股份有限公司', evidenceUrl: 'https://ghzq.hotjob.cn/', verifiedAt: channelVerifiedAt,
+  }],
+  'beibu-bank': [{
+    label: '广西北部湾银行招聘', type: '公司招聘官网', match: '公司专属', status: '状态待确认',
+    url: 'https://zhaopin.bankofbbg.com/', appliesToCompanyName: '广西北部湾银行股份有限公司', evidenceUrl: 'https://zhaopin.bankofbbg.com/', verifiedAt: channelVerifiedAt,
+  }],
+  'chn-gx': [locatedAnnouncement('国家能源集团广西电力有限公司', 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2'), chnGroupFallback],
+  'chn-gx-new-energy': [locatedAnnouncement('广西国能能源发展有限公司', 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=51304904-d664-5296-e063-98b4d40a30d4'), chnGroupFallback],
+  'chn-nanning': [locatedAnnouncement('国能南宁发电有限公司', chnGuangxiSource), chnGroupFallback],
+  'chn-beihai': [locatedAnnouncement('国能广投北海发电有限公司', chnGuangxiSource), chnGroupFallback],
+  'chn-liuzhou': [locatedAnnouncement('国能广投柳州发电有限公司', chnGuangxiSource), chnGroupFallback],
+  'chn-yongfu': [locatedAnnouncement('国能永福发电有限公司', chnGuangxiSource), chnGroupFallback],
+  'chn-hydropower': [locatedAnnouncement('广西国能水电开发有限公司', chnGuangxiSource), chnGroupFallback],
+  'chn-integrated-service': [locatedAnnouncement('广西国能综合能源服务有限公司', 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=5a798bfe-ab9c-0be4-e063-98b4d40a088a'), chnGroupFallback],
+  'chn-guohua-gx': [locatedAnnouncement('国能国华（广西）新能源有限公司', 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=355843b2-5349-b937-e063-98b4d40acab4'), chnGroupFallback],
+  'chn-longyuan-gx': [locatedAnnouncement('广西龙源新能源有限公司', 'https://zhaopin.chnenergy.com.cn/annc/showgw?id=51304904-d5ae-5296-e063-98b4d40a30d4'), chnGroupFallback],
+};
+
+function materializeOwnershipNode(seed: OwnershipNodeSeed): OwnershipNode {
+  const { recruitmentUrl: _legacyRecruitmentUrl, children, ...node } = seed;
+  const recruitmentChannels = ownershipRecruitmentOverrides[seed.id]
+    ?? (seed.id.startsWith('chn-') ? [chnGroupFallback] : seed.level === 0 ? [] : [noPublicRecruitment()]);
+  return { ...node, recruitmentChannels, children: children?.map(materializeOwnershipNode) };
+}
 
 export const ownershipEvidence: OwnershipEvidence[] = [
   { id: 'ev-gx-sasac', title: '监管企业公开信息', publisher: '广西壮族自治区国资委', url: 'https://gzw.gxzf.gov.cn/', sourceType: '监管披露', verifiedAt: '2026-09-08' },
@@ -144,15 +194,15 @@ export const ownershipCoverageSets: OwnershipCoverageSet[] = [
   },
 */
 
-const gigPendingL2: OwnershipNode[] = [
+const gigPendingL2: OwnershipNodeSeed[] = [
   ['gx-new-material','广西广投新材料集团有限公司','新材料平台'], ['gx-pharma','广西广投医药健康产业集团有限公司','医药健康平台'], ['digital-gx','数字广西集团有限公司','数字经济平台'], ['gx-salt','广西盐业集团有限公司','食盐保供平台'], ['gx-water-design','广西壮族自治区水利电力勘测设计研究院有限责任公司','勘测设计平台'], ['gx-supply-chain','广西广投产业链服务集团有限公司','产业链服务平台'], ['gx-invest-consulting','广西投资集团咨询有限公司','咨询服务平台'], ['gx-smart-services','广西广投智慧服务集团有限公司','智慧服务平台'], ['wuzhou-zhongheng','广西梧州中恒集团股份有限公司','医药上市公司']
 ].map(([id,name,category]) => ({ id, name, category, level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], controlType: '待核验', verifiedAt: '2026-09-08', verificationStatus: '待确认', coverageSetId: 'coverage-gig-l2', relation: '官网披露业务归属，直接法律控制关系待交易所或产权资料确认', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment }));
 
-const chnPendingL3: OwnershipNode[] = [
+const chnPendingL3: OwnershipNodeSeed[] = [
   ['chn-gx-new-energy','广西国能能源发展有限公司','广西南宁'], ['chn-nanning','国能南宁发电有限公司','广西南宁'], ['chn-beihai','国能广投北海发电有限公司','广西北海'], ['chn-liuzhou','国能广投柳州发电有限公司','广西柳州'], ['chn-yongfu','国能永福发电有限公司','广西桂林'], ['chn-hydropower','广西国能水电开发有限公司','广西全区'], ['chn-integrated-service','广西国能综合能源服务有限公司','广西南宁'], ['chn-guohua-gx','国能国华（广西）新能源有限公司','广西南宁']
 ].map(([id,name,location]) => ({ id, name, category: '广西公司所属法人候选', level: 3, entityKind: '控股企业', locationTags: [location], registeredLocation: location, controlType: '待核验', verifiedAt: '2026-09-08', verificationStatus: '待确认', coverageSetId: 'coverage-chn-gx-l3', relation: '官方招聘公告可证所属单位，但不能单独证明直接股权', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment }));
 
-export const ownershipTrees: OwnershipNode[] = [
+const ownershipTreeSeeds: OwnershipNodeSeed[] = [
   { id: 'gx-sasac', name: '广西壮族自治区国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://gzw.gxzf.gov.cn/', children: [
     { id: 'gig-tree', name: '广西投资集团有限公司', category: '一级监管企业', level: 1, entityKind: '集团', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '自治区国资委履行出资人职责', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [
       { id: 'gx-energy', name: '广西能源集团有限公司', category: '能源产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '年度报告确认广投集团控制', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [
@@ -180,6 +230,8 @@ export const ownershipTrees: OwnershipNode[] = [
     ] }
   ] }
 ];
+
+export const ownershipTrees: OwnershipNode[] = ownershipTreeSeeds.map(materializeOwnershipNode);
 
 export const ownershipEdges: OwnershipEdge[] = [
   { id: 'edge-gx-sasac-gig', parentId: 'gx-sasac', childId: 'gig-tree', controlType: '履行出资人职责', controlBasis: '自治区国资委履行出资人职责', evidenceIds: ['ev-gx-sasac'], asOf: '2026-09-08', verificationStatus: '已核验' },

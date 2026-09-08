@@ -197,11 +197,22 @@ export type TreeLike = {
   coverageSetId?: string;
   verificationStatus?: string;
   verifiedAt?: string;
-  recruitmentUrl?: string;
+  recruitmentChannels?: OwnershipRecruitmentChannelLike[];
   unifiedSocialCreditCode?: string;
   registeredLocation?: string;
   sourceUrl?: string;
   children?: TreeLike[];
+};
+
+export type OwnershipRecruitmentChannelLike = {
+  label?: string;
+  type?: string;
+  match?: string;
+  status?: string;
+  url?: string;
+  appliesToCompanyName?: string;
+  evidenceUrl?: string;
+  verifiedAt?: string;
 };
 
 export type CoverageLike = {
@@ -248,6 +259,9 @@ export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[
   const errors: string[] = [];
   const nodes = flattenOwnershipTrees(roots);
   const nodeMap = new Map(nodes.map((node) => [node.id, node]));
+  const parentMap = new Map<string, TreeLike>();
+  const indexParents = (parent: TreeLike) => parent.children?.forEach((child) => { parentMap.set(child.id, parent); indexParents(child); });
+  roots.forEach(indexParents);
   const names = new Set<string>();
   for (const node of nodes) {
     const normalizedName = node.name ? normalizeCompanyName(node.name) : '';
@@ -255,6 +269,20 @@ export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[
     if (normalizedName) names.add(normalizedName);
     if (node.entityKind === '分支机构') errors.push(`${node.id} 分支机构不能计入法律控制树`);
     if (node.level === 3 && node.verificationStatus === '已核验' && (!node.unifiedSocialCreditCode || !node.registeredLocation)) errors.push(`${node.id} 已核验三级法人缺少统一社会信用代码或注册地`);
+    if ((node.level ?? 0) > 0 && !node.recruitmentChannels?.length) errors.push(`${node.id} 缺少招聘渠道状态`);
+    for (const channel of node.recruitmentChannels ?? []) {
+      if (!channel.label || !channel.type || !channel.match || !channel.status || !channel.verifiedAt) errors.push(`${node.id} 招聘渠道字段不完整`);
+      if (channel.match === '暂无公开入口') {
+        if (channel.url || channel.status !== '暂无公开入口' || channel.type !== '无公开渠道') errors.push(`${node.id} 暂无入口状态与链接不一致`);
+        continue;
+      }
+      if (!channel.url || !channel.url.startsWith('https://')) errors.push(`${node.id} 招聘渠道不是有效 HTTPS 链接`);
+      if ((channel.match === '公司专属' || channel.match === '单位已定位') && (!channel.evidenceUrl || channel.appliesToCompanyName !== node.name)) errors.push(`${node.id} 专属招聘渠道缺少公司归属证据`);
+      if (channel.match === '集团兜底' && channel.type !== '集团通用入口') errors.push(`${node.id} 集团兜底渠道类型错误`);
+      const parent = parentMap.get(node.id);
+      const parentUrls = new Set(parent?.recruitmentChannels?.map((item) => item.url).filter(Boolean));
+      if (channel.url && parentUrls.has(channel.url) && channel.match === '公司专属') errors.push(`${node.id} 公司专属招聘链接与母公司完全相同`);
+    }
   }
   for (const set of sets) {
     const parent = nodeMap.get(set.parentId);
@@ -276,7 +304,7 @@ export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[
       if (node.level !== set.targetLevel) errors.push(`${id} 不是目标层级主体`);
       if (set.expectedNodeIds.includes(id) && node.verificationStatus !== '已核验') errors.push(`${id} 尚未核验`);
       if (set.pendingNodeIds.includes(id) && node.verificationStatus !== '待确认') errors.push(`${id} 应标记待确认`);
-      if (!node.verifiedAt || !node.sourceUrl || !node.recruitmentUrl) errors.push(`${id} 缺少核验日期、证据或招聘渠道`);
+      if (!node.verifiedAt || !node.sourceUrl || !node.recruitmentChannels?.length) errors.push(`${id} 缺少核验日期、证据或招聘渠道状态`);
     }
   }
   const evidenceMap = new Map(evidence.map((item) => [item.id, item]));

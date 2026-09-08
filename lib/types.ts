@@ -56,8 +56,19 @@ export interface OwnershipNode {
   coverageSetId?: string;
   relation?: string;
   sourceUrl: string;
-  recruitmentUrl?: string;
+  recruitmentChannels: OwnershipRecruitmentChannel[];
   children?: OwnershipNode[];
+}
+
+export interface OwnershipRecruitmentChannel {
+  label: string;
+  type: '公司招聘官网' | '集团招聘系统单位页' | '官方招聘公告' | '集团通用入口' | '无公开渠道';
+  match: '公司专属' | '单位已定位' | '集团兜底' | '暂无公开入口';
+  status: '可投递' | '状态待确认' | '已截止' | '暂无公开入口';
+  url?: string;
+  appliesToCompanyName?: string;
+  evidenceUrl?: string;
+  verifiedAt: string;
 }
 
 export interface OwnershipEvidence {

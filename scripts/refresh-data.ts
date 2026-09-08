@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName } from '../lib/collector.ts';
-import { companies, recruitmentRecords, sources } from '../data/catalog.ts';
-import type { RecruitmentDirectoryEntry, RecruitmentLead, RecruitmentLeadStatus } from '../lib/types.ts';
+import { companies, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
+import type { OwnershipNode, RecruitmentDirectoryEntry, RecruitmentLead, RecruitmentLeadStatus } from '../lib/types.ts';
 
 type RegistrySource = {
   id: string;
@@ -30,6 +30,7 @@ const healthPath = path.resolve('data/source-health.json');
 const leadsPath = path.resolve('data/recruitment-leads.json');
 const syncPath = path.resolve('data/recruitment-sync.json');
 const directoryPath = path.resolve('data/recruitment-directory.json');
+const ownershipChannelHealthPath = path.resolve('data/ownership-channel-health.json');
 const registry = JSON.parse(await readFile(registryPath, 'utf8')) as Registry;
 const completedAt = new Date().toISOString();
 
@@ -102,6 +103,37 @@ const sourceResults = await parallelMap(registry.sources, 6, async (source) => {
   }
 });
 
+const flattenOwnershipNodes = (nodes: OwnershipNode[]): OwnershipNode[] => nodes.flatMap((node) => [node, ...flattenOwnershipNodes(node.children ?? [])]);
+const ownershipChannelBindings = flattenOwnershipNodes(ownershipTrees).flatMap((node) => node.recruitmentChannels
+  .filter((channel) => Boolean(channel.url))
+  .map((channel) => ({ nodeId: node.id, companyName: node.name, channel })));
+const uniqueOwnershipChannelUrls = [...new Set(ownershipChannelBindings.map((item) => item.channel.url as string))];
+const ownershipChannelFetches = await parallelMap(uniqueOwnershipChannelUrls, 4, async (url) => {
+  const started = Date.now();
+  try {
+    const response = await fetch(url, {
+      redirect: 'follow', signal: AbortSignal.timeout(15_000),
+      headers: { 'user-agent': 'NanningCampusInfoBot/2.0 (+public-source-check; no-login; contact=site-owner)', accept: 'text/html,application/xhtml+xml' },
+    });
+    return { url, ok: response.ok, httpStatus: response.status, html: await response.text(), elapsedMs: Date.now() - started };
+  } catch (error) {
+    return { url, ok: false, httpStatus: null, html: '', elapsedMs: Date.now() - started, message: error instanceof Error ? error.message : '未知错误' };
+  }
+});
+const ownershipFetchByUrl = new Map(ownershipChannelFetches.map((item) => [item.url, item]));
+const ownershipChannelChecks = ownershipChannelBindings.map(({ nodeId, companyName, channel }) => {
+  const result = ownershipFetchByUrl.get(channel.url as string);
+  const normalizedHtml = result?.html.replace(/\s+/g, '') ?? '';
+  const normalizedCompanyName = companyName.replace(/\s+/g, '');
+  const companyNamedOnPage = channel.match === '集团兜底' || normalizedHtml.includes(normalizedCompanyName);
+  return {
+    nodeId, companyName, label: channel.label, url: channel.url, match: channel.match, declaredStatus: channel.status,
+    checkedAt: completedAt, httpStatus: result?.httpStatus ?? null,
+    health: !result?.ok ? '异常' : companyNamedOnPage ? '正常' : '可访问，归属需人工复核',
+    elapsedMs: result?.elapsedMs ?? 0,
+  };
+});
+
 const sourceById = new Map(registry.sources.map((source) => [source.id, source]));
 const rawCandidates = sourceResults.flatMap((result) => result.candidates);
 const mergedCandidates = mergeCandidateLeads(rawCandidates);
@@ -145,6 +177,7 @@ const verifiedLeads = leads.filter((lead) => lead.status !== '待核验').length
 const nanningLeads = leads.filter((lead) => lead.locations.includes('广西南宁')).length;
 const target = registry.sourcePolicy.targetDailyQualifiedLeads;
 const anomalyCount = sourceResults.filter((result) => result.health.health === '异常').length;
+const ownershipChannelAnomalyCount = ownershipChannelChecks.filter((item) => item.health === '异常').length;
 const targetMet = leads.length >= target;
 const report = {
   schemaVersion: 2,
@@ -161,10 +194,15 @@ const report = {
     verifiedLeads,
     pendingLeads: leads.length - verifiedLeads,
     nanningLeads,
+    ownershipChannelsChecked: ownershipChannelChecks.length,
+    ownershipChannelAnomalyCount,
   },
   sources: sourceResults.map((result) => result.health),
   leads,
-  warnings: targetMet ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`],
+  warnings: [
+    ...(targetMet ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`]),
+    ...(ownershipChannelAnomalyCount ? [`${ownershipChannelAnomalyCount} 条资金链招聘渠道访问异常；保留原渠道状态并等待复核。`] : []),
+  ],
 };
 
 const companyById = new Map(companies.map((company) => [company.id, company]));
@@ -232,6 +270,7 @@ if (write) {
     writeFile(leadsPath, `${JSON.stringify(report, null, 2)}\n`, 'utf8'),
     writeFile(syncPath, `${JSON.stringify({ schemaVersion: 1, completedAt, target, targetMet, counters: report.counters, warnings: report.warnings }, null, 2)}\n`, 'utf8'),
     writeFile(directoryPath, `${JSON.stringify(directoryReport, null, 2)}\n`, 'utf8'),
+    writeFile(ownershipChannelHealthPath, `${JSON.stringify({ schemaVersion: 1, completedAt, results: ownershipChannelChecks }, null, 2)}\n`, 'utf8'),
   ]);
 }
 
