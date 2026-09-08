@@ -39,10 +39,10 @@ test('校验三级控股树并识别循环', () => {
   assert.match(validateOwnershipTree(cyclic as never).join(','), /形成循环/);
 });
 
-test('二级覆盖清单必须完整且分支机构不能冒充子公司', () => {
+test('覆盖清单区分已核验与待确认，闭合状态必须可审计', () => {
   const roots = [{ id: 'root', name: '监管机构', level: 0, sourceUrl: 'https://example.com', children: [{ id: 'group', name: '示例集团', level: 1, sourceUrl: 'https://example.com/group', children: [{ id: 'company-a', name: '示例公司甲', level: 2, entityKind: '控股企业', coverageSetId: 'coverage', verificationStatus: '已核验', verifiedAt: '2026-09-08', sourceUrl: 'https://example.com/a', recruitmentUrl: 'https://example.com/jobs' }] }] }];
-  const coverage = [{ id: 'coverage', parentId: 'group', disclosedTotal: 1, expectedNodeIds: ['company-a'], sourceUrls: ['https://example.com/list'] }];
+  const coverage = [{ id: 'coverage', parentId: 'group', targetLevel: 2 as const, officialDisclosedTotal: 1, expectedNodeIds: ['company-a'], pendingNodeIds: [], completenessStatus: '官方清单已闭合', sourceUrls: ['https://example.com/list'] }, { id: 'company-a-l3', parentId: 'company-a', targetLevel: 3 as const, officialDisclosedTotal: 0, expectedNodeIds: [], pendingNodeIds: [], completenessStatus: '官方清单已闭合', sourceUrls: ['https://example.com/a'] }];
   assert.deepEqual(validateOwnershipCoverage(roots, coverage), []);
-  coverage[0].expectedNodeIds.push('missing');
-  assert.match(validateOwnershipCoverage(roots, coverage).join(','), /披露总数与清单不一致|缺少节点/);
+  coverage[0].pendingNodeIds.push('missing');
+  assert.match(validateOwnershipCoverage(roots, coverage).join(','), /闭合状态与清单不一致|缺少节点/);
 });

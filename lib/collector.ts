@@ -179,6 +179,8 @@ export type TreeLike = {
   verificationStatus?: string;
   verifiedAt?: string;
   recruitmentUrl?: string;
+  unifiedSocialCreditCode?: string;
+  registeredLocation?: string;
   sourceUrl?: string;
   children?: TreeLike[];
 };
@@ -186,10 +188,16 @@ export type TreeLike = {
 export type CoverageLike = {
   id: string;
   parentId: string;
-  disclosedTotal: number;
+  targetLevel: 2 | 3;
+  officialDisclosedTotal: number | null;
   expectedNodeIds: string[];
+  pendingNodeIds: string[];
+  completenessStatus: string;
   sourceUrls: string[];
 };
+
+export type OwnershipEvidenceLike = { id: string; sourceType: string };
+export type OwnershipEdgeLike = { parentId: string; childId: string; evidenceIds: string[]; verificationStatus: string };
 
 export function validateOwnershipTree(root: TreeLike): string[] {
   const errors: string[] = [];
@@ -217,7 +225,7 @@ export function flattenOwnershipTrees(roots: TreeLike[]): TreeLike[] {
   return roots.flatMap((root) => [root, ...flattenOwnershipTrees(root.children ?? [])]);
 }
 
-export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[]): string[] {
+export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[], edges: OwnershipEdgeLike[] = [], evidence: OwnershipEvidenceLike[] = []): string[] {
   const errors: string[] = [];
   const nodes = flattenOwnershipTrees(roots);
   const nodeMap = new Map(nodes.map((node) => [node.id, node]));
@@ -226,7 +234,8 @@ export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[
     const normalizedName = node.name ? normalizeCompanyName(node.name) : '';
     if (normalizedName && names.has(normalizedName)) errors.push(`${node.name} 名称重复`);
     if (normalizedName) names.add(normalizedName);
-    if (node.entityKind === '分支机构' && node.level !== 3) errors.push(`${node.id} 分支机构不能作为二级子公司`);
+    if (node.entityKind === '分支机构') errors.push(`${node.id} 分支机构不能计入法律控制树`);
+    if (node.level === 3 && node.verificationStatus === '已核验' && (!node.unifiedSocialCreditCode || !node.registeredLocation)) errors.push(`${node.id} 已核验三级法人缺少统一社会信用代码或注册地`);
   }
   for (const set of sets) {
     const parent = nodeMap.get(set.parentId);
@@ -234,21 +243,37 @@ export function validateOwnershipCoverage(roots: TreeLike[], sets: CoverageLike[
       errors.push(`${set.id} 缺少父节点`);
       continue;
     }
-    if (set.disclosedTotal !== set.expectedNodeIds.length) errors.push(`${set.id} 披露总数与清单不一致`);
+    if (set.completenessStatus === '官方清单已闭合' && (set.officialDisclosedTotal !== set.expectedNodeIds.length || set.pendingNodeIds.length)) errors.push(`${set.id} 闭合状态与清单不一致`);
     if (!set.sourceUrls.length) errors.push(`${set.id} 缺少覆盖来源`);
     const actualIds = (parent.children ?? []).filter((node) => node.coverageSetId === set.id).map((node) => node.id).sort();
-    const expectedIds = [...set.expectedNodeIds].sort();
-    if (actualIds.join('|') !== expectedIds.join('|')) errors.push(`${set.id} 二级节点与覆盖清单不一致`);
-    for (const id of set.expectedNodeIds) {
+    const listedIds = [...set.expectedNodeIds, ...set.pendingNodeIds].sort();
+    if (actualIds.join('|') !== listedIds.join('|')) errors.push(`${set.id} 节点与覆盖清单不一致`);
+    for (const id of listedIds) {
       const node = nodeMap.get(id);
       if (!node) {
         errors.push(`${set.id} 缺少节点 ${id}`);
         continue;
       }
-      if (node.level !== 2) errors.push(`${id} 不是二级主体`);
-      if (node.verificationStatus !== '已核验') errors.push(`${id} 尚未核验`);
+      if (node.level !== set.targetLevel) errors.push(`${id} 不是目标层级主体`);
+      if (set.expectedNodeIds.includes(id) && node.verificationStatus !== '已核验') errors.push(`${id} 尚未核验`);
+      if (set.pendingNodeIds.includes(id) && node.verificationStatus !== '待确认') errors.push(`${id} 应标记待确认`);
       if (!node.verifiedAt || !node.sourceUrl || !node.recruitmentUrl) errors.push(`${id} 缺少核验日期、证据或招聘渠道`);
     }
+  }
+  const evidenceMap = new Map(evidence.map((item) => [item.id, item]));
+  if (edges.length) {
+    const incoming = new Map<string, number>();
+    for (const edge of edges) {
+      const parent = nodeMap.get(edge.parentId);
+      const child = nodeMap.get(edge.childId);
+      if (!parent || !child) { errors.push(`${edge.parentId}→${edge.childId} 缺少节点`); continue; }
+      if ((parent.level ?? -1) + 1 !== child.level) errors.push(`${edge.childId} 所有权边层级不连续`);
+      incoming.set(edge.childId, (incoming.get(edge.childId) ?? 0) + 1);
+      if (!edge.evidenceIds.length || edge.evidenceIds.some((id) => !evidenceMap.has(id))) errors.push(`${edge.childId} 缺少有效关系证据`);
+      if (edge.verificationStatus === '已核验' && edge.evidenceIds.every((id) => evidenceMap.get(id)?.sourceType === '招聘公告')) errors.push(`${edge.childId} 不能仅用招聘公告证明控制关系`);
+    }
+    for (const node of nodes.filter((item) => item.level !== 0)) if (incoming.get(node.id) !== 1) errors.push(`${node.id} 必须且只能有一条直接父边`);
+    for (const node of nodes.filter((item) => item.level === 2)) if (!sets.some((set) => set.parentId === node.id && set.targetLevel === 3)) errors.push(`${node.id} 缺少三级覆盖清单`);
   }
   return errors;
 }

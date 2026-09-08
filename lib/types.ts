@@ -44,11 +44,13 @@ export interface OwnershipNode {
   id: string;
   name: string;
   category: string;
-  level: 0 | 1 | 2 | 3;
+  level: 0 | 1 | 2 | 3 | 4;
   entityKind: '监管机构' | '集团' | '控股企业' | '产业平台' | '分支机构';
   locationTags: string[];
-  controlType: '履行出资人职责' | '全资' | '控股' | '产业管理' | '分支管理';
+  controlType: '履行出资人职责' | '全资' | '控股' | '实际控制' | '待核验';
   ownershipPercent?: number;
+  unifiedSocialCreditCode?: string;
+  registeredLocation?: string;
   verifiedAt: string;
   verificationStatus: '已核验' | '待确认';
   coverageSetId?: string;
@@ -58,14 +60,40 @@ export interface OwnershipNode {
   children?: OwnershipNode[];
 }
 
+export interface OwnershipEvidence {
+  id: string;
+  title: string;
+  publisher: string;
+  url: string;
+  sourceType: '企业年报' | '交易所公告' | '监管披露' | '企业官网' | '招聘公告';
+  verifiedAt: string;
+}
+
+export interface OwnershipEdge {
+  id: string;
+  parentId: string;
+  childId: string;
+  controlType: '履行出资人职责' | '全资' | '控股' | '实际控制' | '待核验';
+  directOwnershipPercent?: number;
+  aggregateOwnershipPercent?: number;
+  controlBasis: string;
+  evidenceIds: string[];
+  asOf: string;
+  verificationStatus: '已核验' | '待确认';
+}
+
 export interface OwnershipCoverageSet {
   id: string;
   parentId: string;
   label: string;
   scope: string;
   asOf: string;
-  disclosedTotal: number;
+  targetLevel: 2 | 3;
+  officialDisclosedTotal: number | null;
   expectedNodeIds: string[];
+  pendingNodeIds: string[];
+  completenessStatus: '官方清单已闭合' | '已核验并持续补充' | '官方未披露总数';
+  excludedBranchCount?: number;
   sourceUrls: string[];
 }
 

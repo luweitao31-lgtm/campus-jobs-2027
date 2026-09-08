@@ -1,4 +1,4 @@
-import type { AwardEntry, Company, OwnershipCoverageSet, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
+import type { AwardEntry, Company, OwnershipCoverageSet, OwnershipEdge, OwnershipEvidence, OwnershipNode, RecruitmentRecord, SourceEvidence, SyncRun } from '@/lib/types';
 
 export const companies: Company[] = [
   { id: 'cmb-nanning', name: '招商银行股份有限公司南宁分行', shortName: '招商银行南宁分行', nature: '股份制银行', locations: ['广西南宁', '广西柳州'], channels: [{ id: 'cmb-career', label: '招商银行招聘', type: '企业官网', url: 'https://career.cmbchina.com/' }] },
@@ -61,23 +61,40 @@ const gigBusinessSource = 'https://www.gig.cn/portal/secDetail?index=0&type=busi
 const gigRecruitment = 'https://www.gigeps.com/cms/channel/xmgg4fw/85392.htm';
 const chnRecruitment = 'https://zhaopin.chnenergy.com.cn/';
 const chnGuangxiSource = 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2';
+const gigAnnualReport = 'https://static.sse.com.cn/disclosure/bond/announcement/company/c/new/2026-04-29/244906_20260429_XJB6.pdf';
+const gxEnergyAnnualReport = 'https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12024032&stockid=600310';
+const guohaiControlReport = 'https://static.cninfo.com.cn/finalpage/2025-04-25/1223300236.PDF';
+const longyuanReports = 'https://lydl.chnenergy.com.cn/lydlww/newtzzgx0201/newtzzgx01.shtml';
 
-export const ownershipCoverageSets: OwnershipCoverageSet[] = [
-  {
-    id: 'coverage-gig-guangxi-l2', parentId: 'gig-tree', label: '广投集团广西二级主体', scope: '广西注册、运营或承担广西产业管理职能的二级主体',
-    asOf: '2026-09-08', disclosedTotal: 12,
-    expectedNodeIds: ['gx-energy', 'gx-aluminum', 'gx-new-material', 'gx-pharma', 'digital-gx', 'gx-salt', 'gx-water-design', 'gx-financial-investment', 'gx-capital-management', 'gx-supply-chain', 'gx-invest-consulting', 'gx-smart-services'],
-    sourceUrls: [gigBusinessSource, 'https://www.gig.cn/portal/secDetail?index=0&type=public_information'],
-  },
-  {
-    id: 'coverage-chn-guangxi-l2', parentId: 'chn-root', label: '国家能源集团广西落地二级平台', scope: '在广西拥有控股主体或公开运营机构的集团二级平台',
-    asOf: '2026-09-08', disclosedTotal: 3,
-    expectedNodeIds: ['chn-gx', 'chn-longyuan', 'chn-sales'],
-    sourceUrls: ['https://zhaopin.chnenergy.com.cn/planSerch?kinds=2', 'https://www.chnenergy.com.cn/'],
-  },
+export const ownershipEvidence: OwnershipEvidence[] = [
+  { id: 'ev-gx-sasac', title: '监管企业公开信息', publisher: '广西壮族自治区国资委', url: 'https://gzw.gxzf.gov.cn/', sourceType: '监管披露', verifiedAt: '2026-09-08' },
+  { id: 'ev-state-sasac', title: '中央企业产权信息查询', publisher: '国务院国资委', url: 'https://opweb.sasac.gov.cn/gzwQ/', sourceType: '监管披露', verifiedAt: '2026-09-08' },
+  { id: 'ev-gig-annual', title: '广西投资集团2025年度报告', publisher: '上海证券交易所', url: gigAnnualReport, sourceType: '交易所公告', verifiedAt: '2026-09-08' },
+  { id: 'ev-gig-business', title: '广投集团主营业务板块', publisher: '广西投资集团', url: gigBusinessSource, sourceType: '企业官网', verifiedAt: '2026-09-08' },
+  { id: 'ev-guohai-control', title: '国海证券股权及实际控制关系说明', publisher: '国海证券', url: guohaiControlReport, sourceType: '企业年报', verifiedAt: '2026-09-08' },
+  { id: 'ev-gx-energy-annual', title: '广西能源2025年年度报告', publisher: '广西能源股份有限公司', url: gxEnergyAnnualReport, sourceType: '企业年报', verifiedAt: '2026-09-08' },
+  { id: 'ev-gig-energy-members', title: '广西能源集团所属企业采购公告', publisher: '广西投资集团电子采购平台', url: 'https://new.gigeps.com/cms/default/webfile/cggg/20260727/1266409630838292480.html?categoryId=1166346928443621376', sourceType: '企业官网', verifiedAt: '2026-09-08' },
+  { id: 'ev-chn-gx', title: '国家能源集团广西公司公开公告', publisher: '国家能源集团', url: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', sourceType: '招聘公告', verifiedAt: '2026-09-08' },
+  { id: 'ev-chn-gx-members', title: '国家能源集团广西公司所属单位公告', publisher: '国家能源集团', url: chnGuangxiSource, sourceType: '招聘公告', verifiedAt: '2026-09-08' },
+  { id: 'ev-longyuan-report', title: '龙源电力定期报告目录', publisher: '龙源电力', url: longyuanReports, sourceType: '企业年报', verifiedAt: '2026-09-08' },
+  { id: 'ev-sales-branch', title: '销售集团广西营销中心公开公告', publisher: '国家能源集团', url: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=b50bb8bc-d189-4eb3-a60c-d01f6f1ea8af&kinds=2', sourceType: '招聘公告', verifiedAt: '2026-09-08' },
 ];
 
-export const ownershipTrees: OwnershipNode[] = [
+export const ownershipCoverageSets: OwnershipCoverageSet[] = [
+  { id: 'coverage-gig-l2', parentId: 'gig-tree', label: '广投集团广西二级法律主体', scope: '广西法人、直接持股或直接实际控制', targetLevel: 2, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: ['gx-energy', 'gx-aluminum', 'gx-financial-investment', 'gx-financial-holding', 'guohai-securities', 'beibu-bank'], pendingNodeIds: ['gx-new-material', 'gx-pharma', 'digital-gx', 'gx-salt', 'gx-water-design', 'gx-supply-chain', 'gx-invest-consulting', 'gx-smart-services', 'wuzhou-zhongheng'], completenessStatus: '官方未披露总数', sourceUrls: [gigAnnualReport, gigBusinessSource] },
+  { id: 'coverage-chn-l2', parentId: 'chn-root', label: '国家能源集团广西落地二级法律主体', scope: '直接控制广西三级法人的二级公司', targetLevel: 2, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: ['chn-longyuan'], pendingNodeIds: ['chn-gx'], completenessStatus: '官方未披露总数', excludedBranchCount: 1, sourceUrls: ['https://www.chnenergy.com.cn/', longyuanReports] },
+  { id: 'coverage-gx-energy-l3', parentId: 'gx-energy', label: '广西能源集团广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: ['gx-zhengrun'], pendingNodeIds: ['gx-guangtou-petro', 'gx-yongsheng-petro', 'gx-guixuan-energy', 'gx-guisheng-energy'], completenessStatus: '官方未披露总数', sourceUrls: [gxEnergyAnnualReport, 'https://new.gigeps.com/cms/default/webfile/cggg/20260727/1266409630838292480.html?categoryId=1166346928443621376'] },
+  { id: 'coverage-gx-aluminum-l3', parentId: 'gx-aluminum', label: '广西铝业集团广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: ['gx-baise-aluminum', 'gx-laibin-aluminum', 'gx-liuzhou-aluminum'], completenessStatus: '官方未披露总数', sourceUrls: [gigBusinessSource] },
+  { id: 'coverage-gx-financial-l3', parentId: 'gx-financial-investment', label: '广西金融投资集团广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: ['gx-capital-management'], pendingNodeIds: [], completenessStatus: '已核验并持续补充', sourceUrls: [gigAnnualReport] },
+  { id: 'coverage-gx-financial-holding-l3', parentId: 'gx-financial-holding', label: '广投金融控股广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: [], completenessStatus: '官方未披露总数', sourceUrls: [gigAnnualReport] },
+  { id: 'coverage-guohai-l3', parentId: 'guohai-securities', label: '国海证券广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: [], completenessStatus: '官方未披露总数', sourceUrls: [guohaiControlReport] },
+  { id: 'coverage-beibu-bank-l3', parentId: 'beibu-bank', label: '北部湾银行广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: ['tiandong-village-bank', 'cenxi-village-bank'], completenessStatus: '官方未披露总数', sourceUrls: [gigAnnualReport] },
+  ...['gx-new-material','gx-pharma','digital-gx','gx-salt','gx-water-design','gx-supply-chain','gx-invest-consulting','gx-smart-services','wuzhou-zhongheng'].map((parentId) => ({ id: `coverage-${parentId}-l3`, parentId, label: `${parentId}三级法人`, scope: '直接控制的广西法人', targetLevel: 3 as const, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: [], completenessStatus: '官方未披露总数' as const, sourceUrls: [gigAnnualReport] })),
+  { id: 'coverage-chn-gx-l3', parentId: 'chn-gx', label: '国家能源集团广西公司三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: [], pendingNodeIds: ['chn-gx-new-energy','chn-nanning','chn-beihai','chn-liuzhou','chn-yongfu','chn-hydropower','chn-integrated-service','chn-guohua-gx'], completenessStatus: '官方未披露总数', sourceUrls: [chnGuangxiSource] },
+  { id: 'coverage-chn-longyuan-l3', parentId: 'chn-longyuan', label: '龙源电力广西三级法人', scope: '直接控制的广西法人', targetLevel: 3, asOf: '2026-09-08', officialDisclosedTotal: null, expectedNodeIds: ['chn-longyuan-gx'], pendingNodeIds: [], completenessStatus: '已核验并持续补充', sourceUrls: [longyuanReports] },
+];
+
+/* Historical pre-audit snapshot retained only for migration reference.
   {
     id: 'gx-sasac', name: '广西壮族自治区国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://gzw.gxzf.gov.cn/',
     children: [{
@@ -125,6 +142,51 @@ export const ownershipTrees: OwnershipNode[] = [
       ],
     }],
   },
+*/
+
+const gigPendingL2: OwnershipNode[] = [
+  ['gx-new-material','广西广投新材料集团有限公司','新材料平台'], ['gx-pharma','广西广投医药健康产业集团有限公司','医药健康平台'], ['digital-gx','数字广西集团有限公司','数字经济平台'], ['gx-salt','广西盐业集团有限公司','食盐保供平台'], ['gx-water-design','广西壮族自治区水利电力勘测设计研究院有限责任公司','勘测设计平台'], ['gx-supply-chain','广西广投产业链服务集团有限公司','产业链服务平台'], ['gx-invest-consulting','广西投资集团咨询有限公司','咨询服务平台'], ['gx-smart-services','广西广投智慧服务集团有限公司','智慧服务平台'], ['wuzhou-zhongheng','广西梧州中恒集团股份有限公司','医药上市公司']
+].map(([id,name,category]) => ({ id, name, category, level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], controlType: '待核验', verifiedAt: '2026-09-08', verificationStatus: '待确认', coverageSetId: 'coverage-gig-l2', relation: '官网披露业务归属，直接法律控制关系待交易所或产权资料确认', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment }));
+
+const chnPendingL3: OwnershipNode[] = [
+  ['chn-gx-new-energy','广西国能能源发展有限公司','广西南宁'], ['chn-nanning','国能南宁发电有限公司','广西南宁'], ['chn-beihai','国能广投北海发电有限公司','广西北海'], ['chn-liuzhou','国能广投柳州发电有限公司','广西柳州'], ['chn-yongfu','国能永福发电有限公司','广西桂林'], ['chn-hydropower','广西国能水电开发有限公司','广西全区'], ['chn-integrated-service','广西国能综合能源服务有限公司','广西南宁'], ['chn-guohua-gx','国能国华（广西）新能源有限公司','广西南宁']
+].map(([id,name,location]) => ({ id, name, category: '广西公司所属法人候选', level: 3, entityKind: '控股企业', locationTags: [location], registeredLocation: location, controlType: '待核验', verifiedAt: '2026-09-08', verificationStatus: '待确认', coverageSetId: 'coverage-chn-gx-l3', relation: '官方招聘公告可证所属单位，但不能单独证明直接股权', sourceUrl: chnGuangxiSource, recruitmentUrl: chnRecruitment }));
+
+export const ownershipTrees: OwnershipNode[] = [
+  { id: 'gx-sasac', name: '广西壮族自治区国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://gzw.gxzf.gov.cn/', children: [
+    { id: 'gig-tree', name: '广西投资集团有限公司', category: '一级监管企业', level: 1, entityKind: '集团', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '自治区国资委履行出资人职责', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [
+      { id: 'gx-energy', name: '广西能源集团有限公司', category: '能源产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '年度报告确认广投集团控制', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [
+        { id: 'gx-zhengrun', name: '广西广投正润发展集团有限公司', category: '能源投资控股平台', level: 3, entityKind: '控股企业', locationTags: ['广西贺州','广西全区'], registeredLocation: '广西贺州', unifiedSocialCreditCode: '91451100200340229B', controlType: '全资', ownershipPercent: 100, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gx-energy-l3', relation: '广西能源集团全资子公司，保持真实层级', sourceUrl: gxEnergyAnnualReport, recruitmentUrl: gigRecruitment, children: [
+          { id: 'gx-energy-listed', name: '广西能源股份有限公司', category: '上市公司', level: 4, entityKind: '控股企业', locationTags: ['广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '控股股东为广投正润，不再压缩挂接', sourceUrl: gxEnergyAnnualReport, recruitmentUrl: gigRecruitment }
+        ] },
+        ...[['gx-guangtou-petro','广西广投石化有限公司'],['gx-yongsheng-petro','广西永盛石油化工有限公司'],['gx-guixuan-energy','广西桂轩能源有限公司'],['gx-guisheng-energy','广西桂盛能源有限公司']].map(([id,name]) => ({ id, name, category: '能源集团所属法人候选', level: 3 as const, entityKind: '控股企业' as const, locationTags: ['广西全区'], controlType: '待核验' as const, verifiedAt: '2026-09-08', verificationStatus: '待确认' as const, coverageSetId: 'coverage-gx-energy-l3', relation: '采购公告可证所属关系，直接持股仍待确认', sourceUrl: 'https://new.gigeps.com/cms/default/webfile/cggg/20260727/1266409630838292480.html?categoryId=1166346928443621376', recruitmentUrl: gigRecruitment }))
+      ] },
+      { id: 'gx-aluminum', name: '广西铝业集团有限公司', category: '铝业产业平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '控股', ownershipPercent: 86.73, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '公开报告披露广投集团持股86.73%', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [['gx-baise-aluminum','广西百色广投银海铝业有限责任公司','广西百色'],['gx-laibin-aluminum','广西来宾银海铝业有限责任公司','广西来宾'],['gx-liuzhou-aluminum','广西广投柳州铝业股份有限公司','广西柳州']].map(([id,name,location]) => ({ id, name, category: '铝业集团所属法人候选', level: 3 as const, entityKind: '控股企业' as const, locationTags: [location], registeredLocation: location, controlType: '待核验' as const, verifiedAt: '2026-09-08', verificationStatus: '待确认' as const, coverageSetId: 'coverage-gx-aluminum-l3', relation: '业务归属已发现，直接控制证据待补', sourceUrl: gigBusinessSource, recruitmentUrl: gigRecruitment })) },
+      { id: 'gx-financial-investment', name: '广西金融投资集团有限公司', category: '综合金融平台', level: 2, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '广投集团年度报告纳入受控主体', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment, children: [
+        { id: 'gx-capital-management', name: '广投资本管理集团有限公司', category: '资本投资平台', level: 3, entityKind: '产业平台', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', unifiedSocialCreditCode: '91450000MA5MTY2XXG', controlType: '控股', ownershipPercent: 90, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gx-financial-l3', relation: '广西金融投资集团直接持股90%', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment }
+      ] },
+      { id: 'gx-financial-holding', name: '广西投资集团金融控股有限公司', category: '金融控股平台', level: 2, entityKind: '控股企业', locationTags: ['广西南宁'], registeredLocation: '广西南宁', controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '年度报告确认集团控制', sourceUrl: gigAnnualReport, recruitmentUrl: gigRecruitment },
+      { id: 'guohai-securities', name: '国海证券股份有限公司', category: '证券上市公司', level: 2, entityKind: '控股企业', locationTags: ['广西南宁','全国'], registeredLocation: '广西桂林', controlType: '实际控制', ownershipPercent: 23.33, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '广投集团直接持股23.33%，直接及间接合计37.46%并实际控制', sourceUrl: guohaiControlReport, recruitmentUrl: 'https://www.ghzq.com.cn/', children: [] },
+      { id: 'beibu-bank', name: '广西北部湾银行股份有限公司', category: '地方银行', level: 2, entityKind: '控股企业', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '实际控制', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-gig-l2', relation: '年度报告列为重要受控子公司，集团直接及间接持股合计16.02%', sourceUrl: gigAnnualReport, recruitmentUrl: 'https://www.bankofbbg.com/', children: [['tiandong-village-bank','田东北部湾村镇银行有限责任公司','广西百色'],['cenxi-village-bank','岑溪市北部湾村镇银行有限责任公司','广西梧州']].map(([id,name,location]) => ({ id, name, category: '村镇银行候选', level: 3 as const, entityKind: '控股企业' as const, locationTags: [location], registeredLocation: location, controlType: '待核验' as const, verifiedAt: '2026-09-08', verificationStatus: '待确认' as const, coverageSetId: 'coverage-beibu-bank-l3', relation: '年报发现候选，直接持股比例待逐项核验', sourceUrl: gigAnnualReport, recruitmentUrl: 'https://www.bankofbbg.com/' })) },
+      ...gigPendingL2
+    ] }
+  ] },
+  { id: 'sasac-state', name: '国务院国资委', category: '履行出资人职责机构', level: 0, entityKind: '监管机构', locationTags: ['全国'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/', children: [
+    { id: 'chn-root', name: '国家能源投资集团有限责任公司', category: '一级中央企业', level: 1, entityKind: '集团', locationTags: ['全国','广西全区'], controlType: '履行出资人职责', verifiedAt: '2026-09-08', verificationStatus: '已核验', relation: '国务院国资委监管', sourceUrl: 'https://opweb.sasac.gov.cn/gzwQ/', recruitmentUrl: chnRecruitment, children: [
+      { id: 'chn-gx', name: '国家能源集团广西电力有限公司', category: '广西区域公司', level: 2, entityKind: '控股企业', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西南宁', controlType: '待核验', verifiedAt: '2026-09-08', verificationStatus: '待确认', coverageSetId: 'coverage-chn-l2', relation: '集团官方公告明确为省级区域全资子公司，仍待产权或年报交叉确认直接持股', sourceUrl: 'https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2', recruitmentUrl: chnRecruitment, children: chnPendingL3 },
+      { id: 'chn-longyuan', name: '龙源电力集团股份有限公司', category: '新能源上市平台', level: 2, entityKind: '产业平台', locationTags: ['全国','广西全区'], controlType: '控股', verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-chn-l2', relation: '国家能源集团控股上市平台，在广西直接设立法人', sourceUrl: longyuanReports, recruitmentUrl: chnRecruitment, children: [
+        { id: 'chn-longyuan-gx', name: '广西龙源新能源有限公司', category: '广西新能源公司', level: 3, entityKind: '控股企业', locationTags: ['广西南宁','广西全区'], registeredLocation: '广西横州', unifiedSocialCreditCode: '91450127090742269U', controlType: '全资', ownershipPercent: 100, verifiedAt: '2026-09-08', verificationStatus: '已核验', coverageSetId: 'coverage-chn-longyuan-l3', relation: '龙源电力定期报告合并范围确认', sourceUrl: longyuanReports, recruitmentUrl: chnRecruitment }
+      ] }
+    ] }
+  ] }
+];
+
+export const ownershipEdges: OwnershipEdge[] = [
+  { id: 'edge-gx-sasac-gig', parentId: 'gx-sasac', childId: 'gig-tree', controlType: '履行出资人职责', controlBasis: '自治区国资委履行出资人职责', evidenceIds: ['ev-gx-sasac'], asOf: '2026-09-08', verificationStatus: '已核验' },
+  { id: 'edge-state-chn', parentId: 'sasac-state', childId: 'chn-root', controlType: '履行出资人职责', controlBasis: '国务院国资委监管中央企业', evidenceIds: ['ev-state-sasac'], asOf: '2026-09-08', verificationStatus: '已核验' },
+  ...ownershipTrees.flatMap((root) => root.children ?? []).flatMap((group) => (group.children ?? []).map((child) => ({ id: `edge-${group.id}-${child.id}`, parentId: group.id, childId: child.id, controlType: child.controlType, directOwnershipPercent: child.ownershipPercent, aggregateOwnershipPercent: child.id === 'guohai-securities' ? 37.46 : child.id === 'beibu-bank' ? 16.02 : undefined, controlBasis: child.relation ?? '公开披露控制关系', evidenceIds: [child.id === 'guohai-securities' ? 'ev-guohai-control' : child.id === 'chn-gx' ? 'ev-chn-gx' : child.id === 'chn-longyuan' ? 'ev-longyuan-report' : child.verificationStatus === '待确认' ? 'ev-gig-business' : 'ev-gig-annual'], asOf: '2026-09-08', verificationStatus: child.verificationStatus } as OwnershipEdge))),
+  ...ownershipTrees.flatMap((root) => root.children ?? []).flatMap((group) => group.children ?? []).flatMap((parent) => (parent.children ?? []).map((child) => ({ id: `edge-${parent.id}-${child.id}`, parentId: parent.id, childId: child.id, controlType: child.controlType, directOwnershipPercent: child.ownershipPercent, controlBasis: child.relation ?? '公开披露控制关系', evidenceIds: [parent.id === 'gx-energy' || parent.id === 'gx-zhengrun' ? 'ev-gx-energy-annual' : parent.id === 'chn-longyuan' ? 'ev-longyuan-report' : parent.id === 'chn-gx' ? 'ev-chn-gx-members' : parent.id === 'gx-aluminum' ? 'ev-gig-business' : 'ev-gig-annual'], asOf: '2026-09-08', verificationStatus: child.verificationStatus } as OwnershipEdge))),
+  { id: 'edge-gx-zhengrun-listed', parentId: 'gx-zhengrun', childId: 'gx-energy-listed', controlType: '控股', controlBasis: '广西能源年报确认广投正润为直接控股股东', evidenceIds: ['ev-gx-energy-annual'], asOf: '2026-09-08', verificationStatus: '已核验' },
 ];
 
 export const awards: AwardEntry[] = [
