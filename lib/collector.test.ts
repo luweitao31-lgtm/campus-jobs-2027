@@ -22,6 +22,9 @@ test('从聚合页提取、合并并保留明确的公告入口', () => {
   assert.ok(leads[0].locations.includes('广西南宁'));
   const anchorLeads = extractRecruitmentLeads('<a href="https://example.com/jobs">示例科技2027届校园招聘</a>', { ...source, parser: 'anchor-list' });
   assert.equal(anchorLeads[0].channelUrl, 'https://example.com/jobs');
+  const datedLead = extractRecruitmentLeads('<a href="/career/1">09月 10日 示例科技2027届校园招聘</a>', { ...source, parser: 'anchor-list' });
+  assert.equal(datedLead[0].companyName, '示例科技');
+  assert.equal(extractRecruitmentLeads('<a href="/fair/1">广西民族大学2027届毕业生秋季双选会</a>', { ...source, parser: 'anchor-list' }).length, 0);
   const merged = mergeCandidateLeads([...leads, { ...leads[0], sourceId: 'second', sourceUrl: 'https://second.example.com' }]);
   assert.equal(merged.length, 1);
   assert.deepEqual(merged[0].sourceIds.sort(), ['jobup', 'second']);

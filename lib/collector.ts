@@ -79,6 +79,7 @@ function inferLocations(value: string, fallback: string[] = []): string[] {
 
 function companyFromTitle(value: string): string {
   return cleanText(value)
+    .replace(/^\d{1,2}月\s*\d{1,2}日\s*/, '')
     .replace(/[｜|].*$/, '')
     .replace(/(?:2027|27)\s*届?.*$/, '')
     .replace(/(?:秋季|春季)?校园招聘.*$/, '')
@@ -139,7 +140,7 @@ export function extractAnchorLeads(html: string, source: CollectableSource): Can
     const title = cleanText(match[2]);
     const companyName = companyFromTitle(title);
     const channelUrl = absoluteUrl(match[1], source.url);
-    if (!channelUrl || !detectsCohort2027(title) || companyName.length < 2 || companyName.length > 80) return [];
+    if (!channelUrl || !detectsCohort2027(title) || /双选会|招聘会|就业服务攻坚|招聘活动/.test(title) || companyName.length < 2 || companyName.length > 80) return [];
     return [{ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl, locations: inferLocations(title, source.locationScope) }];
   });
 }

@@ -138,14 +138,14 @@ export const awards: AwardEntry[] = [
 ];
 
 export const latestSync: SyncRun = {
-  completedAt: '2026-09-08T17:19:58+08:00',
+  completedAt: '2026-09-08T17:27:21+08:00',
   sourceCount: 24,
-  anomalyCount: 8,
+  anomalyCount: 9,
   changedRecords: 0,
-  discoveredLeads: 168,
-  qualifiedLeads: 116,
-  verifiedLeads: 6,
-  nanningLeads: 31,
+  discoveredLeads: 163,
+  qualifiedLeads: 111,
+  verifiedLeads: 1,
+  nanningLeads: 27,
   dailyTarget: 50,
   status: '部分成功',
 };
