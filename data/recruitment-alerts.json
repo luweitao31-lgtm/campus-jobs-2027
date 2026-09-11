@@ -1,9 +1,22 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T03:15:22.450Z",
+  "completedAt": "2026-09-11T09:35:24.755Z",
   "baselineInitialized": true,
-  "newAlertCount": 0,
-  "activeAlertCount": 0,
+  "newAlertCount": 1,
+  "activeAlertCount": 1,
   "monitorAnomalyCount": 0,
-  "alerts": []
+  "alerts": [
+    {
+      "id": "alert-inbnq2",
+      "module": "employers",
+      "entityId": "chinapost-gx",
+      "companyName": "中国邮政集团有限公司广西壮族自治区分公司",
+      "reason": "招聘已开启",
+      "channelLabel": "中国邮政2027校园招聘",
+      "channelUrl": "https://chinapost2027.zhaopin.com/",
+      "sourceUrl": "https://chinapost2027.zhaopin.com/",
+      "detectedAt": "2026-09-11T09:35:24.755Z",
+      "fingerprint": "mwha52"
+    }
+  ]
 }

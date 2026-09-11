@@ -27,6 +27,7 @@ test('保留聚合来源明确标注的民企和外企性质', () => {
 
 test('识别 2027 届和南宁地点', () => {
   assert.equal(detectsCohort2027('面向2027届毕业生的秋季校园招聘'), true);
+  assert.equal(detectsCohort2027('中国邮政2027年度联合校园招聘'), true);
   assert.equal(detectsCohort2027('2026年社会招聘'), false);
   assert.equal(detectsNanning('工作地点：广西南宁市青秀区'), true);
 });

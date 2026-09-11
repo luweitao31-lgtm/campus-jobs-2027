@@ -31,7 +31,7 @@ export function normalizeCompanyName(value: string): string {
 }
 
 export function detectsCohort2027(value: string): boolean {
-  return /2027\s*届|2027\s*年(?:度)?(?:秋季|校园|校招|应届)/i.test(value.normalize('NFKC'));
+  return /2027\s*届|2027\s*年(?:度)?(?:联合)?(?:秋季|校园|校招|应届)/i.test(value.normalize('NFKC'));
 }
 
 export function detectsNanning(value: string): boolean {

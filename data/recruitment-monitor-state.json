@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T03:15:22.450Z",
+  "completedAt": "2026-09-11T09:35:24.755Z",
   "entries": [
     {
       "key": "ownership:guohai-securities",
@@ -13,7 +13,7 @@
       "channelLabel": "国海证券招聘官网",
       "channelUrl": "https://ghzq.hotjob.cn/",
       "sourceUrl": "https://ghzq.hotjob.cn/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "ownership:beibu-bank",
@@ -26,7 +26,7 @@
       "channelLabel": "广西北部湾银行招聘",
       "channelUrl": "https://zhaopin.bankofbbg.com/",
       "sourceUrl": "https://zhaopin.bankofbbg.com/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "ownership:chn-root",
@@ -39,7 +39,7 @@
       "channelLabel": "国家能源集团招聘系统",
       "channelUrl": "https://zhaopin.chnenergy.com.cn/",
       "sourceUrl": "https://zhaopin.chnenergy.com.cn/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:cmb-nanning",
@@ -52,7 +52,7 @@
       "channelLabel": "招商银行招聘",
       "channelUrl": "https://career.cmbchina.com/",
       "sourceUrl": "https://career.cmbchina.com/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:beibu-air",
@@ -65,7 +65,20 @@
       "channelLabel": "海航人才招聘",
       "channelUrl": "https://hr.hnagroup.com/",
       "sourceUrl": "https://hr.hnagroup.com/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
+    },
+    {
+      "key": "employers:chinapost-gx",
+      "module": "employers",
+      "entityId": "chinapost-gx",
+      "companyName": "中国邮政集团有限公司广西壮族自治区分公司",
+      "isOpen": true,
+      "fingerprint": "mwha52",
+      "signalCount": 1,
+      "channelLabel": "中国邮政2027校园招聘",
+      "channelUrl": "https://chinapost2027.zhaopin.com/",
+      "sourceUrl": "https://chinapost2027.zhaopin.com/",
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:xiaomi",
@@ -78,7 +91,7 @@
       "channelLabel": "小米招聘",
       "channelUrl": "https://hr.xiaomi.com/campus",
       "sourceUrl": "https://hr.xiaomi.com/campus",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:caih",
@@ -91,7 +104,7 @@
       "channelLabel": "企业官网",
       "channelUrl": "https://www.caih.com/",
       "sourceUrl": "https://www.caih.com/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:spic-gx",
@@ -104,7 +117,7 @@
       "channelLabel": "国家电投招聘",
       "channelUrl": "https://jobs.spic.com.cn/",
       "sourceUrl": "https://jobs.spic.com.cn/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     },
     {
       "key": "employers:yili",
@@ -117,7 +130,7 @@
       "channelLabel": "伊利校园招聘",
       "channelUrl": "https://yili.zhiye.com/",
       "sourceUrl": "https://yili.zhiye.com/",
-      "checkedAt": "2026-09-11T03:15:22.450Z"
+      "checkedAt": "2026-09-11T09:35:24.755Z"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T03:15:22.450Z",
+  "completedAt": "2026-09-11T09:35:24.755Z",
   "results": [
     {
       "nodeId": "guohai-securities",
@@ -9,10 +9,10 @@
       "url": "https://ghzq.hotjob.cn/",
       "match": "公司专属",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "可访问，归属需人工复核",
-      "elapsedMs": 118
+      "elapsedMs": 168
     },
     {
       "nodeId": "beibu-bank",
@@ -21,10 +21,10 @@
       "url": "https://zhaopin.bankofbbg.com/",
       "match": "公司专属",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "可访问，归属需人工复核",
-      "elapsedMs": 53
+      "elapsedMs": 108
     },
     {
       "nodeId": "chn-root",
@@ -33,10 +33,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "公司专属",
       "declaredStatus": "可投递",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "可访问，归属需人工复核",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-gx",
@@ -45,10 +45,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=3ce3a6af-170f-4ce1-9563-f238a808f9e8&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 353
+      "elapsedMs": 461
     },
     {
       "nodeId": "chn-gx",
@@ -57,10 +57,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-gx-new-energy",
@@ -69,10 +69,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showgw?id=51304904-d664-5296-e063-98b4d40a30d4",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 590
+      "elapsedMs": 763
     },
     {
       "nodeId": "chn-gx-new-energy",
@@ -81,10 +81,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-nanning",
@@ -93,10 +93,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 372
+      "elapsedMs": 664
     },
     {
       "nodeId": "chn-nanning",
@@ -105,10 +105,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-beihai",
@@ -117,10 +117,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 372
+      "elapsedMs": 664
     },
     {
       "nodeId": "chn-beihai",
@@ -129,10 +129,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-liuzhou",
@@ -141,10 +141,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 372
+      "elapsedMs": 664
     },
     {
       "nodeId": "chn-liuzhou",
@@ -153,10 +153,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-yongfu",
@@ -165,10 +165,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 372
+      "elapsedMs": 664
     },
     {
       "nodeId": "chn-yongfu",
@@ -177,10 +177,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-hydropower",
@@ -189,10 +189,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showfagg?id=c12c46dc-ee7a-47f1-b247-219893fbff89&kinds=2",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 372
+      "elapsedMs": 664
     },
     {
       "nodeId": "chn-hydropower",
@@ -201,10 +201,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-integrated-service",
@@ -213,10 +213,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showgw?id=5a798bfe-ab9c-0be4-e063-98b4d40a088a",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 405
+      "elapsedMs": 822
     },
     {
       "nodeId": "chn-integrated-service",
@@ -225,10 +225,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-guohua-gx",
@@ -237,10 +237,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showgw?id=355843b2-5349-b937-e063-98b4d40acab4",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 503
+      "elapsedMs": 823
     },
     {
       "nodeId": "chn-guohua-gx",
@@ -249,10 +249,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-longyuan",
@@ -261,10 +261,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     },
     {
       "nodeId": "chn-longyuan-gx",
@@ -273,10 +273,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/annc/showgw?id=51304904-d5ae-5296-e063-98b4d40a30d4",
       "match": "单位已定位",
       "declaredStatus": "已截止",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 338
+      "elapsedMs": 557
     },
     {
       "nodeId": "chn-longyuan-gx",
@@ -285,10 +285,10 @@
       "url": "https://zhaopin.chnenergy.com.cn/",
       "match": "集团兜底",
       "declaredStatus": "状态待确认",
-      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "checkedAt": "2026-09-11T09:35:24.755Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 294
+      "elapsedMs": 431
     }
   ]
 }

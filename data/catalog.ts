@@ -12,6 +12,7 @@ export const companies: Company[] = [
   { id: 'csg-gx', name: '广西电网有限责任公司', shortName: '广西电网', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'csg-career', label: '南方电网招聘', type: '集团招聘平台', url: 'https://zhaopin.csg.cn/' }] },
   { id: 'spic-gx', name: '国家电投集团广西电力有限公司', shortName: '国家电投广西公司', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'spic-career', label: '国家电投招聘', type: '集团招聘平台', url: 'https://jobs.spic.com.cn/' }] },
   { id: 'beibu-air', name: '广西北部湾航空有限责任公司', shortName: '北部湾航空', nature: '民营企业', locations: ['广西南宁'], channels: [{ id: 'hna-career', label: '海航人才招聘', type: '集团招聘平台', url: 'https://hr.hnagroup.com/' }] },
+  { id: 'chinapost-gx', name: '中国邮政集团有限公司广西壮族自治区分公司', shortName: '广西邮政', nature: '央企子公司', locations: ['广西南宁', '广西全区'], channels: [{ id: 'chinapost-2027-career', label: '中国邮政2027校园招聘', type: '集团招聘平台', url: 'https://chinapost2027.zhaopin.com/' }] },
   { id: 'yili', name: '内蒙古伊利实业集团股份有限公司', shortName: '伊利集团', nature: '民营企业', locations: ['全国', '广西南宁'], channels: [{ id: 'yili-career', label: '伊利校园招聘', type: '企业官网', url: 'https://yili.zhiye.com/' }] },
   { id: 'xiaomi', name: '小米科技有限责任公司', shortName: '小米集团', nature: '民营企业', locations: ['全国', '广西南宁'], channels: [{ id: 'xiaomi-career', label: '小米招聘', type: '企业官网', url: 'https://hr.xiaomi.com/' }] },
   { id: 'ccb-gx', name: '中国建设银行股份有限公司广西壮族自治区分行', shortName: '建设银行广西区分行', nature: '国有控股', locations: ['广西南宁', '广西全区'], channels: [{ id: 'ccb-career', label: '建设银行校园招聘', type: '企业官网', url: 'https://member1.ccb.com/cn/job/plan_index.html?planType=XY' }] },
@@ -244,6 +245,8 @@ export const ownershipEdges: OwnershipEdge[] = [
 export const awards: AwardEntry[] = [
   { id: 'award-cmb-nanning-2025', companyId: 'cmb-nanning', year: 2025, listName: '中国年度最佳雇主', awardTier: '南宁城市最佳雇主', nanningBasis: '招商银行南宁分行获2025年度南宁城市最佳雇主', sourceUrl: 'https://career.uibe.edu.cn/front/zpxx.jspa?tid=2095787535300083713' },
   { id: 'award-beibu-2021', companyId: 'beibu-air', year: 2021, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主 TOP10', nanningBasis: '主运营基地位于南宁吴圩国际机场', sourceUrl: 'https://v.gxnews.com.cn/a/20617877' },
+  { id: 'award-beibu-2025', companyId: 'beibu-air', year: 2025, listName: '中国年度最佳雇主', awardTier: '南宁城市优选雇主', nanningBasis: '北部湾航空主运营基地位于南宁，并获评2025年南宁城市优选雇主', sourceUrl: 'http://gx.news.cn/20260121/96891ba7d39c44089e892352bc1354cc/c.html' },
+  { id: 'award-chinapost-gx-2025', companyId: 'chinapost-gx', year: 2025, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主十强', nanningBasis: '广西区邮政分公司驻地南宁，2025年连续第四年获评南宁最佳雇主十强', sourceUrl: 'https://guangxi.chinapost.com.cn/gx/report/2603/4323-1.html' },
   { id: 'award-xiaomi-2022', companyId: 'xiaomi', year: 2022, listName: '福布斯中国最佳雇主', awardTier: '中国年度最佳雇主', nanningBasis: '全国招聘渠道覆盖南宁', sourceUrl: 'https://www.thepaper.cn/newsDetail_forward_18964233' },
   { id: 'award-caih-2023', companyId: 'caih', year: 2023, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主', nanningBasis: '总部及主要招聘地点位于南宁', sourceUrl: 'https://www.caih.com/newsView.html?id=6435' },
   { id: 'award-caih-2024', companyId: 'caih', year: 2024, listName: '中国年度最佳雇主', awardTier: '南宁最佳雇主', nanningBasis: '连续八年获南宁榜单荣誉', sourceUrl: 'https://www.caih.com/newsView.html?id=6435' },
