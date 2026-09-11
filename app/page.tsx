@@ -9,8 +9,9 @@ import {
 import { awards, companies, ownershipCoverageSets, ownershipEdges, ownershipTrees, sources } from '@/data/catalog';
 import recruitmentDirectoryData from '@/data/recruitment-directory.json';
 import recruitmentLeadReport from '@/data/recruitment-sync.json';
+import recruitmentAlertData from '@/data/recruitment-alerts.json';
 import sourceRegistry from '@/data/source-registry.json';
-import type { OwnershipNode, RecruitmentDirectoryEntry } from '@/lib/types';
+import type { OwnershipNode, RecruitmentAlert, RecruitmentDirectoryEntry } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,6 +28,17 @@ import {
 
 type ModuleId = 'recruitment' | 'ownership' | 'employers';
 const recruitmentDirectory = recruitmentDirectoryData as { completedAt: string; baselineCount: number; totalCount: number; netNewCount: number; verifiedCount: number; pendingCount: number; nanningCount: number; entries: RecruitmentDirectoryEntry[] };
+const recruitmentAlerts = (recruitmentAlertData as { alerts: RecruitmentAlert[] }).alerts;
+const alertStorageKey = 'yongzhi-recruitment-alerts-read-v1';
+
+function saveReadAlertIds(ids: Set<string>) {
+  try {
+    localStorage.setItem(alertStorageKey, JSON.stringify([...ids]));
+  } catch {
+    // Storage can be unavailable in private browsing or hardened browsers.
+    // The in-memory state still clears the indicator for the current visit.
+  }
+}
 
 const navigation = [
   { id: 'recruitment' as const, label: '秋招信息', icon: BriefcaseBusiness },
@@ -47,6 +59,31 @@ export default function Home() {
   const [nature, setNature] = useState('全部性质');
   const [sourceType, setSourceType] = useState('全部来源');
   const [page, setPage] = useState(1);
+  const [readAlertIds, setReadAlertIds] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(alertStorageKey) ?? '[]');
+      if (Array.isArray(saved)) setReadAlertIds(new Set(saved.filter((item): item is string => typeof item === 'string')));
+    } catch {
+      try {
+        localStorage.removeItem(alertStorageKey);
+      } catch {
+        // Ignore unavailable browser storage and keep the default empty state.
+      }
+    }
+  }, []);
+
+  const unreadFor = (module: RecruitmentAlert['module'], entityId: string) => recruitmentAlerts.filter((alert) => alert.module === module && alert.entityId === entityId && !readAlertIds.has(alert.id));
+  const markEntityRead = (module: RecruitmentAlert['module'], entityId: string) => {
+    const ids = recruitmentAlerts.filter((alert) => alert.module === module && alert.entityId === entityId).map((alert) => alert.id);
+    if (!ids.length) return;
+    setReadAlertIds((current) => {
+      const next = new Set([...current, ...ids]);
+      saveReadAlertIds(next);
+      return next;
+    });
+  };
 
   const filteredRecruitment = useMemo(() => recruitmentDirectory.entries.filter((item) => {
     const matchesQuery = item.name.toLowerCase().includes(query.trim().toLowerCase());
@@ -123,8 +160,8 @@ export default function Home() {
       </header>
       <div className="mx-auto w-full max-w-[1480px] p-4 md:p-7">
         {activeModule === 'recruitment' && <RecruitmentPanel rows={pagedRecruitment} filteredCount={filteredRecruitment.length} page={safePage} pageCount={pageCount} setPage={setPage} query={query} setQuery={setQuery} location={location} setLocation={setLocation} status={status} setStatus={setStatus} nature={nature} setNature={setNature} sourceType={sourceType} setSourceType={setSourceType} />}
-        {activeModule === 'ownership' && <OwnershipPanel />}
-        {activeModule === 'employers' && <EmployerPanel />}
+        {activeModule === 'ownership' && <OwnershipPanel unreadFor={unreadFor} markEntityRead={markEntityRead} />}
+        {activeModule === 'employers' && <EmployerPanel unreadFor={unreadFor} markEntityRead={markEntityRead} />}
       </div>
     </SidebarInset>
   </SidebarProvider>;
@@ -166,7 +203,12 @@ function RecruitmentCard({ item }: { item: RecruitmentDirectoryEntry }) {
   </CardContent></Card>;
 }
 
-function OwnershipPanel() {
+type AlertUiProps = {
+  unreadFor: (module: RecruitmentAlert['module'], entityId: string) => RecruitmentAlert[];
+  markEntityRead: (module: RecruitmentAlert['module'], entityId: string) => void;
+};
+
+function OwnershipPanel({ unreadFor, markEntityRead }: AlertUiProps) {
   const [query, setQuery] = useState('');
   const [locationFilter, setLocationFilter] = useState('广西全部');
   const [verificationFilter, setVerificationFilter] = useState('全部状态');
@@ -181,13 +223,13 @@ function OwnershipPanel() {
   return <section aria-labelledby="ownership-title"><PanelHeading id="ownership-title" eyebrow="直接法律控制 · 广西法人口径" title="央国企资金跟踪链" description="二级主体重新按直接持股或实际控制核验；每个二级公司均建立三级清单，超过三级的关系按真实层级继续展示。" />
     <div className="mb-4 grid gap-3 lg:grid-cols-[minmax(260px,1fr)_180px_160px]"><div className="relative"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索资金链企业" className="h-10 bg-white pl-9" placeholder="搜索集团、子公司或驻邕主体" value={query} onChange={(e) => setQuery(e.target.value)} /></div><FilterSelect label="所在地" value={locationFilter} setValue={setLocationFilter} options={['广西全部', '广西南宁', '全国/跨区域']} /><FilterSelect label="核验状态" value={verificationFilter} setValue={setVerificationFilter} options={['全部状态', '已核验', '待确认']} /></div>
     <div className="mb-4 grid grid-cols-2 gap-2 md:grid-cols-5"><Metric value={String(verifiedL2)} label="已核验二级" /><Metric value={String(verifiedL3)} label="已核验三级" /><Metric value={`${pendingL2}/${pendingL3}`} label="待确认 二/三级" warning /><Metric value={String(excludedBranches)} label="排除分支机构" /><Metric value={asOf} label="数据截至" /></div>
-    <div className="grid gap-4 xl:grid-cols-[1fr_340px]"><Card className="border-0 bg-white ring-1 ring-slate-200/80"><CardHeader><CardTitle>广西央国企控制关系</CardTitle><CardDescription>二级列表默认可见，展开二级节点可查看已核验的三级主体</CardDescription></CardHeader><CardContent className="space-y-3">{filteredTrees.length ? filteredTrees.map((root) => <TreeNode key={root.id} node={root} depth={0} />) : <EmptyState />}</CardContent></Card>
+    <div className="grid gap-4 xl:grid-cols-[1fr_340px]"><Card className="border-0 bg-white ring-1 ring-slate-200/80"><CardHeader><CardTitle>广西央国企控制关系</CardTitle><CardDescription>二级列表默认可见，展开二级节点可查看已核验的三级主体</CardDescription></CardHeader><CardContent className="space-y-3">{filteredTrees.length ? filteredTrees.map((root) => <TreeNode key={root.id} node={root} depth={0} unreadFor={unreadFor} markEntityRead={markEntityRead} />) : <EmptyState />}</CardContent></Card>
       <Card className="h-fit border-0 bg-slate-950 text-white ring-0"><CardHeader><CardTitle>可审计覆盖清单</CardTitle><CardDescription className="text-slate-400">不再用已发现数量冒充完整率。</CardDescription></CardHeader><CardContent className="max-h-[680px] space-y-3 overflow-y-auto">{ownershipCoverageSets.map((set) => <div key={set.id} className="rounded-xl bg-white/5 p-3"><div className="flex items-start justify-between gap-2"><span className="text-xs text-slate-200">{set.label}</span><Badge className={set.completenessStatus === '官方清单已闭合' ? 'border-0 bg-emerald-400/15 text-emerald-200' : 'border-0 bg-amber-400/15 text-amber-200'}>{set.completenessStatus}</Badge></div><p className="mt-2 text-xs text-slate-400">已核验 {set.expectedNodeIds.length} 家 · 待确认 {set.pendingNodeIds.length} 家{set.officialDisclosedTotal === null ? ' · 官方未披露总数' : ` · 官方披露 ${set.officialDisclosedTotal} 家`}</p></div>)}<p className="text-xs leading-5 text-slate-400">招聘公告中的“所属单位”仅作候选发现；未取得股权或实际控制证据前均标记待确认。</p></CardContent></Card>
     </div>
   </section>;
 }
 
-function TreeNode({ node, depth }: { node: OwnershipNode; depth: number }) {
+function TreeNode({ node, depth, unreadFor, markEntityRead }: { node: OwnershipNode; depth: number } & AlertUiProps) {
   const [open, setOpen] = useState(node.level < 2);
   const edge = ownershipEdges.find((item) => item.childId === node.id);
   const coverage = node.level === 2 ? ownershipCoverageSets.find((item) => item.parentId === node.id && item.targetLevel === 3) : undefined;
@@ -196,23 +238,25 @@ function TreeNode({ node, depth }: { node: OwnershipNode; depth: number }) {
   const historicalChannel = node.recruitmentChannels.find((channel) => channel.url && channel.status === '已截止');
   const isFallbackChannel = activeChannel?.match === '集团兜底';
   const channelCheckedAt = activeChannel?.verifiedAt ?? historicalChannel?.verifiedAt ?? node.recruitmentChannels[0]?.verifiedAt;
+  const unreadAlerts = unreadFor('ownership', node.id);
   return <Collapsible open={open} onOpenChange={setOpen} className={depth ? 'ml-5 border-l-2 border-cyan-100 pl-4' : ''}>
-    <div className="mb-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+    <div className="relative mb-2 flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 p-3">
+      {unreadAlerts.length > 0 && <span className="absolute right-2 top-2 z-10 size-2.5 rounded-full bg-red-500 shadow-[0_2px_8px_rgba(239,68,68,0.55)] ring-2 ring-white" role="status"><span className="sr-only">{node.name}有新的招聘信息</span></span>}
       {hasChildren ? <CollapsibleTrigger className="flex size-8 shrink-0 items-center justify-center rounded-lg text-slate-500 hover:bg-white" aria-label={open ? '收起下级主体' : '展开下级主体'}>{open ? <ChevronDown className="size-4" /> : <ChevronRight className="size-4" />}</CollapsibleTrigger> : <span className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-white text-xs font-semibold text-cyan-700">L{node.level}</span>}
       <div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-1.5"><strong className="text-sm text-slate-950">{node.name}</strong><Badge variant="outline">L{node.level}</Badge>{node.locationTags.includes('广西南宁') && <Badge className="border-0 bg-cyan-50 text-cyan-800">南宁</Badge>}{node.verificationStatus === '待确认' && <Badge className="border-0 bg-amber-50 text-amber-800">待确认</Badge>}{isFallbackChannel && <Badge className="border-0 bg-amber-50 text-amber-800">未定位到本公司</Badge>}{coverage && <Badge variant="outline">三级 {coverage.expectedNodeIds.length}核验/{coverage.pendingNodeIds.length}待确认</Badge>}</div><span className="mt-1 block text-xs leading-5 text-slate-500">{node.category} · {edge?.controlType ?? node.controlType}{edge?.directOwnershipPercent !== undefined ? ` ${edge.directOwnershipPercent}%` : ''}{edge?.aggregateOwnershipPercent !== undefined ? `（合计${edge.aggregateOwnershipPercent}%）` : ''}{node.relation ? ` · ${node.relation}` : ''}</span><span className="block text-xs text-slate-400">{node.registeredLocation ? `注册地 ${node.registeredLocation} · ` : ''}{node.unifiedSocialCreditCode ? `统一社会信用代码 ${node.unifiedSocialCreditCode} · ` : node.level === 3 ? '统一社会信用代码待补 · ' : ''}{node.locationTags.join(' · ')} · 核验 {node.verifiedAt}</span>{node.level > 0 && <span className="mt-1 block text-xs text-slate-500">招聘渠道：{activeChannel ? `${activeChannel.type} · ${activeChannel.match} · ${activeChannel.status}` : '暂无公开招聘入口'}{channelCheckedAt ? ` · 核验 ${channelCheckedAt}` : ''}{historicalChannel && <>{' · '}<a className="text-cyan-700 underline-offset-2 hover:underline" href={historicalChannel.url} target="_blank" rel="noreferrer">招聘证据（已截止）</a></>}</span>}</div>
-      <div className="flex shrink-0 flex-wrap items-center justify-end gap-1"><Button nativeButton={false} size="icon-sm" variant="ghost" render={<a href={node.sourceUrl} target="_blank" rel="noreferrer" aria-label={`查看${node.name}关系来源`} />}><FileCheck2 className="size-4" /></Button>{activeChannel?.url ? <Button nativeButton={false} size="sm" variant="outline" render={<a href={activeChannel.url} target="_blank" rel="noreferrer" aria-label={`${node.name}${isFallbackChannel ? '集团招聘入口' : '招聘入口'}`} />}>{isFallbackChannel ? '集团招聘入口' : '招聘入口'}<ExternalLink className="size-3.5" /></Button> : node.level > 0 ? <span className="rounded-md border border-dashed border-slate-300 px-2 py-1 text-xs text-slate-500">暂无公开招聘入口</span> : null}</div>
+      <div className="flex shrink-0 flex-wrap items-center justify-end gap-1"><Button nativeButton={false} size="icon-sm" variant="ghost" render={<a href={node.sourceUrl} target="_blank" rel="noreferrer" aria-label={`查看${node.name}关系来源`} />}><FileCheck2 className="size-4" /></Button>{activeChannel?.url ? <Button nativeButton={false} size="sm" variant="outline" render={<a href={activeChannel.url} target="_blank" rel="noreferrer" onClick={() => markEntityRead('ownership', node.id)} aria-label={`${node.name}${isFallbackChannel ? '集团招聘入口' : '招聘入口'}`} />}>{isFallbackChannel ? '集团招聘入口' : '招聘入口'}<ExternalLink className="size-3.5" /></Button> : node.level > 0 ? <span className="rounded-md border border-dashed border-slate-300 px-2 py-1 text-xs text-slate-500">暂无公开招聘入口</span> : null}</div>
     </div>
-    {hasChildren && <CollapsibleContent className="space-y-2">{node.children?.map((child) => <TreeNode key={child.id} node={child} depth={depth + 1} />)}{coverage && !node.children?.length && <div className="ml-5 rounded-xl border border-dashed border-slate-200 bg-white p-3 text-xs text-slate-500">三级子夹层已建立：已核验 0 家、待确认 0 家；{coverage.completenessStatus}，等待直接控制证据。</div>}</CollapsibleContent>}
+    {hasChildren && <CollapsibleContent className="space-y-2">{node.children?.map((child) => <TreeNode key={child.id} node={child} depth={depth + 1} unreadFor={unreadFor} markEntityRead={markEntityRead} />)}{coverage && !node.children?.length && <div className="ml-5 rounded-xl border border-dashed border-slate-200 bg-white p-3 text-xs text-slate-500">三级子夹层已建立：已核验 0 家、待确认 0 家；{coverage.completenessStatus}，等待直接控制证据。</div>}</CollapsibleContent>}
   </Collapsible>;
 }
 
-function EmployerPanel() {
+function EmployerPanel({ unreadFor, markEntityRead }: AlertUiProps) {
   const [year, setYear] = useState('全部年度');
   const [query, setQuery] = useState('');
   const rows = awards.flatMap((award) => { const company = companyMap.get(award.companyId); return company ? [{ award, company }] : []; }).filter(({ award, company }) => (year === '全部年度' || String(award.year) === year) && `${company.name}${company.shortName}`.toLowerCase().includes(query.toLowerCase()));
   return <section aria-labelledby="employer-title"><PanelHeading id="employer-title" eyebrow="2021—2025" title="最佳雇主榜单" description="收录南宁城市榜，以及全国权威榜单中在南宁有招聘覆盖的成员企业。" />
     <div className="mb-4 flex flex-col gap-3 sm:flex-row"><FilterSelect label="榜单年度" value={year} setValue={setYear} options={['全部年度', '2025', '2024', '2023', '2022', '2021']} /><div className="relative w-full sm:max-w-sm"><Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" /><Input aria-label="搜索上榜企业" className="h-8 bg-white pl-9" placeholder="搜索上榜企业" value={query} onChange={(e) => setQuery(e.target.value)} /></div></div>
-    <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-3">{rows.map(({ award, company }) => <Card key={award.id} className="border-0 bg-white ring-1 ring-slate-200/80"><CardHeader><div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600"><Trophy className="size-5" /></div><CardTitle>{company.name}</CardTitle><CardDescription>{award.listName} · {award.awardTier}</CardDescription><CardAction><Badge variant="outline">{award.year}</Badge></CardAction></CardHeader><CardContent><p className="mb-4 text-xs leading-5 text-slate-500">南宁关联：{award.nanningBasis}</p><div className="grid grid-cols-2 gap-2"><Button nativeButton={false} variant="outline" render={<a href={award.sourceUrl} target="_blank" rel="noreferrer" />}>榜单来源<FileCheck2 className="size-4" /></Button><Button nativeButton={false} render={<a href={company.channels[0].url} target="_blank" rel="noreferrer" />} className="bg-slate-950 text-white">投递入口<ExternalLink className="size-4" /></Button></div></CardContent></Card>)}</div>
+    <div className="grid gap-3 lg:grid-cols-2 xl:grid-cols-3">{rows.map(({ award, company }) => { const unreadAlerts = unreadFor('employers', company.id); return <Card key={award.id} className="relative border-0 bg-white ring-1 ring-slate-200/80">{unreadAlerts.length > 0 && <span className="absolute right-2 top-2 z-10 size-2.5 rounded-full bg-red-500 shadow-[0_2px_8px_rgba(239,68,68,0.55)] ring-2 ring-white" role="status"><span className="sr-only">{company.name}有新的招聘信息</span></span>}<CardHeader className="pr-8"><div className="mb-3 flex size-10 items-center justify-center rounded-xl bg-amber-50 text-amber-600"><Trophy className="size-5" /></div><CardTitle>{company.name}</CardTitle><CardDescription>{award.listName} · {award.awardTier}</CardDescription><CardAction><Badge variant="outline">{award.year}</Badge></CardAction></CardHeader><CardContent><p className="mb-4 text-xs leading-5 text-slate-500">南宁关联：{award.nanningBasis}</p><div className="grid grid-cols-2 gap-2"><Button nativeButton={false} variant="outline" render={<a href={award.sourceUrl} target="_blank" rel="noreferrer" />}>榜单来源<FileCheck2 className="size-4" /></Button><Button nativeButton={false} render={<a href={company.channels[0].url} target="_blank" rel="noreferrer" onClick={() => markEntityRead('employers', company.id)} />} className="bg-slate-950 text-white">投递入口<ExternalLink className="size-4" /></Button></div></CardContent></Card>; })}</div>
   </section>;
 }
 

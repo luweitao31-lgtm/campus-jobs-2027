@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-09-11T03:15:22.450Z",
+  "entries": [
+    {
+      "key": "ownership:guohai-securities",
+      "module": "ownership",
+      "entityId": "guohai-securities",
+      "companyName": "国海证券股份有限公司",
+      "isOpen": false,
+      "fingerprint": "1a3arb6",
+      "signalCount": 0,
+      "channelLabel": "国海证券招聘官网",
+      "channelUrl": "https://ghzq.hotjob.cn/",
+      "sourceUrl": "https://ghzq.hotjob.cn/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "ownership:beibu-bank",
+      "module": "ownership",
+      "entityId": "beibu-bank",
+      "companyName": "广西北部湾银行股份有限公司",
+      "isOpen": false,
+      "fingerprint": "13td8sb",
+      "signalCount": 0,
+      "channelLabel": "广西北部湾银行招聘",
+      "channelUrl": "https://zhaopin.bankofbbg.com/",
+      "sourceUrl": "https://zhaopin.bankofbbg.com/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "ownership:chn-root",
+      "module": "ownership",
+      "entityId": "chn-root",
+      "companyName": "国家能源投资集团有限责任公司",
+      "isOpen": true,
+      "fingerprint": "irz73u",
+      "signalCount": 1,
+      "channelLabel": "国家能源集团招聘系统",
+      "channelUrl": "https://zhaopin.chnenergy.com.cn/",
+      "sourceUrl": "https://zhaopin.chnenergy.com.cn/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:cmb-nanning",
+      "module": "employers",
+      "entityId": "cmb-nanning",
+      "companyName": "招商银行股份有限公司南宁分行",
+      "isOpen": false,
+      "fingerprint": "fbim8d",
+      "signalCount": 0,
+      "channelLabel": "招商银行招聘",
+      "channelUrl": "https://career.cmbchina.com/",
+      "sourceUrl": "https://career.cmbchina.com/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:beibu-air",
+      "module": "employers",
+      "entityId": "beibu-air",
+      "companyName": "广西北部湾航空有限责任公司",
+      "isOpen": false,
+      "fingerprint": "1ckxti4",
+      "signalCount": 0,
+      "channelLabel": "海航人才招聘",
+      "channelUrl": "https://hr.hnagroup.com/",
+      "sourceUrl": "https://hr.hnagroup.com/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:xiaomi",
+      "module": "employers",
+      "entityId": "xiaomi",
+      "companyName": "小米科技有限责任公司",
+      "isOpen": true,
+      "fingerprint": "zh5fa2",
+      "signalCount": 1,
+      "channelLabel": "小米招聘",
+      "channelUrl": "https://hr.xiaomi.com/campus",
+      "sourceUrl": "https://hr.xiaomi.com/campus",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:caih",
+      "module": "employers",
+      "entityId": "caih",
+      "companyName": "中国—东盟信息港股份有限公司",
+      "isOpen": false,
+      "fingerprint": "h44t56",
+      "signalCount": 0,
+      "channelLabel": "企业官网",
+      "channelUrl": "https://www.caih.com/",
+      "sourceUrl": "https://www.caih.com/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:spic-gx",
+      "module": "employers",
+      "entityId": "spic-gx",
+      "companyName": "国家电投集团广西电力有限公司",
+      "isOpen": false,
+      "fingerprint": "emh7ma",
+      "signalCount": 0,
+      "channelLabel": "国家电投招聘",
+      "channelUrl": "https://jobs.spic.com.cn/",
+      "sourceUrl": "https://jobs.spic.com.cn/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    },
+    {
+      "key": "employers:yili",
+      "module": "employers",
+      "entityId": "yili",
+      "companyName": "内蒙古伊利实业集团股份有限公司",
+      "isOpen": false,
+      "fingerprint": "6wpbvw",
+      "signalCount": 0,
+      "channelLabel": "伊利校园招聘",
+      "channelUrl": "https://yili.zhiye.com/",
+      "sourceUrl": "https://yili.zhiye.com/",
+      "checkedAt": "2026-09-11T03:15:22.450Z"
+    }
+  ]
+}

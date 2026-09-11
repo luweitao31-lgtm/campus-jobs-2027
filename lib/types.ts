@@ -166,3 +166,32 @@ export interface RecruitmentDirectoryEntry {
   lastVerifiedAt: string;
   isFirstExpansion: boolean;
 }
+
+export type RecruitmentAlertReason = '招聘已开启' | '新招聘公告' | '招聘内容更新';
+
+export interface RecruitmentAlert {
+  id: string;
+  module: 'ownership' | 'employers';
+  entityId: string;
+  companyName: string;
+  reason: RecruitmentAlertReason;
+  channelLabel: string;
+  channelUrl: string;
+  sourceUrl: string;
+  detectedAt: string;
+  fingerprint: string;
+}
+
+export interface RecruitmentMonitorEntry {
+  key: string;
+  module: 'ownership' | 'employers';
+  entityId: string;
+  companyName: string;
+  isOpen: boolean;
+  fingerprint: string;
+  signalCount: number;
+  channelLabel: string;
+  channelUrl: string;
+  sourceUrl: string;
+  checkedAt: string;
+}

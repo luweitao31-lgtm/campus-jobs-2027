@@ -1,14 +1,14 @@
 {
   "schemaVersion": 2,
   "mode": "write",
-  "completedAt": "2026-09-11T02:20:53.862Z",
+  "completedAt": "2026-09-11T03:15:22.450Z",
   "target": 50,
   "targetMet": true,
   "counters": {
     "sourceCount": 29,
-    "healthySourceCount": 21,
-    "anomalyCount": 8,
-    "rawLeads": 174,
+    "healthySourceCount": 20,
+    "anomalyCount": 9,
+    "rawLeads": 175,
     "qualifiedLeads": 50,
     "verifiedLeads": 2,
     "pendingLeads": 48,
@@ -17,94 +17,98 @@
     "privateForeignShare": 0.5,
     "privateForeignTarget": 25,
     "ownershipChannelsChecked": 24,
-    "ownershipChannelAnomalyCount": 0
+    "ownershipChannelAnomalyCount": 0,
+    "alertsCreated": 0,
+    "activeAlerts": 0,
+    "alertMonitorAnomalyCount": 0
   },
   "sources": [
     {
       "id": "src-jobup",
       "name": "JOBUP",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 264,
+      "elapsedMs": 260,
       "extractedLeads": 94
     },
     {
       "id": "src-nowcoder-schedule",
       "name": "牛客校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 397,
-      "extractedLeads": 21
+      "elapsedMs": 450,
+      "extractedLeads": 22
     },
     {
       "id": "src-wondercv",
       "name": "超级简历校招汇总",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 629,
+      "elapsedMs": 719,
       "extractedLeads": 20
     },
     {
       "id": "src-gankinterview",
       "name": "Gank Interview 校招汇总",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
-      "httpStatus": 200,
-      "health": "正常",
-      "elapsedMs": 974,
-      "extractedLeads": 0
+      "checkedAt": "2026-09-11T03:15:22.450Z",
+      "httpStatus": null,
+      "health": "异常",
+      "elapsedMs": 15007,
+      "extractedLeads": 0,
+      "message": "The operation was aborted due to timeout"
     },
     {
       "id": "src-naoffer",
       "name": "校招情报站",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 714,
+      "elapsedMs": 763,
       "extractedLeads": 0
     },
     {
       "id": "src-niuqizp-nanning",
       "name": "牛企直聘南宁校招",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 570,
+      "elapsedMs": 587,
       "extractedLeads": 30
     },
     {
       "id": "src-goclub-daily",
       "name": "GoClub 每日校招",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 2270,
+      "elapsedMs": 868,
       "extractedLeads": 0
     },
     {
       "id": "src-gxrc-campus",
       "name": "广西人才网招聘会",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 257,
+      "elapsedMs": 335,
       "extractedLeads": 0
     },
     {
       "id": "src-gxu-jobs",
       "name": "广西大学就业创业服务网",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 1065,
+      "elapsedMs": 1110,
       "extractedLeads": 4
     },
     {
       "id": "src-gxbys",
       "name": "广西大学生就业服务中心",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 403,
       "health": "异常",
       "elapsedMs": 274,
@@ -113,178 +117,178 @@
     {
       "id": "src-gx-sasac-jobs",
       "name": "广西国资委企业招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 15,
+      "elapsedMs": 18,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-guopin",
       "name": "国聘校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 227,
+      "elapsedMs": 206,
       "extractedLeads": 0
     },
     {
       "id": "src-public-jobs",
       "name": "中国公共招聘网",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 10421,
+      "elapsedMs": 10392,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-cmb-nanning-2027",
       "name": "招商银行南宁分行2027校招",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 323,
+      "elapsedMs": 277,
       "extractedLeads": 0
     },
     {
       "id": "src-chinatelecom-2027",
       "name": "中国电信招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 263,
+      "elapsedMs": 268,
       "extractedLeads": 0
     },
     {
       "id": "src-chn",
       "name": "国家能源集团招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 284,
+      "elapsedMs": 279,
       "extractedLeads": 0
     },
     {
       "id": "src-gig-2027",
       "name": "广西投资集团招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 405,
       "health": "异常",
-      "elapsedMs": 134,
+      "elapsedMs": 75,
       "extractedLeads": 0
     },
     {
       "id": "src-ccb-career",
       "name": "中国建设银行校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 84,
+      "elapsedMs": 81,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-unicom-2027-official",
       "name": "中国联通校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 276,
+      "elapsedMs": 266,
       "extractedLeads": 0
     },
     {
       "id": "src-ceec-gxed-official",
       "name": "中国能建广西院招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 93,
+      "elapsedMs": 96,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-cmcc-career",
       "name": "中国移动招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 193,
+      "elapsedMs": 289,
       "extractedLeads": 0
     },
     {
       "id": "src-csg-career",
       "name": "南方电网招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 99,
+      "elapsedMs": 87,
       "extractedLeads": 0
     },
     {
       "id": "src-spic-career",
       "name": "国家电投招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 35,
+      "elapsedMs": 23,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-forbes-2025",
       "name": "福布斯中国最佳雇主",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 88,
+      "elapsedMs": 97,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-baidu-campus",
       "name": "百度校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 266,
+      "elapsedMs": 439,
       "extractedLeads": 1
     },
     {
       "id": "src-xiaomi-campus",
       "name": "小米校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 425,
+      "elapsedMs": 408,
       "extractedLeads": 1
     },
     {
       "id": "src-bytedance-campus",
       "name": "字节跳动校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 742,
+      "elapsedMs": 705,
       "extractedLeads": 1
     },
     {
       "id": "src-ctrip-campus",
       "name": "携程集团校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 456,
+      "elapsedMs": 483,
       "extractedLeads": 1
     },
     {
       "id": "src-bosch-campus",
       "name": "博世中国校园招聘",
-      "checkedAt": "2026-09-11T02:20:53.862Z",
+      "checkedAt": "2026-09-11T03:15:22.450Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 186,
+      "elapsedMs": 194,
       "extractedLeads": 1
     }
   ],
@@ -304,7 +308,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1jq9li3"
@@ -326,7 +330,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-7o4h67"
@@ -346,7 +350,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "外企",
       "fingerprint": "2027-l57doo"
@@ -366,7 +370,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1bt5h9w"
@@ -388,7 +392,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1q711oz"
@@ -413,7 +417,7 @@
       ],
       "channelUrl": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE",
       "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "官方确认",
       "nature": "民营企业",
       "fingerprint": "2027-1gflmit"
@@ -432,8 +436,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=7&companyId=1008&url=https%3A%2F%2Fcampus.ke.com%2Fcampus&entityId=13318",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-xsct9d"
@@ -455,7 +459,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-78rYNNaMC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-6pqy86"
@@ -477,7 +481,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-v8y5a5LML.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1wx0aw1"
@@ -499,7 +503,7 @@
       ],
       "channelUrl": "https://www.bosch.com.cn/careers/",
       "discoveredAt": "2026-09-11T02:20:53.862Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "官方确认",
       "nature": "外企",
       "fingerprint": "2027-1auhqm3"
@@ -518,8 +522,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=652&url=https%3A%2F%2Fapp.mokahr.com%2Fsu%2Fwpvoov&entityId=13268",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-18nwrjp"
@@ -541,7 +545,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-v8y5aL5Zt.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1jddix3"
@@ -563,7 +567,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-7rYlNNNtL.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-16s9ea4"
@@ -585,7 +589,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vml5aLMNC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1o8w81o"
@@ -605,7 +609,7 @@
       ],
       "channelUrl": "https://www.wondercv.com/xiaozhao/hang-lung-2027-management-trainee-program-14863-2ea830/",
       "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "外企",
       "fingerprint": "2027-ovvas4"
@@ -624,8 +628,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=810&url=https%3A%2F%2Fbsurl.cn%2Fv2%2FJ3mAs5ex&entityId=13321",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-8g8alv"
@@ -647,7 +651,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vrs5aLtNN.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1tlxmx"
@@ -669,7 +673,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vkY5aN5ZC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1qkadti"
@@ -688,8 +692,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=158304&url=https%3A%2F%2Fapp.mokahr.com%2Fcampus-recruitment%2Fseichitech%2F140888%3Flocale%3Dzh-CN%23%2F&entityId=13355",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1km24tp"
@@ -711,7 +715,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-7lrrNNCLa.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-7xfj4x"
@@ -730,8 +734,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=5&companyId=898&url=https%3A%2F%2Fcampus.kuaishou.cn%2Frecruit%2Fcampus%2Fe%2F%23%2Fcampus%2Fjobs%3Fcode%3DcampusaeZwiKwdB&entityId=13292",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1faof03"
@@ -753,7 +757,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vrs5aNaZt.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-10kfnzf"
@@ -772,8 +776,8 @@
         "https://www.nowcoder.com/jobs/recommend/campus"
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=7&companyId=4783&url=https%3A%2F%2Fdcits.zhiye.com%2Fcampus%2Fjobs&entityId=13304",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "discoveredAt": "2026-09-11T03:15:07.304Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-o2pc6p"
@@ -793,7 +797,7 @@
       ],
       "channelUrl": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1ui4lvv"
@@ -813,7 +817,7 @@
       ],
       "channelUrl": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/",
       "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-ua518v"
@@ -833,7 +837,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-p44pd8"
@@ -853,7 +857,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-wyd8st"
@@ -875,7 +879,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-kr4e71"
@@ -895,7 +899,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1mre430"
@@ -915,7 +919,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-jsj04e"
@@ -935,7 +939,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-tf7frb"
@@ -955,7 +959,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-qitjcx"
@@ -977,7 +981,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1jnsghz"
@@ -999,7 +1003,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1hhzgv2"
@@ -1021,7 +1025,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1l633cg"
@@ -1043,7 +1047,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-82dukn"
@@ -1065,7 +1069,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-bgdsbl"
@@ -1087,7 +1091,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-11irb6z"
@@ -1109,7 +1113,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1l0icz3"
@@ -1131,7 +1135,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1uadvqq"
@@ -1153,7 +1157,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-13t70zn"
@@ -1175,7 +1179,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-l00smk"
@@ -1197,7 +1201,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-h6l4c1"
@@ -1217,7 +1221,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-7vjwqj"
@@ -1237,7 +1241,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-4hsju8"
@@ -1259,7 +1263,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-7en99s"
@@ -1281,7 +1285,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1qikbmz"
@@ -1303,7 +1307,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-1dhcc85"
@@ -1325,7 +1329,7 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-16voeja"
@@ -1347,13 +1351,13 @@
       ],
       "publishedAt": "2026-09-10",
       "discoveredAt": "2026-09-10T00:56:09.113Z",
-      "lastSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastSeenAt": "2026-09-11T03:15:22.450Z",
       "status": "待核验",
       "nature": "性质待确认",
       "fingerprint": "2027-lkbijr"
     }
   ],
   "warnings": [
-    "8 个采集来源访问异常；缺失企业沿用上一版有效记录。"
+    "9 个采集来源访问异常；缺失企业沿用上一版有效记录。"
   ]
 }

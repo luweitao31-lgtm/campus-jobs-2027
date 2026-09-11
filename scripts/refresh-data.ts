@@ -2,8 +2,9 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName } from '../lib/collector.ts';
-import { companies, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
-import type { OwnershipNode, RecruitmentDirectoryEntry, RecruitmentLead, RecruitmentLeadStatus } from '../lib/types.ts';
+import { alertReason, createRecruitmentAlert, monitorFingerprint, recruitmentSignals } from '../lib/alerts.ts';
+import { awards, companies, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
+import type { OwnershipNode, RecruitmentAlert, RecruitmentDirectoryEntry, RecruitmentLead, RecruitmentLeadStatus, RecruitmentMonitorEntry } from '../lib/types.ts';
 
 type RegistrySource = {
   id: string;
@@ -35,6 +36,8 @@ const syncPath = path.resolve('data/recruitment-sync.json');
 const directoryPath = path.resolve('data/recruitment-directory.json');
 const ownershipChannelHealthPath = path.resolve('data/ownership-channel-health.json');
 const verificationPath = path.resolve('data/recruitment-verification.json');
+const alertPath = path.resolve('data/recruitment-alerts.json');
+const monitorStatePath = path.resolve('data/recruitment-monitor-state.json');
 const registry = JSON.parse(await readFile(registryPath, 'utf8')) as Registry;
 const completedAt = new Date().toISOString();
 
@@ -320,6 +323,101 @@ const directoryReport = {
   entries: directoryEntries,
 };
 
+let previousMonitorEntries: RecruitmentMonitorEntry[] = [];
+let previousAlerts: RecruitmentAlert[] = [];
+try {
+  const snapshot = JSON.parse(await readFile(monitorStatePath, 'utf8')) as { entries?: RecruitmentMonitorEntry[] };
+  previousMonitorEntries = snapshot.entries ?? [];
+} catch {
+  // The first successful run establishes a baseline without creating alerts.
+}
+try {
+  const alertSnapshot = JSON.parse(await readFile(alertPath, 'utf8')) as { alerts?: RecruitmentAlert[] };
+  previousAlerts = alertSnapshot.alerts ?? [];
+} catch {
+  // No prior alerts exist on the first run.
+}
+const previousMonitorByKey = new Map(previousMonitorEntries.map((entry) => [entry.key, entry]));
+const monitorEntries: RecruitmentMonitorEntry[] = [];
+let alertMonitorAnomalyCount = 0;
+
+for (const node of flattenOwnershipNodes(ownershipTrees)) {
+  const channel = node.recruitmentChannels.find((item) => item.url && item.status !== '已截止' && (item.match === '公司专属' || item.match === '单位已定位'));
+  if (!channel?.url) continue;
+  const key = `ownership:${node.id}`;
+  const result = ownershipFetchByUrl.get(channel.url);
+  if (!result?.ok) {
+    alertMonitorAnomalyCount += 1;
+    const previous = previousMonitorByKey.get(key);
+    if (previous) monitorEntries.push({ ...previous, checkedAt: completedAt });
+    continue;
+  }
+  const signals = recruitmentSignals(result.html, node.name);
+  const isOpen = channel.status === '可投递' || signals.length > 0;
+  monitorEntries.push({
+    key, module: 'ownership', entityId: node.id, companyName: node.name, isOpen,
+    fingerprint: monitorFingerprint({ isOpen, channelUrl: channel.url, signals }), signalCount: signals.length,
+    channelLabel: channel.label, channelUrl: channel.url, sourceUrl: channel.evidenceUrl ?? channel.url, checkedAt: completedAt,
+  });
+}
+
+const awardCompanyIds = [...new Set(awards.map((award) => award.companyId))];
+for (const companyId of awardCompanyIds) {
+  const company = companyById.get(companyId);
+  if (!company?.channels[0]) continue;
+  const names = new Set([normalizeCompanyName(company.name), normalizeCompanyName(company.shortName)]);
+  const matchingLead = allLeads
+    .filter((lead) => names.has(lead.normalizedCompanyName) && lead.status !== '待核验')
+    .sort((left, right) => {
+      const leftOfficial = Number(left.sourceIds.some((id) => sourceById.get(id)?.role === 'verification'));
+      const rightOfficial = Number(right.sourceIds.some((id) => sourceById.get(id)?.role === 'verification'));
+      return rightOfficial - leftOfficial
+        || Number(Boolean(right.channelUrl)) - Number(Boolean(left.channelUrl))
+        || (right.publishedAt ?? '').localeCompare(left.publishedAt ?? '')
+        || left.id.localeCompare(right.id);
+    })[0];
+  const channel = company.channels[0];
+  const isOpen = Boolean(matchingLead);
+  const officialSource = matchingLead?.sourceIds
+    .map((id) => sourceById.get(id))
+    .find((source) => source?.role === 'verification');
+  const monitoredChannelUrl = officialSource?.url ?? matchingLead?.channelUrl ?? channel.url;
+  const signals = matchingLead
+    ? officialSource
+      ? [`${officialSource.id}|2027|${officialSource.url}`]
+      : [`${matchingLead.fingerprint}|${matchingLead.publishedAt ?? ''}|${monitoredChannelUrl}`]
+    : [];
+  monitorEntries.push({
+    key: `employers:${company.id}`, module: 'employers', entityId: company.id, companyName: company.name, isOpen,
+    fingerprint: monitorFingerprint({ isOpen, channelUrl: monitoredChannelUrl, signals }), signalCount: signals.length,
+    channelLabel: channel.label, channelUrl: monitoredChannelUrl,
+    sourceUrl: officialSource?.url ?? matchingLead?.sourceUrls[0] ?? channel.url, checkedAt: completedAt,
+  });
+}
+
+const baselineInitialized = previousMonitorEntries.length > 0;
+const newAlerts = baselineInitialized ? monitorEntries.flatMap((current) => {
+  const reason = alertReason(previousMonitorByKey.get(current.key), current);
+  return reason ? [createRecruitmentAlert(current, reason, completedAt)] : [];
+}) : [];
+const alertCutoff = Date.now() - 120 * 24 * 60 * 60 * 1000;
+const alertById = new Map(previousAlerts.filter((alert) => Date.parse(alert.detectedAt) >= alertCutoff).map((alert) => [alert.id, alert]));
+for (const alert of newAlerts) alertById.set(alert.id, alert);
+const activeAlerts = [...alertById.values()].sort((left, right) => right.detectedAt.localeCompare(left.detectedAt));
+const alertReport = {
+  schemaVersion: 1,
+  completedAt,
+  baselineInitialized: true,
+  newAlertCount: newAlerts.length,
+  activeAlertCount: activeAlerts.length,
+  monitorAnomalyCount: alertMonitorAnomalyCount,
+  alerts: activeAlerts,
+};
+(report.counters as unknown as Record<string, number>).alertsCreated = newAlerts.length;
+(report.counters as unknown as Record<string, number>).activeAlerts = activeAlerts.length;
+(report.counters as unknown as Record<string, number>).alertMonitorAnomalyCount = alertMonitorAnomalyCount;
+if (alertMonitorAnomalyCount) report.warnings.push(`${alertMonitorAnomalyCount} 个招聘提醒监控入口异常；沿用上一版监控状态。`);
+
 if (write) {
   await Promise.all([
     writeFile(healthPath, `${JSON.stringify({ schemaVersion: 2, completedAt, results: report.sources }, null, 2)}\n`, 'utf8'),
@@ -327,6 +425,8 @@ if (write) {
     writeFile(syncPath, `${JSON.stringify({ schemaVersion: 1, completedAt, target, targetMet, counters: report.counters, warnings: report.warnings }, null, 2)}\n`, 'utf8'),
     writeFile(directoryPath, `${JSON.stringify(directoryReport, null, 2)}\n`, 'utf8'),
     writeFile(ownershipChannelHealthPath, `${JSON.stringify({ schemaVersion: 1, completedAt, results: ownershipChannelChecks }, null, 2)}\n`, 'utf8'),
+    writeFile(alertPath, `${JSON.stringify(alertReport, null, 2)}\n`, 'utf8'),
+    writeFile(monitorStatePath, `${JSON.stringify({ schemaVersion: 1, completedAt, entries: monitorEntries }, null, 2)}\n`, 'utf8'),
   ]);
 }
 

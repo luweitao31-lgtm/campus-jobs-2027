@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T02:20:53.862Z",
+  "completedAt": "2026-09-11T03:15:22.450Z",
   "baselineCount": 12,
   "totalCount": 182,
   "netNewCount": 170,
-  "verifiedCount": 15,
-  "pendingCount": 167,
+  "verifiedCount": 16,
+  "pendingCount": 166,
   "nanningCount": 44,
   "retainedPreviousCount": 120,
   "entries": [
@@ -301,7 +301,7 @@
         "百度校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -326,7 +326,7 @@
         "博世中国校园招聘"
       ],
       "firstSeenAt": "2026-09-11T02:20:53.862Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -355,12 +355,37 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-tx1cr7",
+      "name": "小米集团",
+      "normalizedCompanyName": "小米集团",
+      "nature": "民营企业",
+      "locations": [
+        "全国"
+      ],
+      "status": "开放中",
+      "confidence": "已核验",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://hr.xiaomi.com/campus"
+      },
+      "sourceIds": [
+        "src-xiaomi-campus"
+      ],
+      "sourceLabels": [
+        "小米校园招聘"
+      ],
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-11lv796",
       "name": "携程集团",
       "normalizedCompanyName": "携程集团",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
-        "地点待确认"
+        "全国"
       ],
       "status": "开放中",
       "confidence": "已核验",
@@ -370,13 +395,13 @@
         "url": "http://t.ctrip.cn/6SQS9RY"
       },
       "sourceIds": [
-        "src-nowcoder-schedule"
+        "src-ctrip-campus"
       ],
       "sourceLabels": [
-        "牛客校园招聘"
+        "携程集团校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
       "isFirstExpansion": true
     },
     {
@@ -428,7 +453,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -453,7 +478,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -605,7 +630,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -656,7 +681,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -681,7 +706,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -706,7 +731,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -756,7 +781,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -781,7 +806,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -806,7 +831,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -888,7 +913,7 @@
       "id": "lead-1lerpp3",
       "name": "新东方华南区",
       "normalizedCompanyName": "新东方华南区",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -905,8 +930,8 @@
       "sourceLabels": [
         "牛企直聘南宁校招"
       ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
       "isFirstExpansion": true
     },
     {
@@ -1110,7 +1135,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1135,7 +1160,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1160,7 +1185,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1309,8 +1334,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1359,8 +1384,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1510,7 +1535,7 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1534,8 +1559,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1584,8 +1609,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1609,8 +1634,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1859,8 +1884,8 @@
       "sourceLabels": [
         "牛客校园招聘"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "firstSeenAt": "2026-09-11T03:15:07.304Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1885,7 +1910,7 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1910,7 +1935,7 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -1942,7 +1967,7 @@
       "id": "lead-azyim3",
       "name": "伟京电子",
       "normalizedCompanyName": "伟京电子",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1959,8 +1984,8 @@
       "sourceLabels": [
         "超级简历校招汇总"
       ],
-      "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
       "isFirstExpansion": true
     },
     {
@@ -2014,35 +2039,10 @@
       "isFirstExpansion": true
     },
     {
-      "id": "lead-tx1cr7",
-      "name": "小米集团",
-      "normalizedCompanyName": "小米集团",
-      "nature": "性质待确认",
-      "locations": [
-        "地点待确认"
-      ],
-      "status": "待确认",
-      "confidence": "待确认",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=147&url=https%3A%2F%2Fxiaomi.jobs.f.mioffice.cn%2Fcampus%2F%3Fspread%3DJ7NS6YR&entityId=13279"
-      },
-      "sourceIds": [
-        "src-nowcoder-schedule"
-      ],
-      "sourceLabels": [
-        "牛客校园招聘"
-      ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
-      "isFirstExpansion": true
-    },
-    {
       "id": "lead-1rcoc9d",
       "name": "晓鸣股份",
       "normalizedCompanyName": "晓鸣股份",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "全国"
       ],
@@ -2059,8 +2059,8 @@
       "sourceLabels": [
         "超级简历校招汇总"
       ],
-      "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
       "isFirstExpansion": true
     },
     {
@@ -2092,7 +2092,7 @@
       "id": "lead-1nepm2",
       "name": "元琛科技",
       "normalizedCompanyName": "元琛科技",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -2109,8 +2109,8 @@
       "sourceLabels": [
         "超级简历校招汇总"
       ],
-      "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "firstSeenAt": "2026-09-11T03:14:12.461Z",
+      "lastVerifiedAt": "2026-09-11T03:14:12.461Z",
       "isFirstExpansion": true
     },
     {
@@ -2185,7 +2185,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2210,7 +2210,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2235,7 +2235,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2260,7 +2260,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2285,7 +2285,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2310,7 +2310,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2335,7 +2335,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2360,7 +2360,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2385,7 +2385,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2410,7 +2410,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2435,7 +2435,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2460,7 +2460,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2510,7 +2510,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2535,7 +2535,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2560,7 +2560,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2585,7 +2585,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2610,7 +2610,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2635,7 +2635,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2660,7 +2660,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2685,7 +2685,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -2835,7 +2835,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -3010,7 +3010,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-10T00:56:09.113Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -3960,7 +3960,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -4135,7 +4135,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -4260,7 +4260,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -4335,7 +4335,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {
@@ -4435,7 +4435,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T03:15:22.450Z",
       "isFirstExpansion": true
     },
     {

@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises';
 import { awards, companies, ownershipCoverageSets, ownershipEdges, ownershipEvidence, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
 import { treeDepth, validateOwnershipCoverage, validateOwnershipTree } from '../lib/collector.ts';
+import type { OwnershipNode, RecruitmentAlert, RecruitmentMonitorEntry } from '../lib/types.ts';
 
 const errors: string[] = [];
 const registry = JSON.parse(await readFile('data/source-registry.json', 'utf8')) as {
@@ -20,8 +21,17 @@ const directoryReport = JSON.parse(await readFile('data/recruitment-directory.js
   netNewCount: number;
   entries: Array<{ name: string; normalizedCompanyName: string; status: string; confidence: string; channel: { url: string }; sourceIds: string[] }>;
 };
+const alertReport = JSON.parse(await readFile('data/recruitment-alerts.json', 'utf8')) as {
+  baselineInitialized: boolean;
+  activeAlertCount: number;
+  alerts: RecruitmentAlert[];
+};
+const monitorReport = JSON.parse(await readFile('data/recruitment-monitor-state.json', 'utf8')) as { entries: RecruitmentMonitorEntry[] };
 const companyIds = new Set(companies.map((company) => company.id));
 const sourceIds = new Set(sources.map((source) => source.id));
+const flattenOwnershipNodes = (nodes: OwnershipNode[]): OwnershipNode[] => nodes.flatMap((node) => [node, ...flattenOwnershipNodes(node.children ?? [])]);
+const ownershipNodeById = new Map(flattenOwnershipNodes(ownershipTrees).map((node) => [node.id, node]));
+const awardCompanyIds = new Set(awards.map((award) => award.companyId));
 
 for (const company of companies) {
   if (!company.channels.length) errors.push(`${company.name} 缺少投递渠道`);
@@ -75,6 +85,31 @@ for (const entry of directoryReport.entries) {
   try { new URL(entry.channel.url); } catch { errors.push(`${entry.name} 缺少有效招聘渠道`); }
   if (entry.confidence === '待确认' && entry.status === '开放中') errors.push(`${entry.name} 待确认记录不能标记为开放中`);
   if (entry.confidence === '已核验' && !entry.sourceIds.length) errors.push(`${entry.name} 已核验记录缺少来源`);
+}
+
+if (!alertReport.baselineInitialized) errors.push('招聘提醒尚未完成首次基线初始化');
+if (alertReport.activeAlertCount !== alertReport.alerts.length) errors.push('招聘提醒统计与实际条目数不一致');
+const alertIds = new Set<string>();
+for (const alert of alertReport.alerts) {
+  if (alertIds.has(alert.id)) errors.push(`招聘提醒 ${alert.id} 重复`);
+  alertIds.add(alert.id);
+  if (!alert.companyName || !alert.fingerprint || !alert.detectedAt || !alert.sourceUrl) errors.push(`招聘提醒 ${alert.id} 缺少必要字段`);
+  try { new URL(alert.channelUrl); new URL(alert.sourceUrl); } catch { errors.push(`招聘提醒 ${alert.id} 的链接无效`); }
+  if (alert.module === 'ownership') {
+    const node = ownershipNodeById.get(alert.entityId);
+    if (!node) errors.push(`招聘提醒 ${alert.id} 指向未知资金链主体`);
+    const eligible = node?.recruitmentChannels.some((channel) => channel.url === alert.channelUrl && channel.status !== '已截止' && (channel.match === '公司专属' || channel.match === '单位已定位'));
+    if (!eligible) errors.push(`招聘提醒 ${alert.id} 使用了集团兜底、已截止或不匹配的资金链渠道`);
+  } else if (alert.module === 'employers') {
+    if (!awardCompanyIds.has(alert.entityId)) errors.push(`招聘提醒 ${alert.id} 指向未知最佳雇主企业`);
+  } else errors.push(`招聘提醒 ${alert.id} 的模块无效`);
+}
+const monitorKeys = new Set<string>();
+for (const entry of monitorReport.entries) {
+  if (monitorKeys.has(entry.key)) errors.push(`招聘监控键 ${entry.key} 重复`);
+  monitorKeys.add(entry.key);
+  if (!entry.entityId || !entry.companyName || !entry.fingerprint || !entry.checkedAt) errors.push(`招聘监控 ${entry.key} 缺少必要字段`);
+  try { new URL(entry.channelUrl); new URL(entry.sourceUrl); } catch { errors.push(`招聘监控 ${entry.key} 的链接无效`); }
 }
 
 if (errors.length) {
