@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-08T13:55:21.858Z",
+  "completedAt": "2026-09-11T01:40:23.525Z",
   "baselineCount": 12,
-  "totalCount": 123,
-  "netNewCount": 111,
-  "verifiedCount": 12,
-  "pendingCount": 111,
-  "nanningCount": 40,
+  "totalCount": 183,
+  "netNewCount": 171,
+  "verifiedCount": 14,
+  "pendingCount": 169,
+  "nanningCount": 44,
+  "retainedPreviousCount": 63,
   "entries": [
     {
       "id": "rec-chn",
@@ -277,6 +278,81 @@
       "isFirstExpansion": false
     },
     {
+      "id": "lead-1gflmit",
+      "name": "百度",
+      "normalizedCompanyName": "百度",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "开放中",
+      "confidence": "已核验",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE"
+      },
+      "sourceIds": [
+        "src-nowcoder-schedule"
+      ],
+      "sourceLabels": [
+        "牛客校园招聘"
+      ],
+      "firstSeenAt": "2026-09-08T09:13:11.068Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1kj6319",
+      "name": "拼多多集团-PDD",
+      "normalizedCompanyName": "拼多多集团pdd",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "开放中",
+      "confidence": "已核验",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://careers.pddglobalhr.com/campus"
+      },
+      "sourceIds": [
+        "src-nowcoder-schedule"
+      ],
+      "sourceLabels": [
+        "牛客校园招聘"
+      ],
+      "firstSeenAt": "2026-09-08T09:13:11.068Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-11lv796",
+      "name": "携程集团",
+      "normalizedCompanyName": "携程集团",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "开放中",
+      "confidence": "已核验",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "http://t.ctrip.cn/6SQS9RY"
+      },
+      "sourceIds": [
+        "src-nowcoder-schedule"
+      ],
+      "sourceLabels": [
+        "牛客校园招聘"
+      ],
+      "firstSeenAt": "2026-09-08T09:13:11.068Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-16xahlq",
       "name": "中交三航局四公司",
       "normalizedCompanyName": "中交三航局四公司",
@@ -297,33 +373,6 @@
       ],
       "sourceLabels": [
         "JOBUP",
-        "超级简历校招汇总"
-      ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
-      "isFirstExpansion": true
-    },
-    {
-      "id": "lead-gwd8ea",
-      "name": "FunPlus",
-      "normalizedCompanyName": "funplus",
-      "nature": "性质待确认",
-      "locations": [
-        "地点待确认"
-      ],
-      "status": "开放中",
-      "confidence": "已核验",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=1950&url=https%3A%2F%2Fapp.mokahr.com%2Fsu%2Fzutnfk&entityId=13362"
-      },
-      "sourceIds": [
-        "src-nowcoder-schedule",
-        "src-wondercv"
-      ],
-      "sourceLabels": [
-        "牛客校园招聘",
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
@@ -352,7 +401,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -377,7 +426,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -402,7 +451,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T13:47:31.643Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -427,7 +476,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -504,7 +553,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -529,7 +578,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -580,7 +629,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -605,7 +654,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -630,7 +679,32 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1oxo5rv",
+      "name": "辉黄未来 奔赴金彩",
+      "normalizedCompanyName": "辉黄未来奔赴金彩",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://campus.niuqizp.com/job-v885aCzLa.html"
+      },
+      "sourceIds": [
+        "src-niuqizp-nanning"
+      ],
+      "sourceLabels": [
+        "牛企直聘南宁校招"
+      ],
+      "firstSeenAt": "2026-09-10T00:56:09.113Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -655,7 +729,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -680,7 +754,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -705,7 +779,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -730,7 +804,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T13:47:31.643Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -755,7 +829,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T13:47:31.643Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -780,32 +854,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
-      "isFirstExpansion": true
-    },
-    {
-      "id": "lead-1h756ao",
-      "name": "生力军,向世界前行",
-      "normalizedCompanyName": "生力军,向世界前行",
-      "nature": "性质待确认",
-      "locations": [
-        "广西南宁"
-      ],
-      "status": "待确认",
-      "confidence": "待确认",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://campus.niuqizp.com/job-vml5aLNaL.html"
-      },
-      "sourceIds": [
-        "src-niuqizp-nanning"
-      ],
-      "sourceLabels": [
-        "牛企直聘南宁校招"
-      ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -830,57 +879,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
-      "isFirstExpansion": true
-    },
-    {
-      "id": "lead-sukcau",
-      "name": "驭芯而行,赴约峰岹:峰岹科技",
-      "normalizedCompanyName": "驭芯而行,赴约峰岹:峰岹科技",
-      "nature": "性质待确认",
-      "locations": [
-        "广西南宁"
-      ],
-      "status": "待确认",
-      "confidence": "待确认",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://campus.niuqizp.com/job-vYU5aNLzM.html"
-      },
-      "sourceIds": [
-        "src-niuqizp-nanning"
-      ],
-      "sourceLabels": [
-        "牛企直聘南宁校招"
-      ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
-      "isFirstExpansion": true
-    },
-    {
-      "id": "lead-1d0ko2m",
-      "name": "绽放无限可能",
-      "normalizedCompanyName": "绽放无限可能",
-      "nature": "性质待确认",
-      "locations": [
-        "广西南宁"
-      ],
-      "status": "待确认",
-      "confidence": "待确认",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://campus.niuqizp.com/job-vrY5aLCnM.html"
-      },
-      "sourceIds": [
-        "src-niuqizp-nanning"
-      ],
-      "sourceLabels": [
-        "牛企直聘南宁校招"
-      ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -905,7 +904,32 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-sthjxs",
+      "name": "中国黄金",
+      "normalizedCompanyName": "中国黄金",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://campus.niuqizp.com/schedule-7srUNttNz.html"
+      },
+      "sourceIds": [
+        "src-niuqizp-nanning"
+      ],
+      "sourceLabels": [
+        "牛企直聘南宁校招"
+      ],
+      "firstSeenAt": "2026-09-10T00:56:09.113Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -930,7 +954,33 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-t5eoe3",
+      "name": "中建八局发展建设公司",
+      "normalizedCompanyName": "中建八局发展建设公司",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁",
+        "广西全区"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://jyy.gxu.edu.cn/detail/career?id=694432"
+      },
+      "sourceIds": [
+        "src-gxu-jobs"
+      ],
+      "sourceLabels": [
+        "广西大学就业创业服务网"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -956,7 +1006,33 @@
         "广西大学就业创业服务网"
       ],
       "firstSeenAt": "2026-09-08T13:47:31.643Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1a9zxng",
+      "name": "中建八局装饰工程有限公司",
+      "normalizedCompanyName": "中建八局装饰工程",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁",
+        "广西全区"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://jyy.gxu.edu.cn/detail/career?id=709086"
+      },
+      "sourceIds": [
+        "src-gxu-jobs"
+      ],
+      "sourceLabels": [
+        "广西大学就业创业服务网"
+      ],
+      "firstSeenAt": "2026-09-10T00:56:09.113Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -982,7 +1058,82 @@
         "广西大学就业创业服务网"
       ],
       "firstSeenAt": "2026-09-08T13:47:31.643Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-h6l4c1",
+      "name": "中建一局集团华南建设有限公司",
+      "normalizedCompanyName": "中建一局集团华南建设",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-7en99s",
+      "name": "中建一局西南公司",
+      "normalizedCompanyName": "中建一局西南公司",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1qikbmz",
+      "name": "中建一局总承包公司",
+      "normalizedCompanyName": "中建一局总承包公司",
+      "nature": "性质待确认",
+      "locations": [
+        "广西南宁"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1007,7 +1158,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1032,7 +1183,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1057,7 +1208,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1082,32 +1233,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
-      "isFirstExpansion": true
-    },
-    {
-      "id": "lead-1gflmit",
-      "name": "百度",
-      "normalizedCompanyName": "百度",
-      "nature": "性质待确认",
-      "locations": [
-        "地点待确认"
-      ],
-      "status": "待确认",
-      "confidence": "待确认",
-      "channel": {
-        "label": "招聘公告 / 投递入口",
-        "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=139&url=https%3A%2F%2Ftalent.baidu.com%2Fjobs%2Flist%3FrecommendCode%3DIZ118K%26recruitType%3DGRADUATE&entityId=13361"
-      },
-      "sourceIds": [
-        "src-nowcoder-schedule"
-      ],
-      "sourceLabels": [
-        "牛客校园招聘"
-      ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1157,7 +1283,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1207,7 +1333,32 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-t5y6jq",
+      "name": "广州白云机场",
+      "normalizedCompanyName": "广州白云机场",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/guangzhou-airport-2027-campus-recruitment-14852-3c3188/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1236,6 +1387,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-1tlk2p2",
+      "name": "哈电集团",
+      "normalizedCompanyName": "哈电集团",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/harbin-electric-2027-campus-recruitment-14862-3f3703/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-kjx9kh",
       "name": "海信集团",
       "normalizedCompanyName": "海信集团",
@@ -1257,7 +1433,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1286,6 +1462,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-ovvas4",
+      "name": "恒隆地产",
+      "normalizedCompanyName": "恒隆地产",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/hang-lung-2027-management-trainee-program-14863-2ea830/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-8g8alv",
       "name": "恒生电子",
       "normalizedCompanyName": "恒生电子",
@@ -1307,7 +1508,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1357,7 +1558,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1373,7 +1574,7 @@
       "channel": {
         "label": "招聘公告 / 投递入口",
         "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=898&url=https%3A%2F%2Fcampus.kuaishou.cn%2Frecruit%2Fcampus%2Fe%2F%23%2Fcampus%2Fjobs%3Fcode%3DcampusaeZwiKwdB&entityId=13291"
+        "url": "https://www.nowcoder.com/jump?type=ad&source=5&companyId=898&url=https%3A%2F%2Fcampus.kuaishou.cn%2Frecruit%2Fcampus%2Fe%2F%23%2Fcampus%2Fjobs%3Fcode%3DcampusaeZwiKwdB&entityId=13292"
       },
       "sourceIds": [
         "src-nowcoder-schedule"
@@ -1382,7 +1583,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1457,13 +1658,13 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
-      "id": "lead-1kj6319",
-      "name": "拼多多集团-PDD",
-      "normalizedCompanyName": "拼多多集团pdd",
+      "id": "lead-ahcexl",
+      "name": "宁银消金",
+      "normalizedCompanyName": "宁银消金",
       "nature": "性质待确认",
       "locations": [
         "地点待确认"
@@ -1473,16 +1674,16 @@
       "channel": {
         "label": "招聘公告 / 投递入口",
         "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=732&url=https%3A%2F%2Fcareers.pddglobalhr.com%2Fcampus&entityId=13238"
+        "url": "https://www.wondercv.com/xiaozhao/ningbo-consumer-finance-2027-tech-campus-14855-2da2ef/"
       },
       "sourceIds": [
-        "src-nowcoder-schedule"
+        "src-wondercv"
       ],
       "sourceLabels": [
-        "牛客校园招聘"
+        "超级简历校招汇总"
       ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1511,6 +1712,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-1020wap",
+      "name": "三星 东莞三星视界有限公司",
+      "normalizedCompanyName": "三星东莞三星视界",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/samsung-display-dongguan-2027-campus-recruit-14860-412ebb/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-46j5x5",
       "name": "厦门银行",
       "normalizedCompanyName": "厦门银行",
@@ -1532,7 +1758,57 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-tq2luk",
+      "name": "上海国际集团",
+      "normalizedCompanyName": "上海国际集团",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/aster-yibo-2027-fall-campus-recruitment-14856-4f7d09/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-ruvsmx",
+      "name": "社会组织 收录 2026.09.10 广州白云机场 广州白云国际机场",
+      "normalizedCompanyName": "社会组织收录2026.09.10广州白云机场广州白云国际机场",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/guangzhou-airport-2027-campus-recruitment-14852-3c3188/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1582,7 +1858,57 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1ui4lvv",
+      "name": "水羊",
+      "normalizedCompanyName": "水羊",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-ua518v",
+      "name": "水羊集团",
+      "normalizedCompanyName": "水羊集团",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1611,6 +1937,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-azyim3",
+      "name": "伟京电子",
+      "normalizedCompanyName": "伟京电子",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/xian-military-power-electronics-2027-fall-campus-14859-f61aff/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-oygqjk",
       "name": "未岚大陆",
       "normalizedCompanyName": "未岚大陆",
@@ -1632,7 +1983,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1657,7 +2008,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1682,32 +2033,32 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
-      "id": "lead-11lv796",
-      "name": "携程集团",
-      "normalizedCompanyName": "携程集团",
+      "id": "lead-1rcoc9d",
+      "name": "晓鸣股份",
+      "normalizedCompanyName": "晓鸣股份",
       "nature": "性质待确认",
       "locations": [
-        "地点待确认"
+        "全国"
       ],
       "status": "待确认",
       "confidence": "待确认",
       "channel": {
         "label": "招聘公告 / 投递入口",
         "type": "第三方公告",
-        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=153&url=http%3A%2F%2Ft.ctrip.cn%2F6SQS9RY&entityId=13339"
+        "url": "https://www.wondercv.com/xiaozhao/300967-2027-campus-recruitment-ningxia-14853-ef9333/"
       },
       "sourceIds": [
-        "src-nowcoder-schedule"
+        "src-wondercv"
       ],
       "sourceLabels": [
-        "牛客校园招聘"
+        "超级简历校招汇总"
       ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1732,7 +2083,407 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1so06ts",
+      "name": "银行 收录 2026.09.10 招银理财 招银理财",
+      "normalizedCompanyName": "银行收录2026.09.10招银理财招银理财",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/cmb-wealth-2027-campus-recruitment-14857-58f2f3/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1nepm2",
+      "name": "元琛科技",
+      "normalizedCompanyName": "元琛科技",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/green-tech-2027-campus-recruitment-hefei-14858-52331c/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1ui3s2w",
+      "name": "政府机关 银行 收录 2026.09.10 宁银消金 宁银消金(宁波银行控股子公司)",
+      "normalizedCompanyName": "政府机关银行收录2026.09.10宁银消金宁银消金",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/ningbo-consumer-finance-2027-tech-campus-14855-2da2ef/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-zb94a8",
+      "name": "中车长江集团",
+      "normalizedCompanyName": "中车长江集团",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/crrc-yangtze-2027-campus-recruitment-14854-63622e/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-p44pd8",
+      "name": "中电星河电",
+      "normalizedCompanyName": "中电星河电",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-wyd8st",
+      "name": "中国船舶集团有限公司第七一四研究所",
+      "normalizedCompanyName": "中国船舶集团有限公司第七一四研究所",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-kr4e71",
+      "name": "中国电科",
+      "normalizedCompanyName": "中国电科",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1mre430",
+      "name": "中国电科21所",
+      "normalizedCompanyName": "中国电科21所",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-jsj04e",
+      "name": "中国电科3所",
+      "normalizedCompanyName": "中国电科3所",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-tf7frb",
+      "name": "中国核动力研究设计院",
+      "normalizedCompanyName": "中国核动力研究设计院",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-qitjcx",
+      "name": "中国化学工程十六化建",
+      "normalizedCompanyName": "中国化学工程十六化建",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1jnsghz",
+      "name": "中国汽车技术研究中心(中汽中心)",
+      "normalizedCompanyName": "中国汽车技术研究中心",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1hhzgv2",
+      "name": "中国人寿保险(集团)公司",
+      "normalizedCompanyName": "中国人寿保险公司",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1l633cg",
+      "name": "中国人寿集团",
+      "normalizedCompanyName": "中国人寿集团",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-82dukn",
+      "name": "中国石油",
+      "normalizedCompanyName": "中国石油",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-bgdsbl",
+      "name": "中国一冶",
+      "normalizedCompanyName": "中国一冶",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1758,6 +2509,206 @@
       ],
       "firstSeenAt": "2026-09-08T13:53:58.861Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-11irb6z",
+      "name": "中华财险",
+      "normalizedCompanyName": "中华财险",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1l0icz3",
+      "name": "中华联合财产保险股份有限公司",
+      "normalizedCompanyName": "中华联合财产保险",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1uadvqq",
+      "name": "中建玖合发展集团有限公司",
+      "normalizedCompanyName": "中建玖合发展集团",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-13t70zn",
+      "name": "中建六局(中建丝路)",
+      "normalizedCompanyName": "中建六局",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-l00smk",
+      "name": "中建一局安装公司",
+      "normalizedCompanyName": "中建一局安装公司",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-7vjwqj",
+      "name": "中建一局设计院",
+      "normalizedCompanyName": "中建一局设计院",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-4hsju8",
+      "name": "中建一局西北公司",
+      "normalizedCompanyName": "中建一局西北公司",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1dhcc85",
+      "name": "中建智地&中建智城",
+      "normalizedCompanyName": "中建智地&中建智城",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -1883,6 +2834,31 @@
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-16voeja",
+      "name": "中交一公院",
+      "normalizedCompanyName": "中交一公院",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2036,6 +3012,156 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-lkbijr",
+      "name": "中金公司",
+      "normalizedCompanyName": "中金公司",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-10T00:56:09.113Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1qh8qp0",
+      "name": "中科通量",
+      "normalizedCompanyName": "中科通量",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1riin6s",
+      "name": "中科微至",
+      "normalizedCompanyName": "中科微至",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-iynz23",
+      "name": "中煤科工机器人科技",
+      "normalizedCompanyName": "中煤科工机器人科技",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-joo5x3",
+      "name": "中煤科工集团信息技术",
+      "normalizedCompanyName": "中煤科工集团信息技术",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-v2chh",
+      "name": "中煤矿建集团",
+      "normalizedCompanyName": "中煤矿建集团",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-16cfw6c",
       "name": "中水北方公司",
       "normalizedCompanyName": "中水北方公司",
@@ -2083,6 +3209,31 @@
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1rp5rzx",
+      "name": "中铁大桥局集团有限公司",
+      "normalizedCompanyName": "中铁大桥局集团",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2211,6 +3362,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-liber1",
+      "name": "中铁十八局",
+      "normalizedCompanyName": "中铁十八局",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-7rpmqa",
       "name": "中铁十二局",
       "normalizedCompanyName": "中铁十二局",
@@ -2333,6 +3509,31 @@
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1hcvcyo",
+      "name": "中信金属",
+      "normalizedCompanyName": "中信金属",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2686,6 +3887,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-1cdmnab",
+      "name": "中兴通讯法律合规",
+      "normalizedCompanyName": "中兴通讯法律合规",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-2j420s",
       "name": "中冶建筑研究总院有限公司",
       "normalizedCompanyName": "中冶建筑研究总院",
@@ -2708,6 +3934,56 @@
       ],
       "firstSeenAt": "2026-09-08T13:53:58.861Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-agqfti",
+      "name": "中冶南方炼钢连铸",
+      "normalizedCompanyName": "中冶南方炼钢连铸",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1jq9li3",
+      "name": "众安保险",
+      "normalizedCompanyName": "众安保险",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2832,7 +4108,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2858,6 +4134,31 @@
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-7o4h67",
+      "name": "紫光青藤",
+      "normalizedCompanyName": "紫光青藤",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2907,7 +4208,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2946,6 +4247,31 @@
       "status": "待确认",
       "confidence": "待确认",
       "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.wondercv.com/xiaozhao/aster-yibo-2027-fall-campus-recruitment-14856-4f7d09/"
+      },
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceLabels": [
+        "超级简历校招汇总"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-l57doo",
+      "name": "BURBERRY博柏利",
+      "normalizedCompanyName": "burberry博柏利",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
         "label": "第三方当日汇总",
         "type": "第三方汇总",
         "url": "https://jobup.cn/"
@@ -2956,8 +4282,8 @@
       "sourceLabels": [
         "JOBUP"
       ],
-      "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -2986,6 +4312,56 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-1v9zbg9",
+      "name": "CGL",
+      "normalizedCompanyName": "cgl",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1bt5h9w",
+      "name": "DolphinDB智臾科技",
+      "normalizedCompanyName": "dolphindb智臾科技",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-uyffbg",
       "name": "ENGEL中国",
       "normalizedCompanyName": "engel中国",
@@ -3008,6 +4384,106 @@
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
       "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1jgewg2",
+      "name": "FTA",
+      "normalizedCompanyName": "fta",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-gwd8ea",
+      "name": "FunPlus",
+      "normalizedCompanyName": "funplus",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=1950&url=https%3A%2F%2Fapp.mokahr.com%2Fsu%2Fzutnfk&entityId=13362"
+      },
+      "sourceIds": [
+        "src-nowcoder-schedule"
+      ],
+      "sourceLabels": [
+        "牛客校园招聘"
+      ],
+      "firstSeenAt": "2026-09-08T09:13:11.068Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1q711oz",
+      "name": "GBASE南大通用",
+      "normalizedCompanyName": "gbase南大通用",
+      "nature": "性质待确认",
+      "locations": [
+        "全国"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-2tueuo",
+      "name": "H2O",
+      "normalizedCompanyName": "h2o",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     },
     {
@@ -3086,6 +4562,31 @@
       "isFirstExpansion": true
     },
     {
+      "id": "lead-10bti6j",
+      "name": "Vivix",
+      "normalizedCompanyName": "vivix",
+      "nature": "性质待确认",
+      "locations": [
+        "地点待确认"
+      ],
+      "status": "待确认",
+      "confidence": "待确认",
+      "channel": {
+        "label": "第三方当日汇总",
+        "type": "第三方汇总",
+        "url": "https://jobup.cn/"
+      },
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceLabels": [
+        "JOBUP"
+      ],
+      "firstSeenAt": "2026-09-11T01:38:22.032Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
+      "isFirstExpansion": true
+    },
+    {
       "id": "lead-1ibwjzr",
       "name": "vivo",
       "normalizedCompanyName": "vivo",
@@ -3107,7 +4608,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-08T13:55:21.858Z",
+      "lastVerifiedAt": "2026-09-11T01:40:23.525Z",
       "isFirstExpansion": true
     }
   ]

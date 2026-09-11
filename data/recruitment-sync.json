@@ -1,17 +1,21 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-08T13:55:21.858Z",
+  "completedAt": "2026-09-11T01:40:23.525Z",
   "target": 50,
   "targetMet": true,
   "counters": {
     "sourceCount": 24,
     "healthySourceCount": 16,
     "anomalyCount": 8,
-    "rawLeads": 166,
-    "qualifiedLeads": 111,
-    "verifiedLeads": 2,
-    "pendingLeads": 109,
-    "nanningLeads": 28
+    "rawLeads": 169,
+    "qualifiedLeads": 108,
+    "verifiedLeads": 3,
+    "pendingLeads": 105,
+    "nanningLeads": 31,
+    "ownershipChannelsChecked": 24,
+    "ownershipChannelAnomalyCount": 0
   },
-  "warnings": []
+  "warnings": [
+    "8 个采集来源访问异常；缺失企业沿用上一版有效记录。"
+  ]
 }

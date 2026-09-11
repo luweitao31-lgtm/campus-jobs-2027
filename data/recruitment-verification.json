@@ -1,0 +1,1233 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-09T00:56:12.448Z",
+  "total": 110,
+  "verified": 4,
+  "pending": 103,
+  "invalid": 3,
+  "results": [
+    {
+      "leadId": "lead-1t2boay",
+      "companyName": "中交二公院",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1c1gfbr",
+      "companyName": "中交三航局二公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-16xahlq",
+      "companyName": "中交三航局四公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ],
+      "httpStatus": 200
+    },
+    {
+      "leadId": "lead-cns777",
+      "companyName": "中交三航局一公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1hqui4q",
+      "companyName": "中交水规院",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1fdlskr",
+      "companyName": "中交天津设计院",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-l7mhqo",
+      "companyName": "中交一航局城交公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-16112sm",
+      "companyName": "中交一航局一公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-12zuhcv",
+      "companyName": "中交一航局总承包分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-v75wle",
+      "companyName": "中教智网(北京)信息技术有限公司天津分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1vsw45g",
+      "companyName": "中节能万润股份有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-16cfw6c",
+      "companyName": "中水北方公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-3jr4qb",
+      "companyName": "中铁大桥局二公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-15io154",
+      "companyName": "中铁大桥局九公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-x5o8dm",
+      "companyName": "中铁大桥局设计分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1qwboc2",
+      "companyName": "中铁大桥局四公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1jxdi3b",
+      "companyName": "中铁大桥局一公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1k21ml1",
+      "companyName": "中铁国际",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-7rpmqa",
+      "companyName": "中铁十二局",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-19hv1yv",
+      "companyName": "中铁四局市政公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-vtmitw",
+      "companyName": "中铁四局一公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-z59oj9",
+      "companyName": "中铁装配",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1tyo1zb",
+      "companyName": "中铁资源",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-2pho34",
+      "companyName": "中信期货北京分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1jbg7ac",
+      "companyName": "中信期货重庆分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-9us0uc",
+      "companyName": "中信期货贵州分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1fjk3x",
+      "companyName": "中信期货山西分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1hvww4f",
+      "companyName": "中信期货天津分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-lwarad",
+      "companyName": "中信期货云南分公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1h4kdly",
+      "companyName": "中信银行福州分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-7o59vc",
+      "companyName": "中信银行合肥分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-7ioo4s",
+      "companyName": "中信银行济南分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-13neujo",
+      "companyName": "中信银行宁波分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-7qxoot",
+      "companyName": "中信银行厦门分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1xv6oo",
+      "companyName": "中信银行太原分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1u7w2b7",
+      "companyName": "中信银行长沙分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-opayoo",
+      "companyName": "中信银行郑州分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-kq5cfp",
+      "companyName": "舟山中远海运重工",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-sphd4n",
+      "companyName": "珠海博瑞精芯",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-t1cgxh",
+      "companyName": "竹素科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ],
+      "httpStatus": 200
+    },
+    {
+      "leadId": "lead-83x4kh",
+      "companyName": "转转集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/",
+        "https://zhuanzhuan2.zhiye.com/campus/jobs?memory=&amp;silence=1"
+      ],
+      "officialChannelUrl": "https://zhuanzhuan2.zhiye.com/campus/jobs?memory=&amp;silence=1",
+      "httpStatus": 200,
+      "finalUrl": "https://zhuanzhuan2.zhiye.com/campus/jobs?memory=&amp;silence=1"
+    },
+    {
+      "leadId": "lead-mp07fx",
+      "companyName": "卓望数码技术(深圳)有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-86is3g",
+      "companyName": "紫光同创",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ],
+      "httpStatus": 200
+    },
+    {
+      "leadId": "lead-169owkz",
+      "companyName": "Aidite",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-eonmmf",
+      "companyName": "ASTER星图国际集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/",
+        "https://hr.goaster.com/campusrecruitment.jsp"
+      ],
+      "officialChannelUrl": "https://hr.goaster.com/campusrecruitment.jsp",
+      "httpStatus": 404,
+      "finalUrl": "https://hr.goaster.com/campusrecruitment.jsp"
+    },
+    {
+      "leadId": "lead-koirdk",
+      "companyName": "CET中电技术",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-uyffbg",
+      "companyName": "ENGEL中国",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "verified",
+      "reason": "企业官方招聘入口可访问，页面同时匹配企业归属与 2027 届招聘语义。",
+      "evidenceUrls": [
+        "https://jobup.cn/",
+        "https://campus.51job.com/engel2027/introduction.html"
+      ],
+      "officialChannelUrl": "https://campus.51job.com/engel2027/introduction.html",
+      "httpStatus": 200,
+      "finalUrl": "https://campus.51job.com/engel2027/introduction.html"
+    },
+    {
+      "leadId": "lead-f4gtyu",
+      "companyName": "iData盈达",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jobup.cn/",
+        "https://idata.zhiye.com/Campus"
+      ],
+      "officialChannelUrl": "https://idata.zhiye.com/Campus",
+      "httpStatus": 200,
+      "finalUrl": "https://idata.zhiye.com/Campus"
+    },
+    {
+      "leadId": "lead-fdhqza",
+      "companyName": "TCL财税共享服务中心",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://jobup.cn/"
+      ]
+    },
+    {
+      "leadId": "lead-1gflmit",
+      "companyName": "百度",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "verified",
+      "reason": "企业官方招聘入口可访问，页面同时匹配企业归属与 2027 届招聘语义。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE"
+      ],
+      "officialChannelUrl": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE",
+      "httpStatus": 200,
+      "finalUrl": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE"
+    },
+    {
+      "leadId": "lead-xsct9d",
+      "companyName": "贝壳",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://campus.ke.com/campus"
+      ],
+      "officialChannelUrl": "https://campus.ke.com/campus",
+      "httpStatus": 200,
+      "finalUrl": "https://campus.ke.com/campus"
+    },
+    {
+      "leadId": "lead-6pqy86",
+      "companyName": "奔图科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1wx0aw1",
+      "companyName": "碧桂园服务",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-94nn8l",
+      "companyName": "大信",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-18nwrjp",
+      "companyName": "滴滴",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/su/wpvoov"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/su/wpvoov",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/su/wpvoov"
+    },
+    {
+      "leadId": "lead-1thyx17",
+      "companyName": "广东省建筑设计研究院集团股份有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1gms5zq",
+      "companyName": "国家能源CHN ENERGY",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1jddix3",
+      "companyName": "海大集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1floht2",
+      "companyName": "海尔智家",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jyy.gxu.edu.cn/",
+        "https://jyy.gxu.edu.cn/detail/career?id=714480"
+      ],
+      "officialChannelUrl": "https://jyy.gxu.edu.cn/detail/career?id=714480",
+      "httpStatus": null,
+      "finalUrl": "https://jyy.gxu.edu.cn/detail/career?id=714480"
+    },
+    {
+      "leadId": "lead-kjx9kh",
+      "companyName": "海信集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://bsurl.cn/v2/IjBzb3IM"
+      ],
+      "officialChannelUrl": "https://bsurl.cn/v2/IjBzb3IM",
+      "httpStatus": 200,
+      "finalUrl": "https://bsurl.cn/v2/IjBzb3IM"
+    },
+    {
+      "leadId": "lead-16s9ea4",
+      "companyName": "好未来学而思励步",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1o8w81o",
+      "companyName": "恒安集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-8g8alv",
+      "companyName": "恒生电子",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://bsurl.cn/v2/J3mAs5ex"
+      ],
+      "officialChannelUrl": "https://bsurl.cn/v2/J3mAs5ex",
+      "httpStatus": 200,
+      "finalUrl": "https://bsurl.cn/v2/J3mAs5ex"
+    },
+    {
+      "leadId": "lead-1tlxmx",
+      "companyName": "华为数字能源",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1qkadti",
+      "companyName": "金发科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1km24tp",
+      "companyName": "精智达",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/campus-recruitment/seichitech/140888?locale=zh-CN#/"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/campus-recruitment/seichitech/140888?locale=zh-CN#/",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/campus-recruitment/seichitech/140888?locale=zh-CN#/"
+    },
+    {
+      "leadId": "lead-7xfj4x",
+      "companyName": "九阳",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1faof03",
+      "companyName": "快手",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://campus.kuaishou.cn/recruit/campus/e/"
+      ],
+      "officialChannelUrl": "https://campus.kuaishou.cn/recruit/campus/e/#/campus/jobs?code=campusaeZwiKwdB",
+      "httpStatus": 200,
+      "finalUrl": "https://campus.kuaishou.cn/recruit/campus/e/"
+    },
+    {
+      "leadId": "lead-lm90zx",
+      "companyName": "理想汽车",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://www.lixiang.com/employ/campus/list.html?fromJob=1&project_id=18&job_mode=1"
+      ],
+      "officialChannelUrl": "https://www.lixiang.com/employ/campus/list.html?fromJob=1&project_id=18&job_mode=1",
+      "httpStatus": 200,
+      "finalUrl": "https://www.lixiang.com/employ/campus/list.html?fromJob=1&project_id=18&job_mode=1"
+    },
+    {
+      "leadId": "lead-10kfnzf",
+      "companyName": "零跑汽车",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1ysfzj7",
+      "companyName": "美赫电子",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-1sl9n04",
+      "companyName": "猛士汽车",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1obrc8c",
+      "companyName": "南京银行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://job.njcb.com.cn/"
+      ],
+      "officialChannelUrl": "https://job.njcb.com.cn/#/campus",
+      "httpStatus": 200,
+      "finalUrl": "https://job.njcb.com.cn/"
+    },
+    {
+      "leadId": "lead-1kj6319",
+      "companyName": "拼多多集团-PDD",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "verified",
+      "reason": "企业官方招聘入口可访问，页面同时匹配企业归属与 2027 届招聘语义。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://careers.pddglobalhr.com/campus"
+      ],
+      "officialChannelUrl": "https://careers.pddglobalhr.com/campus",
+      "httpStatus": 200,
+      "finalUrl": "https://careers.pddglobalhr.com/campus"
+    },
+    {
+      "leadId": "lead-16uk4gs",
+      "companyName": "平安产险科技中心",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://campus.pingan.com/paccbxkjzx"
+      ],
+      "officialChannelUrl": "https://campus.pingan.com/paccbxkjzx",
+      "httpStatus": 200,
+      "finalUrl": "https://campus.pingan.com/paccbxkjzx"
+    },
+    {
+      "leadId": "lead-4d5yd",
+      "companyName": "平安银行南宁分行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-105r8uk",
+      "companyName": "热联集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1syt9gj",
+      "companyName": "森特士兴集团股份有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-46j5x5",
+      "companyName": "厦门银行",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/campus-recruitment/xmbankonline"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/campus-recruitment/xmbankonline",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/campus-recruitment/xmbankonline"
+    },
+    {
+      "leadId": "lead-7uw2nt",
+      "companyName": "上汽通用五菱",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-o2pc6p",
+      "companyName": "神州信息",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://dcits.zhiye.com/campus/jobs"
+      ],
+      "officialChannelUrl": "https://dcits.zhiye.com/campus/jobs",
+      "httpStatus": 200,
+      "finalUrl": "https://dcits.zhiye.com/campus/jobs"
+    },
+    {
+      "leadId": "lead-5tqhpq",
+      "companyName": "沈阳富创精密设备股份有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-pgp9wy",
+      "companyName": "特变电工",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-oygqjk",
+      "companyName": "未岚大陆",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/campus-recruitment/weilandalu/98096?locale=zh-CN#/"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/campus-recruitment/weilandalu/98096?locale=zh-CN#/",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/campus-recruitment/weilandalu/98096?locale=zh-CN#/"
+    },
+    {
+      "leadId": "lead-1cvgsom",
+      "companyName": "小红书",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://job.xiaohongshu.com/link?referer_code=JNBSBKZ4VDRW"
+      ],
+      "officialChannelUrl": "https://job.xiaohongshu.com/link?referer_code=JNBSBKZ4VDRW",
+      "httpStatus": 200,
+      "finalUrl": "https://job.xiaohongshu.com/link?referer_code=JNBSBKZ4VDRW"
+    },
+    {
+      "leadId": "lead-1f4t2if",
+      "companyName": "小米",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-tx1cr7",
+      "companyName": "小米集团",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://xiaomi.jobs.f.mioffice.cn/campus/?spread=J7NS6YR"
+      ],
+      "officialChannelUrl": "https://xiaomi.jobs.f.mioffice.cn/campus/?spread=J7NS6YR",
+      "httpStatus": 200,
+      "finalUrl": "https://xiaomi.jobs.f.mioffice.cn/campus/?spread=J7NS6YR"
+    },
+    {
+      "leadId": "lead-11lv796",
+      "companyName": "携程集团",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "verified",
+      "reason": "企业官方招聘入口可访问，页面同时匹配企业归属与 2027 届招聘语义。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://careers.ctrip.com/"
+      ],
+      "officialChannelUrl": "http://t.ctrip.cn/6SQS9RY",
+      "httpStatus": 200,
+      "finalUrl": "https://careers.ctrip.com/"
+    },
+    {
+      "leadId": "lead-1lerpp3",
+      "companyName": "新东方华南区",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-ioxqc8",
+      "companyName": "信也科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/su/yvpovf"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/su/yvpovf",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/su/yvpovf"
+    },
+    {
+      "leadId": "lead-xwv149",
+      "companyName": "旋智科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-rdmc8t",
+      "companyName": "中船航海科技有限责任公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-127gm8l",
+      "companyName": "中国航天科技集团商业卫星有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1ow1fv9",
+      "companyName": "中建八局",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-14z8tom",
+      "companyName": "中建八局新型建造工程有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jyy.gxu.edu.cn/",
+        "https://jyy.gxu.edu.cn/detail/career?id=717140"
+      ],
+      "officialChannelUrl": "https://jyy.gxu.edu.cn/detail/career?id=717140",
+      "httpStatus": 200,
+      "finalUrl": "https://jyy.gxu.edu.cn/detail/career?id=717140"
+    },
+    {
+      "leadId": "lead-144oor6",
+      "companyName": "中建四局华南建设有限公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://jyy.gxu.edu.cn/",
+        "https://jyy.gxu.edu.cn/detail/career?id=716760"
+      ],
+      "officialChannelUrl": "https://jyy.gxu.edu.cn/detail/career?id=716760",
+      "httpStatus": 200,
+      "finalUrl": "https://jyy.gxu.edu.cn/detail/career?id=716760"
+    },
+    {
+      "leadId": "lead-3g2rua",
+      "companyName": "中交三航局新能源公司发布",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-10garxz",
+      "companyName": "卓望公司",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://bsurl.cn/v2/ot62chJo"
+      ],
+      "officialChannelUrl": "https://bsurl.cn/v2/ot62chJo",
+      "httpStatus": 200,
+      "finalUrl": "https://bsurl.cn/v2/ot62chJo"
+    },
+    {
+      "leadId": "lead-1fxwgq0",
+      "companyName": "自变量机器人",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1ike0zo",
+      "companyName": "最右",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/campus-recruitment/xiaochuankeji/92513#"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/campus-recruitment/xiaochuankeji/92513#",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/campus-recruitment/xiaochuankeji/92513#"
+    },
+    {
+      "leadId": "lead-1luoosr",
+      "companyName": "AAC瑞声科技",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-gwd8ea",
+      "companyName": "FunPlus",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "官方入口当前不可访问；页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://app.mokahr.com/su/zutnfk"
+      ],
+      "officialChannelUrl": "https://app.mokahr.com/su/zutnfk",
+      "httpStatus": null,
+      "finalUrl": "https://app.mokahr.com/su/zutnfk"
+    },
+    {
+      "leadId": "lead-1dirntf",
+      "companyName": "OPPO",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://careers.oppo.com/university/oppo/campus/"
+      ],
+      "officialChannelUrl": "https://careers.oppo.com/university/oppo/campus/",
+      "httpStatus": 200,
+      "finalUrl": "https://careers.oppo.com/university/oppo/campus/"
+    },
+    {
+      "leadId": "lead-1h61jux",
+      "companyName": "SENASIC",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ]
+    },
+    {
+      "leadId": "lead-16zqdz8",
+      "companyName": "TCL",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-15n3w0s",
+      "companyName": "TCL实业",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "仅找到单一聚合或高校来源，未定位企业官方招聘入口或第二独立来源。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1ibwjzr",
+      "companyName": "vivo",
+      "checkedAt": "2026-09-09T00:56:12.448Z",
+      "result": "pending",
+      "reason": "页面未能确认企业归属；页面未显示 2027 届招聘语义，暂不满足核验规则。",
+      "evidenceUrls": [
+        "https://www.nowcoder.com/jobs/recommend/campus",
+        "https://bsurl.cn/v2/h4ZoqoK0"
+      ],
+      "officialChannelUrl": "https://bsurl.cn/v2/h4ZoqoK0",
+      "httpStatus": 200,
+      "finalUrl": "https://bsurl.cn/v2/h4ZoqoK0"
+    },
+    {
+      "leadId": "lead-1h756ao",
+      "companyName": "生力军,向世界前行",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "invalid",
+      "reason": "标题口号被误识别为企业名称，需修正原始解析后重新采集。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-sukcau",
+      "companyName": "驭芯而行,赴约峰岹:峰岹科技",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "invalid",
+      "reason": "标题口号被误识别为企业名称，需修正原始解析后重新采集。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    },
+    {
+      "leadId": "lead-1d0ko2m",
+      "companyName": "绽放无限可能",
+      "checkedAt": "2026-09-09T00:54:57.837Z",
+      "result": "invalid",
+      "reason": "标题口号被误识别为企业名称，需修正原始解析后重新采集。",
+      "evidenceUrls": [
+        "https://campus.niuqizp.com/deadline-nanning-1/"
+      ]
+    }
+  ]
+}

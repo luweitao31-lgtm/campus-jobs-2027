@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName } from '../lib/collector.ts';
 import { companies, ownershipTrees, recruitmentRecords, sources } from '../data/catalog.ts';
@@ -31,6 +32,7 @@ const leadsPath = path.resolve('data/recruitment-leads.json');
 const syncPath = path.resolve('data/recruitment-sync.json');
 const directoryPath = path.resolve('data/recruitment-directory.json');
 const ownershipChannelHealthPath = path.resolve('data/ownership-channel-health.json');
+const verificationPath = path.resolve('data/recruitment-verification.json');
 const registry = JSON.parse(await readFile(registryPath, 'utf8')) as Registry;
 const completedAt = new Date().toISOString();
 
@@ -146,6 +148,16 @@ try {
 }
 const previousByName = new Map(previousLeads.map((lead) => [lead.normalizedCompanyName, lead]));
 
+let verificationResults: Array<{ leadId: string; result: 'verified' | 'pending' | 'invalid'; evidenceUrls: string[]; officialChannelUrl?: string }> = [];
+try {
+  const verification = JSON.parse(await readFile(verificationPath, 'utf8')) as { results?: typeof verificationResults };
+  verificationResults = verification.results ?? [];
+} catch {
+  // Verification evidence is optional on the first collection run.
+}
+const verificationByLeadId = new Map(verificationResults.map((item) => [item.leadId, item]));
+const invalidLeadIds = new Set(verificationResults.filter((item) => item.result === 'invalid').map((item) => item.leadId));
+
 const leads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
   const normalizedCompanyName = normalizeCompanyName(candidate.companyName);
   if (normalizedCompanyName.length < 2 || candidate.sourceUrls.length === 0) return [];
@@ -155,16 +167,20 @@ const leads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
   else if (new Set(candidate.sourceIds).size >= 2) status = '双来源确认';
   const fingerprint = `2027-${hash(normalizedCompanyName)}`;
   const previous = previousByName.get(normalizedCompanyName);
+  const id = previous?.id ?? `lead-${hash(normalizedCompanyName)}`;
+  const verification = verificationByLeadId.get(id);
+  if (verification?.result === 'invalid') return [];
+  if (verification?.result === 'verified') status = '官方确认';
   return [{
-    id: previous?.id ?? `lead-${hash(normalizedCompanyName)}`,
+    id,
     companyName: candidate.companyName,
     normalizedCompanyName,
     title: candidate.title,
     cohort: 2027 as const,
     locations: candidate.locations,
     sourceIds: candidate.sourceIds,
-    sourceUrls: candidate.sourceUrls,
-    channelUrl: candidate.channelUrl,
+    sourceUrls: [...new Set([...candidate.sourceUrls, ...(verification?.result === 'verified' ? verification.evidenceUrls : [])])],
+    channelUrl: verification?.result === 'verified' ? verification.officialChannelUrl ?? candidate.channelUrl : candidate.channelUrl,
     publishedAt: candidate.publishedAt,
     discoveredAt: previous?.discoveredAt ?? completedAt,
     lastSeenAt: completedAt,
@@ -201,6 +217,7 @@ const report = {
   leads,
   warnings: [
     ...(targetMet ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`]),
+    ...(anomalyCount ? [`${anomalyCount} 个采集来源访问异常；缺失企业沿用上一版有效记录。`] : []),
     ...(ownershipChannelAnomalyCount ? [`${ownershipChannelAnomalyCount} 条资金链招聘渠道访问异常；保留原渠道状态并等待复核。`] : []),
   ],
 };
@@ -209,6 +226,20 @@ const companyById = new Map(companies.map((company) => [company.id, company]));
 const evidenceById = new Map(sources.map((source) => [source.id, source]));
 const sourceNameById = new Map(registry.sources.map((source) => [source.id, source.name]));
 const directory = new Map<string, RecruitmentDirectoryEntry>();
+let previousDirectoryEntries: RecruitmentDirectoryEntry[] = [];
+try {
+  const previousDirectory = JSON.parse(await readFile(directoryPath, 'utf8')) as { entries?: RecruitmentDirectoryEntry[] };
+  previousDirectoryEntries = previousDirectory.entries ?? [];
+} catch {
+  // The first collection run starts without a published directory snapshot.
+}
+try {
+  const publishedDirectory = JSON.parse(execFileSync('git', ['show', 'HEAD:data/recruitment-directory.json'], { encoding: 'utf8' })) as { entries?: RecruitmentDirectoryEntry[] };
+  const previousNames = new Set(previousDirectoryEntries.map((entry) => entry.normalizedCompanyName));
+  previousDirectoryEntries.push(...(publishedDirectory.entries ?? []).filter((entry) => !previousNames.has(entry.normalizedCompanyName)));
+} catch {
+  // A repository snapshot is optional; the current on-disk directory remains the fallback.
+}
 for (const record of recruitmentRecords) {
   const company = companyById.get(record.companyId);
   if (!company) continue;
@@ -251,6 +282,12 @@ for (const lead of leads) {
     isFirstExpansion: true,
   });
 }
+let retainedPreviousCount = 0;
+for (const previousEntry of previousDirectoryEntries) {
+  if (directory.has(previousEntry.normalizedCompanyName) || invalidLeadIds.has(previousEntry.id)) continue;
+  directory.set(previousEntry.normalizedCompanyName, previousEntry);
+  retainedPreviousCount += 1;
+}
 const directoryEntries = [...directory.values()].sort((left, right) => Number(right.confidence === '已核验') - Number(left.confidence === '已核验') || Number(right.locations.includes('广西南宁')) - Number(left.locations.includes('广西南宁')) || left.name.localeCompare(right.name, 'zh-CN'));
 const directoryReport = {
   schemaVersion: 1,
@@ -261,6 +298,7 @@ const directoryReport = {
   verifiedCount: directoryEntries.filter((entry) => entry.confidence === '已核验').length,
   pendingCount: directoryEntries.filter((entry) => entry.confidence === '待确认').length,
   nanningCount: directoryEntries.filter((entry) => entry.locations.includes('广西南宁')).length,
+  retainedPreviousCount,
   entries: directoryEntries,
 };
 

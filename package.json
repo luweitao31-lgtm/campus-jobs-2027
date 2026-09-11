@@ -12,6 +12,7 @@
     "validate:data": "node --experimental-strip-types scripts/validate-data.ts",
     "collect:dry": "node --experimental-strip-types scripts/refresh-data.ts --dry-run",
     "collect": "node --experimental-strip-types scripts/refresh-data.ts --write",
+    "verify:pending": "node --experimental-strip-types scripts/audit-pending-leads.ts",
     "update:daily": "npm run collect && npm test && npm run validate:data && npm run build",
     "start": "wrangler dev --config dist/server/wrangler.json",
     "lint": "oxlint",
