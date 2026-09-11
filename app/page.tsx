@@ -207,16 +207,35 @@ function RecruitmentPanel(props: {
       <FilterSelect label="信息来源" value={sourceType} setValue={setSourceType} options={['全部来源', '官方/政府', '求职平台', '高校就业网', '聚合平台']} />
     </CardContent></Card>
     <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500"><span>总库 <strong className="text-slate-800">{recruitmentDirectory.totalCount}</strong> 家 · 当前筛选 <strong className="text-slate-800">{filteredCount}</strong> 家</span><span>聚合平台记录标记为待确认，开放状态以核验来源为准。</span></div>
-    <div className="grid gap-3">{rows.length ? rows.map((item, index) => <RecruitmentCard key={item.id} item={item} index={index} />) : <EmptyState />}</div>
+    <div className="grid items-stretch gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">{rows.length ? rows.map((item, index) => <RecruitmentCard key={item.id} item={item} index={index} />) : <div className="sm:col-span-2 xl:col-span-3 2xl:col-span-4"><EmptyState /></div>}</div>
     {filteredCount > 0 && <Pagination className="mt-6"><PaginationContent><PaginationItem><PaginationPrevious href="#recruitment-title" text="上一页" aria-disabled={page === 1} className={page === 1 ? 'pointer-events-none opacity-40' : ''} onClick={(event) => { event.preventDefault(); setPage(Math.max(1, page - 1)); }} /></PaginationItem><PaginationItem><span className="px-3 text-sm text-slate-600">第 {page} / {pageCount} 页</span></PaginationItem><PaginationItem><PaginationNext href="#recruitment-title" text="下一页" aria-disabled={page === pageCount} className={page === pageCount ? 'pointer-events-none opacity-40' : ''} onClick={(event) => { event.preventDefault(); setPage(Math.min(pageCount, page + 1)); }} /></PaginationItem></PaginationContent></Pagination>}
   </section>;
 }
 
 function RecruitmentCard({ item, index }: { item: RecruitmentDirectoryEntry; index: number }) {
-  return <Card style={{ animationDelay: `${Math.min(index, 9) * 36}ms` }} className="list-card-enter group overflow-hidden border-0 bg-white py-0 shadow-sm ring-1 ring-slate-200/80 transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-slate-200/70"><CardContent className="flex flex-col gap-4 border-l-[3px] border-l-cyan-500 p-4 sm:flex-row sm:items-center">
-    <div className="flex min-w-0 flex-1 items-start gap-3"><div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-slate-100 to-cyan-50 text-cyan-800 ring-1 ring-slate-200/70 transition-colors group-hover:from-cyan-50 group-hover:to-cyan-100"><Building2 className="size-5" /></div><div className="min-w-0"><div className="flex flex-wrap items-center gap-2"><h3 className="font-semibold leading-6 text-slate-950">{item.name}</h3><Badge className={item.status === '开放中' ? 'border-0 bg-cyan-50 text-cyan-800' : 'border-0 bg-amber-50 text-amber-800'}>{item.status}</Badge><Badge variant="outline">{item.confidence}</Badge>{item.isFirstExpansion && <Badge className="border-0 bg-emerald-50 text-emerald-800">首次扩容</Badge>}</div><div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs leading-5 text-slate-500"><span>{item.nature}</span><span className="flex items-center gap-1"><MapPin className="size-3.5" />{item.locations.join(' · ')}</span><span>核验 {item.lastVerifiedAt.slice(0, 10)}</span><span className="flex items-center gap-1"><FileCheck2 className="size-3.5" />{item.sourceLabels.join(' · ')}</span></div>{item.confidence === '待确认' && <p className="mt-1 text-xs text-amber-700">单一第三方来源，已收集渠道，等待官网或第二来源复核。</p>}</div></div>
-    <Button nativeButton={false} render={<a href={item.channel.url} target="_blank" rel="noreferrer" />} className="group/action h-10 shrink-0 bg-slate-950 text-white hover:bg-cyan-700">{item.channel.label}<ExternalLink className="size-4 transition-transform duration-200 group-hover/action:-translate-y-0.5 group-hover/action:translate-x-0.5" /></Button>
-  </CardContent></Card>;
+  return <Card style={{ animationDelay: `${Math.min(index, 9) * 36}ms` }} className="company-card list-card-enter group relative h-full min-h-[286px] overflow-hidden border-0 bg-white py-0 shadow-sm ring-1 ring-slate-200/80 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-950/10">
+    <div className="company-card-accent absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-cyan-500 via-cyan-300 to-amber-300" />
+    <Building2 className="pointer-events-none absolute -right-5 -top-4 size-28 rotate-6 text-cyan-950/[0.035] transition-transform duration-500 group-hover:-translate-x-1 group-hover:translate-y-1 group-hover:rotate-0" />
+    <CardContent className="relative flex h-full min-h-[286px] flex-col p-5">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center gap-2"><span className="flex size-10 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-50 to-slate-100 text-cyan-800 ring-1 ring-cyan-100 transition-[transform,background-color] duration-300 group-hover:-rotate-3 group-hover:scale-105 group-hover:bg-cyan-100"><Building2 className="size-5" /></span><Badge variant="outline" className="bg-white/80">{item.nature}</Badge></div>
+        <span className="font-mono text-[0.65rem] font-semibold tracking-[0.16em] text-slate-300">{String(index + 1).padStart(2, '0')}</span>
+      </div>
+      <div className="mt-5 min-w-0">
+        <h3 className="line-clamp-2 min-h-12 text-[1.05rem] font-semibold leading-6 text-slate-950">{item.name}</h3>
+        <div className="mt-2 flex flex-wrap items-center gap-1.5"><Badge className={item.status === '开放中' ? 'border-0 bg-cyan-50 text-cyan-800' : 'border-0 bg-amber-50 text-amber-800'}><span className={`mr-1.5 size-1.5 rounded-full ${item.status === '开放中' ? 'bg-cyan-500' : 'bg-amber-500'}`} />{item.status}</Badge><Badge variant="outline" className="bg-white/70">{item.confidence}</Badge>{item.isFirstExpansion && <Badge className="border-0 bg-emerald-50 text-emerald-800">首次扩容</Badge>}</div>
+      </div>
+      <div className="mt-4 space-y-2 text-xs leading-5 text-slate-500">
+        <div className="flex items-start gap-2"><MapPin className="mt-0.5 size-3.5 shrink-0 text-cyan-700" /><span className="line-clamp-2">{item.locations.join(' · ')}</span></div>
+        <div className="flex items-start gap-2"><FileCheck2 className="mt-0.5 size-3.5 shrink-0 text-cyan-700" /><span className="line-clamp-2">{item.sourceLabels.join(' · ')}</span></div>
+      </div>
+      {item.confidence === '待确认' && <p className="mt-3 rounded-lg bg-amber-50/80 px-2.5 py-2 text-[0.7rem] leading-4 text-amber-800">第三方线索，等待官网或第二来源复核。</p>}
+      <div className="mt-auto flex items-center justify-between gap-3 border-t border-slate-100 pt-4">
+        <span className="text-[0.68rem] text-slate-400">核验 {item.lastVerifiedAt.slice(0, 10)}</span>
+        <Button nativeButton={false} size="sm" render={<a href={item.channel.url} target="_blank" rel="noreferrer" />} className="group/action shrink-0 rounded-xl bg-slate-950 px-3 text-white shadow-sm transition-[background-color,box-shadow] hover:bg-cyan-700 hover:shadow-md">{item.channel.label}<ExternalLink className="size-3.5 transition-transform duration-200 group-hover/action:-translate-y-0.5 group-hover/action:translate-x-0.5" /></Button>
+      </div>
+    </CardContent>
+  </Card>;
 }
 
 type AlertUiProps = {
