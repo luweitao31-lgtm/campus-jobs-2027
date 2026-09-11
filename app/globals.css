@@ -50,6 +50,7 @@
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: #f4f7f8;
 }
 
 :root {
@@ -135,10 +136,46 @@ body {
 
 .brand-panel {
   background:
-    radial-gradient(circle at 22% 5%, rgb(34 211 238 / 10%), transparent 32%),
-    #0b1729;
+    radial-gradient(circle at 18% 0%, rgb(34 211 238 / 14%), transparent 38%),
+    linear-gradient(165deg, #0d1d32 0%, #081424 100%);
+}
+
+.module-hero {
+  background:
+    radial-gradient(circle at 92% 12%, rgb(34 211 238 / 16%), transparent 27%),
+    radial-gradient(circle at 82% 100%, rgb(251 191 36 / 8%), transparent 25%),
+    linear-gradient(135deg, rgb(255 255 255 / 98%), rgb(236 247 247 / 94%));
+}
+
+.filter-panel {
+  backdrop-filter: blur(12px);
+}
+
+.ownership-branch {
+  position: relative;
+}
+
+.ownership-branch::before {
+  position: absolute;
+  top: 1.55rem;
+  left: 0;
+  width: 0.8rem;
+  height: 1px;
+  background: rgb(165 243 252 / 90%);
+  content: '';
 }
 
 ::selection {
   background: rgb(34 211 238 / 30%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
