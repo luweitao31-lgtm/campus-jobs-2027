@@ -5,14 +5,14 @@ import { treeDepth, validateOwnershipCoverage, validateOwnershipTree } from '../
 const errors: string[] = [];
 const registry = JSON.parse(await readFile('data/source-registry.json', 'utf8')) as {
   excludedSources: string[];
-  sourcePolicy: { targetDailyQualifiedLeads: number };
+  sourcePolicy: { targetDailyQualifiedLeads: number; targetPrivateForeignShare: number };
   sources: Array<{ id: string; name: string; url: string; role: string; collect: boolean }>;
 };
 const leadReport = JSON.parse(await readFile('data/recruitment-leads.json', 'utf8')) as {
   target: number;
   targetMet: boolean;
-  counters: { qualifiedLeads: number };
-  leads: Array<{ companyName: string; cohort: number; sourceIds: string[]; sourceUrls: string[]; fingerprint: string }>;
+  counters: { qualifiedLeads: number; privateForeignLeads: number; privateForeignShare: number; privateForeignTarget: number };
+  leads: Array<{ companyName: string; cohort: number; nature: string; sourceIds: string[]; sourceUrls: string[]; fingerprint: string }>;
 };
 const directoryReport = JSON.parse(await readFile('data/recruitment-directory.json', 'utf8')) as {
   baselineCount: number;
@@ -56,6 +56,7 @@ for (const source of registry.sources) {
 }
 const leadFingerprints = new Set<string>();
 if (!leadReport.targetMet || leadReport.counters.qualifiedLeads < registry.sourcePolicy.targetDailyQualifiedLeads) errors.push('本次有效线索未达到每日目标');
+if (leadReport.counters.privateForeignShare < registry.sourcePolicy.targetPrivateForeignShare || leadReport.counters.privateForeignLeads < leadReport.counters.privateForeignTarget) errors.push('本次民企与外企线索占比未达到每日50%目标');
 for (const lead of leadReport.leads) {
   if (lead.cohort !== 2027) errors.push(`${lead.companyName} 不是 2027 届线索`);
   if (!lead.companyName || !lead.sourceIds.length || !lead.sourceUrls.length) errors.push(`${lead.companyName || '未知线索'} 缺少名称或来源`);

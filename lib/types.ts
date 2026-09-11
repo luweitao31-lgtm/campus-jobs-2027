@@ -147,6 +147,7 @@ export interface RecruitmentLead {
   discoveredAt: string;
   lastSeenAt: string;
   status: RecruitmentLeadStatus;
+  nature: CompanyNature;
   fingerprint: string;
 }
 

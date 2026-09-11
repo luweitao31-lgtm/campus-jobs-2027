@@ -12,15 +12,17 @@ type RegistrySource = {
   expected: string[];
   role: 'discovery' | 'verification';
   authorityTier: 1 | 2 | 3;
-  parser: 'jobup-table' | 'jsonld-itemlist' | 'anchor-list';
+  parser: 'jobup-table' | 'jsonld-itemlist' | 'anchor-list' | 'source-company';
   collect: boolean;
   priority: number;
   locationScope?: string[];
+  companyName?: string;
+  nature?: '外企' | '民营企业' | '性质待确认';
 };
 
 type Registry = {
   schemaVersion: number;
-  sourcePolicy: { targetDailyQualifiedLeads: number; candidateWindowHours: number };
+  sourcePolicy: { targetDailyQualifiedLeads: number; targetPrivateForeignShare: number; candidateWindowHours: number };
   excludedSources: string[];
   sources: RegistrySource[];
 };
@@ -158,7 +160,7 @@ try {
 const verificationByLeadId = new Map(verificationResults.map((item) => [item.leadId, item]));
 const invalidLeadIds = new Set(verificationResults.filter((item) => item.result === 'invalid').map((item) => item.leadId));
 
-const leads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
+const allLeads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
   const normalizedCompanyName = normalizeCompanyName(candidate.companyName);
   if (normalizedCompanyName.length < 2 || candidate.sourceUrls.length === 0) return [];
   const sourceRoles = candidate.sourceIds.map((id) => sourceById.get(id)?.role);
@@ -185,16 +187,28 @@ const leads: RecruitmentLead[] = mergedCandidates.flatMap((candidate) => {
     discoveredAt: previous?.discoveredAt ?? completedAt,
     lastSeenAt: completedAt,
     status,
+    nature: candidate.natureHint ?? '性质待确认',
     fingerprint,
   }];
 }).sort((left, right) => (right.publishedAt ?? '').localeCompare(left.publishedAt ?? '') || left.companyName.localeCompare(right.companyName, 'zh-CN'));
 
+const target = registry.sourcePolicy.targetDailyQualifiedLeads;
+const privateForeignTarget = Math.ceil(target * registry.sourcePolicy.targetPrivateForeignShare);
+const privateForeignCandidates = allLeads.filter((lead) => lead.nature === '民营企业' || lead.nature === '外企');
+const otherCandidates = allLeads.filter((lead) => lead.nature !== '民营企业' && lead.nature !== '外企');
+const leads = [...privateForeignCandidates.slice(0, privateForeignTarget), ...otherCandidates.slice(0, target - privateForeignTarget)];
+if (leads.length < target) {
+  const selectedIds = new Set(leads.map((lead) => lead.id));
+  leads.push(...allLeads.filter((lead) => !selectedIds.has(lead.id)).slice(0, target - leads.length));
+}
+
 const verifiedLeads = leads.filter((lead) => lead.status !== '待核验').length;
 const nanningLeads = leads.filter((lead) => lead.locations.includes('广西南宁')).length;
-const target = registry.sourcePolicy.targetDailyQualifiedLeads;
+const privateForeignLeads = leads.filter((lead) => lead.nature === '民营企业' || lead.nature === '外企').length;
+const privateForeignShare = leads.length ? privateForeignLeads / leads.length : 0;
 const anomalyCount = sourceResults.filter((result) => result.health.health === '异常').length;
 const ownershipChannelAnomalyCount = ownershipChannelChecks.filter((item) => item.health === '异常').length;
-const targetMet = leads.length >= target;
+const targetMet = leads.length >= target && privateForeignLeads >= privateForeignTarget;
 const report = {
   schemaVersion: 2,
   mode: write ? 'write' : 'dry-run',
@@ -210,13 +224,17 @@ const report = {
     verifiedLeads,
     pendingLeads: leads.length - verifiedLeads,
     nanningLeads,
+    privateForeignLeads,
+    privateForeignShare,
+    privateForeignTarget,
     ownershipChannelsChecked: ownershipChannelChecks.length,
     ownershipChannelAnomalyCount,
   },
   sources: sourceResults.map((result) => result.health),
   leads,
   warnings: [
-    ...(targetMet ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`]),
+    ...(leads.length >= target ? [] : [`本次仅获得 ${leads.length} 条有效线索，低于每日 ${target} 条目标；保留上一版正式数据。`]),
+    ...(privateForeignLeads < privateForeignTarget ? [`本次民企与外企线索仅 ${privateForeignLeads} 条，低于每日 ${privateForeignTarget} 条配额；保留上一版正式数据。`] : []),
     ...(anomalyCount ? [`${anomalyCount} 个采集来源访问异常；缺失企业沿用上一版有效记录。`] : []),
     ...(ownershipChannelAnomalyCount ? [`${ownershipChannelAnomalyCount} 条资金链招聘渠道访问异常；保留原渠道状态并等待复核。`] : []),
   ],
@@ -270,7 +288,7 @@ for (const lead of leads) {
     id: lead.id,
     name: lead.companyName,
     normalizedCompanyName: lead.normalizedCompanyName,
-    nature: '性质待确认',
+    nature: lead.nature,
     locations: lead.locations.length ? lead.locations : ['地点待确认'],
     status: lead.status === '待核验' ? '待确认' : '开放中',
     confidence: lead.status === '待核验' ? '待确认' : '已核验',

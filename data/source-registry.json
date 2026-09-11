@@ -5,6 +5,7 @@
     "publishRule": "企业官方或政府来源直接确认，或两个独立公开来源相互印证",
     "skipLoginCaptchaAndPaywall": true,
     "targetDailyQualifiedLeads": 50,
+    "targetPrivateForeignShare": 0.5,
     "candidateWindowHours": 72
   },
   "excludedSources": ["Offer先生"],
@@ -32,6 +33,11 @@
     { "id": "src-cmcc-career", "name": "中国移动招聘", "url": "https://job.10086.cn/", "expected": ["招聘", "中国移动"], "role": "verification", "authorityTier": 1, "parser": "anchor-list", "collect": false, "priority": 3 },
     { "id": "src-csg-career", "name": "南方电网招聘", "url": "https://zhaopin.csg.cn/", "expected": ["招聘", "南方电网"], "role": "verification", "authorityTier": 1, "parser": "anchor-list", "collect": false, "priority": 3 },
     { "id": "src-spic-career", "name": "国家电投招聘", "url": "https://jobs.spic.com.cn/", "expected": ["招聘", "国家电投"], "role": "verification", "authorityTier": 1, "parser": "anchor-list", "collect": false, "priority": 3 },
-    { "id": "src-forbes-2025", "name": "福布斯中国最佳雇主", "url": "https://www.forbeschina.com/business/70329", "expected": ["2025", "最佳雇主"], "role": "verification", "authorityTier": 1, "parser": "anchor-list", "collect": false, "priority": 3 }
+    { "id": "src-forbes-2025", "name": "福布斯中国最佳雇主", "url": "https://www.forbeschina.com/business/70329", "expected": ["2025", "最佳雇主"], "role": "verification", "authorityTier": 1, "parser": "anchor-list", "collect": false, "priority": 3 },
+    { "id": "src-baidu-campus", "name": "百度校园招聘", "url": "https://talent.baidu.com/jobs/campus", "expected": ["2027"], "role": "verification", "authorityTier": 1, "parser": "source-company", "collect": true, "priority": 1, "companyName": "百度", "nature": "民营企业", "locationScope": ["全国"] },
+    { "id": "src-xiaomi-campus", "name": "小米校园招聘", "url": "https://hr.xiaomi.com/campus", "expected": ["2027届"], "role": "verification", "authorityTier": 1, "parser": "source-company", "collect": true, "priority": 1, "companyName": "小米集团", "nature": "民营企业", "locationScope": ["全国"] },
+    { "id": "src-bytedance-campus", "name": "字节跳动校园招聘", "url": "https://jobs.bytedance.com/campus/", "expected": ["2027 届", "2027届"], "role": "verification", "authorityTier": 1, "parser": "source-company", "collect": true, "priority": 1, "companyName": "字节跳动", "nature": "民营企业", "locationScope": ["全国"] },
+    { "id": "src-ctrip-campus", "name": "携程集团校园招聘", "url": "https://campus.ctrip.com/", "expected": ["2027届"], "role": "verification", "authorityTier": 1, "parser": "source-company", "collect": true, "priority": 1, "companyName": "携程集团", "nature": "民营企业", "locationScope": ["全国"] },
+    { "id": "src-bosch-campus", "name": "博世中国校园招聘", "url": "https://www.bosch.com.cn/careers/", "expected": ["2027届博世中国"], "role": "verification", "authorityTier": 1, "parser": "source-company", "collect": true, "priority": 1, "companyName": "博世中国", "nature": "外企", "locationScope": ["全国"] }
   ]
 }

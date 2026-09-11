@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { cleanCollectedCompanyName, detectsCohort2027, detectsNanning, extractRecruitmentLeads, mergeCandidateLeads, normalizeCompanyName, treeDepth, uniqueByNormalizedName, validateOwnershipCoverage, validateOwnershipTree } from './collector.ts';
+import { cleanCollectedCompanyName, detectsCohort2027, detectsNanning, extractRecruitmentLeads, inferCollectedCompanyNature, mergeCandidateLeads, normalizeCompanyName, treeDepth, uniqueByNormalizedName, validateOwnershipCoverage, validateOwnershipTree } from './collector.ts';
 
 test('企业名称归一并去重', () => {
   assert.equal(normalizeCompanyName('中国—东盟信息港股份有限公司'), '中国东盟信息港');
@@ -17,6 +17,12 @@ test('清理聚合平台企业名称中的标签、日期和英文别名', () =>
   assert.equal(cleanCollectedCompanyName('上市公司 有内推 收录 2026.09.10 上海国际集团 Aster星图国际集团(股票代码:YIBO)'), '上海国际集团');
   assert.equal(cleanCollectedCompanyName('南宁丨平安银行南宁分行'), '平安银行南宁分行');
   assert.equal(cleanCollectedCompanyName('九阳, Joyoung'), '九阳');
+});
+
+test('保留聚合来源明确标注的民企和外企性质', () => {
+  assert.equal(inferCollectedCompanyNature('民企 科技 收录 2026.09.10 伟京电子', '伟京电子'), '民营企业');
+  assert.equal(inferCollectedCompanyNature('外企 地产 收录 2026.09.10 恒隆地产', 'BURBERRY博柏利'), '外企');
+  assert.equal(inferCollectedCompanyNature('2027届校园招聘', '未知企业'), '性质待确认');
 });
 
 test('识别 2027 届和南宁地点', () => {

@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T01:46:11.294Z",
+  "completedAt": "2026-09-11T02:20:53.862Z",
   "baselineCount": 12,
-  "totalCount": 181,
-  "netNewCount": 169,
-  "verifiedCount": 14,
+  "totalCount": 182,
+  "netNewCount": 170,
+  "verifiedCount": 15,
   "pendingCount": 167,
   "nanningCount": 44,
-  "retainedPreviousCount": 63,
+  "retainedPreviousCount": 120,
   "entries": [
     {
       "id": "rec-chn",
@@ -281,9 +281,9 @@
       "id": "lead-1gflmit",
       "name": "百度",
       "normalizedCompanyName": "百度",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
-        "地点待确认"
+        "全国"
       ],
       "status": "开放中",
       "confidence": "已核验",
@@ -293,13 +293,40 @@
         "url": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE"
       },
       "sourceIds": [
-        "src-nowcoder-schedule"
+        "src-nowcoder-schedule",
+        "src-baidu-campus"
       ],
       "sourceLabels": [
-        "牛客校园招聘"
+        "牛客校园招聘",
+        "百度校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
+      "isFirstExpansion": true
+    },
+    {
+      "id": "lead-1auhqm3",
+      "name": "博世中国",
+      "normalizedCompanyName": "博世中国",
+      "nature": "外企",
+      "locations": [
+        "全国"
+      ],
+      "status": "开放中",
+      "confidence": "已核验",
+      "channel": {
+        "label": "招聘公告 / 投递入口",
+        "type": "第三方公告",
+        "url": "https://www.bosch.com.cn/careers/"
+      },
+      "sourceIds": [
+        "src-bosch-campus"
+      ],
+      "sourceLabels": [
+        "博世中国校园招聘"
+      ],
+      "firstSeenAt": "2026-09-11T02:20:53.862Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -383,7 +410,7 @@
       "id": "lead-6pqy86",
       "name": "奔图科技",
       "normalizedCompanyName": "奔图科技",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -401,14 +428,14 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-1wx0aw1",
       "name": "碧桂园服务",
       "normalizedCompanyName": "碧桂园服务",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -426,7 +453,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -560,7 +587,7 @@
       "id": "lead-1jddix3",
       "name": "海大集团",
       "normalizedCompanyName": "海大集团",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -578,7 +605,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -611,7 +638,7 @@
       "id": "lead-16s9ea4",
       "name": "好未来学而思励步",
       "normalizedCompanyName": "好未来学而思励步",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -629,14 +656,14 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-1o8w81o",
       "name": "恒安集团",
       "normalizedCompanyName": "恒安集团",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -654,14 +681,14 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-1tlxmx",
       "name": "华为数字能源",
       "normalizedCompanyName": "华为数字能源",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -679,7 +706,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -711,7 +738,7 @@
       "id": "lead-1qkadti",
       "name": "金发科技",
       "normalizedCompanyName": "金发科技",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -729,14 +756,14 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-7xfj4x",
       "name": "九阳",
       "normalizedCompanyName": "九阳",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -754,14 +781,14 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-10kfnzf",
       "name": "零跑汽车",
       "normalizedCompanyName": "零跑汽车",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "广西南宁"
       ],
@@ -779,7 +806,7 @@
         "牛企直聘南宁校招"
       ],
       "firstSeenAt": "2026-09-08T09:13:11.068Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1083,7 +1110,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1108,7 +1135,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1133,7 +1160,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1265,7 +1292,7 @@
       "id": "lead-xsct9d",
       "name": "贝壳",
       "normalizedCompanyName": "贝壳",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1283,7 +1310,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1315,7 +1342,7 @@
       "id": "lead-18nwrjp",
       "name": "滴滴",
       "normalizedCompanyName": "滴滴",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1333,7 +1360,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1465,7 +1492,7 @@
       "id": "lead-ovvas4",
       "name": "恒隆地产",
       "normalizedCompanyName": "恒隆地产",
-      "nature": "性质待确认",
+      "nature": "外企",
       "locations": [
         "地点待确认"
       ],
@@ -1483,14 +1510,14 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-8g8alv",
       "name": "恒生电子",
       "normalizedCompanyName": "恒生电子",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1508,7 +1535,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1540,7 +1567,7 @@
       "id": "lead-1km24tp",
       "name": "精智达",
       "normalizedCompanyName": "精智达",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1558,14 +1585,14 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-1faof03",
       "name": "快手",
       "normalizedCompanyName": "快手",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1583,7 +1610,7 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -1815,7 +1842,7 @@
       "id": "lead-o2pc6p",
       "name": "神州信息",
       "normalizedCompanyName": "神州信息",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1833,14 +1860,14 @@
         "牛客校园招聘"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-1ui4lvv",
       "name": "水羊",
       "normalizedCompanyName": "水羊",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1858,14 +1885,14 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
       "id": "lead-ua518v",
       "name": "水羊集团",
       "normalizedCompanyName": "水羊集团",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -1883,7 +1910,7 @@
         "超级简历校招汇总"
       ],
       "firstSeenAt": "2026-09-11T01:46:11.294Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2158,7 +2185,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2183,7 +2210,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2208,7 +2235,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2233,7 +2260,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2258,7 +2285,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2283,7 +2310,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2308,7 +2335,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2333,7 +2360,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2358,7 +2385,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2383,7 +2410,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2408,7 +2435,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2433,7 +2460,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2483,7 +2510,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2508,7 +2535,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2533,7 +2560,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2558,7 +2585,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2583,7 +2610,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2608,7 +2635,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2633,7 +2660,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2658,7 +2685,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2808,7 +2835,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -2983,7 +3010,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-10T00:56:09.113Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -3915,7 +3942,7 @@
       "id": "lead-1jq9li3",
       "name": "众安保险",
       "normalizedCompanyName": "众安保险",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -3933,7 +3960,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -4090,7 +4117,7 @@
       "id": "lead-7o4h67",
       "name": "紫光青藤",
       "normalizedCompanyName": "紫光青藤",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "全国"
       ],
@@ -4108,7 +4135,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -4215,7 +4242,7 @@
       "id": "lead-l57doo",
       "name": "BURBERRY博柏利",
       "normalizedCompanyName": "burberry博柏利",
-      "nature": "性质待确认",
+      "nature": "外企",
       "locations": [
         "地点待确认"
       ],
@@ -4233,7 +4260,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -4290,7 +4317,7 @@
       "id": "lead-1bt5h9w",
       "name": "DolphinDB智臾科技",
       "normalizedCompanyName": "dolphindb智臾科技",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "地点待确认"
       ],
@@ -4308,7 +4335,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {
@@ -4390,7 +4417,7 @@
       "id": "lead-1q711oz",
       "name": "GBASE南大通用",
       "normalizedCompanyName": "gbase南大通用",
-      "nature": "性质待确认",
+      "nature": "民营企业",
       "locations": [
         "全国"
       ],
@@ -4408,7 +4435,7 @@
         "JOBUP"
       ],
       "firstSeenAt": "2026-09-11T01:38:22.032Z",
-      "lastVerifiedAt": "2026-09-11T01:46:11.294Z",
+      "lastVerifiedAt": "2026-09-11T02:20:53.862Z",
       "isFirstExpansion": true
     },
     {

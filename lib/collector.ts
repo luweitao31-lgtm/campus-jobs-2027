@@ -53,8 +53,10 @@ export type CollectableSource = {
   url: string;
   name?: string;
   role?: 'discovery' | 'verification';
-  parser?: 'jobup-table' | 'jsonld-itemlist' | 'anchor-list';
+  parser?: 'jobup-table' | 'jsonld-itemlist' | 'anchor-list' | 'source-company';
   locationScope?: string[];
+  companyName?: string;
+  nature?: '外企' | '民营企业' | '性质待确认';
 };
 
 export type CandidateLead = {
@@ -65,7 +67,17 @@ export type CandidateLead = {
   channelUrl?: string;
   publishedAt?: string;
   locations: string[];
+  natureHint?: '外企' | '民营企业' | '性质待确认';
 };
+
+const privateCompanyNames = /^(?:百度|贝壳|滴滴|奔图科技|碧桂园服务|海大集团|好未来学而思励步|恒安集团|恒生电子|华为数字能源|金发科技|精智达|九阳|快手|零跑汽车|拼多多|神州信息|水羊|水羊集团|伟京电子|未岚大陆|小红书|小米集团|晓鸣股份|携程集团|新东方华南区|信也科技|元琛科技|自变量机器人|最右|FunPlus|vivo|DolphinDB智臾科技|GBASE南大通用|紫光青藤|众安保险|字节跳动)$/i;
+const foreignCompanyNames = /^(?:BURBERRY博柏利|三星|三星显示|博世中国)$/i;
+
+export function inferCollectedCompanyNature(rawText: string, companyName: string): '外企' | '民营企业' | '性质待确认' {
+  if (/(?:^|\s)外企(?:\s|$)/.test(rawText) || foreignCompanyNames.test(companyName)) return '外企';
+  if (/(?:^|\s)民企(?:\s|$)/.test(rawText) || privateCompanyNames.test(companyName)) return '民营企业';
+  return '性质待确认';
+}
 
 function decodeHtml(value: string): string {
   return value
@@ -117,7 +129,8 @@ export function extractJobupLeads(html: string, source: CollectableSource): Cand
     ...html.matchAll(/className\\?":\\?"company-name\\?",\\?"title\\?":\\?"([^"\\]+)["\\]/gi),
   ];
   return matches.flatMap((match) => {
-    const companyName = cleanCollectedCompanyName(cleanText(match[1]));
+    const rawCompanyName = cleanText(match[1]);
+    const companyName = cleanCollectedCompanyName(rawCompanyName);
     if (!companyName || companyName.length > 80) return [];
     const start = match.index ?? 0;
     const context = html.slice(Math.max(0, start - 500), start + 3600);
@@ -132,6 +145,7 @@ export function extractJobupLeads(html: string, source: CollectableSource): Cand
       sourceUrl: source.url,
       publishedAt: date,
       locations: inferLocations(titles.slice(0, 5).join(' '), source.locationScope),
+      natureHint: source.nature ?? inferCollectedCompanyNature(rawCompanyName, companyName),
     }];
   });
 }
@@ -148,7 +162,7 @@ export function extractJsonLdLeads(html: string, source: CollectableSource): Can
           const title = cleanText(item.name ?? entry.name ?? '');
           const companyName = cleanCollectedCompanyName(companyFromTitle(title));
           if (!companyName || !detectsCohort2027(title)) continue;
-          leads.push({ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl: absoluteUrl(item.url ?? entry.url, source.url), locations: inferLocations(`${title} ${item.description ?? ''}`, source.locationScope) });
+          leads.push({ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl: absoluteUrl(item.url ?? entry.url, source.url), locations: inferLocations(`${title} ${item.description ?? ''}`, source.locationScope), natureHint: source.nature ?? inferCollectedCompanyNature(title, companyName) });
         }
       }
     } catch {
@@ -164,11 +178,25 @@ export function extractAnchorLeads(html: string, source: CollectableSource): Can
     const companyName = cleanCollectedCompanyName(companyFromTitle(title));
     const channelUrl = absoluteUrl(match[1], source.url);
     if (!channelUrl || !detectsCohort2027(title) || /双选会|招聘会|就业服务攻坚|招聘活动/.test(title) || companyName.length < 2 || companyName.length > 80) return [];
-    return [{ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl, locations: inferLocations(title, source.locationScope) }];
+    return [{ companyName, title, sourceId: source.id, sourceUrl: source.url, channelUrl, locations: inferLocations(title, source.locationScope), natureHint: source.nature ?? inferCollectedCompanyNature(title, companyName) }];
   });
 }
 
+export function extractSourceCompanyLead(html: string, source: CollectableSource): CandidateLead[] {
+  if (!source.companyName || !detectsCohort2027(cleanText(html))) return [];
+  return [{
+    companyName: source.companyName,
+    title: `${source.companyName}2027届校园招聘`,
+    sourceId: source.id,
+    sourceUrl: source.url,
+    channelUrl: source.url,
+    locations: source.locationScope ?? ['全国'],
+    natureHint: source.nature ?? '性质待确认',
+  }];
+}
+
 export function extractRecruitmentLeads(html: string, source: CollectableSource): CandidateLead[] {
+  if (source.parser === 'source-company') return extractSourceCompanyLead(html, source);
   if (source.parser === 'jobup-table') return extractJobupLeads(html, source);
   if (source.parser === 'jsonld-itemlist') return [...extractJsonLdLeads(html, source), ...extractAnchorLeads(html, source)];
   return extractAnchorLeads(html, source);
@@ -189,6 +217,7 @@ export function mergeCandidateLeads(rows: CandidateLead[]): Array<CandidateLead 
     current.locations = [...new Set([...current.locations, ...row.locations])];
     current.channelUrl ??= row.channelUrl;
     current.publishedAt ??= row.publishedAt;
+    if (current.natureHint === '性质待确认' && row.natureHint !== '性质待确认') current.natureHint = row.natureHint;
   }
   return [...merged.values()];
 }
