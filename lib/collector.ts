@@ -1,6 +1,6 @@
 export function cleanCollectedCompanyName(value: string): string {
   let cleaned = value.normalize('NFKC').replace(/^(?:南宁|广西南宁)[丨|·:\s]+/, '').trim();
-  const catalogPrefix = /^(?:上市公司|央企国企|央企|国企|民企|外企|合资)\s+.*?收录\s+20\d{2}[.-]\d{2}[.-]\d{2}\s+/;
+  const catalogPrefix = /^.+?\s+收录\s+20\d{2}[.-]\d{2}[.-]\d{2}\s+/;
   const fromCatalog = catalogPrefix.test(cleaned);
   cleaned = cleaned.replace(catalogPrefix, '');
   if (fromCatalog) {
@@ -8,7 +8,11 @@ export function cleanCollectedCompanyName(value: string): string {
     if (legalName) cleaned = legalName;
     else {
       const parts = cleaned.split(/\s+/).filter(Boolean);
-      if (parts.length > 1) cleaned = parts.at(-1)!.startsWith(parts[0]) && parts.at(-1)!.length > parts[0].length ? parts.at(-1)! : parts[0];
+      if (parts.length > 1) {
+        const last = parts.at(-1)!;
+        const lastBase = last.replace(/[（(].*$/, '');
+        cleaned = lastBase === parts[0] ? parts[0] : last.startsWith(parts[0]) && last.length > parts[0].length ? last : parts[0];
+      }
     }
   }
   cleaned = cleaned.replace(/启动$/, '');

@@ -9,6 +9,12 @@ test('企业名称归一并去重', () => {
 
 test('清理聚合平台企业名称中的标签、日期和英文别名', () => {
   assert.equal(cleanCollectedCompanyName('民企 通信 收录 2026.09.08 深圳智界探索科技有限公司'), '深圳智界探索科技有限公司');
+  assert.equal(cleanCollectedCompanyName('社会组织 收录 2026.09.10 广州白云机场 广州白云国际机场'), '广州白云机场');
+  assert.equal(cleanCollectedCompanyName('银行 收录 2026.09.10 招银理财 招银理财'), '招银理财');
+  assert.equal(cleanCollectedCompanyName('政府机关 银行 收录 2026.09.10 宁银消金 宁银消金(宁波银行控股子公司)'), '宁银消金');
+  assert.equal(cleanCollectedCompanyName('民企 科技 收录 2026.09.10 伟京电子 伟京电子'), '伟京电子');
+  assert.equal(cleanCollectedCompanyName('上市公司 农林牧渔 收录 2026.09.10 晓鸣股份 晓鸣股份(股票代码 300967)'), '晓鸣股份');
+  assert.equal(cleanCollectedCompanyName('上市公司 有内推 收录 2026.09.10 上海国际集团 Aster星图国际集团(股票代码:YIBO)'), '上海国际集团');
   assert.equal(cleanCollectedCompanyName('南宁丨平安银行南宁分行'), '平安银行南宁分行');
   assert.equal(cleanCollectedCompanyName('九阳, Joyoung'), '九阳');
 });

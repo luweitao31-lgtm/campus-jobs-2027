@@ -284,7 +284,7 @@ for (const lead of leads) {
 }
 let retainedPreviousCount = 0;
 for (const previousEntry of previousDirectoryEntries) {
-  if (directory.has(previousEntry.normalizedCompanyName) || invalidLeadIds.has(previousEntry.id)) continue;
+  if (directory.has(previousEntry.normalizedCompanyName) || invalidLeadIds.has(previousEntry.id) || /收录\s+20\d{2}[.-]\d{2}[.-]\d{2}/.test(previousEntry.name)) continue;
   directory.set(previousEntry.normalizedCompanyName, previousEntry);
   retainedPreviousCount += 1;
 }

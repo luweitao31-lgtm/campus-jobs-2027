@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "completedAt": "2026-09-11T01:40:23.525Z",
+  "completedAt": "2026-09-11T01:46:11.294Z",
   "target": 50,
   "targetMet": true,
   "counters": {
@@ -8,9 +8,9 @@
     "healthySourceCount": 16,
     "anomalyCount": 8,
     "rawLeads": 169,
-    "qualifiedLeads": 108,
+    "qualifiedLeads": 106,
     "verifiedLeads": 3,
-    "pendingLeads": 105,
+    "pendingLeads": 103,
     "nanningLeads": 31,
     "ownershipChannelsChecked": 24,
     "ownershipChannelAnomalyCount": 0
