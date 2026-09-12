@@ -1,24 +1,24 @@
 {
   "schemaVersion": 2,
   "mode": "write",
-  "completedAt": "2026-09-11T09:35:24.755Z",
+  "completedAt": "2026-09-12T18:37:07.724Z",
   "target": 50,
   "targetMet": true,
   "counters": {
     "sourceCount": 30,
     "healthySourceCount": 21,
     "anomalyCount": 9,
-    "rawLeads": 166,
+    "rawLeads": 165,
     "qualifiedLeads": 50,
     "verifiedLeads": 4,
     "pendingLeads": 46,
-    "nanningLeads": 10,
+    "nanningLeads": 9,
     "privateForeignLeads": 25,
     "privateForeignShare": 0.5,
     "privateForeignTarget": 25,
     "ownershipChannelsChecked": 24,
     "ownershipChannelAnomalyCount": 0,
-    "alertsCreated": 1,
+    "alertsCreated": 0,
     "activeAlerts": 1,
     "alertMonitorAnomalyCount": 0
   },
@@ -26,181 +26,219 @@
     {
       "id": "src-jobup",
       "name": "JOBUP",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 289,
-      "extractedLeads": 95
+      "elapsedMs": 704,
+      "extractedLeads": 98
     },
     {
       "id": "src-nowcoder-schedule",
       "name": "牛客校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 262,
+      "elapsedMs": 422,
       "extractedLeads": 22
     },
     {
       "id": "src-wondercv",
       "name": "超级简历校招汇总",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 720,
-      "extractedLeads": 10
+      "elapsedMs": 688,
+      "extractedLeads": 11
     },
     {
       "id": "src-gankinterview",
       "name": "Gank Interview 校招汇总",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 4711,
+      "elapsedMs": 564,
       "extractedLeads": 0
     },
     {
       "id": "src-naoffer",
       "name": "校招情报站",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 1147,
+      "elapsedMs": 1109,
       "extractedLeads": 0
     },
     {
       "id": "src-niuqizp-nanning",
       "name": "牛企直聘南宁校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 561,
-      "extractedLeads": 30
+      "elapsedMs": 1165,
+      "extractedLeads": 28
     },
     {
       "id": "src-goclub-daily",
       "name": "GoClub 每日校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 914,
+      "elapsedMs": 1088,
       "extractedLeads": 0
     },
     {
       "id": "src-gxrc-campus",
       "name": "广西人才网招聘会",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 277,
+      "elapsedMs": 264,
       "extractedLeads": 0
     },
     {
       "id": "src-gxu-jobs",
       "name": "广西大学就业创业服务网",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": 200,
-      "health": "正常",
-      "elapsedMs": 1176,
-      "extractedLeads": 3
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 483,
+      "health": "异常",
+      "elapsedMs": 135,
+      "extractedLeads": 0
     },
     {
       "id": "src-gxbys",
       "name": "广西大学生就业服务中心",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 403,
       "health": "异常",
-      "elapsedMs": 320,
+      "elapsedMs": 286,
       "extractedLeads": 0
     },
     {
       "id": "src-gx-sasac-jobs",
       "name": "广西国资委企业招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 20,
+      "elapsedMs": 32,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-guopin",
       "name": "国聘校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 204,
+      "elapsedMs": 237,
       "extractedLeads": 0
     },
     {
       "id": "src-public-jobs",
       "name": "中国公共招聘网",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 10267,
+      "elapsedMs": 10326,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-cmb-nanning-2027",
       "name": "招商银行南宁分行2027校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 352,
+      "elapsedMs": 385,
       "extractedLeads": 0
     },
     {
       "id": "src-chinatelecom-2027",
       "name": "中国电信招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 262,
+      "elapsedMs": 283,
       "extractedLeads": 0
     },
     {
       "id": "src-chn",
       "name": "国家能源集团招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 408,
+      "elapsedMs": 259,
       "extractedLeads": 0
     },
     {
       "id": "src-gig-2027",
       "name": "广西投资集团招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 405,
       "health": "异常",
-      "elapsedMs": 108,
+      "elapsedMs": 93,
       "extractedLeads": 0
     },
     {
       "id": "src-ccb-career",
       "name": "中国建设银行校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 84,
+      "elapsedMs": 102,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-unicom-2027-official",
       "name": "中国联通校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 275,
+      "elapsedMs": 219,
       "extractedLeads": 0
     },
     {
       "id": "src-ceec-gxed-official",
       "name": "中国能建广西院招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": null,
+      "health": "异常",
+      "elapsedMs": 173,
+      "extractedLeads": 0,
+      "message": "fetch failed"
+    },
+    {
+      "id": "src-cmcc-career",
+      "name": "中国移动招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 200,
+      "health": "正常",
+      "elapsedMs": 160,
+      "extractedLeads": 0
+    },
+    {
+      "id": "src-csg-career",
+      "name": "南方电网招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 200,
+      "health": "正常",
+      "elapsedMs": 87,
+      "extractedLeads": 0
+    },
+    {
+      "id": "src-spic-career",
+      "name": "国家电投招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": null,
+      "health": "异常",
+      "elapsedMs": 49,
+      "extractedLeads": 0,
+      "message": "fetch failed"
+    },
+    {
+      "id": "src-forbes-2025",
+      "name": "福布斯中国最佳雇主",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
       "elapsedMs": 100,
@@ -208,96 +246,57 @@
       "message": "fetch failed"
     },
     {
-      "id": "src-cmcc-career",
-      "name": "中国移动招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 2110,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
-      "id": "src-csg-career",
-      "name": "南方电网招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": 200,
-      "health": "正常",
-      "elapsedMs": 64,
-      "extractedLeads": 0
-    },
-    {
-      "id": "src-spic-career",
-      "name": "国家电投招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 41,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
-      "id": "src-forbes-2025",
-      "name": "福布斯中国最佳雇主",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 107,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
       "id": "src-chinapost-2027",
       "name": "中国邮政2027校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 306,
+      "elapsedMs": 231,
       "extractedLeads": 1
     },
     {
       "id": "src-baidu-campus",
       "name": "百度校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 472,
+      "elapsedMs": 381,
       "extractedLeads": 1
     },
     {
       "id": "src-xiaomi-campus",
       "name": "小米校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 396,
+      "elapsedMs": 438,
       "extractedLeads": 1
     },
     {
       "id": "src-bytedance-campus",
       "name": "字节跳动校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 661,
+      "elapsedMs": 740,
       "extractedLeads": 1
     },
     {
       "id": "src-ctrip-campus",
       "name": "携程集团校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 527,
+      "elapsedMs": 580,
       "extractedLeads": 1
     },
     {
       "id": "src-bosch-campus",
       "name": "博世中国校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 165,
+      "elapsedMs": 257,
       "extractedLeads": 1
     }
   ],
@@ -322,7 +321,7 @@
       ],
       "channelUrl": "https://talent.baidu.com/jobs/list?recommendCode=IZ118K&recruitType=GRADUATE",
       "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "官方确认",
       "nature": "民营企业",
       "fingerprint": "2027-1gflmit"
@@ -342,7 +341,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=7&companyId=1008&url=https%3A%2F%2Fcampus.ke.com%2Fcampus&entityId=13318",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-xsct9d"
@@ -364,7 +363,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-78rYNNaMC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-6pqy86"
@@ -386,7 +385,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-v8y5a5LML.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1wx0aw1"
@@ -408,7 +407,7 @@
       ],
       "channelUrl": "https://www.bosch.com.cn/careers/",
       "discoveredAt": "2026-09-11T02:20:53.862Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "官方确认",
       "nature": "外企",
       "fingerprint": "2027-1auhqm3"
@@ -428,32 +427,10 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=652&url=https%3A%2F%2Fapp.mokahr.com%2Fsu%2Fwpvoov&entityId=13268",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-18nwrjp"
-    },
-    {
-      "id": "lead-1jddix3",
-      "companyName": "海大集团",
-      "normalizedCompanyName": "海大集团",
-      "title": "海大集团2027届全球校园招聘正式启动！",
-      "cohort": 2027,
-      "locations": [
-        "广西南宁"
-      ],
-      "sourceIds": [
-        "src-niuqizp-nanning"
-      ],
-      "sourceUrls": [
-        "https://campus.niuqizp.com/deadline-nanning-1/"
-      ],
-      "channelUrl": "https://campus.niuqizp.com/job-v8y5aL5Zt.html",
-      "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "民营企业",
-      "fingerprint": "2027-1jddix3"
     },
     {
       "id": "lead-16s9ea4",
@@ -472,7 +449,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-7rYlNNNtL.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-16s9ea4"
@@ -494,30 +471,10 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vml5aLMNC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1o8w81o"
-    },
-    {
-      "id": "lead-ovvas4",
-      "companyName": "恒隆地产",
-      "normalizedCompanyName": "恒隆地产",
-      "title": "外企 地产 收录 2026.09.10 恒隆地产 恒隆地产2027管理培训生计划正式启动，面向2027届应届毕业生及工作经验少于18个月的2026届毕业生，要求本科或硕士学历。项目为期18个月，培训生将深度轮岗于恒隆内地及香港的核心业务板块，并获得高管导师指导；培训期满即获委任为部门高级主任。网申截止时间为2026年11月13日。 上海 香港 2027管理培训生计划（2027届） 本科或硕士学历 商业地产 高管导师",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-wondercv"
-      ],
-      "sourceUrls": [
-        "https://www.wondercv.com/xiaozhao/"
-      ],
-      "channelUrl": "https://www.wondercv.com/xiaozhao/hang-lung-2027-management-trainee-program-14863-2ea830/",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "外企",
-      "fingerprint": "2027-ovvas4"
     },
     {
       "id": "lead-8g8alv",
@@ -534,7 +491,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=810&url=https%3A%2F%2Fbsurl.cn%2Fv2%2FJ3mAs5ex&entityId=13321",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-8g8alv"
@@ -556,7 +513,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vrs5aLtNN.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1tlxmx"
@@ -578,7 +535,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vkY5aN5ZC.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1qkadti"
@@ -598,7 +555,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=158304&url=https%3A%2F%2Fapp.mokahr.com%2Fcampus-recruitment%2Fseichitech%2F140888%3Flocale%3Dzh-CN%23%2F&entityId=13355",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1km24tp"
@@ -620,7 +577,7 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/schedule-7lrrNNCLa.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-7xfj4x"
@@ -640,7 +597,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=5&companyId=898&url=https%3A%2F%2Fcampus.kuaishou.cn%2Frecruit%2Fcampus%2Fe%2F%23%2Fcampus%2Fjobs%3Fcode%3DcampusaeZwiKwdB&entityId=13292",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1faof03"
@@ -662,10 +619,70 @@
       ],
       "channelUrl": "https://campus.niuqizp.com/job-vrs5aNaZt.html",
       "discoveredAt": "2026-09-08T09:13:11.068Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-10kfnzf"
+    },
+    {
+      "id": "lead-q5a3w3",
+      "companyName": "洛阳东豫娱乐有限公司",
+      "normalizedCompanyName": "洛阳东豫娱乐",
+      "title": "民企 有色金属冶炼 收录 2026.09.12 洛阳东豫娱乐有限公司 河南豫光集团有限公司2027届校园招聘，面向2027届应届毕业生开放技术类12个岗位与综合管理类3个岗位，工作地点河南省济源市；技术岗月薪7K–15K、管理岗综合月薪6K–10K，提供六险二金、免费住宿与班车等保障。 济源市 河南省济源市 秋招 本科 六险二金 河南济源",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ],
+      "channelUrl": "https://www.wondercv.com/xiaozhao/yuguang-group-2027-campus-recruitment-jiyuan-15070-9a2b47/",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "民营企业",
+      "fingerprint": "2027-q5a3w3"
+    },
+    {
+      "id": "lead-xa20u6",
+      "companyName": "南京华苏科技有限公司沈阳分公司",
+      "normalizedCompanyName": "南京华苏科技有限公司沈阳分公司",
+      "title": "民企 互联网 收录 2026.09.12 南京华苏科技有限公司沈阳分公司 华苏科技（神州信息 000555.SZ 旗下）面向 2027 届全日制本科及以上理工科毕业生启动“新锐计划”管培生招聘，开放 AI 算法、AI 产品经理、AI 应用开发、汽车领域 Marketing 四个方向，通过高管/技术导师带教与真实项目实战培养复合型骨干。 南京市 秋招 本科 理工科优先 AI 管培生",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ],
+      "channelUrl": "https://www.wondercv.com/xiaozhao/howso-2027-ai-management-trainee-nanjing-15069-ee5f32/",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "民营企业",
+      "fingerprint": "2027-xa20u6"
+    },
+    {
+      "id": "lead-uevxbl",
+      "companyName": "深圳市国立智能电力科技有限公司",
+      "normalizedCompanyName": "深圳市国立智能电力科技",
+      "title": "民企 能源 收录 2026.09.12 深圳市国立智能电力科技有限公司 深圳市国立智能电力科技有限公司（国家级高新技术企业、专精特新“小巨人”企业）启动2027届校园招聘，面向2027届硕士、本科、大专应届毕业生，专业方向为电气类、自动化类、电子类、计算机类等相关专业。岗位方向覆盖研发、技术支持、市场与销售、工程技术、产品与推广、生产制造六大类，工作地点为深圳，入职后可享四位一体新人培养体系与七险一金等福利。 深圳市 秋招 大专 电力自动化 深圳 国家级高新技术企业",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ],
+      "channelUrl": "https://www.wondercv.com/xiaozhao/ep-technology-shenzhen-2027-campus-recruitment-15068-f37aa1/",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "民营企业",
+      "fingerprint": "2027-uevxbl"
     },
     {
       "id": "lead-o2pc6p",
@@ -682,70 +699,10 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=7&companyId=4783&url=https%3A%2F%2Fdcits.zhiye.com%2Fcampus%2Fjobs&entityId=13304",
       "discoveredAt": "2026-09-11T03:15:07.304Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-o2pc6p"
-    },
-    {
-      "id": "lead-1ui4lvv",
-      "companyName": "水羊",
-      "normalizedCompanyName": "水羊",
-      "title": "水羊2027届远洋计划校招期待你的加入！",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-wondercv"
-      ],
-      "sourceUrls": [
-        "https://www.wondercv.com/xiaozhao/"
-      ],
-      "channelUrl": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/",
-      "discoveredAt": "2026-09-11T01:38:22.032Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "民营企业",
-      "fingerprint": "2027-1ui4lvv"
-    },
-    {
-      "id": "lead-ua518v",
-      "companyName": "水羊集团",
-      "normalizedCompanyName": "水羊集团",
-      "title": "上市公司 消费 收录 2026.09.10 水羊集团 水羊集团2027届远洋计划校园招聘，面向2027届应届本科、硕士、博士毕业生，提供两年定制化培养、独立晋升发展路径，以及外派法国、美国、英国、日本等国家的工作学习机会。 上海 长沙 香港 海外 2027届远洋计划校园招聘 2027届应届本科",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-wondercv"
-      ],
-      "sourceUrls": [
-        "https://www.wondercv.com/xiaozhao/"
-      ],
-      "channelUrl": "https://www.wondercv.com/xiaozhao/syoung-2027-voyage-program-campus-recruitment-14861-5f894c/",
-      "discoveredAt": "2026-09-11T01:46:11.294Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "民营企业",
-      "fingerprint": "2027-ua518v"
-    },
-    {
-      "id": "lead-azyim3",
-      "companyName": "伟京电子",
-      "normalizedCompanyName": "伟京电子",
-      "title": "伟京电子2027届秋季校园招聘正式启动",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-wondercv"
-      ],
-      "sourceUrls": [
-        "https://www.wondercv.com/xiaozhao/"
-      ],
-      "channelUrl": "https://www.wondercv.com/xiaozhao/xian-military-power-electronics-2027-fall-campus-14859-f61aff/",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "民营企业",
-      "fingerprint": "2027-azyim3"
     },
     {
       "id": "lead-oygqjk",
@@ -762,10 +719,30 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=148717&url=https%3A%2F%2Fapp.mokahr.com%2Fcampus-recruitment%2Fweilandalu%2F98096%3Flocale%3Dzh-CN%23%2F&entityId=13359",
       "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-oygqjk"
+    },
+    {
+      "id": "lead-il65hr",
+      "companyName": "武汉楚兴技术有限公司",
+      "normalizedCompanyName": "武汉楚兴技术",
+      "title": "民企 通信 收录 2026.09.12 武汉楚兴技术有限公司 楚能新能源2027届校园招聘（27秋招）面向2027届本科、硕士、博士毕业生，部分技术岗接受2026届未就业同学投递。招聘岗位分为研发类、生产及工程技术类、营销类、供应链类四大方向，工作城市覆盖北京、上海、武汉、西安、杭州、哈尔滨、宜昌、襄阳、孝感等地，宣讲行程自9月11日武汉站启动，简历投递截止2026年12月12日。 北京市 上海市 武汉市 西安市 杭州市 哈尔滨市",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ],
+      "channelUrl": "https://www.wondercv.com/xiaozhao/chuneng-new-energy-2027-campus-recruitment-15065-f46fec/",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "民营企业",
+      "fingerprint": "2027-il65hr"
     },
     {
       "id": "lead-1cvgsom",
@@ -782,7 +759,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=5&companyId=715&url=https%3A%2F%2Fjob.xiaohongshu.com%2Flink%3Freferer_code%3DJNBSBKZ4VDRW&entityId=13358",
       "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "民营企业",
       "fingerprint": "2027-1cvgsom"
@@ -806,7 +783,7 @@
       ],
       "channelUrl": "https://www.nowcoder.com/jump?type=ad&source=6&companyId=147&url=https%3A%2F%2Fxiaomi.jobs.f.mioffice.cn%2Fcampus%2F%3Fspread%3DJ7NS6YR&entityId=13279",
       "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "官方确认",
       "nature": "民营企业",
       "fingerprint": "2027-tx1cr7"
@@ -831,16 +808,59 @@
       ],
       "channelUrl": "http://t.ctrip.cn/6SQS9RY",
       "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "官方确认",
       "nature": "民营企业",
       "fingerprint": "2027-11lv796"
     },
     {
-      "id": "lead-1ul1cir",
-      "companyName": "中建六局二建公司、中建六局装饰公司",
-      "normalizedCompanyName": "中建六局二建公司、中建六局装饰公司",
-      "title": "中建六局二建公司、中建六局装饰公司2027届校园招聘",
+      "id": "lead-1uh4qli",
+      "companyName": "心芯(宁夏)科技有限公司",
+      "normalizedCompanyName": "心芯科技",
+      "title": "民企 互联网 有内推 收录 2026.09.12 心芯（宁夏）科技有限公司 爱芯元智（股票代码：0600.HK）2027届校园招聘正式启动，面向2027届应届毕业生，开放芯片类、算法类、软件类、技术支持类、销售类五类岗位方向，工作地点含西安、贵阳、北京、重庆、宁波、杭州、深圳、上海8个城市。招聘专业方向包括微电子/集成电路设计与集成系统、计算机科学与技术/软件工程、通信工程/电子信息工程、数学/物理/自动化/人工智能等相关专业，岗位最低学历要求为本科。投递方式包括公众号、网申邮箱与内推通道三种，原文未公布截止时间与薪资信息。 西安市 贵州省 北京市 重庆市 宁波市 杭州市",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-wondercv"
+      ],
+      "sourceUrls": [
+        "https://www.wondercv.com/xiaozhao/"
+      ],
+      "channelUrl": "https://www.wondercv.com/xiaozhao/axera-2027-campus-recruitment-15063-a5033b/",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "民营企业",
+      "fingerprint": "2027-1uh4qli"
+    },
+    {
+      "id": "lead-b2vhqg",
+      "companyName": "中红医疗",
+      "normalizedCompanyName": "中红医疗",
+      "title": "中红医疗2027届校园招聘",
+      "cohort": 2027,
+      "locations": [
+        "广西全区",
+        "全国"
+      ],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-b2vhqg"
+    },
+    {
+      "id": "lead-3cv7k0",
+      "companyName": "中建六局第六建设有限公司",
+      "normalizedCompanyName": "中建六局第六建设",
+      "title": "中建六局第六建设有限公司2027届校园招聘",
       "cohort": 2027,
       "locations": [
         "全国"
@@ -851,18 +871,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-1ul1cir"
+      "fingerprint": "2027-3cv7k0"
     },
     {
-      "id": "lead-19dyn2d",
-      "companyName": "中建新疆建工",
-      "normalizedCompanyName": "中建新疆建工",
-      "title": "中建新疆建工2027届校园招聘",
+      "id": "lead-wc6omo",
+      "companyName": "中建六局六建",
+      "normalizedCompanyName": "中建六局六建",
+      "title": "中建六局六建2027届校园招聘",
       "cohort": 2027,
       "locations": [
         "全国"
@@ -873,18 +893,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-19dyn2d"
+      "fingerprint": "2027-wc6omo"
     },
     {
-      "id": "lead-1pjfbw4",
-      "companyName": "中建珠江海外发展有限公司",
-      "normalizedCompanyName": "中建珠江海外发展",
-      "title": "中建珠江海外发展有限公司2027届校园招聘",
+      "id": "lead-1fjluib",
+      "companyName": "中建一局科研院",
+      "normalizedCompanyName": "中建一局科研院",
+      "title": "中建一局科研院2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -893,18 +913,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-1pjfbw4"
+      "fingerprint": "2027-1fjluib"
     },
     {
-      "id": "lead-m6kms4",
-      "companyName": "中交轨道交通事业部(轨道交通分公司)、铁道总院",
-      "normalizedCompanyName": "中交轨道交通事业部、铁道总院",
-      "title": "中交轨道交通事业部(轨道交通分公司)、铁道总院2027届校园招聘",
+      "id": "lead-g8231c",
+      "companyName": "中煤科工集团新疆研究院有限公司",
+      "normalizedCompanyName": "中煤科工集团新疆研究院",
+      "title": "中煤科工集团新疆研究院有限公司2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -913,18 +933,238 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-m6kms4"
+      "fingerprint": "2027-g8231c"
     },
     {
-      "id": "lead-s9o5rr",
-      "companyName": "中交机电局",
-      "normalizedCompanyName": "中交机电局",
-      "title": "中交机电局2027届校园招聘",
+      "id": "lead-d6hbd9",
+      "companyName": "中煤科工开采研究院有限公司",
+      "normalizedCompanyName": "中煤科工开采研究院",
+      "title": "中煤科工开采研究院有限公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-d6hbd9"
+    },
+    {
+      "id": "lead-s80qxx",
+      "companyName": "中煤科工清洁能源股份有限公司",
+      "normalizedCompanyName": "中煤科工清洁能源",
+      "title": "中煤科工清洁能源股份有限公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-s80qxx"
+    },
+    {
+      "id": "lead-qo4a1d",
+      "companyName": "中煤科工生态环境科技有限公司",
+      "normalizedCompanyName": "中煤科工生态环境科技",
+      "title": "中煤科工生态环境科技有限公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-qo4a1d"
+    },
+    {
+      "id": "lead-1yjgc0h",
+      "companyName": "中煤科工智能储装技术有限公司",
+      "normalizedCompanyName": "中煤科工智能储装技术",
+      "title": "中煤科工智能储装技术有限公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-1yjgc0h"
+    },
+    {
+      "id": "lead-10xy486",
+      "companyName": "中石油(北京)数智研究院",
+      "normalizedCompanyName": "中石油数智研究院",
+      "title": "中石油(北京)数智研究院2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-10xy486"
+    },
+    {
+      "id": "lead-tqi6ik",
+      "companyName": "中石油(北京)项目管理",
+      "normalizedCompanyName": "中石油项目管理",
+      "title": "中石油(北京)项目管理2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-tqi6ik"
+    },
+    {
+      "id": "lead-qgc73l",
+      "companyName": "中石油(上海)新材料研究院有限公司",
+      "normalizedCompanyName": "中石油新材料研究院",
+      "title": "中石油(上海)新材料研究院有限公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-qgc73l"
+    },
+    {
+      "id": "lead-o4v5dy",
+      "companyName": "中石油安徽销售分公司",
+      "normalizedCompanyName": "中石油安徽销售分公司",
+      "title": "中石油安徽销售分公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-o4v5dy"
+    },
+    {
+      "id": "lead-693s4g",
+      "companyName": "中石油渤海钻探工程",
+      "normalizedCompanyName": "中石油渤海钻探工程",
+      "title": "中石油渤海钻探工程2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-693s4g"
+    },
+    {
+      "id": "lead-1f8obil",
+      "companyName": "中石油重庆销售分公司",
+      "normalizedCompanyName": "中石油重庆销售分公司",
+      "title": "中石油重庆销售分公司2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-1f8obil"
+    },
+    {
+      "id": "lead-9myphi",
+      "companyName": "中石油川庆钻探",
+      "normalizedCompanyName": "中石油川庆钻探",
+      "title": "中石油川庆钻探2027届校园招聘",
+      "cohort": 2027,
+      "locations": [],
+      "sourceIds": [
+        "src-jobup"
+      ],
+      "sourceUrls": [
+        "https://jobup.cn/"
+      ],
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
+      "status": "待核验",
+      "nature": "性质待确认",
+      "fingerprint": "2027-9myphi"
+    },
+    {
+      "id": "lead-w90tld",
+      "companyName": "中石油大庆",
+      "normalizedCompanyName": "中石油大庆",
+      "title": "中石油大庆2027届校园招聘",
       "cohort": 2027,
       "locations": [
         "全国"
@@ -935,18 +1175,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-s9o5rr"
+      "fingerprint": "2027-w90tld"
     },
     {
-      "id": "lead-1r9wr0h",
-      "companyName": "中交疏浚",
-      "normalizedCompanyName": "中交疏浚",
-      "title": "中交疏浚2027届校园招聘",
+      "id": "lead-qq70s7",
+      "companyName": "中石油东方地球物理勘探",
+      "normalizedCompanyName": "中石油东方地球物理勘探",
+      "title": "中石油东方地球物理勘探2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -955,18 +1195,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-1r9wr0h"
+      "fingerprint": "2027-qq70s7"
     },
     {
-      "id": "lead-qswu35",
-      "companyName": "中交天和",
-      "normalizedCompanyName": "中交天和",
-      "title": "中交天和2027届校园招聘",
+      "id": "lead-dffkxn",
+      "companyName": "中石油福建销售分公司",
+      "normalizedCompanyName": "中石油福建销售分公司",
+      "title": "中石油福建销售分公司2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -975,58 +1215,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-qswu35"
+      "fingerprint": "2027-dffkxn"
     },
     {
-      "id": "lead-1ctvfkm",
-      "companyName": "中交天和机械设备制造有限公司",
-      "normalizedCompanyName": "中交天和机械设备制造",
-      "title": "中交天和机械设备制造有限公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-1ctvfkm"
-    },
-    {
-      "id": "lead-1l8w3nk",
-      "companyName": "中交一航院",
-      "normalizedCompanyName": "中交一航院",
-      "title": "中交一航院2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-1l8w3nk"
-    },
-    {
-      "id": "lead-heh7ut",
-      "companyName": "中金财富",
-      "normalizedCompanyName": "中金财富",
-      "title": "中金财富2027届校园招聘",
+      "id": "lead-1mywrs5",
+      "companyName": "中石油工程材料研究院",
+      "normalizedCompanyName": "中石油工程材料研究院",
+      "title": "中石油工程材料研究院2027届校园招聘",
       "cohort": 2027,
       "locations": [
         "全国"
@@ -1037,18 +1237,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-heh7ut"
+      "fingerprint": "2027-1mywrs5"
     },
     {
-      "id": "lead-7fcw2b",
-      "companyName": "中科微精",
-      "normalizedCompanyName": "中科微精",
-      "title": "中科微精2027届校园招聘",
+      "id": "lead-1kma3c3",
+      "companyName": "中石油工程技术研究院",
+      "normalizedCompanyName": "中石油工程技术研究院",
+      "title": "中石油工程技术研究院2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -1057,18 +1257,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-7fcw2b"
+      "fingerprint": "2027-1kma3c3"
     },
     {
-      "id": "lead-1k2zro1",
-      "companyName": "中审众环",
-      "normalizedCompanyName": "中审众环",
-      "title": "中审众环2027届校园招聘",
+      "id": "lead-193kk3z",
+      "companyName": "中石油共享运营",
+      "normalizedCompanyName": "中石油共享运营",
+      "title": "中石油共享运营2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -1077,222 +1277,45 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-1k2zro1"
+      "fingerprint": "2027-193kk3z"
     },
     {
-      "id": "lead-12u38c",
-      "companyName": "中石油炼油特色产品有限公司",
-      "normalizedCompanyName": "中石油炼油特色产品",
-      "title": "中石油炼油特色产品有限公司2027届校园招聘",
+      "id": "lead-18k8de0",
+      "companyName": "中石油管道局",
+      "normalizedCompanyName": "中石油管道局",
+      "title": "中石油管道局2027届校园招聘",
       "cohort": 2027,
-      "locations": [],
+      "locations": [
+        "全国"
+      ],
       "sourceIds": [
         "src-jobup"
       ],
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-12u38c"
+      "fingerprint": "2027-18k8de0"
     },
     {
-      "id": "lead-vgcdhe",
-      "companyName": "中石油煤层气有限责任公司",
-      "normalizedCompanyName": "中石油煤层气",
-      "title": "中石油煤层气有限责任公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-vgcdhe"
-    },
-    {
-      "id": "lead-1nt2cof",
-      "companyName": "中石油深圳新能源研究院有限公司",
-      "normalizedCompanyName": "中石油深圳新能源研究院",
-      "title": "中石油深圳新能源研究院有限公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-1nt2cof"
-    },
-    {
-      "id": "lead-16ftyh5",
-      "companyName": "中石油云南石化有限公司",
-      "normalizedCompanyName": "中石油云南石化",
-      "title": "中石油云南石化有限公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-16ftyh5"
-    },
-    {
-      "id": "lead-11hbpp0",
-      "companyName": "中铁北京工程局集团有限公司",
-      "normalizedCompanyName": "中铁北京工程局集团",
-      "title": "中铁北京工程局集团有限公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-11hbpp0"
-    },
-    {
-      "id": "lead-13srpns",
-      "companyName": "中铁北京局",
-      "normalizedCompanyName": "中铁北京局",
-      "title": "中铁北京局2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-13srpns"
-    },
-    {
-      "id": "lead-vvb8wp",
-      "companyName": "中铁大桥局",
-      "normalizedCompanyName": "中铁大桥局",
-      "title": "中铁大桥局2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-vvb8wp"
-    },
-    {
-      "id": "lead-1omd3z1",
-      "companyName": "中铁十四局",
-      "normalizedCompanyName": "中铁十四局",
-      "title": "中铁十四局2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-1omd3z1"
-    },
-    {
-      "id": "lead-je6zaf",
-      "companyName": "中铁装备",
-      "normalizedCompanyName": "中铁装备",
-      "title": "中铁装备2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-je6zaf"
-    },
-    {
-      "id": "lead-uyusnx",
-      "companyName": "中信期货佛山分公司",
-      "normalizedCompanyName": "中信期货佛山分公司",
-      "title": "中信期货佛山分公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-uyusnx"
-    },
-    {
-      "id": "lead-9j7tnr",
-      "companyName": "中信期货广西分公司",
-      "normalizedCompanyName": "中信期货广西分公司",
-      "title": "中信期货广西分公司2027届校园招聘",
+      "id": "lead-ab0hvu",
+      "companyName": "中石油广西销售分公司",
+      "normalizedCompanyName": "中石油广西销售分公司",
+      "title": "中石油广西销售分公司2027届校园招聘",
       "cohort": 2027,
       "locations": [
         "广西南宁",
-        "广西全区"
+        "广西全区",
+        "全国"
       ],
       "sourceIds": [
         "src-jobup"
@@ -1300,18 +1323,18 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-9j7tnr"
+      "fingerprint": "2027-ab0hvu"
     },
     {
-      "id": "lead-11isx22",
-      "companyName": "中信期货广州分公司",
-      "normalizedCompanyName": "中信期货广州分公司",
-      "title": "中信期货广州分公司2027届校园招聘",
+      "id": "lead-zygle3",
+      "companyName": "中石油规划总院",
+      "normalizedCompanyName": "中石油规划总院",
+      "title": "中石油规划总院2027届校园招聘",
       "cohort": 2027,
       "locations": [],
       "sourceIds": [
@@ -1320,32 +1343,12 @@
       "sourceUrls": [
         "https://jobup.cn/"
       ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
+      "publishedAt": "2026-09-12",
+      "discoveredAt": "2026-09-12T18:37:07.724Z",
+      "lastSeenAt": "2026-09-12T18:37:07.724Z",
       "status": "待核验",
       "nature": "性质待确认",
-      "fingerprint": "2027-11isx22"
-    },
-    {
-      "id": "lead-1kxfsy1",
-      "companyName": "中信期货日照分公司",
-      "normalizedCompanyName": "中信期货日照分公司",
-      "title": "中信期货日照分公司2027届校园招聘",
-      "cohort": 2027,
-      "locations": [],
-      "sourceIds": [
-        "src-jobup"
-      ],
-      "sourceUrls": [
-        "https://jobup.cn/"
-      ],
-      "publishedAt": "2026-09-11",
-      "discoveredAt": "2026-09-11T09:33:34.216Z",
-      "lastSeenAt": "2026-09-11T09:35:24.755Z",
-      "status": "待核验",
-      "nature": "性质待确认",
-      "fingerprint": "2027-1kxfsy1"
+      "fingerprint": "2027-zygle3"
     }
   ],
   "warnings": [

@@ -1,185 +1,223 @@
 {
   "schemaVersion": 2,
-  "completedAt": "2026-09-11T09:35:24.755Z",
+  "completedAt": "2026-09-12T18:37:07.724Z",
   "results": [
     {
       "id": "src-jobup",
       "name": "JOBUP",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 289,
-      "extractedLeads": 95
+      "elapsedMs": 704,
+      "extractedLeads": 98
     },
     {
       "id": "src-nowcoder-schedule",
       "name": "牛客校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 262,
+      "elapsedMs": 422,
       "extractedLeads": 22
     },
     {
       "id": "src-wondercv",
       "name": "超级简历校招汇总",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 720,
-      "extractedLeads": 10
+      "elapsedMs": 688,
+      "extractedLeads": 11
     },
     {
       "id": "src-gankinterview",
       "name": "Gank Interview 校招汇总",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 4711,
+      "elapsedMs": 564,
       "extractedLeads": 0
     },
     {
       "id": "src-naoffer",
       "name": "校招情报站",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 1147,
+      "elapsedMs": 1109,
       "extractedLeads": 0
     },
     {
       "id": "src-niuqizp-nanning",
       "name": "牛企直聘南宁校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 561,
-      "extractedLeads": 30
+      "elapsedMs": 1165,
+      "extractedLeads": 28
     },
     {
       "id": "src-goclub-daily",
       "name": "GoClub 每日校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 914,
+      "elapsedMs": 1088,
       "extractedLeads": 0
     },
     {
       "id": "src-gxrc-campus",
       "name": "广西人才网招聘会",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 277,
+      "elapsedMs": 264,
       "extractedLeads": 0
     },
     {
       "id": "src-gxu-jobs",
       "name": "广西大学就业创业服务网",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": 200,
-      "health": "正常",
-      "elapsedMs": 1176,
-      "extractedLeads": 3
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 483,
+      "health": "异常",
+      "elapsedMs": 135,
+      "extractedLeads": 0
     },
     {
       "id": "src-gxbys",
       "name": "广西大学生就业服务中心",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 403,
       "health": "异常",
-      "elapsedMs": 320,
+      "elapsedMs": 286,
       "extractedLeads": 0
     },
     {
       "id": "src-gx-sasac-jobs",
       "name": "广西国资委企业招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 20,
+      "elapsedMs": 32,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-guopin",
       "name": "国聘校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 204,
+      "elapsedMs": 237,
       "extractedLeads": 0
     },
     {
       "id": "src-public-jobs",
       "name": "中国公共招聘网",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 10267,
+      "elapsedMs": 10326,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-cmb-nanning-2027",
       "name": "招商银行南宁分行2027校招",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 352,
+      "elapsedMs": 385,
       "extractedLeads": 0
     },
     {
       "id": "src-chinatelecom-2027",
       "name": "中国电信招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 262,
+      "elapsedMs": 283,
       "extractedLeads": 0
     },
     {
       "id": "src-chn",
       "name": "国家能源集团招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 408,
+      "elapsedMs": 259,
       "extractedLeads": 0
     },
     {
       "id": "src-gig-2027",
       "name": "广西投资集团招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 405,
       "health": "异常",
-      "elapsedMs": 108,
+      "elapsedMs": 93,
       "extractedLeads": 0
     },
     {
       "id": "src-ccb-career",
       "name": "中国建设银行校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
-      "elapsedMs": 84,
+      "elapsedMs": 102,
       "extractedLeads": 0,
       "message": "fetch failed"
     },
     {
       "id": "src-unicom-2027-official",
       "name": "中国联通校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 275,
+      "elapsedMs": 219,
       "extractedLeads": 0
     },
     {
       "id": "src-ceec-gxed-official",
       "name": "中国能建广西院招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": null,
+      "health": "异常",
+      "elapsedMs": 173,
+      "extractedLeads": 0,
+      "message": "fetch failed"
+    },
+    {
+      "id": "src-cmcc-career",
+      "name": "中国移动招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 200,
+      "health": "正常",
+      "elapsedMs": 160,
+      "extractedLeads": 0
+    },
+    {
+      "id": "src-csg-career",
+      "name": "南方电网招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": 200,
+      "health": "正常",
+      "elapsedMs": 87,
+      "extractedLeads": 0
+    },
+    {
+      "id": "src-spic-career",
+      "name": "国家电投招聘",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
+      "httpStatus": null,
+      "health": "异常",
+      "elapsedMs": 49,
+      "extractedLeads": 0,
+      "message": "fetch failed"
+    },
+    {
+      "id": "src-forbes-2025",
+      "name": "福布斯中国最佳雇主",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": null,
       "health": "异常",
       "elapsedMs": 100,
@@ -187,96 +225,57 @@
       "message": "fetch failed"
     },
     {
-      "id": "src-cmcc-career",
-      "name": "中国移动招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 2110,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
-      "id": "src-csg-career",
-      "name": "南方电网招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": 200,
-      "health": "正常",
-      "elapsedMs": 64,
-      "extractedLeads": 0
-    },
-    {
-      "id": "src-spic-career",
-      "name": "国家电投招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 41,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
-      "id": "src-forbes-2025",
-      "name": "福布斯中国最佳雇主",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
-      "httpStatus": null,
-      "health": "异常",
-      "elapsedMs": 107,
-      "extractedLeads": 0,
-      "message": "fetch failed"
-    },
-    {
       "id": "src-chinapost-2027",
       "name": "中国邮政2027校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 306,
+      "elapsedMs": 231,
       "extractedLeads": 1
     },
     {
       "id": "src-baidu-campus",
       "name": "百度校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 472,
+      "elapsedMs": 381,
       "extractedLeads": 1
     },
     {
       "id": "src-xiaomi-campus",
       "name": "小米校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 396,
+      "elapsedMs": 438,
       "extractedLeads": 1
     },
     {
       "id": "src-bytedance-campus",
       "name": "字节跳动校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 661,
+      "elapsedMs": 740,
       "extractedLeads": 1
     },
     {
       "id": "src-ctrip-campus",
       "name": "携程集团校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 527,
+      "elapsedMs": 580,
       "extractedLeads": 1
     },
     {
       "id": "src-bosch-campus",
       "name": "博世中国校园招聘",
-      "checkedAt": "2026-09-11T09:35:24.755Z",
+      "checkedAt": "2026-09-12T18:37:07.724Z",
       "httpStatus": 200,
       "health": "正常",
-      "elapsedMs": 165,
+      "elapsedMs": 257,
       "extractedLeads": 1
     }
   ]
